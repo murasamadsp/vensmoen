@@ -1,0 +1,19 @@
+---
+import { defaultLocale } from '../i18n/locales';
+const target = `${import.meta.env.BASE_URL}${defaultLocale}/`;
+---
+
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>Kildesortering i Saltdal</title>
+  </head>
+  <body>
+    <p>
+      <a href={target}>Kildesortering i Saltdal &rarr;</a>
+    </p>
+  </body>
+</html>

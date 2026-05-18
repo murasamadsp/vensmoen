@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "title": "Kildesortering i Saltdal",
+    "description": "Enkel flerspråklig guide til hvordan du sorterer avfall hjemme i Saltdal. Kilde: Iris Salten."
+  },
+  "ui": {
+    "siteTitle": "Kildesortering i Saltdal",
+    "tagline": "Slik sorterer du avfallet hjemme",
+    "intro": "Hold avfallstypene atskilt og legg hver type i riktig dunk eller pose. Da kan mest mulig gjenvinnes. Dette er alt du trenger å vite hjemme.",
+    "binLabel": "Hvor",
+    "accepted": "Ja takk",
+    "rejected": "Nei takk",
+    "note": "Husk",
+    "farligTag": "Aldri i dunken hjemme",
+    "source": "Kilde",
+    "lastVerified": "Sist verifisert",
+    "print": "Skriv ut",
+    "backToGuide": "Tilbake til guiden",
+    "languagePicker": "Språk",
+    "skipToContent": "Hopp til hovedinnhold",
+    "legalNote": "Innholdet bygger på Iris Salten sin sorteringsguide og den nasjonale standarden sortere.no.",
+    "sourcesTitle": "Kilder",
+    "scanHint": "Skann for nettversjon på flere språk",
+    "quizNav": "Test",
+    "quizTitle": "Test deg selv",
+    "quizIntro": "Hvor kastes tingen? Trykk på riktig dunk. Du går gjennom alle tingene.",
+    "quizStart": "Start testen",
+    "quizPrompt": "Hvor kastes dette?",
+    "quizOf": "av",
+    "quizCorrect": "Riktig!",
+    "quizWrong": "Feil.",
+    "quizAnswerWas": "Riktig svar:",
+    "quizNext": "Neste",
+    "quizFinish": "Se resultat",
+    "quizResultTitle": "Ferdig!",
+    "quizScoreSuffix": "riktige",
+    "quizAgain": "Ta testen på nytt"
+  },
+  "fractions": {
+    "matavfall": {
+      "name": "Matavfall",
+      "bin": "Grønn matdunk. Bruk alltid nedbrytbar biopose og knyt den. Bioposer er gratis i butikken og på miljøtorg.",
+      "accepted": [
+        "Eggeskall",
+        "Skrell, skrog og bein",
+        "Matrester, rå og tilberedt",
+        "Kaffefilter og teposer",
+        "Tørkepapir med matrester"
+      ],
+      "rejected": [
+        "Hageavfall",
+        "Plastposer eller vanlige poser",
+        "Flytende rester (suppe, olje)"
+      ],
+      "note": "Har du ikke biopose? Pakk vått matavfall i avispapir eller en papirpose."
+    },
+    "papir": {
+      "name": "Papp, papir og kartong",
+      "bin": "Blå papirdunk. Kast det løst – IKKE i pose. Brett eller skjær opp store esker.",
+      "accepted": [
+        "Aviser, ukeblader og reklame",
+        "Bøker uten stiv perm",
+        "Melke- og juicekartonger",
+        "Pizzaesker og emballasjepapp",
+        "Konvolutter og bølgepapp"
+      ],
+      "rejected": [
+        "Gavepapir",
+        "Tilgriset eller vått papir",
+        "Bøker med stiv perm"
+      ],
+      "note": "Skal være rent og tørt. Skyll og brett melkekartonger."
+    },
+    "plast": {
+      "name": "Plastemballasje",
+      "bin": "Egen gjennomsiktig pose – knyt den igjen. Gratis pose i butikken og på miljøtorg.",
+      "accepted": [
+        "Plastposer og bæreposer",
+        "Plastfolie og bobleplast",
+        "Plastkanner, -begre og -bokser",
+        "Sjampo- og vaskemiddelflasker"
+      ],
+      "rejected": [
+        "Poser med sølvfarget folie inni",
+        "Plast med mye matrester som ikke lar seg vaske"
+      ],
+      "note": "Skyll emballasjen og la den tørke. Er den fortsatt skitten, kast den i restavfall."
+    },
+    "glassmetall": {
+      "name": "Glass- og metallemballasje",
+      "bin": "Felles dunk for glass og metall. Legg det løst – IKKE i pose. Skyll det først.",
+      "accepted": [
+        "Glassflasker fra medisin, øl og vin",
+        "Syltetøyglass og andre matglass",
+        "Hermetikkbokser",
+        "Ren aluminiumsfolie og -former",
+        "Øl- og brusbokser uten norsk pant"
+      ],
+      "rejected": [
+        "Drikkeglass, krystall og ildfaste former",
+        "Vindusglass, lyspærer, porselen og speil",
+        "Stekepanner, gryter og termoser"
+      ],
+      "note": "Bare emballasje (det maten/drikken kom i). Gryter og panner leveres på miljøtorg."
+    },
+    "restavfall": {
+      "name": "Restavfall",
+      "bin": "Restavfallsdunken hjemme. Pakk i pose og knyt godt igjen.",
+      "accepted": [
+        "Bleier og bind",
+        "Støvsugerposer",
+        "Tilgriset papir og papp",
+        "Bøker med stiv perm",
+        "Bomull, plaster og kompresser",
+        "Pose med hundeavføring og kattesand"
+      ],
+      "rejected": [
+        "Mat, papir, plast, glass og metall – dette skal sorteres",
+        "Farlig avfall, batterier og elektronikk"
+      ],
+      "note": "Restavfall er det som blir igjen NÅR du har sortert ut resten. Sorter mest mulig først – det koster mindre."
+    },
+    "farlig": {
+      "name": "Farlig avfall og elektronikk",
+      "bin": "Skal ALDRI i noen dunk hjemme. Lever batterier, lyspærer og småelektronikk i butikken der slikt selges, eller på miljøtorg.",
+      "accepted": [
+        "Batterier og oppladbare batterier",
+        "Lyspærer og lysrør",
+        "Mobil, ladere, kabler og småelektronikk",
+        "Maling, lim, lakk og spray",
+        "Løsemidler og kjemikalier"
+      ],
+      "rejected": [
+        "Aldri i restavfall",
+        "Aldri i do, vask eller sluk",
+        "Aldri ute i naturen"
+      ],
+      "note": "Batterier som havner i restavfall kan ta fyr i søppelbilen. Dette er viktig."
+    }
+  }
+}

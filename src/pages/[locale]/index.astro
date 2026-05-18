@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LanguagePicker from '../../components/LanguagePicker.astro';
+import FractionCard from '../../components/FractionCard.astro';
+import { localeCodes } from '../../i18n/locales';
+import { getStrings } from '../../i18n/strings';
+import { localePrint, localeQuiz } from '../../i18n/paths';
+import { fractions } from '../../data/fractions';
+
+export function getStaticPaths() {
+  return localeCodes.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const t = getStrings(locale);
+const ui = t.ui;
+const verified = fractions[0].lastVerified;
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${t.meta.title} · Iris Salten`}
+  description={t.meta.description}
+>
+  <a class="skip-link" href="#main">{ui.skipToContent}</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__bar">
+      <div class="brand">
+        <span class="brand__mark">{ui.siteTitle}</span>
+        <span class="brand__place">Saltdal · Iris Salten</span>
+      </div>
+      <div class="site-header__tools">
+        <LanguagePicker current={locale} label={ui.languagePicker} />
+        <a class="btn btn--ghost" href={localeQuiz(locale)}>{ui.quizNav}</a>
+        <a class="btn" href={localePrint(locale)}>{ui.print}</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <p class="lede">{ui.intro}</p>
+
+    <div class="fractions">
+      {
+        fractions.map((f) => (
+          <FractionCard fraction={f} text={t.fractions[f.id]} ui={ui} />
+        ))
+      }
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="site-footer__legal">{ui.legalNote}</p>
+      <p class="site-footer__sources">
+        <strong>{ui.sourcesTitle}:</strong>
+        <a
+          href="https://www.iris-salten.no/privat/sorteringsguide/"
+          target="_blank"
+          rel="noopener noreferrer">iris-salten.no</a
+        >
+        ·
+        <a href="https://sortere.no/" target="_blank" rel="noopener noreferrer"
+          >sortere.no</a
+        >
+        · <span>{ui.lastVerified}: {verified}</span>
+      </p>
+    </div>
+  </footer>
+</BaseLayout>

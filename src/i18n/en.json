@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "title": "Waste sorting in Saltdal",
+    "description": "A simple multilingual guide to sorting your waste at home in Saltdal, Norway. Source: Iris Salten."
+  },
+  "ui": {
+    "siteTitle": "Waste sorting in Saltdal",
+    "tagline": "How to sort your waste at home",
+    "intro": "Keep the types of waste apart and put each type in the right bin or bag. Then most of it can be recycled. This is everything you need to know at home.",
+    "binLabel": "Where it goes",
+    "accepted": "Yes",
+    "rejected": "No",
+    "note": "Tip",
+    "farligTag": "Never in a bin at home",
+    "source": "Source",
+    "lastVerified": "Last verified",
+    "print": "Print",
+    "backToGuide": "Back to the guide",
+    "languagePicker": "Language",
+    "skipToContent": "Skip to main content",
+    "legalNote": "This content is based on the Iris Salten sorting guide and the national standard sortere.no.",
+    "sourcesTitle": "Sources",
+    "scanHint": "Scan for the online version in more languages",
+    "quizNav": "Quiz",
+    "quizTitle": "Test yourself",
+    "quizIntro": "Where does the item go? Tap the right bin. You go through every item.",
+    "quizStart": "Start the quiz",
+    "quizPrompt": "Where does this go?",
+    "quizOf": "of",
+    "quizCorrect": "Correct!",
+    "quizWrong": "Wrong.",
+    "quizAnswerWas": "Correct answer:",
+    "quizNext": "Next",
+    "quizFinish": "See result",
+    "quizResultTitle": "Done!",
+    "quizScoreSuffix": "correct",
+    "quizAgain": "Take the quiz again"
+  },
+  "fractions": {
+    "matavfall": {
+      "name": "Food waste",
+      "bin": "Green food bin. Always use a biodegradable bag and tie it. The bags are free in the shop and at the recycling station.",
+      "accepted": [
+        "Eggshells",
+        "Peelings, bones and scraps",
+        "Food leftovers, raw and cooked",
+        "Coffee filters and tea bags",
+        "Kitchen paper with food on it"
+      ],
+      "rejected": [
+        "Garden waste",
+        "Plastic bags or normal bags",
+        "Liquids (soup, oil)"
+      ],
+      "note": "No bio-bag? Wrap wet food waste in newspaper or a paper bag."
+    },
+    "papir": {
+      "name": "Cardboard and paper",
+      "bin": "Blue paper bin. Put it in loose – NOT in a bag. Fold or cut up big boxes.",
+      "accepted": [
+        "Newspapers, magazines and flyers",
+        "Books without a hard cover",
+        "Milk and juice cartons",
+        "Pizza boxes and packaging cardboard",
+        "Envelopes and corrugated cardboard"
+      ],
+      "rejected": [
+        "Gift wrap",
+        "Dirty or wet paper",
+        "Books with a hard cover"
+      ],
+      "note": "It must be clean and dry. Rinse and flatten milk cartons."
+    },
+    "plast": {
+      "name": "Plastic packaging",
+      "bin": "A separate transparent bag – tie it shut. The bag is free in the shop and at the recycling station.",
+      "accepted": [
+        "Plastic bags and carrier bags",
+        "Plastic film and bubble wrap",
+        "Plastic cans, cups and tubs",
+        "Shampoo and detergent bottles"
+      ],
+      "rejected": [
+        "Bags with silver foil inside",
+        "Plastic with lots of food on it that will not wash off"
+      ],
+      "note": "Rinse the packaging and let it dry. If it stays dirty, put it in residual waste."
+    },
+    "glassmetall": {
+      "name": "Glass and metal packaging",
+      "bin": "Shared bin for glass and metal. Put it in loose – NOT in a bag. Rinse it first.",
+      "accepted": [
+        "Glass bottles from medicine, beer and wine",
+        "Jam jars and other food jars",
+        "Tin cans",
+        "Clean aluminium foil and trays",
+        "Beer and soda cans without Norwegian deposit"
+      ],
+      "rejected": [
+        "Drinking glasses, crystal and ovenware",
+        "Window glass, light bulbs, porcelain and mirrors",
+        "Frying pans, pots and thermoses"
+      ],
+      "note": "Only packaging (what the food or drink came in). Pots and pans go to the recycling station."
+    },
+    "restavfall": {
+      "name": "Residual waste",
+      "bin": "The residual waste bin at home. Pack it in a bag and tie it well.",
+      "accepted": [
+        "Nappies and sanitary towels",
+        "Vacuum cleaner bags",
+        "Soiled paper and cardboard",
+        "Books with a hard cover",
+        "Cotton, plasters and gauze",
+        "Bag of dog waste and cat litter"
+      ],
+      "rejected": [
+        "Food, paper, plastic, glass and metal – these must be sorted",
+        "Hazardous waste, batteries and electronics"
+      ],
+      "note": "Residual waste is what is LEFT once you have sorted out the rest. Sort as much as you can first – it costs less."
+    },
+    "farlig": {
+      "name": "Hazardous waste and electronics",
+      "bin": "NEVER in any bin at home. Take batteries, light bulbs and small electronics to the shop that sells them, or to the recycling station.",
+      "accepted": [
+        "Batteries and rechargeable batteries",
+        "Light bulbs and fluorescent tubes",
+        "Phones, chargers, cables and small electronics",
+        "Paint, glue, varnish and spray cans",
+        "Solvents and chemicals"
+      ],
+      "rejected": [
+        "Never in residual waste",
+        "Never in the toilet, sink or drain",
+        "Never out in nature"
+      ],
+      "note": "Batteries thrown in residual waste can catch fire in the rubbish truck. This is important."
+    }
+  }
+}

@@ -1,0 +1,67 @@
+:root {
+  /* Surface & ink — varm papirhvit, ikke ren hvit (redaksjonelt) */
+  --color-bg: oklch(98.5% 0.006 95);
+  --color-surface: oklch(100% 0 0);
+  --color-ink: oklch(22% 0.02 260);
+  --color-ink-soft: oklch(44% 0.02 260);
+  --color-line: oklch(89% 0.01 260);
+  --color-accent: oklch(52% 0.13 200);
+
+  /* Semantiske fargekoder for fraksjoner (matcher dunk/pose) */
+  --bin-mat: #2f7d3b;
+  --bin-papir: #1f5fa8;
+  --bin-plast: #d98a00;
+  --bin-glassmetall: #8a6a3a;
+  --bin-rest: #4a4a4a;
+  --bin-farlig: #c0392b;
+
+  --ok: oklch(52% 0.14 150);
+  --no: oklch(55% 0.18 25);
+
+  /* Typografi — systembasert (null nettverk, fungerer for alle skript
+     inkl. arabisk/kyrillisk via OS-fonter). Serif til display gir karakter. */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Times New Roman", serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Noto Sans Arabic", sans-serif;
+
+  --text-xs: 0.78rem;
+  --text-sm: 0.9rem;
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
+  --text-lg: clamp(1.2rem, 1.05rem + 0.6vw, 1.45rem);
+  --text-xl: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
+  --text-hero: clamp(2.4rem, 1.4rem + 4.2vw, 4.6rem);
+
+  /* Rytme — bevisst, ikke uniform */
+  --space-1: 0.4rem;
+  --space-2: 0.75rem;
+  --space-3: 1.25rem;
+  --space-4: 2rem;
+  --space-5: 3.25rem;
+  --space-section: clamp(3rem, 2rem + 5vw, 6.5rem);
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow-card: 0 1px 2px oklch(22% 0.02 260 / 0.04),
+    0 8px 24px oklch(22% 0.02 260 / 0.06);
+  --shadow-lift: 0 2px 6px oklch(22% 0.02 260 / 0.08),
+    0 18px 40px oklch(22% 0.02 260 / 0.12);
+
+  --duration: 220ms;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --maxw: 1080px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: oklch(20% 0.02 260);
+    --color-surface: oklch(24% 0.02 260);
+    --color-ink: oklch(94% 0.01 95);
+    --color-ink-soft: oklch(74% 0.02 260);
+    --color-line: oklch(34% 0.02 260);
+    --color-accent: oklch(72% 0.12 200);
+    --shadow-card: 0 1px 2px oklch(0% 0 0 / 0.3), 0 8px 24px oklch(0% 0 0 / 0.35);
+    --shadow-lift: 0 2px 6px oklch(0% 0 0 / 0.4), 0 18px 40px oklch(0% 0 0 / 0.5);
+  }
+}

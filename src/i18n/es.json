@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "title": "Separación de residuos en Saltdal",
+    "description": "Una guía sencilla y multilingüe para separar tus residuos en casa en Saltdal, Noruega. Fuente: Iris Salten."
+  },
+  "ui": {
+    "siteTitle": "Separación de residuos en Saltdal",
+    "tagline": "Cómo separar tus residuos en casa",
+    "intro": "Mantén los tipos de residuos separados y pon cada uno en el contenedor o la bolsa correcta. Así se puede reciclar la mayoría. Esto es todo lo que necesitas saber en casa.",
+    "binLabel": "Dónde va",
+    "accepted": "Sí",
+    "rejected": "No",
+    "note": "Consejo",
+    "farligTag": "Nunca en un contenedor de casa",
+    "source": "Fuente",
+    "lastVerified": "Última verificación",
+    "print": "Imprimir",
+    "backToGuide": "Volver a la guía",
+    "languagePicker": "Idioma",
+    "skipToContent": "Ir al contenido principal",
+    "legalNote": "El contenido se basa en la guía de separación de Iris Salten y en la norma nacional sortere.no.",
+    "sourcesTitle": "Fuentes",
+    "scanHint": "Escanea para la versión en línea en varios idiomas",
+    "quizNav": "Test",
+    "quizTitle": "Ponte a prueba",
+    "quizIntro": "¿Dónde va el objeto? Pulsa el contenedor correcto. Pasarás por todos los objetos.",
+    "quizStart": "Empezar el test",
+    "quizPrompt": "¿Dónde va esto?",
+    "quizOf": "de",
+    "quizCorrect": "¡Correcto!",
+    "quizWrong": "Incorrecto.",
+    "quizAnswerWas": "Respuesta correcta:",
+    "quizNext": "Siguiente",
+    "quizFinish": "Ver resultado",
+    "quizResultTitle": "¡Listo!",
+    "quizScoreSuffix": "correctas",
+    "quizAgain": "Repetir el test"
+  },
+  "fractions": {
+    "matavfall": {
+      "name": "Residuos de comida",
+      "bin": "Contenedor verde de comida. Usa siempre una bolsa biodegradable y átala. Las bolsas son gratis en la tienda y en el punto de reciclaje.",
+      "accepted": [
+        "Cáscaras de huevo",
+        "Pieles, huesos y restos",
+        "Sobras de comida, crudas y cocinadas",
+        "Filtros de café y bolsitas de té",
+        "Papel de cocina con restos de comida"
+      ],
+      "rejected": [
+        "Residuos de jardín",
+        "Bolsas de plástico o bolsas normales",
+        "Líquidos (sopa, aceite)"
+      ],
+      "note": "¿No tienes bolsa biodegradable? Envuelve los restos húmedos en periódico o una bolsa de papel."
+    },
+    "papir": {
+      "name": "Cartón y papel",
+      "bin": "Contenedor azul de papel. Échalo suelto – NO en una bolsa. Dobla o corta las cajas grandes.",
+      "accepted": [
+        "Periódicos, revistas y folletos",
+        "Libros sin tapa dura",
+        "Envases de leche y zumo",
+        "Cajas de pizza y cartón de embalaje",
+        "Sobres y cartón ondulado"
+      ],
+      "rejected": [
+        "Papel de regalo",
+        "Papel sucio o mojado",
+        "Libros de tapa dura"
+      ],
+      "note": "Debe estar limpio y seco. Enjuaga y aplana los envases de leche."
+    },
+    "plast": {
+      "name": "Envases de plástico",
+      "bin": "Una bolsa transparente aparte – átala. La bolsa es gratis en la tienda y en el punto de reciclaje.",
+      "accepted": [
+        "Bolsas de plástico y bolsas de la compra",
+        "Film plástico y plástico de burbujas",
+        "Garrafas, vasos y botes de plástico",
+        "Botellas de champú y de detergente"
+      ],
+      "rejected": [
+        "Bolsas con lámina plateada por dentro",
+        "Plástico con mucha comida que no se puede lavar"
+      ],
+      "note": "Enjuaga el envase y déjalo secar. Si sigue sucio, ponlo en el resto."
+    },
+    "glassmetall": {
+      "name": "Envases de vidrio y metal",
+      "bin": "Contenedor compartido para vidrio y metal. Échalo suelto – NO en una bolsa. Enjuágalo primero.",
+      "accepted": [
+        "Botellas de vidrio de medicamentos, cerveza y vino",
+        "Tarros de mermelada y otros tarros de comida",
+        "Latas de conserva",
+        "Papel y bandejas de aluminio limpios",
+        "Latas de cerveza y refresco sin depósito noruego (pant)"
+      ],
+      "rejected": [
+        "Vasos, cristal y fuentes de horno",
+        "Vidrio de ventana, bombillas, porcelana y espejos",
+        "Sartenes, ollas y termos"
+      ],
+      "note": "Solo envases (lo que contenía la comida o la bebida). Las ollas y sartenes van al punto de reciclaje."
+    },
+    "restavfall": {
+      "name": "Resto (lo no separable)",
+      "bin": "El contenedor de resto en casa. Mételo en una bolsa y átala bien.",
+      "accepted": [
+        "Pañales y compresas",
+        "Bolsas de aspiradora",
+        "Papel y cartón sucios",
+        "Libros de tapa dura",
+        "Algodón, tiritas y gasas",
+        "Bolsa de excrementos de perro y arena de gato"
+      ],
+      "rejected": [
+        "Comida, papel, plástico, vidrio y metal – esto se debe separar",
+        "Residuos peligrosos, pilas y aparatos electrónicos"
+      ],
+      "note": "El resto es lo que QUEDA cuando ya has separado lo demás. Separa todo lo posible primero – cuesta menos."
+    },
+    "farlig": {
+      "name": "Residuos peligrosos y electrónicos",
+      "bin": "NUNCA en ningún contenedor de casa. Lleva pilas, bombillas y pequeños aparatos a la tienda que los vende, o al punto de reciclaje.",
+      "accepted": [
+        "Pilas y baterías recargables",
+        "Bombillas y tubos fluorescentes",
+        "Móviles, cargadores, cables y pequeños aparatos",
+        "Pintura, pegamento, barniz y aerosoles",
+        "Disolventes y productos químicos"
+      ],
+      "rejected": [
+        "Nunca en el resto",
+        "Nunca en el inodoro, el fregadero o el desagüe",
+        "Nunca en la naturaleza"
+      ],
+      "note": "Las pilas en el resto pueden incendiarse en el camión de basura. Esto es importante."
+    }
+  }
+}

@@ -1,0 +1,27 @@
+---
+import { locales } from '../i18n/locales';
+import { localeHome } from '../i18n/paths';
+
+interface Props {
+  current: string;
+  label: string;
+}
+const { current, label } = Astro.props;
+---
+
+<nav class="langs" aria-label={label}>
+  <span class="langs__label">{label}</span>
+  {
+    locales.map((l) => (
+      <a
+        class="lang"
+        href={localeHome(l.code)}
+        lang={l.htmlLang}
+        hreflang={l.htmlLang}
+        aria-current={l.code === current ? 'true' : undefined}
+      >
+        {l.label}
+      </a>
+    ))
+  }
+</nav>

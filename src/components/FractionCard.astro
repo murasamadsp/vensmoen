@@ -1,0 +1,37 @@
+---
+import type { Fraction } from '../data/fractions';
+import type { FractionStrings, Strings } from '../i18n/strings';
+
+interface Props {
+  fraction: Fraction;
+  text: FractionStrings;
+  ui: Strings['ui'];
+}
+const { fraction, text, ui } = Astro.props;
+---
+
+<article class="frac" style={`--bin:${fraction.binColor}`}>
+  <h2 class="frac__title">
+    <span class="frac__dot" aria-hidden="true"></span>
+    <span class="frac__name">{text.name}</span>
+    {!fraction.home && <span class="frac__tag">{ui.farligTag}</span>}
+  </h2>
+
+  <p class="frac__where">
+    <span class="frac__where-label">{ui.binLabel}</span>
+    {text.bin}
+  </p>
+
+  <div class="frac__cols">
+    <p class="frac__line frac__line--yes">
+      <b>{ui.accepted}</b>
+      {text.accepted.join(' · ')}
+    </p>
+    <p class="frac__line frac__line--no">
+      <b>{ui.rejected}</b>
+      {text.rejected.join(' · ')}
+    </p>
+  </div>
+
+  {text.note && <p class="frac__note">{text.note}</p>}
+</article>

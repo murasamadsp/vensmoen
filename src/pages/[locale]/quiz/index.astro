@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LanguagePicker from '../../../components/LanguagePicker.astro';
+import { localeCodes } from '../../../i18n/locales';
+import { getStrings } from '../../../i18n/strings';
+import { localeHome } from '../../../i18n/paths';
+import { fractions } from '../../../data/fractions';
+
+export function getStaticPaths() {
+  return localeCodes.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const t = getStrings(locale);
+const ui = t.ui;
+
+// Spørsmål bygges av de allerede verifiserte "accepted"-listene (DRY):
+// hvert godkjent objekt → riktig svar er den fraksjonen.
+const questions = fractions.flatMap((f) =>
+  t.fractions[f.id].accepted.map((item) => ({ q: item, a: f.id }))
+);
+const options = fractions.map((f) => ({
+  id: f.id,
+  name: t.fractions[f.id].name,
+  color: f.binColor,
+}));
+const str = {
+  correct: ui.quizCorrect,
+  wrong: ui.quizWrong,
+  answerWas: ui.quizAnswerWas,
+  next: ui.quizNext,
+  finish: ui.quizFinish,
+};
+const quizData = JSON.stringify({ questions, options, str }).replace(
+  /</g,
+  '\\u003c'
+);
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${ui.quizTitle} · ${t.meta.title}`}
+  description={t.meta.description}
+>
+  <a class="skip-link" href="#main">{ui.skipToContent}</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__bar">
+      <div class="brand">
+        <span class="brand__mark">{ui.siteTitle}</span>
+        <span class="brand__place">Saltdal · Iris Salten</span>
+      </div>
+      <div class="site-header__tools">
+        <LanguagePicker current={locale} label={ui.languagePicker} />
+        <a class="btn btn--ghost" href={localeHome(locale)}
+          >{ui.backToGuide}</a
+        >
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap quiz">
+    <section id="q-start" class="quiz__screen">
+      <h1 class="quiz__title">{ui.quizTitle}</h1>
+      <p class="quiz__intro">{ui.quizIntro}</p>
+      <button class="btn quiz__big" type="button" data-act="start">
+        {ui.quizStart}
+      </button>
+    </section>
+
+    <section id="q-play" class="quiz__screen" hidden>
+      <div class="quiz__bar" aria-hidden="true"><span id="q-fill"></span></div>
+      <p class="quiz__count">
+        <span id="q-n">1</span> {ui.quizOf} <span id="q-total">0</span>
+      </p>
+      <p class="quiz__prompt" id="q-prompt">{ui.quizPrompt}</p>
+      <p class="quiz__item" id="q-item" aria-live="polite"></p>
+
+      <div
+        class="quiz__options"
+        id="q-options"
+        role="group"
+        aria-labelledby="q-prompt q-item"
+      >
+      </div>
+
+      <p class="quiz__feedback" id="q-feedback" aria-live="assertive"></p>
+      <button class="btn quiz__big" type="button" data-act="next" id="q-next" hidden
+        >{ui.quizNext}</button
+      >
+    </section>
+
+    <section id="q-result" class="quiz__screen" hidden>
+      <h1 class="quiz__title" id="q-result-title" tabindex="-1">
+        {ui.quizResultTitle}
+      </h1>
+      <p class="quiz__score">
+        <span id="q-score">0</span> / <span id="q-score-total">0</span>
+        <small>{ui.quizScoreSuffix}</small>
+      </p>
+      <div class="quiz__result-actions">
+        <button class="btn quiz__big" type="button" data-act="restart"
+          >{ui.quizAgain} ↺</button
+        >
+        <a class="btn btn--ghost" href={localeHome(locale)}>{ui.backToGuide}</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="application/json" id="quiz-data" set:html={quizData} />
+
+  <script is:inline>
+    (function () {
+      var DATA = JSON.parse(
+        document.getElementById('quiz-data').textContent
+      );
+      var STR = DATA.str;
+      var el = function (id) {
+        return document.getElementById(id);
+      };
+      var screens = {
+        start: el('q-start'),
+        play: el('q-play'),
+        result: el('q-result'),
+      };
+      var order = [];
+      var idx = 0;
+      var score = 0;
+      var answered = false;
+
+      function show(name) {
+        for (var k in screens) screens[k].hidden = k !== name;
+      }
+
+      function shuffle(n) {
+        var a = [];
+        for (var i = 0; i < n; i++) a.push(i);
+        for (var j = a.length - 1; j > 0; j--) {
+          var r = Math.floor(Math.random() * (j + 1));
+          var tmp = a[j];
+          a[j] = a[r];
+          a[r] = tmp;
+        }
+        return a;
+      }
+
+      function optName(id) {
+        for (var i = 0; i < DATA.options.length; i++)
+          if (DATA.options[i].id === id) return DATA.options[i].name;
+        return id;
+      }
+
+      function buildOptions() {
+        var box = el('q-options');
+        box.innerHTML = '';
+        DATA.options.forEach(function (o) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'quiz__opt';
+          b.style.setProperty('--bin', o.color);
+          b.dataset.id = o.id;
+          b.textContent = o.name;
+          b.addEventListener('click', function () {
+            choose(o.id, b);
+          });
+          box.appendChild(b);
+        });
+      }
+
+      function render() {
+        answered = false;
+        var q = DATA.questions[order[idx]];
+        el('q-item').textContent = q.q;
+        el('q-n').textContent = String(idx + 1);
+        el('q-total').textContent = String(order.length);
+        el('q-fill').style.inlineSize =
+          ((idx + 1) / order.length) * 100 + '%';
+        el('q-feedback').textContent = '';
+        el('q-feedback').className = 'quiz__feedback';
+        var nx = el('q-next');
+        nx.hidden = true;
+        nx.textContent =
+          idx + 1 >= order.length ? STR.finish : STR.next;
+        var btns = el('q-options').children;
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].disabled = false;
+          btns[i].className = 'quiz__opt';
+        }
+        if (btns[0]) btns[0].focus();
+      }
+
+      function choose(id, btn) {
+        if (answered) return;
+        answered = true;
+        var q = DATA.questions[order[idx]];
+        var correct = id === q.a;
+        var btns = el('q-options').children;
+        for (var i = 0; i < btns.length; i++) {
+          btns[i].disabled = true;
+          if (btns[i].dataset.id === q.a)
+            btns[i].classList.add('is-correct');
+        }
+        if (correct) {
+          score++;
+          el('q-feedback').textContent = STR.correct;
+          el('q-feedback').className = 'quiz__feedback is-ok';
+        } else {
+          btn.classList.add('is-wrong');
+          el('q-feedback').textContent =
+            STR.wrong + ' ' + STR.answerWas + ' ' + optName(q.a);
+          el('q-feedback').className = 'quiz__feedback is-no';
+        }
+        var nx = el('q-next');
+        nx.hidden = false;
+        nx.focus();
+      }
+
+      function next() {
+        idx++;
+        if (idx >= order.length) finish();
+        else render();
+      }
+
+      function finish() {
+        el('q-score').textContent = String(score);
+        el('q-score-total').textContent = String(order.length);
+        show('result');
+        el('q-result-title').focus();
+      }
+
+      function start() {
+        order = shuffle(DATA.questions.length);
+        idx = 0;
+        score = 0;
+        buildOptions();
+        show('play');
+        render();
+      }
+
+      document.querySelectorAll('[data-act]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var a = b.dataset.act;
+          if (a === 'start' || a === 'restart') start();
+          else if (a === 'next') next();
+        });
+      });
+    })();
+  </script>
+</BaseLayout>

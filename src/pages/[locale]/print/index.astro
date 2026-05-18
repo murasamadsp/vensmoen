@@ -1,0 +1,108 @@
+---
+import QRCode from 'qrcode';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FractionCard from '../../../components/FractionCard.astro';
+import { localeCodes } from '../../../i18n/locales';
+import { getStrings } from '../../../i18n/strings';
+import { localeHome, siteUrl } from '../../../i18n/paths';
+import { fractions } from '../../../data/fractions';
+import '../../../styles/print.css';
+
+export function getStaticPaths() {
+  return localeCodes.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+const t = getStrings(locale);
+const ui = t.ui;
+const verified = fractions[0].lastVerified;
+
+// QR genereres ved bygg – ingen runtime-JS, ingen ekstern tjeneste.
+const qrSvg = await QRCode.toString(siteUrl(locale), {
+  type: 'svg',
+  margin: 0,
+  color: { dark: '#111111', light: '#ffffff00' },
+});
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${t.meta.title} – ${ui.print}`}
+  description={t.meta.description}
+  bodyClass="print-page"
+>
+  <a class="skip-link" href="#main">{ui.skipToContent}</a>
+
+  <div class="no-print">
+    <a class="btn btn--ghost" href={localeHome(locale)}>{ui.backToGuide}</a>
+    <button class="btn" type="button" id="printBtn">{ui.print}</button>
+  </div>
+
+  <main id="main">
+    <article class="print-doc">
+    <header class="print-doc__head">
+      <div>
+        <h1 class="print-doc__title">{ui.siteTitle}</h1>
+        <p class="print-doc__sub">{ui.tagline} · Saltdal · Iris Salten</p>
+      </div>
+      <div class="print-doc__qr">
+        <Fragment set:html={qrSvg} />
+        <div>{ui.scanHint}</div>
+      </div>
+    </header>
+
+    <div class="fractions">
+      {
+        fractions.map((f) => (
+          <FractionCard fraction={f} text={t.fractions[f.id]} ui={ui} />
+        ))
+      }
+    </div>
+
+    <footer class="print-doc__foot">
+      {ui.legalNote} · {ui.sourcesTitle}: iris-salten.no · sortere.no ·
+      {ui.lastVerified}: {verified}
+    </footer>
+    </article>
+  </main>
+
+  <script is:inline>
+    (function () {
+      var doc = document.querySelector('.print-doc');
+
+      // Mål A4-høyden DPI-nøyaktig.
+      function a4px() {
+        var m = document.createElement('div');
+        m.style.cssText = 'height:297mm;position:absolute;visibility:hidden';
+        document.body.appendChild(m);
+        var h = m.offsetHeight;
+        m.remove();
+        return h;
+      }
+
+      // Skaler ned (aldri opp) slik at innholdet alltid blir nøyaktig én
+      // A4-side, uansett hvor langt språket er.
+      function fit() {
+        if (!doc) return;
+        doc.style.zoom = '1';
+        var target = a4px();
+        var actual = doc.scrollHeight;
+        if (actual > target + 1) {
+          doc.style.zoom = String(Math.max(0.6, target / actual));
+        }
+      }
+
+      if (document.readyState === 'complete') fit();
+      else window.addEventListener('load', fit);
+      window.addEventListener('resize', fit);
+      window.addEventListener('beforeprint', fit);
+
+      var btn = document.getElementById('printBtn');
+      if (btn)
+        btn.addEventListener('click', function () {
+          fit();
+          window.print();
+        });
+    })();
+  </script>
+</BaseLayout>

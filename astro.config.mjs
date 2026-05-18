@@ -1,0 +1,13 @@
+import { defineConfig } from 'astro/config';
+
+// GitHub Pages: https://murasamadsp.github.io/avfallssortering/
+// i18n-ruting håndteres manuelt via [locale]-segment + src/i18n/locales.ts,
+// slik at et nytt språk = én JSON-fil + én linje i locales.ts.
+export default defineConfig({
+  site: 'https://murasamadsp.github.io',
+  base: '/avfallssortering',
+  trailingSlash: 'always',
+  output: 'static',
+  build: { format: 'directory' },
+  compressHTML: true,
+});

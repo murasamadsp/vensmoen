@@ -1,0 +1,173 @@
+/* Utskriftsark – egen rute /<locale>/print/. Bruker SAMME FractionCard som
+   nettsiden, men komprimerer .frac til ETT A4-ark.
+
+   Standardisering på tvers av språk:
+   - .print-doc er en ekte A4-side (210x297mm, marg som padding) → ser likt ut
+     på skjerm og papir, korte språk fyller hele siden (ikke "mindre enn A4").
+   - Et lite skript skalerer (zoom) ned hvis et langt språk er for stort →
+     aldri mer enn A4. Resultat: hvert språk = nøyaktig én full A4-side. */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+.print-doc {
+  --pad: 11mm;
+  inline-size: 210mm;
+  min-block-size: 297mm;
+  padding: var(--pad);
+  margin-inline: auto;
+  background: #fff;
+  color: #111;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+}
+
+.print-doc__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10mm;
+  border-bottom: 2px solid #111;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  flex: 0 0 auto;
+}
+.print-doc__title {
+  font-family: var(--font-display);
+  font-size: 21pt;
+  margin: 0;
+}
+.print-doc__sub {
+  font-size: 9pt;
+  color: #444;
+  margin: 2px 0 0;
+}
+.print-doc__qr {
+  text-align: center;
+  font-size: 6.5pt;
+  color: #444;
+  flex-shrink: 0;
+  inline-size: 23mm;
+}
+.print-doc__qr svg {
+  inline-size: 23mm;
+  block-size: 23mm;
+}
+
+/* Kortene fyller resten av siden: 2 kolonner x 3 rader */
+.print-doc .fractions {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 5px;
+  padding: 0;
+  min-block-size: 0;
+}
+.print-doc .frac {
+  background: #fff;
+  border: 1px solid #999;
+  border-inline-start: 4px solid var(--bin, #999);
+  border-radius: 5px;
+  padding: 6px 8px;
+  box-shadow: none;
+  break-inside: avoid;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 0;
+}
+.print-doc .frac__title {
+  font-size: 11pt;
+  margin-block-end: 4px;
+  gap: 5px;
+}
+.print-doc .frac__dot {
+  inline-size: 10px;
+  block-size: 10px;
+  border-width: 1px;
+}
+.print-doc .frac__tag {
+  font-size: 6.5pt;
+  padding: 2px 6px;
+}
+.print-doc .frac__where {
+  margin: 0 0 4px;
+  padding: 4px 6px;
+  font-size: 8pt;
+  line-height: 1.3;
+  border-radius: 3px;
+}
+.print-doc .frac__where-label {
+  font-size: 6.5pt;
+  margin-inline-end: 4px;
+}
+.print-doc .frac__cols {
+  gap: 2px 10px;
+  grid-template-columns: 1fr 1fr;
+}
+.print-doc .frac__line {
+  font-size: 7.6pt;
+  line-height: 1.3;
+}
+.print-doc .frac__line b {
+  display: inline;
+  font-size: 7.6pt;
+}
+.print-doc .frac__line b::after {
+  content: ': ';
+}
+.print-doc .frac__note {
+  font-size: 7pt;
+  margin-block-start: auto;
+  padding-block-start: 3px;
+}
+
+.print-doc__foot {
+  flex: 0 0 auto;
+  margin-top: 7px;
+  border-top: 1px solid #999;
+  padding-top: 5px;
+  font-size: 7pt;
+  color: #444;
+}
+
+.no-print {
+  margin: 16px 0;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  html,
+  body {
+    margin: 0;
+    background: #fff;
+  }
+  .print-doc {
+    margin: 0;
+  }
+}
+
+@media screen {
+  body.print-page {
+    background: oklch(90% 0.01 260);
+    padding: 20px 12px;
+  }
+  body.print-page .print-doc {
+    inline-size: min(210mm, 100%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.22);
+  }
+}
+@media print {
+  .print-doc {
+    inline-size: 210mm;
+  }
+}
