@@ -14,6 +14,7 @@ export const locales: Locale[] = [
   { code: 'uk', label: 'Українська', dir: 'ltr', htmlLang: 'uk' },
   { code: 'ar', label: 'العربية', dir: 'rtl', htmlLang: 'ar' },
   { code: 'es', label: 'Español', dir: 'ltr', htmlLang: 'es' },
+  { code: 'ti', label: 'ትግርኛ', dir: 'ltr', htmlLang: 'ti' },
 ];
 
 export const defaultLocale = 'nb';

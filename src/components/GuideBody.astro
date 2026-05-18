@@ -1,0 +1,57 @@
+---
+// Felles innhold for nettsiden OG utskriftsarket. Samme struktur begge steder
+// – bare CSS skiller det visuelt (skjerm vs A4).
+import FractionCard from './FractionCard.astro';
+import { fractions } from '../data/fractions';
+import type { Strings } from '../i18n/strings';
+
+interface Props {
+  t: Strings;
+  /** Settes kun på utskriftsruten – QR-koden vises bare der. */
+  qrSvg?: string;
+}
+const { t, qrSvg } = Astro.props;
+const ui = t.ui;
+const verified = fractions[0].lastVerified;
+---
+
+<div class="guide">
+  <header class="guide__head">
+    <div class="guide__lead">
+      <h1 class="page-title">{ui.siteTitle}</h1>
+      <p class="lede">{ui.intro}</p>
+    </div>
+    {
+      qrSvg && (
+        <div class="guide__qr">
+          <Fragment set:html={qrSvg} />
+          <span>{ui.scanHint}</span>
+        </div>
+      )
+    }
+  </header>
+
+  <div class="fractions">
+    {
+      fractions.map((f) => (
+        <FractionCard fraction={f} text={t.fractions[f.id]} ui={ui} />
+      ))
+    }
+  </div>
+
+  <footer class="guide__foot">
+    <p class="guide__legal">{ui.legalNote}</p>
+    <p class="guide__sources">
+      <strong>{ui.sourcesTitle}:</strong>
+      <a
+        href="https://www.iris-salten.no/privat/sorteringsguide/"
+        target="_blank"
+        rel="noopener noreferrer">iris-salten.no</a
+      > · <a
+        href="https://sortere.no/"
+        target="_blank"
+        rel="noopener noreferrer">sortere.no</a
+      > · <span>{ui.lastVerified}: {verified}</span>
+    </p>
+  </footer>
+</div>

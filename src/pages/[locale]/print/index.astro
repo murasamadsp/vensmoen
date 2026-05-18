@@ -1,11 +1,10 @@
 ---
 import QRCode from 'qrcode';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import FractionCard from '../../../components/FractionCard.astro';
+import GuideBody from '../../../components/GuideBody.astro';
 import { localeCodes } from '../../../i18n/locales';
 import { getStrings } from '../../../i18n/strings';
 import { localeHome, siteUrl } from '../../../i18n/paths';
-import { fractions } from '../../../data/fractions';
 import '../../../styles/print.css';
 
 export function getStaticPaths() {
@@ -15,7 +14,6 @@ export function getStaticPaths() {
 const { locale } = Astro.params;
 const t = getStrings(locale);
 const ui = t.ui;
-const verified = fractions[0].lastVerified;
 
 // QR genereres ved bygg – ingen runtime-JS, ingen ekstern tjeneste.
 const qrSvg = await QRCode.toString(siteUrl(locale), {
@@ -40,29 +38,7 @@ const qrSvg = await QRCode.toString(siteUrl(locale), {
 
   <main id="main">
     <article class="print-doc">
-    <header class="print-doc__head">
-      <div>
-        <h1 class="print-doc__title">{ui.siteTitle}</h1>
-        <p class="print-doc__sub">{ui.tagline} · Saltdal · Iris Salten</p>
-      </div>
-      <div class="print-doc__qr">
-        <Fragment set:html={qrSvg} />
-        <div>{ui.scanHint}</div>
-      </div>
-    </header>
-
-    <div class="fractions">
-      {
-        fractions.map((f) => (
-          <FractionCard fraction={f} text={t.fractions[f.id]} ui={ui} />
-        ))
-      }
-    </div>
-
-    <footer class="print-doc__foot">
-      {ui.legalNote} · {ui.sourcesTitle}: iris-salten.no · sortere.no ·
-      {ui.lastVerified}: {verified}
-    </footer>
+      <GuideBody t={t} qrSvg={qrSvg} />
     </article>
   </main>
 

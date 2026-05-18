@@ -14,7 +14,6 @@ const { fraction, text, ui } = Astro.props;
   <h2 class="frac__title">
     <span class="frac__dot" aria-hidden="true"></span>
     <span class="frac__name">{text.name}</span>
-    {!fraction.home && <span class="frac__tag">{ui.farligTag}</span>}
   </h2>
 
   <p class="frac__where">

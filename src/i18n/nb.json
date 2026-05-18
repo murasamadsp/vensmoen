@@ -4,14 +4,13 @@
     "description": "Enkel flerspråklig guide til hvordan du sorterer avfall hjemme i Saltdal. Kilde: Iris Salten."
   },
   "ui": {
-    "siteTitle": "Kildesortering i Saltdal",
+    "siteTitle": "Kildesortering",
     "tagline": "Slik sorterer du avfallet hjemme",
-    "intro": "Hold avfallstypene atskilt og legg hver type i riktig dunk eller pose. Da kan mest mulig gjenvinnes. Dette er alt du trenger å vite hjemme.",
+    "intro": "Sorter avfallet i riktig dunk eller pose, og hold typene hver for seg. Da kan mest mulig brukes om igjen.",
     "binLabel": "Hvor",
     "accepted": "Ja takk",
     "rejected": "Nei takk",
     "note": "Husk",
-    "farligTag": "Aldri i dunken hjemme",
     "source": "Kilde",
     "lastVerified": "Sist verifisert",
     "print": "Skriv ut",
@@ -23,7 +22,7 @@
     "scanHint": "Skann for nettversjon på flere språk",
     "quizNav": "Test",
     "quizTitle": "Test deg selv",
-    "quizIntro": "Hvor kastes tingen? Trykk på riktig dunk. Du går gjennom alle tingene.",
+    "quizIntro": "Hvor skal tingen kastes? Trykk på riktig dunk.",
     "quizStart": "Start testen",
     "quizPrompt": "Hvor kastes dette?",
     "quizOf": "av",
@@ -135,7 +134,7 @@
         "Aldri i do, vask eller sluk",
         "Aldri ute i naturen"
       ],
-      "note": "Batterier som havner i restavfall kan ta fyr i søppelbilen. Dette er viktig."
+      "note": "Batterier i restavfallet kan ta fyr i søppelbilen."
     }
   }
 }

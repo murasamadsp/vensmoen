@@ -9,19 +9,29 @@ interface Props {
 const { current, label } = Astro.props;
 ---
 
-<nav class="langs" aria-label={label}>
-  <span class="langs__label">{label}</span>
-  {
-    locales.map((l) => (
-      <a
-        class="lang"
-        href={localeHome(l.code)}
-        lang={l.htmlLang}
-        hreflang={l.htmlLang}
-        aria-current={l.code === current ? 'true' : undefined}
-      >
-        {l.label}
-      </a>
-    ))
-  }
-</nav>
+<div class="langs">
+  <label class="langs__label" for="lang-select">{label}</label>
+  <select id="lang-select" class="langs__select" aria-label={label}>
+    {
+      locales.map((l) => (
+        <option
+          value={localeHome(l.code)}
+          selected={l.code === current}
+          lang={l.htmlLang}
+        >
+          {l.label}
+        </option>
+      ))
+    }
+  </select>
+</div>
+
+<script is:inline>
+  (function () {
+    var s = document.getElementById('lang-select');
+    if (s)
+      s.addEventListener('change', function () {
+        if (s.value) location.href = s.value;
+      });
+  })();
+</script>

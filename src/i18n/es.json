@@ -4,14 +4,13 @@
     "description": "Una guía sencilla y multilingüe para separar tus residuos en casa en Saltdal, Noruega. Fuente: Iris Salten."
   },
   "ui": {
-    "siteTitle": "Separación de residuos en Saltdal",
+    "siteTitle": "Separación de residuos",
     "tagline": "Cómo separar tus residuos en casa",
-    "intro": "Mantén los tipos de residuos separados y pon cada uno en el contenedor o la bolsa correcta. Así se puede reciclar la mayoría. Esto es todo lo que necesitas saber en casa.",
+    "intro": "Separa tus residuos en el contenedor o la bolsa correcta y mantén los tipos separados. Así se puede reciclar lo máximo posible.",
     "binLabel": "Dónde va",
     "accepted": "Sí",
     "rejected": "No",
     "note": "Consejo",
-    "farligTag": "Nunca en un contenedor de casa",
     "source": "Fuente",
     "lastVerified": "Última verificación",
     "print": "Imprimir",
@@ -23,7 +22,7 @@
     "scanHint": "Escanea para la versión en línea en varios idiomas",
     "quizNav": "Test",
     "quizTitle": "Ponte a prueba",
-    "quizIntro": "¿Dónde va el objeto? Pulsa el contenedor correcto. Pasarás por todos los objetos.",
+    "quizIntro": "¿Dónde va este objeto? Pulsa el contenedor correcto.",
     "quizStart": "Empezar el test",
     "quizPrompt": "¿Dónde va esto?",
     "quizOf": "de",
@@ -135,7 +134,7 @@
         "Nunca en el inodoro, el fregadero o el desagüe",
         "Nunca en la naturaleza"
       ],
-      "note": "Las pilas en el resto pueden incendiarse en el camión de basura. Esto es importante."
+      "note": "Las pilas en el resto pueden incendiarse en el camión de basura."
     }
   }
 }

@@ -4,14 +4,13 @@
     "description": "A simple multilingual guide to sorting your waste at home in Saltdal, Norway. Source: Iris Salten."
   },
   "ui": {
-    "siteTitle": "Waste sorting in Saltdal",
+    "siteTitle": "Waste sorting",
     "tagline": "How to sort your waste at home",
-    "intro": "Keep the types of waste apart and put each type in the right bin or bag. Then most of it can be recycled. This is everything you need to know at home.",
+    "intro": "Sort your waste into the right bin or bag, and keep the types apart. Then as much as possible can be reused.",
     "binLabel": "Where it goes",
     "accepted": "Yes",
     "rejected": "No",
     "note": "Tip",
-    "farligTag": "Never in a bin at home",
     "source": "Source",
     "lastVerified": "Last verified",
     "print": "Print",
@@ -23,7 +22,7 @@
     "scanHint": "Scan for the online version in more languages",
     "quizNav": "Quiz",
     "quizTitle": "Test yourself",
-    "quizIntro": "Where does the item go? Tap the right bin. You go through every item.",
+    "quizIntro": "Where should the item go? Tap the right bin.",
     "quizStart": "Start the quiz",
     "quizPrompt": "Where does this go?",
     "quizOf": "of",
@@ -135,7 +134,7 @@
         "Never in the toilet, sink or drain",
         "Never out in nature"
       ],
-      "note": "Batteries thrown in residual waste can catch fire in the rubbish truck. This is important."
+      "note": "Batteries in residual waste can catch fire in the rubbish truck."
     }
   }
 }

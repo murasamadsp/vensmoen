@@ -82,56 +82,47 @@ svg {
   align-items: center;
   gap: var(--space-3);
 }
-.brand {
-  display: flex;
-  flex-direction: column;
-}
-.brand__mark {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-.brand__place {
-  font-size: var(--text-xs);
-  color: var(--color-ink-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
-
-/* ---------- Language picker ---------- */
+/* ---------- Language picker (custom-styled native select) ---------- */
 .langs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  display: inline-flex;
   align-items: center;
+  gap: var(--space-2);
 }
 .langs__label {
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--color-ink-soft);
-  margin-inline-end: var(--space-1);
 }
-.lang {
-  display: inline-block;
-  padding: 5px 11px;
-  border-radius: 999px;
-  font-size: var(--text-sm);
+.langs__select {
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  font-weight: 600;
   color: var(--color-ink);
-  text-decoration: none;
+  background-color: var(--color-surface);
   border: 1px solid var(--color-line);
-  background: var(--color-bg);
+  border-radius: 999px;
+  padding-block: 9px;
+  padding-inline: 16px 38px;
+  max-inline-size: 13rem;
+  cursor: pointer;
+  /* nøytral chevron som leses på både lys og mørk flate */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px 8px;
   transition: border-color var(--duration) var(--ease);
 }
-.lang:hover {
+[dir='rtl'] .langs__select {
+  padding-inline: 38px 16px;
+  background-position: left 14px center;
+}
+.langs__select:hover {
   border-color: var(--color-accent);
 }
-.lang[aria-current='true'] {
-  background: var(--color-ink);
-  color: var(--color-bg);
-  border-color: var(--color-ink);
-  font-weight: 600;
+.langs__select option {
+  color: initial;
 }
 
 /* ---------- Buttons ---------- */
@@ -159,14 +150,37 @@ svg {
   border-color: var(--color-line);
 }
 
-/* ---------- Intro ---------- */
+/* ---------- Guide head (delt struktur web + print) ---------- */
+.guide__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-block: var(--space-section) var(--space-5);
+}
+.guide__lead {
+  min-inline-size: 0;
+}
+.page-title {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  max-width: 18ch;
+  margin: 0 0 var(--space-3);
+}
 .lede {
   font-family: var(--font-display);
   font-size: var(--text-lg);
-  line-height: 1.4;
-  max-width: 62ch;
-  margin-block: var(--space-section) var(--space-4);
-  color: var(--color-ink);
+  line-height: 1.45;
+  max-width: 56ch;
+  margin: 0;
+  color: var(--color-ink-soft);
+}
+/* QR finnes bare på utskrift; skjult som sikkerhet på skjerm */
+.guide__qr {
+  display: none;
 }
 
 /* ---------- Fraction cards (delt med print) ---------- */
@@ -217,16 +231,7 @@ svg {
 }
 .frac__name {
   flex: 1;
-}
-.frac__tag {
-  font-size: var(--text-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #fff;
-  background: var(--bin);
-  padding: 4px 10px;
-  border-radius: 999px;
+  min-inline-size: 0;
 }
 
 /* "Hvor" – det viktigste på kortet for en nybegynner */
@@ -286,15 +291,15 @@ svg {
   font-style: italic;
 }
 
-/* ---------- Footer ---------- */
-.site-footer {
+/* ---------- Guide footer (kilder) ---------- */
+.guide__foot {
+  margin-block-start: var(--space-section);
+  padding-block-start: var(--space-4);
   border-block-start: 1px solid var(--color-line);
-  background: var(--color-surface);
-  padding-block: var(--space-4);
   font-size: var(--text-sm);
   color: var(--color-ink-soft);
 }
-.site-footer p {
+.guide__foot p {
   margin: 0 0 var(--space-2);
   max-width: 80ch;
 }
@@ -302,8 +307,7 @@ svg {
 /* Blandet skrift (latinske egennavn/tall i RTL-flyt) */
 .frac__where,
 .frac__line,
-.site-footer p,
-.print-doc__foot,
+.guide__foot p,
 .quiz__item,
 .quiz__feedback {
   unicode-bidi: plaintext;
