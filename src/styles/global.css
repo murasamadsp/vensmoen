@@ -63,6 +63,19 @@ svg {
   top: var(--space-2);
 }
 
+/* Kun for skjermlesere – visuelt skjult, men i tilgjengelighetstreet */
+.sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- Header ---------- */
 .site-header {
   border-block-end: 1px solid var(--color-line);
@@ -70,7 +83,6 @@ svg {
 }
 .site-header__bar {
   display: flex;
-  flex-wrap: wrap;
   gap: var(--space-3);
   align-items: center;
   justify-content: space-between;
@@ -82,11 +94,68 @@ svg {
   align-items: center;
   gap: var(--space-3);
 }
-/* ---------- Language picker (custom-styled native select) ---------- */
+
+/* Deterministisk hode: layoutformen bestemmes KUN av viewport-bredden,
+   aldri av hvor lang oversettelsen er. Ett brytepunkt per sidetype, valgt
+   over det bredeste innholdet på tvers av alle språk → identisk oppførsel
+   på norsk, engelsk, ukrainsk, arabisk, spansk og tigrinja.
+   Brytepunktene ligger over bredeste språk (kompakt språkmeny):
+   forsiden maks ~553px, quiz (merke + språk + tilbake) maks ~739px. */
+.site-header__bar {
+  flex-wrap: nowrap;
+}
+@media (max-width: 37.5rem) {
+  .site-header__bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+}
+@media (max-width: 50rem) {
+  .site-header__bar--quiz {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+  }
+}
+
+/* Merke (kun quiz-hodet) – egen typografi, ikke arvet kropps­tekst */
+.brand {
+  min-inline-size: 0;
+}
+.brand__mark {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+/* ---------- Language picker (nativ <details>-disclosure) ----------
+   Lenker, ikke select-on-change → ingen WCAG 3.2.2-brudd, fungerer uten
+   JS, og kompakt (én knapp, ingen «bytt»-knapp). */
 .langs {
+  position: relative;
+}
+.langs__summary {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  padding: 9px 16px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: border-color var(--duration) var(--ease);
+}
+.langs__summary::-webkit-details-marker {
+  display: none;
+}
+.langs__summary:hover {
+  border-color: var(--color-accent);
 }
 .langs__label {
   font-size: var(--text-xs);
@@ -94,35 +163,44 @@ svg {
   letter-spacing: 0.12em;
   color: var(--color-ink-soft);
 }
-.langs__select {
-  appearance: none;
-  -webkit-appearance: none;
-  font: inherit;
-  font-weight: 600;
-  color: var(--color-ink);
-  background-color: var(--color-surface);
+.langs__chev {
+  inline-size: 0;
+  block-size: 0;
+  border-inline: 4px solid transparent;
+  border-block-start: 5px solid currentColor;
+  opacity: 0.55;
+  transition: transform var(--duration) var(--ease);
+}
+.langs[open] .langs__chev {
+  transform: rotate(180deg);
+}
+.langs__menu {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: calc(100% + 6px);
+  z-index: 20;
+  min-inline-size: 12rem;
+  margin: 0;
+  padding: var(--space-1);
+  list-style: none;
+  background: var(--color-surface);
   border: 1px solid var(--color-line);
-  border-radius: 999px;
-  padding-block: 9px;
-  padding-inline: 16px 38px;
-  max-inline-size: 13rem;
-  cursor: pointer;
-  /* nøytral chevron som leses på både lys og mørk flate */
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-  background-size: 12px 8px;
-  transition: border-color var(--duration) var(--ease);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lift);
 }
-[dir='rtl'] .langs__select {
-  padding-inline: 38px 16px;
-  background-position: left 14px center;
+.langs__menu a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--color-ink);
+  text-decoration: none;
+  font-weight: 600;
 }
-.langs__select:hover {
-  border-color: var(--color-accent);
+.langs__menu a:hover {
+  background: color-mix(in oklch, var(--color-accent) 14%, var(--color-surface));
 }
-.langs__select option {
-  color: initial;
+.langs__menu a[aria-current='true'] {
+  color: var(--color-accent);
 }
 
 /* ---------- Buttons ---------- */
@@ -132,6 +210,7 @@ svg {
   gap: var(--space-2);
   padding: 9px 18px;
   border-radius: 999px;
+  white-space: nowrap;
   background: var(--color-ink);
   color: var(--color-bg);
   text-decoration: none;
@@ -268,12 +347,28 @@ svg {
   font-size: var(--text-sm);
   line-height: 1.5;
 }
+.frac__line-h {
+  margin: 0 0 2px;
+}
 .frac__line b {
   display: block;
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-block-end: 2px;
+}
+/* Semantisk liste, men visuelt kompakt (· -separert) som før */
+.frac__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline;
+}
+.frac__items li {
+  display: inline;
+}
+.frac__items li:not(:last-child)::after {
+  content: " · ";
+  color: var(--color-ink-soft);
 }
 .frac__line--yes b {
   color: var(--ok);
@@ -307,12 +402,14 @@ svg {
 /* Blandet skrift (latinske egennavn/tall i RTL-flyt) */
 .frac__where,
 .frac__line,
+.frac__items,
 .guide__foot p,
 .quiz__item,
 .quiz__feedback {
   unicode-bidi: plaintext;
 }
-.frac__line {
+.frac__line,
+.frac__items {
   overflow-wrap: anywhere;
 }
 bdi {

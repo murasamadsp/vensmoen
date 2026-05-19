@@ -7,31 +7,46 @@ interface Props {
   label: string;
 }
 const { current, label } = Astro.props;
+const cur = locales.find((l) => l.code === current) ?? locales[0];
 ---
 
-<div class="langs">
-  <label class="langs__label" for="lang-select">{label}</label>
-  <select id="lang-select" class="langs__select" aria-label={label}>
+<details class="langs">
+  <summary class="langs__summary">
+    <span class="langs__label">{label}</span>
+    <span class="langs__current" lang={cur.htmlLang}>{cur.label}</span>
+    <span class="langs__chev" aria-hidden="true"></span>
+  </summary>
+  <ul class="langs__menu">
     {
       locales.map((l) => (
-        <option
-          value={localeHome(l.code)}
-          selected={l.code === current}
-          lang={l.htmlLang}
-        >
-          {l.label}
-        </option>
+        <li>
+          <a
+            href={localeHome(l.code)}
+            lang={l.htmlLang}
+            aria-current={l.code === current ? 'true' : undefined}
+          >
+            {l.label}
+          </a>
+        </li>
       ))
     }
-  </select>
-</div>
+  </ul>
+</details>
 
 <script is:inline>
+  // Ren progressiv forbedring – <details> fungerer fullt uten dette.
+  // Lukker menyen ved Escape og klikk utenfor (vanlig meny-forventning).
   (function () {
-    var s = document.getElementById('lang-select');
-    if (s)
-      s.addEventListener('change', function () {
-        if (s.value) location.href = s.value;
-      });
+    var d = document.currentScript.previousElementSibling;
+    if (!d || d.tagName !== 'DETAILS') return;
+    document.addEventListener('click', function (e) {
+      if (d.open && !d.contains(e.target)) d.open = false;
+    });
+    d.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && d.open) {
+        d.open = false;
+        d.querySelector('summary').focus();
+      }
+    });
   })();
 </script>

@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "Separación de residuos en Saltdal",
-    "description": "Una guía sencilla y multilingüe para separar tus residuos en casa en Saltdal, Noruega. Fuente: Iris Salten."
+    "description": "Una guía sencilla y multilingüe para separar tus residuos en casa en Saltdal, Noruega. Fuente: Iris Salten.",
+    "descriptionQuiz": "Pon a prueba tus conocimientos sobre la clasificación de residuos en Saltdal. Cuestionario interactivo sobre el contenedor correcto."
   },
   "ui": {
     "siteTitle": "Separación de residuos",
@@ -33,7 +34,11 @@
     "quizFinish": "Ver resultado",
     "quizResultTitle": "¡Listo!",
     "quizScoreSuffix": "correctas",
-    "quizAgain": "Repetir el test"
+    "quizAgain": "Repetir el test",
+    "opensInNewTab": "Se abre en una pestaña nueva",
+    "quizYes": "Sí",
+    "quizNo": "No",
+    "quizBelongPrompt": "¿Esto va en este contenedor?"
   },
   "fractions": {
     "matavfall": {

@@ -12,6 +12,7 @@ export function getStaticPaths() {
 }
 
 const { locale } = Astro.params;
+if (!locale) throw new Error('locale route param is required');
 const t = getStrings(locale);
 const ui = t.ui;
 
@@ -28,6 +29,7 @@ const qrSvg = await QRCode.toString(siteUrl(locale), {
   title={`${t.meta.title} – ${ui.print}`}
   description={t.meta.description}
   bodyClass="print-page"
+  noindex={true}
 >
   <a class="skip-link" href="#main">{ui.skipToContent}</a>
 
@@ -70,7 +72,14 @@ const qrSvg = await QRCode.toString(siteUrl(locale), {
 
       if (document.readyState === 'complete') fit();
       else window.addEventListener('load', fit);
-      window.addEventListener('resize', fit);
+
+      // Debounce: resize fyrer kontinuerlig, og fit() gjør tre tvungne
+      // reflows per kall (a4px-måling + zoom-reset + scrollHeight).
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(fit, 150);
+      });
       window.addEventListener('beforeprint', fit);
 
       var btn = document.getElementById('printBtn');

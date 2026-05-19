@@ -1,16 +1,48 @@
 ---
 import '../styles/tokens.css';
 import '../styles/global.css';
-import { getLocale } from '../i18n/locales';
+import { getLocale, locales, localeCodes, defaultLocale } from '../i18n/locales';
 
 interface Props {
   locale: string;
   title: string;
   description: string;
   bodyClass?: string;
+  /** Settes på /print/ – ruten skal ikke indekseres (duplikat av guiden). */
+  noindex?: boolean;
 }
-const { locale, title, description, bodyClass } = Astro.props;
+const { locale, title, description, bodyClass, noindex = false } = Astro.props;
 const loc = getLocale(locale);
+
+// Kanonisk + hreflang utledes fra Astro.site (config) – ingen hardkodet host.
+const pathname = Astro.url.pathname;
+const localeSeg = new RegExp(`/(${localeCodes.join('|')})(/|$)`);
+const urlForLocale = (code: string): string =>
+  new URL(pathname.replace(localeSeg, `/${code}$2`), Astro.site).href;
+const canonical = new URL(pathname, Astro.site).href;
+
+const ogLocale: Record<string, string> = {
+  nb: 'nb_NO',
+  en: 'en_GB',
+  uk: 'uk_UA',
+  ar: 'ar_AR',
+  es: 'es_ES',
+  ti: 'ti_ET',
+};
+
+// Statisk vert (GitHub Pages) kan ikke sende HTTP-headere – derfor meta.
+// Inline-skript finnes (quiz/print/språkvelger) → 'unsafe-inline' for script.
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "connect-src 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+].join('; ');
 ---
 
 <!doctype html>
@@ -18,9 +50,40 @@ const loc = getLocale(locale);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content={csp} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index,follow" />
+    <meta
+      name="robots"
+      content={noindex ? 'noindex,follow' : 'index,follow'}
+    />
     <title>{title}</title>
+
+    <link rel="canonical" href={canonical} />
+    {
+      locales.map((l) => (
+        <link
+          rel="alternate"
+          hreflang={l.htmlLang}
+          href={urlForLocale(l.code)}
+        />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={urlForLocale(defaultLocale)}
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={ogLocale[locale] ?? 'nb_NO'} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
     <link
       rel="icon"
       href={`${import.meta.env.BASE_URL}favicon.svg`}

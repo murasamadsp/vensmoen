@@ -15,7 +15,7 @@ export interface FractionStrings {
 }
 
 export interface Strings {
-  meta: { title: string; description: string };
+  meta: { title: string; description: string; descriptionQuiz: string };
   ui: {
     siteTitle: string;
     tagline: string;
@@ -47,17 +47,21 @@ export interface Strings {
     quizResultTitle: string;
     quizScoreSuffix: string;
     quizAgain: string;
+    opensInNewTab: string;
+    quizYes: string;
+    quizNo: string;
+    quizBelongPrompt: string;
   };
   fractions: Record<string, FractionStrings>;
 }
 
 const dictionaries: Record<string, Strings> = {
-  nb: nb as Strings,
-  en: en as Strings,
-  uk: uk as Strings,
-  ar: ar as Strings,
-  es: es as Strings,
-  ti: ti as Strings,
+  nb: nb satisfies Strings,
+  en: en satisfies Strings,
+  uk: uk satisfies Strings,
+  ar: ar satisfies Strings,
+  es: es satisfies Strings,
+  ti: ti satisfies Strings,
 };
 
 export function getStrings(locale: string): Strings {

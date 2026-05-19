@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "Kildesortering i Saltdal",
-    "description": "Enkel flerspråklig guide til hvordan du sorterer avfall hjemme i Saltdal. Kilde: Iris Salten."
+    "description": "Enkel flerspråklig guide til hvordan du sorterer avfall hjemme i Saltdal. Kilde: Iris Salten.",
+    "descriptionQuiz": "Test deg selv om kildesortering i Saltdal. Interaktiv quiz om riktig avfallsdunk."
   },
   "ui": {
     "siteTitle": "Kildesortering",
@@ -33,7 +34,11 @@
     "quizFinish": "Se resultat",
     "quizResultTitle": "Ferdig!",
     "quizScoreSuffix": "riktige",
-    "quizAgain": "Ta testen på nytt"
+    "quizAgain": "Ta testen på nytt",
+    "opensInNewTab": "Åpnes i ny fane",
+    "quizYes": "Ja",
+    "quizNo": "Nei",
+    "quizBelongPrompt": "Skal dette i denne dunken?"
   },
   "fractions": {
     "matavfall": {

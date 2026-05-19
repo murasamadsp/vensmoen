@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "ምፍላይ ጓሓፍ ኣብ ሳልትዳል",
-    "description": "ኣብ ገዛኻ ጓሓፍ ብኸመይ ከም እትፍሊ ዝሕብር ቀሊል ብዙሕ-ቋንቋ መምርሒ — ኣብ ሳልትዳል፡ ኖርወይ። ምንጪ፦ Iris Salten።"
+    "description": "ኣብ ገዛኻ ጓሓፍ ብኸመይ ከም እትፍሊ ዝሕብር ቀሊል ብዙሕ-ቋንቋ መምርሒ — ኣብ ሳልትዳል፡ ኖርወይ። ምንጪ፦ Iris Salten።",
+    "descriptionQuiz": "ብዛዕባ ኣብ ሳልትዳል ምፍላይ ጓሓፍ ፍልጠትካ ፈትን። ብዛዕባ እቲ ቅኑዕ በርሚል ዝሓትት ምስሕሓብ ፈተና።"
   },
   "ui": {
     "siteTitle": "ምፍላይ ጓሓፍ",
@@ -33,7 +34,11 @@
     "quizFinish": "ውጽኢት ርአ",
     "quizResultTitle": "ተወዲኡ!",
     "quizScoreSuffix": "ቅኑዓት",
-    "quizAgain": "ፈተና እንደገና ግበር"
+    "quizAgain": "ፈተና እንደገና ግበር",
+    "opensInNewTab": "ኣብ ሓድሽ ታብ ይኽፈት",
+    "quizYes": "እወ",
+    "quizNo": "ኣይኮነን",
+    "quizBelongPrompt": "እዚ ኣብዚ በርሚል ይኣቱ ድዩ?"
   },
   "fractions": {
     "matavfall": {

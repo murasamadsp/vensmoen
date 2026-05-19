@@ -24,8 +24,10 @@ const verified = fractions[0].lastVerified;
     {
       qrSvg && (
         <div class="guide__qr">
-          <Fragment set:html={qrSvg} />
-          <span>{ui.scanHint}</span>
+          <div class="guide__qr-code" role="img" aria-label={ui.scanHint}>
+            <Fragment set:html={qrSvg} />
+          </div>
+          <span aria-hidden="true">{ui.scanHint}</span>
         </div>
       )
     }
@@ -46,12 +48,17 @@ const verified = fractions[0].lastVerified;
       <a
         href="https://www.iris-salten.no/privat/sorteringsguide/"
         target="_blank"
-        rel="noopener noreferrer">iris-salten.no</a
+        rel="noopener noreferrer"
+        lang="nb"
+        aria-describedby="newtab-note">iris-salten.no</a
       > · <a
         href="https://sortere.no/"
         target="_blank"
-        rel="noopener noreferrer">sortere.no</a
-      > · <span>{ui.lastVerified}: {verified}</span>
+        rel="noopener noreferrer"
+        lang="nb"
+        aria-describedby="newtab-note">sortere.no</a
+      > · <span>{ui.lastVerified}: <span lang="nb">{verified}</span></span>
     </p>
+    <span id="newtab-note" class="sr-only">{ui.opensInNewTab}</span>
   </footer>
 </div>
