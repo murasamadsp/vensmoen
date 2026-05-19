@@ -1,6 +1,6 @@
 // Språkuavhengige metadata for hver avfallsfraksjon.
 // Oversettbar tekst (navn, ja/nei-lister, merknad) ligger i src/i18n/<locale>.json.
-// Kilde er verifisert mot Iris Salten (operatør i Saltdal) + sortere.no (nasjonal standard).
+// Kilde er verifisert mot den nasjonale standarden sortere.no.
 
 export interface SourceRef {
   label: string;
@@ -20,11 +20,6 @@ export interface Fraction {
   lastVerified: string;
 }
 
-const IRIS = (slug: string): SourceRef => ({
-  label: 'iris-salten.no',
-  url: `https://www.iris-salten.no/privat/sorteringsguide/${slug}/`,
-});
-
 const SORTERE: SourceRef = { label: 'sortere.no', url: 'https://sortere.no/' };
 
 const VERIFIED = '2026-05-18';
@@ -35,7 +30,7 @@ export const fractions: Fraction[] = [
     binColor: '#2f7d3b',
     onBin: '#ffffff',
     home: true,
-    sources: [IRIS('matavfall'), SORTERE],
+    sources: [SORTERE],
     lastVerified: VERIFIED,
   },
   {
@@ -43,7 +38,7 @@ export const fractions: Fraction[] = [
     binColor: '#1f5fa8',
     onBin: '#ffffff',
     home: true,
-    sources: [IRIS('papp-papir-og-kartong'), SORTERE],
+    sources: [SORTERE],
     lastVerified: VERIFIED,
   },
   {
@@ -51,7 +46,7 @@ export const fractions: Fraction[] = [
     binColor: '#d98a00',
     onBin: '#1a1a1a',
     home: true,
-    sources: [IRIS('plastemballasje'), SORTERE],
+    sources: [SORTERE],
     lastVerified: VERIFIED,
   },
   {
@@ -59,11 +54,7 @@ export const fractions: Fraction[] = [
     binColor: '#8a6a3a',
     onBin: '#ffffff',
     home: true,
-    sources: [
-      { label: 'iris-salten.no (glass)', url: 'https://www.iris-salten.no/privat/sorteringsguide/glassemballasje/' },
-      { label: 'iris-salten.no (metall)', url: 'https://www.iris-salten.no/privat/sorteringsguide/metallemballasje-2/' },
-      SORTERE,
-    ],
+    sources: [SORTERE],
     lastVerified: VERIFIED,
   },
   {
@@ -71,7 +62,7 @@ export const fractions: Fraction[] = [
     binColor: '#4a4a4a',
     onBin: '#ffffff',
     home: true,
-    sources: [IRIS('restavfall'), SORTERE],
+    sources: [SORTERE],
     lastVerified: VERIFIED,
   },
   {
@@ -79,7 +70,7 @@ export const fractions: Fraction[] = [
     binColor: '#c0392b',
     onBin: '#ffffff',
     home: false,
-    sources: [IRIS('farlig-avfall'), SORTERE],
+    sources: [SORTERE],
     lastVerified: VERIFIED,
   },
 ];

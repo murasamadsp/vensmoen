@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Flerspråklig kildesorteringsguide for Saltdal (Iris Salten)",
+  "description": "Flerspråklig kildesorteringsguide",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

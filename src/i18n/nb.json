@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Kildesortering i Saltdal",
-    "description": "Enkel flerspråklig guide til hvordan du sorterer avfall hjemme i Saltdal. Kilde: Iris Salten.",
-    "descriptionQuiz": "Test deg selv om kildesortering i Saltdal. Interaktiv quiz om riktig avfallsdunk."
+    "title": "Kildesortering",
+    "description": "Enkel flerspråklig guide til hvordan du sorterer avfall hjemme.",
+    "descriptionQuiz": "Test deg selv om kildesortering. Interaktiv quiz om riktig avfallsdunk."
   },
   "ui": {
     "siteTitle": "Kildesortering",
@@ -18,7 +18,7 @@
     "backToGuide": "Tilbake til guiden",
     "languagePicker": "Språk",
     "skipToContent": "Hopp til hovedinnhold",
-    "legalNote": "Innholdet bygger på Iris Salten sin sorteringsguide og den nasjonale standarden sortere.no.",
+    "legalNote": "Innholdet bygger på den nasjonale standarden sortere.no.",
     "sourcesTitle": "Kilder",
     "scanHint": "Skann for nettversjon på flere språk",
     "quizNav": "Test",

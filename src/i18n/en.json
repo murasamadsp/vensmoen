@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Waste sorting in Saltdal",
-    "description": "A simple multilingual guide to sorting your waste at home in Saltdal, Norway. Source: Iris Salten.",
-    "descriptionQuiz": "Test your knowledge of waste sorting in Saltdal. An interactive quiz about the right bin."
+    "title": "Waste sorting",
+    "description": "A simple multilingual guide to sorting your waste at home.",
+    "descriptionQuiz": "Test your knowledge of waste sorting. An interactive quiz about the right bin."
   },
   "ui": {
     "siteTitle": "Waste sorting",
@@ -18,7 +18,7 @@
     "backToGuide": "Back to the guide",
     "languagePicker": "Language",
     "skipToContent": "Skip to main content",
-    "legalNote": "This content is based on the Iris Salten sorting guide and the national standard sortere.no.",
+    "legalNote": "This content is based on the national standard sortere.no.",
     "sourcesTitle": "Sources",
     "scanHint": "Scan for the online version in more languages",
     "quizNav": "Quiz",
