@@ -6,3 +6,11 @@ repos:
     hooks:
       - id: biome-check
         additional_dependencies: ["@biomejs/biome@2.4.15"]
+  - repo: local
+    hooks:
+      - id: check-npm-lockfile
+        name: Check npm lockfile matches package.json
+        entry: bash -c "npm install --package-lock-only && git diff --exit-code package-lock.json"
+        language: system
+        files: ^package(-lock)?\.json$
+        pass_filenames: false
