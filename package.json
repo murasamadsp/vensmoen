@@ -11,7 +11,13 @@
     "astro": "astro",
     "typecheck": "astro check",
     "validate:i18n": "node scripts/validate-i18n.mjs",
-    "check": "npm run validate:i18n && npm run typecheck"
+    "check": "npm run validate:i18n && npm run typecheck",
+    "lint": "biome check",
+    "lint:write": "biome check --write",
+    "prepare": "simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx @biomejs/biome check --staged --no-errors-on-unmatched"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
@@ -20,7 +26,9 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@biomejs/biome": "2.4.15",
     "@types/qrcode": "^1.5.6",
+    "simple-git-hooks": "^2.13.1",
     "typescript": "^5.9.3"
   }
 }
