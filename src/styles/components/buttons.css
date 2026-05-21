@@ -1,0 +1,24 @@
+/* Button component styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 9px 18px;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--color-ink);
+  transition: transform var(--duration) var(--ease);
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-line);
+}

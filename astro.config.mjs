@@ -1,5 +1,5 @@
-import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { defineConfig } from 'astro/config';
 
 // GitHub Pages: https://murasamadsp.github.io/avfallssortering/
 // i18n-ruting håndteres manuelt via [locale]-segment + src/i18n/locales.ts,

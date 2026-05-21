@@ -16,7 +16,7 @@ const cur = locales.find((l) => l.code === current) ?? locales[0];
     <span class="langs__current" lang={cur.htmlLang}>{cur.label}</span>
     <span class="langs__chev" aria-hidden="true"></span>
   </summary>
-  <ul class="langs__menu">
+  <ul class="langs__menu" role="list">
     {
       locales.map((l) => (
         <li>

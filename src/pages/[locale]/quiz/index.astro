@@ -1,10 +1,10 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LanguagePicker from '../../../components/LanguagePicker.astro';
-import { localeCodes } from '../../../i18n/locales';
-import { getStrings } from '../../../i18n/strings';
-import { localeHome } from '../../../i18n/paths';
 import { fractions } from '../../../data/fractions';
+import { localeCodes } from '../../../i18n/locales';
+import { localeHome } from '../../../i18n/paths';
+import { getStrings } from '../../../i18n/strings';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
   return localeCodes.map((locale) => ({ params: { locale } }));
@@ -20,7 +20,7 @@ const ui = t.ui;
 //  - yn:    «hører dette i DENNE dunken?» – ja for accepted, nei for
 //           rejected (de mest forvekslingsutsatte tilfellene).
 const pick = fractions.flatMap((f) =>
-  t.fractions[f.id].accepted.map((item) => ({ t: 'pick', q: item, a: f.id }))
+  t.fractions[f.id].accepted.map((item) => ({ t: 'pick', q: item, a: f.id })),
 );
 const ynYes = fractions.flatMap((f) =>
   t.fractions[f.id].accepted.map((item) => ({
@@ -28,7 +28,7 @@ const ynYes = fractions.flatMap((f) =>
     q: item,
     bin: t.fractions[f.id].name,
     a: 'yes',
-  }))
+  })),
 );
 const ynNo = fractions.flatMap((f) =>
   t.fractions[f.id].rejected.map((item) => ({
@@ -36,7 +36,7 @@ const ynNo = fractions.flatMap((f) =>
     q: item,
     bin: t.fractions[f.id].name,
     a: 'no',
-  }))
+  })),
 );
 const questions = [...pick, ...ynYes, ...ynNo];
 const options = fractions.map((f) => ({
@@ -57,7 +57,7 @@ const str = {
 };
 const quizData = JSON.stringify({ questions, options, str }).replace(
   /</g,
-  '\\u003c'
+  '\\u003c',
 );
 ---
 

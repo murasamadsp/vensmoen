@@ -1,0 +1,8 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/biomejs/pre-commit
+    rev: 5e71eb16415bb412e2e88eeea7348d6f9c780d25
+    hooks:
+      - id: biome-check
+        additional_dependencies: ["@biomejs/biome@2.4.15"]

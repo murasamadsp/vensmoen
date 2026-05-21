@@ -24,13 +24,13 @@ const { fraction, text, ui } = Astro.props;
   <div class="frac__cols">
     <div class="frac__line frac__line--yes">
       <p class="frac__line-h"><b>{ui.accepted}</b></p>
-      <ul class="frac__items">
+      <ul class="frac__items" role="list">
         {text.accepted.map((item) => <li>{item}</li>)}
       </ul>
     </div>
     <div class="frac__line frac__line--no">
       <p class="frac__line-h"><b>{ui.rejected}</b></p>
-      <ul class="frac__items">
+      <ul class="frac__items" role="list">
         {text.rejected.map((item) => <li>{item}</li>)}
       </ul>
     </div>

@@ -2,9 +2,9 @@
 // Faller (exit 1) hvis en lokale mangler en ui-/meta-nøkkel eller en
 // fraksjon, eller har feil form. Kjøres i CI før build, slik at en glemt
 // oversettelse aldri når produksjon som tom/undefined.
-import { readFileSync, readdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const dir = join(dirname(fileURLToPath(import.meta.url)), '..', 'src', 'i18n');
 const REFERENCE = 'nb';
@@ -58,9 +58,9 @@ for (const code of codes) {
 
 if (errors.length) {
   console.error(`i18n-validering FEILET (${errors.length}):`);
-  for (const e of errors) console.error('  - ' + e);
+  for (const e of errors) console.error(`  - ${e}`);
   process.exit(1);
 }
 console.log(
-  `i18n OK: ${codes.length} lokaler, alle ui/meta/fraksjon-nøkler synkronisert mot ${REFERENCE}.`
+  `i18n OK: ${codes.length} lokaler, alle ui/meta/fraksjon-nøkler synkronisert mot ${REFERENCE}.`,
 );

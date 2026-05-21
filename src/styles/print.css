@@ -147,7 +147,7 @@ body.print-page {
   font-size: 7.6pt;
 }
 .print-doc .frac__line-h b::after {
-  content: ': ';
+  content: ": ";
 }
 .print-doc .frac__items {
   display: inline;
@@ -193,6 +193,7 @@ body.print-page {
   }
   .print-doc {
     margin: 0;
+    inline-size: 210mm;
   }
 }
 
@@ -204,10 +205,5 @@ body.print-page {
   body.print-page .print-doc {
     inline-size: min(210mm, 100%);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.22);
-  }
-}
-@media print {
-  .print-doc {
-    inline-size: 210mm;
   }
 }

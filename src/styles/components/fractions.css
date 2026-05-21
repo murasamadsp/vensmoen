@@ -1,0 +1,153 @@
+/* Guide head (shared web + print structure) */
+.guide__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-block: var(--space-section) var(--space-5);
+}
+.guide__lead {
+  min-inline-size: 0;
+}
+.page-title {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  max-width: 18ch;
+  margin: 0 0 var(--space-3);
+}
+.lede {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: 1.45;
+  max-width: 56ch;
+  margin: 0;
+  color: var(--color-ink-soft);
+}
+/* QR is only on print; hidden on screen */
+.guide__qr {
+  display: none;
+}
+
+/* Fraction cards grid */
+.fractions {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  padding-block-end: var(--space-section);
+}
+@media (min-width: 56rem) {
+  .fractions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.frac {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-inline-start: 7px solid var(--bin, var(--color-line));
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  box-shadow: var(--shadow-card);
+}
+
+.frac__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xl);
+  letter-spacing: -0.01em;
+  margin-block-end: var(--space-3);
+}
+.frac__dot {
+  inline-size: 1.35rem;
+  block-size: 1.35rem;
+  border-radius: 50%;
+  background: var(--bin);
+  flex-shrink: 0;
+  border: 2px solid color-mix(in oklch, var(--bin), black 16%);
+}
+.frac__name {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+/* "Where" container */
+.frac__where {
+  margin: 0 0 var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: color-mix(in oklch, var(--bin) 14%, var(--color-surface));
+  border: 1px solid color-mix(in oklch, var(--bin) 35%, transparent);
+  font-size: var(--text-base);
+}
+.frac__where-label {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: color-mix(in oklch, var(--bin), black 12%);
+  margin-inline-end: var(--space-2);
+}
+
+.frac__cols {
+  display: grid;
+  gap: var(--space-2) var(--space-4);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .frac__cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.frac__line {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+.frac__line-h {
+  margin: 0 0 2px;
+}
+.frac__line b {
+  display: block;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+/* Semantic list, visually compact */
+.frac__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline;
+}
+.frac__items li {
+  display: inline;
+}
+.frac__items li:not(:last-child)::after {
+  content: " · ";
+  color: var(--color-ink-soft);
+}
+.frac__line--yes b {
+  color: var(--ok);
+}
+.frac__line--no b {
+  color: var(--no);
+}
+
+.frac__note {
+  margin: var(--space-3) 0 0;
+  margin-block-start: auto;
+  padding-block-start: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+  font-style: italic;
+}

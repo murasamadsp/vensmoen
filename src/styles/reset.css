@@ -1,0 +1,70 @@
+/* Modern CSS Reset & Normalization */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin & padding */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Set core root defaults */
+html {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100%;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images and svgs easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which implies styling override */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* More consistent default line heights and word wrapping */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}

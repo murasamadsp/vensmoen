@@ -1,9 +1,9 @@
 ---
+import { fractions } from '../data/fractions';
+import type { Strings } from '../i18n/strings';
 // Felles innhold for nettsiden OG utskriftsarket. Samme struktur begge steder
 // – bare CSS skiller det visuelt (skjerm vs A4).
 import FractionCard from './FractionCard.astro';
-import { fractions } from '../data/fractions';
-import type { Strings } from '../i18n/strings';
 
 interface Props {
   t: Strings;

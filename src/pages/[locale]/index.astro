@@ -1,10 +1,10 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import LanguagePicker from '../../components/LanguagePicker.astro';
 import GuideBody from '../../components/GuideBody.astro';
+import LanguagePicker from '../../components/LanguagePicker.astro';
 import { localeCodes } from '../../i18n/locales';
-import { getStrings } from '../../i18n/strings';
 import { localePrint, localeQuiz } from '../../i18n/paths';
+import { getStrings } from '../../i18n/strings';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export function getStaticPaths() {
   return localeCodes.map((locale) => ({ params: { locale } }));

@@ -1,9 +1,9 @@
-import nb from './nb.json';
-import en from './en.json';
-import uk from './uk.json';
 import ar from './ar.json';
+import en from './en.json';
 import es from './es.json';
+import nb from './nb.json';
 import ti from './ti.json';
+import uk from './uk.json';
 
 export interface FractionStrings {
   name: string;

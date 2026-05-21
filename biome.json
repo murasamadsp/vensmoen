@@ -22,7 +22,8 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single"
-    }
+    },
+    "experimentalEmbeddedSnippetsEnabled": true
   },
   "assist": {
     "enabled": true,
@@ -31,5 +32,28 @@
         "organizeImports": "on"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.astro"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedImports": "off",
+            "noUnusedVariables": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/*.css"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noImportantStyles": "off"
+          }
+        }
+      }
+    }
+  ]
 }
