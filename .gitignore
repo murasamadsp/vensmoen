@@ -1,15 +1,41 @@
-# build output
-dist/
-.astro/
-
-# dependencies
+```
+# Dependencies
 node_modules/
 
-# logs
-npm-debug.log*
+# Build outputs
+dist/
+build/
+target/
+
+# Environment variables
+.env
+.env.local
+*.env.*
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Logs
 *.log
 
-# environment
-.env
-.env.production
+# Python cache (if present)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# OS generated files
 .DS_Store
+Thumbs.db
+
+# Package lock files (keeping package-lock.json as it's in your changes)
+```
