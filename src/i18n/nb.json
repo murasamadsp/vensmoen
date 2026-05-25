@@ -38,7 +38,22 @@
     "opensInNewTab": "Åpnes i ny fane",
     "quizYes": "Ja",
     "quizNo": "Nei",
-    "quizBelongPrompt": "Skal dette i denne dunken?"
+    "quizBelongPrompt": "Skal dette i denne dunken?",
+    "wikiHubTitle": "Refugee WikiHub",
+    "wikiHubSubtitle": "Essensiell informasjon for hverdagen",
+    "modules": "Informasjonsmoduler",
+    "searchPlaceholder": "Søk...",
+    "quickLinks": "Hurtiglenker",
+    "moduleFractions": "Kildesortering",
+    "moduleHealth": "Helse",
+    "moduleLegal": "Juridisk",
+    "moduleEducation": "Utdanning",
+    "moduleCamp": "Leirregler",
+    "readMore": "Les mer",
+    "lastUpdated": "Sist oppdatert",
+    "relatedArticles": "Relaterte artikler",
+    "faqTitle": "Ofte stilte spørsmål",
+    "resourcesTitle": "Nyttige ressurser"
   },
   "fractions": {
     "matavfall": {
