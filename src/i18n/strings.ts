@@ -51,50 +51,8 @@ export interface Strings {
     quizYes: string;
     quizNo: string;
     quizBelongPrompt: string;
-    // WikiHub navigation
-    wikiHubTitle: string;
-    wikiHubSubtitle: string;
-    modules: string;
-    searchPlaceholder: string;
-    quickLinks: string;
-    // Module names (display names for navigation)
-    moduleFractions: string;
-    moduleHealth: string;
-    moduleLegal: string;
-    moduleEducation: string;
-    moduleCamp: string;
-    // Generic article UI
-    readMore: string;
-    lastUpdated: string;
-    relatedArticles: string;
-    faqTitle: string;
-    resourcesTitle: string;
   };
   fractions: Record<string, FractionStrings>;
-  // Modular content namespaces (populated per module)
-  health?: {
-    articles: Record<string, ArticleStrings>;
-    faqs?: Array<{ q: string; a: string }>;
-  };
-  legal?: {
-    articles: Record<string, ArticleStrings>;
-    faqs?: Array<{ q: string; a: string }>;
-  };
-  education?: {
-    articles: Record<string, ArticleStrings>;
-    faqs?: Array<{ q: string; a: string }>;
-  };
-  camp?: {
-    articles: Record<string, ArticleStrings>;
-    faqs?: Array<{ q: string; a: string }>;
-  };
-}
-
-export interface ArticleStrings {
-  title: string;
-  excerpt?: string;
-  content?: string;
-  note?: string;
 }
 
 const dictionaries: Record<string, Strings> = {

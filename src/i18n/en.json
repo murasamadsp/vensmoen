@@ -38,22 +38,7 @@
     "opensInNewTab": "Opens in a new tab",
     "quizYes": "Yes",
     "quizNo": "No",
-    "quizBelongPrompt": "Does this go in this bin?",
-    "wikiHubTitle": "Refugee WikiHub",
-    "wikiHubSubtitle": "Essential information for daily life",
-    "modules": "Information Modules",
-    "searchPlaceholder": "Search...",
-    "quickLinks": "Quick Links",
-    "moduleFractions": "Waste Sorting",
-    "moduleHealth": "Health",
-    "moduleLegal": "Legal",
-    "moduleEducation": "Education",
-    "moduleCamp": "Camp Rules",
-    "readMore": "Read more",
-    "lastUpdated": "Last updated",
-    "relatedArticles": "Related articles",
-    "faqTitle": "Frequently Asked Questions",
-    "resourcesTitle": "Useful Resources"
+    "quizBelongPrompt": "Does this go in this bin?"
   },
   "fractions": {
     "matavfall": {

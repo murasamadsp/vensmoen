@@ -1,13 +1,10 @@
 ---
 import GuideBody from '../../components/GuideBody.astro';
 import LanguagePicker from '../../components/LanguagePicker.astro';
-import ModuleCard from '../../components/ModuleCard.astro';
-import SearchBar from '../../components/SearchBar.astro';
 import { localeCodes } from '../../i18n/locales';
 import { localePrint, localeQuiz } from '../../i18n/paths';
 import { getStrings } from '../../i18n/strings';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { ENABLED_MODULES } from '../../data/modules';
 
 export function getStaticPaths() {
   return localeCodes.map((locale) => ({ params: { locale } }));
@@ -36,143 +33,7 @@ const ui = t.ui;
     </div>
   </header>
 
-  <main id="main" class="wrap wikihub-main">
-    <!-- Hero Section -->
-    <section class="wikihub-hero">
-      <div class="wikihub-hero__content">
-        <h1 class="wikihub-title">{ui.wikiHubTitle}</h1>
-        <p class="wikihub-subtitle">{ui.wikiHubSubtitle}</p>
-        
-        <!-- Search Bar -->
-        <SearchBar placeholder={ui.searchPlaceholder} />
-      </div>
-    </section>
-
-    <!-- Modules Grid -->
-    <section class="wikihub-modules" aria-labelledby="modules-heading">
-      <h2 id="modules-heading" class="wikihub-section-title">{ui.modules}</h2>
-      <div class="wikihub-modules-grid">
-        {
-          ENABLED_MODULES.map((mod) => (
-            <ModuleCard
-              moduleId={mod.id}
-              icon={mod.icon}
-              color={mod.color}
-              title={
-                mod.id === 'fractions' ? ui.moduleFractions :
-                mod.id === 'health' ? ui.moduleHealth :
-                mod.id === 'legal' ? ui.moduleLegal :
-                mod.id === 'education' ? ui.moduleEducation :
-                mod.id === 'camp' ? ui.moduleCamp :
-                mod.id
-              }
-              href={`/${locale}/${mod.id}/`}
-            />
-          ))
-        }
-      </div>
-    </section>
-
-    <!-- Quick Access to Waste Sorting (legacy content) -->
-    <section class="wikihub-quick-access">
-      <div class="wrap">
-        <h2 class="wikihub-section-title">{ui.quickLinks}</h2>
-        <GuideBody t={t} />
-      </div>
-    </section>
+  <main id="main" class="wrap">
+    <GuideBody t={t} />
   </main>
 </BaseLayout>
-
-<style>
-  .wikihub-main {
-    padding: 0;
-  }
-
-  /* Hero Section */
-  .wikihub-hero {
-    background: linear-gradient(
-      135deg,
-      var(--color-accent) 0%,
-      color-mix(in oklch, var(--color-accent), var(--color-bg) 70%) 100%
-    );
-    padding: var(--space-section) var(--space-4);
-    text-align: center;
-    color: white;
-  }
-
-  .wikihub-hero__content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .wikihub-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 1.5rem + 3vw, 3.5rem);
-    margin: 0 0 var(--space-3);
-    letter-spacing: -0.02em;
-  }
-
-  .wikihub-subtitle {
-    font-size: var(--text-lg);
-    margin: 0 0 var(--space-4);
-    opacity: 0.95;
-    max-width: 60ch;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* Override search colors for hero */
-  .wikihub-hero .search-container {
-    --search-bg: rgba(255, 255, 255, 0.95);
-  }
-
-  .wikihub-hero .search-input {
-    background: var(--search-bg);
-    border-color: transparent;
-  }
-
-  .wikihub-hero .search-icon {
-    color: var(--color-ink-soft);
-  }
-
-  /* Modules Section */
-  .wikihub-modules {
-    padding: var(--space-section) var(--space-4);
-    background: var(--color-bg);
-  }
-
-  .wikihub-section-title {
-    font-family: var(--font-display);
-    font-size: var(--text-xl);
-    text-align: center;
-    margin: 0 0 var(--space-5);
-    color: var(--color-ink);
-  }
-
-  .wikihub-modules-grid {
-    display: grid;
-    gap: var(--space-3);
-    grid-template-columns: 1fr;
-    max-width: var(--maxw);
-    margin: 0 auto;
-  }
-
-  @media (min-width: 56rem) {
-    .wikihub-modules-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 80rem) {
-    .wikihub-modules-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  /* Quick Access Section */
-  .wikihub-quick-access {
-    padding: var(--space-section) 0;
-    background: var(--color-surface);
-    border-top: 1px solid var(--color-line);
-  }
-</style>

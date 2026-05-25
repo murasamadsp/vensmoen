@@ -13,10 +13,6 @@ export function localeQuiz(code: string): string {
   return `${BASE}/${code}/quiz/`;
 }
 
-export function localeModule(code: string, moduleId: string): string {
-  return `${BASE}/${code}/${moduleId}/`;
-}
-
 export function siteUrl(code: string): string {
   // Absolutt URL til nettversjonen – brukes i QR-koden.
   return `https://murasamadsp.github.io/avfallssortering/${code}/`;
