@@ -4,6 +4,22 @@
     "description": "Una guía sencilla y multilingüe para separar tus residuos en casa.",
     "descriptionQuiz": "Pon a prueba tus conocimientos sobre la clasificación de residuos. Cuestionario interactivo sobre el contenedor correcto."
   },
+  "site": {
+    "title": "Centro de acogida Vensmoen – información para residentes",
+    "description": "Información permanente para los residentes del centro de acogida Vensmoen en Saltdal: sobre el centro, las normas de la casa, la separación de residuos y una guía práctica para la vida en Noruega.",
+    "name": "Vensmoen mottak",
+    "tagline": "Información para residentes",
+    "intro": "Aquí encontrarás información sobre el centro, las normas de la casa, la separación de residuos y lo esencial de la vida en Noruega. Elige tu idioma en la parte superior de la página.",
+    "sectionsLabel": "Contenido",
+    "backHome": "Volver a la página principal",
+    "comingSoon": "Aquí se añadirá más información.",
+    "emergencyTitle": "Números de emergencia en Noruega",
+    "emergencyNote": "Gratis desde cualquier teléfono, a cualquier hora.",
+    "emergencyFire": "Bomberos",
+    "emergencyPolice": "Policía",
+    "emergencyAmbulance": "Ambulancia",
+    "emergencyDoctor": "Médico de guardia (legevakt)"
+  },
   "ui": {
     "siteTitle": "Separación de residuos",
     "tagline": "Cómo separar tus residuos en casa",
@@ -39,6 +55,71 @@
     "quizYes": "Sí",
     "quizNo": "No",
     "quizBelongPrompt": "¿Esto va en este contenedor?"
+  },
+  "pages": {
+    "om": {
+      "title": "Sobre el centro",
+      "lead": "El centro de acogida Vensmoen está en Røkland, municipio de Saltdal, en Nordland.",
+      "blocks": [
+        {
+          "heading": "Dirección y contacto"
+        },
+        {
+          "heading": "Recepción"
+        },
+        {
+          "heading": "Cómo llegar"
+        }
+      ]
+    },
+    "regler": {
+      "title": "Normas de la casa",
+      "lead": "Las normas se aplican a todas las personas que viven en el centro y están disponibles aquí en varios idiomas.",
+      "blocks": [
+        {
+          "heading": "Silencio nocturno"
+        },
+        {
+          "heading": "Cocina"
+        },
+        {
+          "heading": "Lavandería"
+        },
+        {
+          "heading": "Limpieza"
+        },
+        {
+          "heading": "Visitas"
+        },
+        {
+          "heading": "Seguridad contra incendios"
+        }
+      ]
+    },
+    "guide": {
+      "title": "Guía práctica",
+      "lead": "Lo esencial de la vida cotidiana en Noruega, explicado en breve.",
+      "blocks": [
+        {
+          "heading": "Salud y médico"
+        },
+        {
+          "heading": "Escuela y guardería"
+        },
+        {
+          "heading": "Clases de noruego"
+        },
+        {
+          "heading": "Dinero y banco"
+        },
+        {
+          "heading": "Transporte"
+        },
+        {
+          "heading": "Tiendas y compras"
+        }
+      ]
+    }
   },
   "fractions": {
     "matavfall": {

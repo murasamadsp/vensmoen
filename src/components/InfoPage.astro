@@ -1,0 +1,65 @@
+---
+import LanguagePicker from '../components/LanguagePicker.astro';
+import { localeHome } from '../i18n/paths';
+import { getStrings, type PageKey } from '../i18n/strings';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Felles mal for mottakets infosider (om/regler/guide): tittel, ingress
+// og blokker. Blokk uten body rendres som en ærlig «kommer her»-plakett.
+interface Props {
+  locale: string;
+  pageKey: PageKey;
+}
+const { locale, pageKey } = Astro.props;
+const t = getStrings(locale);
+const site = t.site;
+const page = t.pages[pageKey];
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${page.title} · ${site.name}`}
+  description={page.lead}
+>
+  <a class="skip-link" href="#main">{t.ui.skipToContent}</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__bar site-header__bar--quiz">
+      <div class="brand">
+        <a class="brand__mark brand__link" href={localeHome(locale)}
+          >{site.name}</a
+        >
+      </div>
+      <div class="site-header__tools">
+        <LanguagePicker current={locale} label={t.ui.languagePicker} />
+        <a class="btn btn--ghost" href={localeHome(locale)}>{site.backHome}</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap info-page" data-page={pageKey}>
+    <header class="info-page__head">
+      <h1 class="page-title">{page.title}</h1>
+      <p class="lede">{page.lead}</p>
+    </header>
+
+    {
+      page.blocks.map((block) => (
+        <section class="info-block">
+          <h2 class="info-block__heading">{block.heading}</h2>
+          {block.body ? (
+            <p class="info-block__body">{block.body}</p>
+          ) : (
+            <p class="info-block__soon">{site.comingSoon}</p>
+          )}
+        </section>
+      ))
+    }
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>{site.name} · {site.tagline}</p>
+    </div>
+  </footer>
+</BaseLayout>

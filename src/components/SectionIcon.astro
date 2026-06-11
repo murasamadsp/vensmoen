@@ -1,0 +1,50 @@
+---
+// Piktogrammer for hub-kortene – ren dekor (aria-hidden), fargen styres
+// av kortets CSS via currentColor. Enkle strektegninger à la Lucide.
+interface Props {
+  section: 'om' | 'regler' | 'guide' | 'avfall';
+}
+const { section } = Astro.props;
+---
+
+<span class="hub-card__icon" aria-hidden="true">
+  {
+    section === 'om' && (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 21h18" />
+        <path d="M5 21V7l7-4 7 4v14" />
+        <path d="M9 21v-6h6v6" />
+        <path d="M10 9h.01M14 9h.01" />
+      </svg>
+    )
+  }
+  {
+    section === 'regler' && (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="5" y="3" width="14" height="18" rx="2" />
+        <path d="m9 11 2 2 4-4" />
+        <path d="M9 17h6" />
+      </svg>
+    )
+  }
+  {
+    section === 'guide' && (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="m15.5 8.5-2 5-5 2 2-5z" />
+      </svg>
+    )
+  }
+  {
+    section === 'avfall' && (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5" />
+        <path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12" />
+        <path d="m14 16-3 3 3 3" />
+        <path d="M8.293 13.596 7.196 9.5 3.1 10.598" />
+        <path d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843" />
+        <path d="m13.378 9.633 4.096 1.098 1.097-4.096" />
+      </svg>
+    )
+  }
+</span>

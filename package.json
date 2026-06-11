@@ -1,9 +1,9 @@
 {
-  "name": "avfallssortering",
+  "name": "vensmoen",
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Flerspråklig kildesorteringsguide",
+  "description": "Flerspråklig informasjonsside for Vensmoen mottak",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

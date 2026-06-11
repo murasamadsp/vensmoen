@@ -4,6 +4,22 @@
     "description": "A simple multilingual guide to sorting your waste at home.",
     "descriptionQuiz": "Test your knowledge of waste sorting. An interactive quiz about the right bin."
   },
+  "site": {
+    "title": "Vensmoen reception centre – information for residents",
+    "description": "Permanent information for residents of Vensmoen reception centre in Saltdal: about the centre, house rules, waste sorting and a practical guide to life in Norway.",
+    "name": "Vensmoen mottak",
+    "tagline": "Information for residents",
+    "intro": "Here you will find information about the centre, the house rules, waste sorting and the essentials of life in Norway. Choose your language at the top of the page.",
+    "sectionsLabel": "Contents",
+    "backHome": "Back to the front page",
+    "comingSoon": "More information will be added here.",
+    "emergencyTitle": "Emergency numbers in Norway",
+    "emergencyNote": "Free from any phone, day and night.",
+    "emergencyFire": "Fire",
+    "emergencyPolice": "Police",
+    "emergencyAmbulance": "Ambulance",
+    "emergencyDoctor": "Out-of-hours doctor (legevakt)"
+  },
   "ui": {
     "siteTitle": "Waste sorting",
     "tagline": "How to sort your waste at home",
@@ -39,6 +55,71 @@
     "quizYes": "Yes",
     "quizNo": "No",
     "quizBelongPrompt": "Does this go in this bin?"
+  },
+  "pages": {
+    "om": {
+      "title": "About the centre",
+      "lead": "Vensmoen reception centre is located at Røkland in Saltdal municipality, Nordland.",
+      "blocks": [
+        {
+          "heading": "Address and contact"
+        },
+        {
+          "heading": "Reception desk"
+        },
+        {
+          "heading": "How to get here"
+        }
+      ]
+    },
+    "regler": {
+      "title": "House rules",
+      "lead": "The rules apply to everyone living at the centre and are available here in several languages.",
+      "blocks": [
+        {
+          "heading": "Quiet hours"
+        },
+        {
+          "heading": "Kitchen"
+        },
+        {
+          "heading": "Laundry"
+        },
+        {
+          "heading": "Cleaning"
+        },
+        {
+          "heading": "Visitors"
+        },
+        {
+          "heading": "Fire safety"
+        }
+      ]
+    },
+    "guide": {
+      "title": "Practical guide",
+      "lead": "The essentials of everyday life in Norway, explained briefly.",
+      "blocks": [
+        {
+          "heading": "Health and doctor"
+        },
+        {
+          "heading": "School and kindergarten"
+        },
+        {
+          "heading": "Norwegian classes"
+        },
+        {
+          "heading": "Money and banking"
+        },
+        {
+          "heading": "Transport"
+        },
+        {
+          "heading": "Shops and shopping"
+        }
+      ]
+    }
   },
   "fractions": {
     "matavfall": {

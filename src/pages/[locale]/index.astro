@@ -1,8 +1,14 @@
 ---
-import GuideBody from '../../components/GuideBody.astro';
 import LanguagePicker from '../../components/LanguagePicker.astro';
+import SectionIcon from '../../components/SectionIcon.astro';
+import { emergencyNumbers } from '../../data/emergency';
 import { localeCodes } from '../../i18n/locales';
-import { localePrint, localeQuiz } from '../../i18n/paths';
+import {
+  localeAvfall,
+  localeGuide,
+  localeOm,
+  localeRegler,
+} from '../../i18n/paths';
 import { getStrings } from '../../i18n/strings';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -13,27 +19,106 @@ export function getStaticPaths() {
 const { locale } = Astro.params;
 if (!locale) throw new Error('locale route param is required');
 const t = getStrings(locale);
-const ui = t.ui;
+const site = t.site;
+
+// Forsiden er en hub: fire seksjonskort. Sorteringsguiden gjenbruker
+// sine eksisterende oversettelser (ui.siteTitle/tagline) som korttekst.
+const cards = [
+  {
+    key: 'om',
+    href: localeOm(locale),
+    title: t.pages.om.title,
+    desc: t.pages.om.lead,
+  },
+  {
+    key: 'regler',
+    href: localeRegler(locale),
+    title: t.pages.regler.title,
+    desc: t.pages.regler.lead,
+  },
+  {
+    key: 'guide',
+    href: localeGuide(locale),
+    title: t.pages.guide.title,
+    desc: t.pages.guide.lead,
+  },
+  {
+    key: 'avfall',
+    href: localeAvfall(locale),
+    title: t.ui.siteTitle,
+    desc: t.ui.tagline,
+  },
+] as const;
+
+const emergencyLabels: Record<string, string> = {
+  fire: site.emergencyFire,
+  police: site.emergencyPolice,
+  ambulance: site.emergencyAmbulance,
+  doctor: site.emergencyDoctor,
+};
 ---
 
-<BaseLayout
-  locale={locale}
-  title={t.meta.title}
-  description={t.meta.description}
->
-  <a class="skip-link" href="#main">{ui.skipToContent}</a>
+<BaseLayout locale={locale} title={site.title} description={site.description}>
+  <a class="skip-link" href="#main">{t.ui.skipToContent}</a>
 
   <header class="site-header">
-    <div class="wrap site-header__bar">
-      <LanguagePicker current={locale} label={ui.languagePicker} />
+    <div class="wrap site-header__bar site-header__bar--quiz">
+      <div class="brand">
+        <span class="brand__mark">{site.name}</span>
+      </div>
       <div class="site-header__tools">
-        <a class="btn btn--ghost" href={localeQuiz(locale)}>{ui.quizNav}</a>
-        <a class="btn" href={localePrint(locale)}>{ui.print}</a>
+        <LanguagePicker current={locale} label={t.ui.languagePicker} />
       </div>
     </div>
   </header>
 
   <main id="main" class="wrap">
-    <GuideBody t={t} />
+    <section class="hub-hero">
+      <p class="hub-hero__tagline">{site.tagline}</p>
+      <h1 class="page-title">{site.name}</h1>
+      <p class="lede">{site.intro}</p>
+    </section>
+
+    <nav class="hub" aria-label={site.sectionsLabel}>
+      {
+        cards.map((card) => (
+          <a class={`hub-card hub-card--${card.key}`} href={card.href}>
+            <SectionIcon section={card.key} />
+            <span class="hub-card__text">
+              <span class="hub-card__title">{card.title}</span>
+              <span class="hub-card__desc">{card.desc}</span>
+            </span>
+            <span class="hub-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14" /><path d="m13 6 6 6-6 6" />
+              </svg>
+            </span>
+          </a>
+        ))
+      }
+    </nav>
+
+    <section class="emg" aria-labelledby="emg-title">
+      <h2 id="emg-title" class="emg__title">{site.emergencyTitle}</h2>
+      <p class="emg__note">{site.emergencyNote}</p>
+      <ul class="emg__list" role="list">
+        {
+          emergencyNumbers.map((n) => (
+            <li class={`emg__item emg__item--${n.id}`}>
+              <a class="emg__link" href={`tel:${n.tel}`}>
+                <span class="emg__num">{n.display}</span>
+                <span class="emg__label">{emergencyLabels[n.id]}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>{site.name} · {site.tagline}</p>
+    </div>
+  </footer>
 </BaseLayout>

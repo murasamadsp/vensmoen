@@ -52,3 +52,12 @@
   letter-spacing: -0.01em;
   color: var(--color-ink);
 }
+/* Merket som lenke (tilbake til huben) – diskret, ikke aksentfarget */
+a.brand__link {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+a.brand__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

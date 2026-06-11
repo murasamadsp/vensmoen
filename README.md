@@ -1,12 +1,13 @@
-# Kildesortering — flerspråklig avfallsguide
+# Vensmoen mottak — flerspråklig informasjonsside
 
-En enkel, vakker og utskriftsvennlig nettside som forklarer flyktninger og
-nye innbyggere hvordan de skal sortere avfallet sitt hjemme.
+Statisk informasjonsside for beboere på Vensmoen mottak (Saltdal):
+om mottaket, husregler, en praktisk guide til livet i Norge — og en
+komplett kildesorteringsguide. Kun fast informasjon som ikke foreldes.
 Bygget som statisk side for **GitHub Pages**.
 
 🌍 Språk: Norsk · English · Українська · العربية · Español · ትግርኛ
-🖨️ Egen utskriftsrute per språk (A4, QR tilbake til nettsiden)
-✅ Innhold verifisert mot den nasjonale standarden **sortere.no**
+🖨️ Sorteringsguiden har egen utskriftsrute per språk (A4, QR til nettsiden)
+✅ Sorteringsinnhold verifisert mot den nasjonale standarden **sortere.no**
 
 ## Teknologi
 
@@ -29,18 +30,31 @@ npm run check    # i18n-validering + typesjekk
 ```
 src/
   data/fractions.ts        Språkuavhengige metadata (farge, kilde, dato)
+  data/emergency.ts        Nasjonale nødnumre (permanente fakta)
   i18n/locales.ts          Liste over språk (kode, navn, dir)
   i18n/<kode>.json          All oversettbar tekst for ett språk
   i18n/strings.ts           Typet loader for JSON-ordbøkene
+  i18n/paths.ts             URL-byggere (respekterer Astro base)
   layouts/BaseLayout.astro  <html lang/dir>, head, hreflang/canonical
-  components/               FractionCard (delt web+print), LanguagePicker
+  components/               GuideBody/FractionCard (delt web+print),
+                            InfoPage (om/regler/guide), SectionIcon,
+                            LanguagePicker
   pages/index.astro         Omdirigerer til nettleserens språk
-  pages/[locale]/index.astro        Hovedguiden
-  pages/[locale]/quiz/index.astro   Interaktiv quiz
-  pages/[locale]/print/index.astro  Utskriftsark + QR
+  pages/[locale]/index.astro        Forsiden: hub med seksjonskort + nødnumre
+  pages/[locale]/om/                Om mottaket og kontakt
+  pages/[locale]/regler/            Husregler
+  pages/[locale]/guide/             Praktisk guide til livet i Norge
+  pages/[locale]/avfall/            Kildesorteringsguiden
+  pages/[locale]/avfall/quiz/       Interaktiv quiz
+  pages/[locale]/avfall/print/      Utskriftsark + QR
   styles/                   tokens.css, global.css, print.css
 scripts/validate-i18n.mjs   Sjekker at alle språk er synkronisert mot nb
 ```
+
+Innholdet på infosidene (`om`/`regler`/`guide`) ligger i `pages`-delen av
+hver språkfil. En blokk uten `body` rendres som en tydelig «mer informasjon
+kommer»-plassholder — skriv inn `body` når faktainnholdet er klart, og
+validatoren krever det da i alle språk.
 
 Samme `FractionCard`/`GuideBody` brukes på nettsiden og på utskriftsarket –
 innholdet finnes bare ett sted (DRY). `print.css` komprimerer kun layouten
@@ -54,7 +68,7 @@ til A4.
 3. Legg til én linje i `src/i18n/locales.ts` (`code`, `label`, `dir`,
    `htmlLang`). Bruk `dir: 'rtl'` for høyre-mot-venstre-skript.
 4. `npm run check && npm run build` — validatoren fanger manglende nøkler;
-   nye ruter `/<kode>/`, `/<kode>/quiz/` og `/<kode>/print/` lages automatisk.
+   alle ruter under `/<kode>/` lages automatisk.
 
 ## Oppdatere og verifisere innhold
 

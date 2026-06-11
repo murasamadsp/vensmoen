@@ -4,6 +4,22 @@
     "description": "Enkel flerspråklig guide til hvordan du sorterer avfall hjemme.",
     "descriptionQuiz": "Test deg selv om kildesortering. Interaktiv quiz om riktig avfallsdunk."
   },
+  "site": {
+    "title": "Vensmoen mottak – informasjon for beboere",
+    "description": "Fast informasjon for beboere på Vensmoen mottak i Saltdal: om mottaket, husregler, kildesortering og en praktisk guide til livet i Norge.",
+    "name": "Vensmoen mottak",
+    "tagline": "Informasjon for beboere",
+    "intro": "Her finner du informasjon om mottaket, husreglene, kildesortering og det viktigste om livet i Norge. Velg språket ditt øverst på siden.",
+    "sectionsLabel": "Innhold",
+    "backHome": "Til forsiden",
+    "comingSoon": "Mer informasjon kommer her.",
+    "emergencyTitle": "Nødnumre i Norge",
+    "emergencyNote": "Gratis fra alle telefoner, hele døgnet.",
+    "emergencyFire": "Brann",
+    "emergencyPolice": "Politi",
+    "emergencyAmbulance": "Ambulanse",
+    "emergencyDoctor": "Legevakt"
+  },
   "ui": {
     "siteTitle": "Kildesortering",
     "tagline": "Slik sorterer du avfallet hjemme",
@@ -39,6 +55,71 @@
     "quizYes": "Ja",
     "quizNo": "Nei",
     "quizBelongPrompt": "Skal dette i denne dunken?"
+  },
+  "pages": {
+    "om": {
+      "title": "Om mottaket",
+      "lead": "Vensmoen mottak ligger på Røkland i Saltdal kommune i Nordland.",
+      "blocks": [
+        {
+          "heading": "Adresse og kontakt"
+        },
+        {
+          "heading": "Resepsjonen"
+        },
+        {
+          "heading": "Slik kommer du deg hit"
+        }
+      ]
+    },
+    "regler": {
+      "title": "Husregler",
+      "lead": "Reglene gjelder for alle som bor på mottaket, og finnes her på flere språk.",
+      "blocks": [
+        {
+          "heading": "Nattero"
+        },
+        {
+          "heading": "Kjøkken"
+        },
+        {
+          "heading": "Klesvask"
+        },
+        {
+          "heading": "Renhold"
+        },
+        {
+          "heading": "Besøk"
+        },
+        {
+          "heading": "Brannsikkerhet"
+        }
+      ]
+    },
+    "guide": {
+      "title": "Praktisk guide",
+      "lead": "Det viktigste om hverdagen i Norge – kort forklart.",
+      "blocks": [
+        {
+          "heading": "Helse og lege"
+        },
+        {
+          "heading": "Skole og barnehage"
+        },
+        {
+          "heading": "Norskkurs"
+        },
+        {
+          "heading": "Penger og bank"
+        },
+        {
+          "heading": "Transport"
+        },
+        {
+          "heading": "Butikker og handel"
+        }
+      ]
+    }
   },
   "fractions": {
     "matavfall": {

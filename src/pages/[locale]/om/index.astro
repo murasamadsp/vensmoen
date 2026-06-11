@@ -1,0 +1,13 @@
+---
+import InfoPage from '../../../components/InfoPage.astro';
+import { localeCodes } from '../../../i18n/locales';
+
+export function getStaticPaths() {
+  return localeCodes.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+if (!locale) throw new Error('locale route param is required');
+---
+
+<InfoPage locale={locale} pageKey="om" />

@@ -1,0 +1,44 @@
+---
+import GuideBody from '../../../components/GuideBody.astro';
+import LanguagePicker from '../../../components/LanguagePicker.astro';
+import { localeCodes } from '../../../i18n/locales';
+import { localeHome, localePrint, localeQuiz } from '../../../i18n/paths';
+import { getStrings } from '../../../i18n/strings';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return localeCodes.map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+if (!locale) throw new Error('locale route param is required');
+const t = getStrings(locale);
+const ui = t.ui;
+---
+
+<BaseLayout
+  locale={locale}
+  title={t.meta.title}
+  description={t.meta.description}
+>
+  <a class="skip-link" href="#main">{ui.skipToContent}</a>
+
+  <header class="site-header">
+    <div class="wrap site-header__bar site-header__bar--quiz">
+      <div class="brand">
+        <a class="brand__mark brand__link" href={localeHome(locale)}
+          >{t.site.name}</a
+        >
+      </div>
+      <div class="site-header__tools">
+        <LanguagePicker current={locale} label={ui.languagePicker} />
+        <a class="btn btn--ghost" href={localeQuiz(locale)}>{ui.quizNav}</a>
+        <a class="btn" href={localePrint(locale)}>{ui.print}</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <GuideBody t={t} />
+  </main>
+</BaseLayout>

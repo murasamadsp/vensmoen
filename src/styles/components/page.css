@@ -1,0 +1,49 @@
+/* Infosider (om/regler/guide): tittel, ingress og innholdsblokker */
+.info-page {
+  padding-block-end: var(--space-5);
+}
+.info-page__head {
+  margin-block: var(--space-section) var(--space-5);
+}
+.info-page__head .page-title {
+  margin-block-end: var(--space-2);
+}
+
+.info-block {
+  margin-block-end: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+.info-block__heading {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+.info-block__body {
+  margin: 0;
+  max-width: 70ch;
+}
+/* Ærlig plassholder – innholdet er bevisst ikke skrevet ennå */
+.info-block__soon {
+  display: inline-block;
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border: 1.5px dashed var(--color-line);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-soft);
+  font-style: italic;
+}
+
+/* Felles bunntekst for hub og infosider */
+.site-footer {
+  border-block-start: 1px solid var(--color-line);
+  padding-block: var(--space-4);
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+.site-footer p {
+  margin: 0;
+}

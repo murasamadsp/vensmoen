@@ -65,7 +65,9 @@ a {
 .frac__items,
 .guide__foot p,
 .quiz__item,
-.quiz__feedback {
+.quiz__feedback,
+.emg__num,
+.site-footer p {
   unicode-bidi: plaintext;
 }
 .frac__line,

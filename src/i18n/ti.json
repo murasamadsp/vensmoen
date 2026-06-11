@@ -4,6 +4,22 @@
     "description": "ኣብ ገዛኻ ጓሓፍ ብኸመይ ከም እትፍሊ ዝሕብር ቀሊል ብዙሕ-ቋንቋ መምርሒ።",
     "descriptionQuiz": "ብዛዕባ ምፍላይ ጓሓፍ ፍልጠትካ ፈትን። ብዛዕባ እቲ ቅኑዕ በርሚል ዝሓትት ምስሕሓብ ፈተና።"
   },
+  "site": {
+    "title": "ማእከል መቐበሊ Vensmoen – ሓበሬታ ንነበርቲ",
+    "description": "ቀዋሚ ሓበሬታ ንነበርቲ ማእከል መቐበሊ Vensmoen ኣብ Saltdal፦ ብዛዕባ እቲ ማእከል፣ ሕግታት መንበሪ፣ ምፍላይ ጓሓፍ፣ ከምኡውን ግብራዊ መምርሒ ንህይወት ኣብ ኖርወይ።",
+    "name": "Vensmoen mottak",
+    "tagline": "ሓበሬታ ንነበርቲ",
+    "intro": "ኣብዚ ብዛዕባ እቲ ማእከል፣ ሕግታት መንበሪ፣ ምፍላይ ጓሓፍ፣ ከምኡውን ኣገዳሲ ሓበሬታ ብዛዕባ ህይወት ኣብ ኖርወይ ትረክብ። ቋንቋኻ ኣብ ላዕሊ ገጽ ምረጽ።",
+    "sectionsLabel": "ትሕዝቶ",
+    "backHome": "ናብ መጀመርታ ገጽ",
+    "comingSoon": "ተወሳኺ ሓበሬታ ኣብዚ ክውሰኽ እዩ።",
+    "emergencyTitle": "ቁጽርታት ህጹጽ ረድኤት ኣብ ኖርወይ",
+    "emergencyNote": "ካብ ዝኾነ ተሌፎን ብናጻ፣ መዓልትን ለይትን።",
+    "emergencyFire": "መጥፋእቲ ሓዊ",
+    "emergencyPolice": "ፖሊስ",
+    "emergencyAmbulance": "ኣምቡላንስ",
+    "emergencyDoctor": "ህጹጽ ሕክምና (legevakt)"
+  },
   "ui": {
     "siteTitle": "ምፍላይ ጓሓፍ",
     "tagline": "ጓሓፍካ ኣብ ገዛ ብኸመይ ከም እትፍሊ",
@@ -39,6 +55,71 @@
     "quizYes": "እወ",
     "quizNo": "ኣይኮነን",
     "quizBelongPrompt": "እዚ ኣብዚ በርሚል ይኣቱ ድዩ?"
+  },
+  "pages": {
+    "om": {
+      "title": "ብዛዕባ እቲ ማእከል",
+      "lead": "ማእከል መቐበሊ Vensmoen ኣብ Røkland፣ ኮሙነ Saltdal፣ Nordland ይርከብ።",
+      "blocks": [
+        {
+          "heading": "ኣድራሻን ርክብን"
+        },
+        {
+          "heading": "መቐበሊ (ረሰፕሽን)"
+        },
+        {
+          "heading": "ከመይ ጌርካ ትመጽእ"
+        }
+      ]
+    },
+    "regler": {
+      "title": "ሕግታት መንበሪ",
+      "lead": "እዞም ሕግታት ንኹሎም ኣብቲ ማእከል ዝነብሩ ይምልከቱ፣ ኣብዚ ብብዙሕ ቋንቋታት ይርከቡ።",
+      "blocks": [
+        {
+          "heading": "ጸጥታ ለይቲ"
+        },
+        {
+          "heading": "ክሽነ"
+        },
+        {
+          "heading": "ሕጸባ ክዳውንቲ"
+        },
+        {
+          "heading": "ጽሬት"
+        },
+        {
+          "heading": "በጻሕቲ"
+        },
+        {
+          "heading": "ድሕነት ካብ ሓዊ"
+        }
+      ]
+    },
+    "guide": {
+      "title": "ግብራዊ መምርሒ",
+      "lead": "ኣገዳሲ ነገራት ብዛዕባ ዕለታዊ ህይወት ኣብ ኖርወይ፣ ብሓጺሩ።",
+      "blocks": [
+        {
+          "heading": "ጥዕናን ሓኪምን"
+        },
+        {
+          "heading": "ቤት ትምህርትን መውዓሊ ህጻናትን"
+        },
+        {
+          "heading": "ትምህርቲ ቋንቋ ኖርወይ"
+        },
+        {
+          "heading": "ገንዘብን ባንክን"
+        },
+        {
+          "heading": "መጓዓዝያ"
+        },
+        {
+          "heading": "ድኳናትን ዕድጊን"
+        }
+      ]
+    }
   },
   "fractions": {
     "matavfall": {

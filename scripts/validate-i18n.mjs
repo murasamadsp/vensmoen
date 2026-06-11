@@ -54,6 +54,44 @@ for (const code of codes) {
   for (const id of locIds)
     if (!refIds.includes(id))
       errors.push(`[${code}] ukjent fraksjon "${id}" (ikke i ${REFERENCE})`);
+
+  // Hub-tekster (site.*) – alle nøkler fra referansen må finnes og være satt.
+  for (const key of Object.keys(ref.site)) {
+    if (typeof loc.site?.[key] !== 'string' || !loc.site[key].trim())
+      errors.push(`[${code}] site.${key} mangler eller er tom`);
+  }
+
+  // Infosider (pages.*) – samme sider, samme antall blokker som referansen.
+  for (const pageKey of Object.keys(ref.pages)) {
+    const refPage = ref.pages[pageKey];
+    const locPage = loc.pages?.[pageKey];
+    if (!locPage) {
+      errors.push(`[${code}] pages.${pageKey} mangler`);
+      continue;
+    }
+    for (const field of ['title', 'lead']) {
+      if (typeof locPage[field] !== 'string' || !locPage[field].trim())
+        errors.push(`[${code}] pages.${pageKey}.${field} mangler eller er tom`);
+    }
+    const refBlocks = refPage.blocks ?? [];
+    const locBlocks = locPage.blocks ?? [];
+    if (locBlocks.length !== refBlocks.length) {
+      errors.push(
+        `[${code}] pages.${pageKey}.blocks: ${locBlocks.length} blokker, forventet ${refBlocks.length}`,
+      );
+      continue;
+    }
+    refBlocks.forEach((refBlock, i) => {
+      const b = locBlocks[i];
+      if (typeof b?.heading !== 'string' || !b.heading.trim())
+        errors.push(`[${code}] pages.${pageKey}.blocks[${i}].heading ugyldig`);
+      // body er valgfri, men ref og lokale må være enige (plassholder-logikk)
+      const refHasBody = typeof refBlock.body === 'string';
+      const locHasBody = typeof b?.body === 'string' && b.body.trim();
+      if (refHasBody && !locHasBody)
+        errors.push(`[${code}] pages.${pageKey}.blocks[${i}].body mangler`);
+    });
+  }
 }
 
 if (errors.length) {
@@ -62,5 +100,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(
-  `i18n OK: ${codes.length} lokaler, alle ui/meta/fraksjon-nøkler synkronisert mot ${REFERENCE}.`,
+  `i18n OK: ${codes.length} lokaler, alle ui/meta/site/pages/fraksjon-nøkler synkronisert mot ${REFERENCE}.`,
 );

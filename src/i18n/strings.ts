@@ -14,8 +14,43 @@ export interface FractionStrings {
   note?: string;
 }
 
+export interface PageBlock {
+  heading: string;
+  /** Uten body viser siden ui-teksten site.comingSoon (ærlig plassholder). */
+  body?: string;
+}
+
+export interface PageStrings {
+  title: string;
+  lead: string;
+  blocks: PageBlock[];
+}
+
+/** Sidenøkler = URL-segmenter (samme på alle språk, kun locale varierer). */
+export type PageKey = 'om' | 'regler' | 'guide';
+
+/** Tekster for mottaks-huben (forsiden + infosidene). */
+export interface SiteStrings {
+  title: string;
+  description: string;
+  name: string;
+  tagline: string;
+  intro: string;
+  sectionsLabel: string;
+  backHome: string;
+  comingSoon: string;
+  emergencyTitle: string;
+  emergencyNote: string;
+  emergencyFire: string;
+  emergencyPolice: string;
+  emergencyAmbulance: string;
+  emergencyDoctor: string;
+}
+
 export interface Strings {
   meta: { title: string; description: string; descriptionQuiz: string };
+  site: SiteStrings;
+  pages: Record<PageKey, PageStrings>;
   ui: {
     siteTitle: string;
     tagline: string;
