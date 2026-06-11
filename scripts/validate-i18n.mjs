@@ -69,7 +69,7 @@ for (const code of codes) {
       errors.push(`[${code}] pages.${pageKey} mangler`);
       continue;
     }
-    for (const field of ['title', 'lead']) {
+    for (const field of ['title', 'lead', 'cardDesc']) {
       if (typeof locPage[field] !== 'string' || !locPage[field].trim())
         errors.push(`[${code}] pages.${pageKey}.${field} mangler eller er tom`);
     }

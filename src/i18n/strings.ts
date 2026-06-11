@@ -23,6 +23,8 @@ export interface PageBlock {
 export interface PageStrings {
   title: string;
   lead: string;
+  /** Kort kortbeskrivelse til huben – 3–4 ord, deterministisk høyde. */
+  cardDesc: string;
   blocks: PageBlock[];
 }
 

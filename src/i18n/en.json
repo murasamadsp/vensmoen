@@ -60,6 +60,7 @@
     "om": {
       "title": "About the centre",
       "lead": "Vensmoen reception centre is located at Røkland in Saltdal municipality, Nordland.",
+      "cardDesc": "Address, contact and directions",
       "blocks": [
         {
           "heading": "Address and contact"
@@ -75,6 +76,7 @@
     "regler": {
       "title": "House rules",
       "lead": "The rules apply to everyone living at the centre and are available here in several languages.",
+      "cardDesc": "Quiet hours, kitchen, laundry, visitors",
       "blocks": [
         {
           "heading": "Quiet hours"
@@ -99,6 +101,7 @@
     "guide": {
       "title": "Practical guide",
       "lead": "The essentials of everyday life in Norway, explained briefly.",
+      "cardDesc": "Health, school, bank and transport",
       "blocks": [
         {
           "heading": "Health and doctor"

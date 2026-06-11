@@ -60,6 +60,7 @@
     "om": {
       "title": "Sobre el centro",
       "lead": "El centro de acogida Vensmoen está en Røkland, municipio de Saltdal, en Nordland.",
+      "cardDesc": "Dirección, contacto y cómo llegar",
       "blocks": [
         {
           "heading": "Dirección y contacto"
@@ -75,6 +76,7 @@
     "regler": {
       "title": "Normas de la casa",
       "lead": "Las normas se aplican a todas las personas que viven en el centro y están disponibles aquí en varios idiomas.",
+      "cardDesc": "Silencio, cocina, lavandería, visitas",
       "blocks": [
         {
           "heading": "Silencio nocturno"
@@ -99,6 +101,7 @@
     "guide": {
       "title": "Guía práctica",
       "lead": "Lo esencial de la vida cotidiana en Noruega, explicado en breve.",
+      "cardDesc": "Salud, escuela, banco y transporte",
       "blocks": [
         {
           "heading": "Salud y médico"
