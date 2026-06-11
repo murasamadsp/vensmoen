@@ -70,6 +70,15 @@
         },
         {
           "heading": "Slik kommer du deg hit"
+        },
+        {
+          "heading": "Ansatte"
+        },
+        {
+          "heading": "Beboerrådet"
+        },
+        {
+          "heading": "Aktiviteter og fellesrom"
         }
       ]
     },
@@ -94,6 +103,15 @@
           "heading": "Besøk"
         },
         {
+          "heading": "Røyking"
+        },
+        {
+          "heading": "Fravær og overnatting borte"
+        },
+        {
+          "heading": "Feil og skader"
+        },
+        {
           "heading": "Brannsikkerhet"
         }
       ]
@@ -107,19 +125,40 @@
           "heading": "Helse og lege"
         },
         {
+          "heading": "Tannlege"
+        },
+        {
           "heading": "Skole og barnehage"
         },
         {
           "heading": "Norskkurs"
         },
         {
+          "heading": "UDI og asylprosessen"
+        },
+        {
           "heading": "Penger og bank"
+        },
+        {
+          "heading": "Post og pakker"
+        },
+        {
+          "heading": "Internett, telefon og SIM-kort"
         },
         {
           "heading": "Transport"
         },
         {
           "heading": "Butikker og handel"
+        },
+        {
+          "heading": "Vinter, klær og vær"
+        },
+        {
+          "heading": "Fritid og aktiviteter"
+        },
+        {
+          "heading": "Tolk"
         }
       ]
     }

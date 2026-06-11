@@ -70,6 +70,15 @@
         },
         {
           "heading": "How to get here"
+        },
+        {
+          "heading": "Staff"
+        },
+        {
+          "heading": "Residents’ council"
+        },
+        {
+          "heading": "Activities and common rooms"
         }
       ]
     },
@@ -94,6 +103,15 @@
           "heading": "Visitors"
         },
         {
+          "heading": "Smoking"
+        },
+        {
+          "heading": "Absence and nights away"
+        },
+        {
+          "heading": "Faults and damage"
+        },
+        {
           "heading": "Fire safety"
         }
       ]
@@ -107,19 +125,40 @@
           "heading": "Health and doctor"
         },
         {
+          "heading": "Dentist"
+        },
+        {
           "heading": "School and kindergarten"
         },
         {
           "heading": "Norwegian classes"
         },
         {
+          "heading": "UDI and the asylum process"
+        },
+        {
           "heading": "Money and banking"
+        },
+        {
+          "heading": "Post and parcels"
+        },
+        {
+          "heading": "Internet, phone and SIM cards"
         },
         {
           "heading": "Transport"
         },
         {
           "heading": "Shops and shopping"
+        },
+        {
+          "heading": "Winter, clothing and weather"
+        },
+        {
+          "heading": "Leisure and activities"
+        },
+        {
+          "heading": "Interpreter"
         }
       ]
     }

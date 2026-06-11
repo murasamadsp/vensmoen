@@ -70,6 +70,15 @@
         },
         {
           "heading": "Cómo llegar"
+        },
+        {
+          "heading": "El personal"
+        },
+        {
+          "heading": "Consejo de residentes"
+        },
+        {
+          "heading": "Actividades y salas comunes"
         }
       ]
     },
@@ -94,6 +103,15 @@
           "heading": "Visitas"
         },
         {
+          "heading": "Fumar"
+        },
+        {
+          "heading": "Ausencias y noches fuera"
+        },
+        {
+          "heading": "Averías y daños"
+        },
+        {
           "heading": "Seguridad contra incendios"
         }
       ]
@@ -107,19 +125,40 @@
           "heading": "Salud y médico"
         },
         {
+          "heading": "Dentista"
+        },
+        {
           "heading": "Escuela y guardería"
         },
         {
           "heading": "Clases de noruego"
         },
         {
+          "heading": "UDI y el proceso de asilo"
+        },
+        {
           "heading": "Dinero y banco"
+        },
+        {
+          "heading": "Correo y paquetes"
+        },
+        {
+          "heading": "Internet, teléfono y tarjetas SIM"
         },
         {
           "heading": "Transporte"
         },
         {
           "heading": "Tiendas y compras"
+        },
+        {
+          "heading": "Invierno, ropa y clima"
+        },
+        {
+          "heading": "Ocio y actividades"
+        },
+        {
+          "heading": "Intérprete"
         }
       ]
     }
