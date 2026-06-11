@@ -1,6 +1,8 @@
 ---
 import InfoPage from '../../../components/InfoPage.astro';
+import { mapLinks } from '../../../data/location';
 import { localeCodes } from '../../../i18n/locales';
+import { getStrings } from '../../../i18n/strings';
 
 export function getStaticPaths() {
   return localeCodes.map((locale) => ({ params: { locale } }));
@@ -8,6 +10,27 @@ export function getStaticPaths() {
 
 const { locale } = Astro.params;
 if (!locale) throw new Error('locale route param is required');
+const t = getStrings(locale);
 ---
 
-<InfoPage locale={locale} pageKey="om" />
+<InfoPage locale={locale} pageKey="om">
+  <section class="info-block">
+    <h2 class="info-block__heading">{t.site.mapTitle}</h2>
+    <div class="map-links">
+      {
+        mapLinks.map((link) => (
+          <a
+            class="btn btn--ghost"
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-describedby="newtab-note"
+          >
+            {link.name}
+          </a>
+        ))
+      }
+    </div>
+    <span id="newtab-note" class="sr-only">{t.ui.opensInNewTab}</span>
+  </section>
+</InfoPage>

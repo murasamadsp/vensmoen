@@ -13,6 +13,7 @@
     "sectionsLabel": "Contenido",
     "backHome": "Volver a la página principal",
     "comingSoon": "Aquí se añadirá más información.",
+    "mapTitle": "Mapa y cómo llegar",
     "emergencyTitle": "Números de emergencia en Noruega",
     "emergencyNote": "Gratis desde cualquier teléfono, a cualquier hora.",
     "emergencyFire": "Bomberos",
@@ -64,21 +65,6 @@
       "blocks": [
         {
           "heading": "Dirección y contacto"
-        },
-        {
-          "heading": "Recepción"
-        },
-        {
-          "heading": "Cómo llegar"
-        },
-        {
-          "heading": "El personal"
-        },
-        {
-          "heading": "Consejo de residentes"
-        },
-        {
-          "heading": "Actividades y salas comunes"
         }
       ]
     },

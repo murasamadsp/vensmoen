@@ -13,6 +13,7 @@
     "sectionsLabel": "ትሕዝቶ",
     "backHome": "ናብ መጀመርታ ገጽ",
     "comingSoon": "ተወሳኺ ሓበሬታ ኣብዚ ክውሰኽ እዩ።",
+    "mapTitle": "ካርታን መገድን",
     "emergencyTitle": "ቁጽርታት ህጹጽ ረድኤት ኣብ ኖርወይ",
     "emergencyNote": "ካብ ዝኾነ ተሌፎን ብናጻ፣ መዓልትን ለይትን።",
     "emergencyFire": "መጥፋእቲ ሓዊ",
@@ -64,21 +65,6 @@
       "blocks": [
         {
           "heading": "ኣድራሻን ርክብን"
-        },
-        {
-          "heading": "መቐበሊ (ረሰፕሽን)"
-        },
-        {
-          "heading": "ከመይ ጌርካ ትመጽእ"
-        },
-        {
-          "heading": "ሰራሕተኛታት"
-        },
-        {
-          "heading": "ቤት ምኽሪ ነበርቲ"
-        },
-        {
-          "heading": "ንጥፈታትን ናይ ሓባር ክፍልታትን"
         }
       ]
     },

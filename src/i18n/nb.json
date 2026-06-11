@@ -13,6 +13,7 @@
     "sectionsLabel": "Innhold",
     "backHome": "Til forsiden",
     "comingSoon": "Mer informasjon kommer her.",
+    "mapTitle": "Kart og veibeskrivelse",
     "emergencyTitle": "Nødnumre i Norge",
     "emergencyNote": "Gratis fra alle telefoner, hele døgnet.",
     "emergencyFire": "Brann",
@@ -64,21 +65,6 @@
       "blocks": [
         {
           "heading": "Adresse og kontakt"
-        },
-        {
-          "heading": "Resepsjonen"
-        },
-        {
-          "heading": "Slik kommer du deg hit"
-        },
-        {
-          "heading": "Ansatte"
-        },
-        {
-          "heading": "Beboerrådet"
-        },
-        {
-          "heading": "Aktiviteter og fellesrom"
         }
       ]
     },

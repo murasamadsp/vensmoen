@@ -13,6 +13,7 @@
     "sectionsLabel": "Contents",
     "backHome": "Back to the front page",
     "comingSoon": "More information will be added here.",
+    "mapTitle": "Map and directions",
     "emergencyTitle": "Emergency numbers in Norway",
     "emergencyNote": "Free from any phone, day and night.",
     "emergencyFire": "Fire",
@@ -64,21 +65,6 @@
       "blocks": [
         {
           "heading": "Address and contact"
-        },
-        {
-          "heading": "Reception desk"
-        },
-        {
-          "heading": "How to get here"
-        },
-        {
-          "heading": "Staff"
-        },
-        {
-          "heading": "Residents’ council"
-        },
-        {
-          "heading": "Activities and common rooms"
         }
       ]
     },

@@ -37,6 +37,13 @@
   font-style: italic;
 }
 
+/* Kartlenker (om-siden): åpner kart-appen – ingen innebygd iframe */
+.map-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
 /* Felles bunntekst for hub og infosider */
 .site-footer {
   border-block-start: 1px solid var(--color-line);

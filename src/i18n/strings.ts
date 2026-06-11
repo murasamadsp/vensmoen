@@ -41,6 +41,7 @@ export interface SiteStrings {
   sectionsLabel: string;
   backHome: string;
   comingSoon: string;
+  mapTitle: string;
   emergencyTitle: string;
   emergencyNote: string;
   emergencyFire: string;
