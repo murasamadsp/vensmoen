@@ -94,6 +94,11 @@ const csp = [
       href={`${import.meta.env.BASE_URL}favicon.svg`}
       type="image/svg+xml"
     />
+    <!-- iOS hjemmeskjerm krever PNG (180×180, full-bleed bakgrunn) -->
+    <link
+      rel="apple-touch-icon"
+      href={`${import.meta.env.BASE_URL}apple-touch-icon.png`}
+    />
     <meta name="color-scheme" content="light dark" />
     <!-- Farger nettleser-UI (adressefelt på mobil) i sidens bakgrunn.
          Hex-verdier ≈ --color-bg i tokens.css (meta støtter ikke oklch). -->
