@@ -22,3 +22,10 @@
   color: var(--color-ink);
   border-color: var(--color-line);
 }
+
+/* Berøringsskjerm: minst 44px trykkflate (WCAG 2.5.8 / iOS-retningslinje) */
+@media (pointer: coarse) {
+  .btn {
+    min-block-size: 44px;
+  }
+}

@@ -12,6 +12,9 @@ h2 {
   font-family: var(--font-display);
   line-height: 1.15;
   font-weight: 600;
+  /* Jevnere linjebryting i flerlinjede overskrifter – viktig når
+     tittellengden varierer mellom seks språk (progressiv forbedring) */
+  text-wrap: balance;
 }
 
 a {

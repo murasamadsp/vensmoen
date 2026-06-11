@@ -95,6 +95,18 @@ const csp = [
       type="image/svg+xml"
     />
     <meta name="color-scheme" content="light dark" />
+    <!-- Farger nettleser-UI (adressefelt på mobil) i sidens bakgrunn.
+         Hex-verdier ≈ --color-bg i tokens.css (meta støtter ikke oklch). -->
+    <meta
+      name="theme-color"
+      content="#fbfaf4"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#24262e"
+      media="(prefers-color-scheme: dark)"
+    />
   </head>
   <body class={bodyClass}>
     <slot />

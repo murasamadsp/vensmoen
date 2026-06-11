@@ -17,7 +17,13 @@ html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   height: 100%;
-  scroll-behavior: smooth;
+}
+
+/* Smooth scroll only when the user hasn't asked for reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 /* Set core body defaults */
