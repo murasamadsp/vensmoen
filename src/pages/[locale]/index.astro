@@ -1,7 +1,7 @@
 ---
 import LanguagePicker from '../../components/LanguagePicker.astro';
 import SectionIcon from '../../components/SectionIcon.astro';
-import { emergencyNumbers } from '../../data/emergency';
+import { dutyPhone, emergencyNumbers } from '../../data/emergency';
 import { localeCodes } from '../../i18n/locales';
 import {
   localeAvfall,
@@ -64,7 +64,7 @@ const emergencyLabels: Record<string, string> = {
   <header class="site-header">
     <div class="wrap site-header__bar site-header__bar--quiz">
       <div class="brand">
-        <span class="brand__mark">{site.name}</span>
+        <!-- На главной бренд не дублируется в шапке -->
       </div>
       <div class="site-header__tools">
         <LanguagePicker current={locale} label={t.ui.languagePicker} />
@@ -97,6 +97,15 @@ const emergencyLabels: Record<string, string> = {
         ))
       }
     </nav>
+
+    {/* Черговий телефон – між розділами та екстреними номерами: помітно, але не плутається з 110/112/113 */}
+    <section class="duty" aria-labelledby="duty-title">
+      <div class="duty__body">
+        <h2 id="duty-title" class="duty__title">{site.dutyTitle}</h2>
+        <p class="duty__text">{site.dutyText}</p>
+      </div>
+      <a class="duty__phone" href={`tel:${dutyPhone.tel}`}>{dutyPhone.display}</a>
+    </section>
 
     <section class="emg" aria-labelledby="emg-title">
       <h2 id="emg-title" class="emg__title">{site.emergencyTitle}</h2>

@@ -20,6 +20,22 @@ export interface PageBlock {
   body?: string;
 }
 
+export interface ContactInfo {
+  role: string;
+  email: string;
+  /** Що ця людина вирішує. Поки реального тексту немає – чесна заглушка
+      («опис з'явиться»). Не вигадуємо те, чого не знаємо. */
+  desc: string;
+}
+
+export interface OmPageStrings extends PageStrings {
+  contactsTitle: string;
+  contactsIntro: string;
+  contacts: ContactInfo[];
+  transportTitle: string;
+  transportIntro: string;
+}
+
 export interface PageStrings {
   title: string;
   lead: string;
@@ -39,9 +55,11 @@ export interface SiteStrings {
   tagline: string;
   intro: string;
   sectionsLabel: string;
-  backHome: string;
   comingSoon: string;
   mapTitle: string;
+  /** Черговий телефон центру – цілодобовий, показується на головній сторінці. */
+  dutyTitle: string;
+  dutyText: string;
   emergencyTitle: string;
   emergencyNote: string;
   emergencyFire: string;
@@ -53,7 +71,11 @@ export interface SiteStrings {
 export interface Strings {
   meta: { title: string; description: string; descriptionQuiz: string };
   site: SiteStrings;
-  pages: Record<PageKey, PageStrings>;
+  pages: {
+    om: OmPageStrings;
+    regler: PageStrings;
+    guide: PageStrings;
+  };
   ui: {
     siteTitle: string;
     tagline: string;

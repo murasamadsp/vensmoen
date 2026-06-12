@@ -14,3 +14,10 @@ export const emergencyNumbers: EmergencyNumber[] = [
   { id: 'ambulance', tel: '113', display: '113' },
   { id: 'doctor', tel: '116117', display: '116 117' },
 ];
+
+// Черговий телефон центру: працює 24/7, навіть коли офіс зачинений.
+// Підписи (site.dutyTitle/dutyText) перекладаються в i18n, номер універсальний.
+export const dutyPhone = {
+  tel: '+4748201948',
+  display: '+47 482 01 948',
+} as const;

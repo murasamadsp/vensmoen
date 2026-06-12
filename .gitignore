@@ -13,3 +13,6 @@ npm-debug.log*
 .env
 .env.production
 .DS_Store
+shots/
+scratch/
+.playwright-mcp/

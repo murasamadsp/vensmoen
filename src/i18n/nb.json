@@ -11,9 +11,10 @@
     "tagline": "Informasjon for beboere",
     "intro": "Her finner du informasjon om mottaket, husreglene, kildesortering og det viktigste om livet i Norge. Velg språket ditt øverst på siden.",
     "sectionsLabel": "Innhold",
-    "backHome": "Til forsiden",
     "comingSoon": "Mer informasjon kommer her.",
     "mapTitle": "Kart og veibeskrivelse",
+    "dutyTitle": "Vakttelefon – hele døgnet",
+    "dutyText": "Når kontoret er stengt, ring vakttelefonen. I akutte situasjoner kobles alle aktuelle ansatte inn til saken er løst.",
     "emergencyTitle": "Nødnumre i Norge",
     "emergencyNote": "Gratis fra alle telefoner, hele døgnet.",
     "emergencyFire": "Brann",
@@ -62,43 +63,60 @@
       "title": "Om mottaket",
       "lead": "Vensmoen mottak ligger på Røkland i Saltdal kommune i Nordland.",
       "cardDesc": "Adresse, kontakt og veibeskrivelse",
+      "contactsTitle": "Ansatte og kontaktpersoner",
+      "contactsIntro": "Hver sak har sin ansvarlige. Skriv direkte til riktig person, så får du raskere svar.",
+      "contacts": [
+        {
+          "role": "Logistikk",
+          "email": "Logistikk.vensmoen@mottaksdriftnor.no",
+          "desc": "Beskrivelse kommer."
+        },
+        {
+          "role": "Økonomi",
+          "email": "saldo2023@yahoo.com",
+          "desc": "Beskrivelse kommer."
+        },
+        {
+          "role": "Sykepleier",
+          "email": "Inga.Mari.johansen@Saltdal.kommune.no",
+          "desc": "Beskrivelse kommer."
+        },
+        {
+          "role": "Bosetting",
+          "email": "innretur.vensmoen@mottaksdriftnor.no",
+          "desc": "Beskrivelse kommer."
+        },
+        {
+          "role": "Barnefaglig",
+          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no",
+          "desc": "Beskrivelse kommer."
+        }
+      ],
+      "transportTitle": "Buss og tog",
+      "transportIntro": "Buss og tog går sjelden fra Røkland, og enda sjeldnere i høytidene. Sjekk rutetidene før hver reise:",
       "blocks": [
         {
-          "heading": "Adresse og kontakt"
+          "heading": "Kontoret",
+          "body": "Kontoret er åpent på hverdager kl. 08.00–16.00, i helger og på helligdager er bygget stengt.\nFør du kommer innom, send en e-post til logistikkansvarlig og oppgi kort årsaken. Da er den ansatte du trenger på plass når du kommer – eller hjelper deg uten at du trenger å møte opp."
         }
       ]
     },
     "regler": {
       "title": "Husregler",
       "lead": "Reglene gjelder for alle som bor på mottaket, og finnes her på flere språk.",
-      "cardDesc": "Nattero, kjøkken, vask og besøk",
+      "cardDesc": "Orden, bruk av rom, overnatting",
       "blocks": [
         {
-          "heading": "Nattero"
+          "heading": "Ro, orden og sikkerhet",
+          "body": "• Det skal være rolig på mottaket fra kl. 23.00 til kl. 06.00.\n• Du skal ikke forstyrre eller oppføre deg på en måte som er ubehagelig for andre. Vold, hærværk eller andre straffbare forhold blir politianmeldt.\n• Det er ikke tillatt å drikke alkohol i fellesarealene.\n• Røyking, vannpipe og e-sigaretter er forbudt i fellesarealene og på beboerrommene.\n• Kjæledyr er ikke tillatt på asylmottaket.\n• Du må gjøre deg kjent med brannvernreglene og vite hva du skal gjøre i en krisesituasjon."
         },
         {
-          "heading": "Kjøkken"
+          "heading": "Bruk av rom og utstyr",
+          "body": "• Hold fellesrom og uteområder ryddige. Sykler, barnevogner og annet utstyr må ikke blokkere rømningsveier.\n• Hold beboerrommet ditt rent og ryddig.\n• Du må kildesortere avfallet ditt og kaste det i riktige søppelkasser.\n• Fellesrommene inne skal vaskes regelmessig etter oppsatte vaskelister. Du må vaske når det er din tur.\n• Vaskemaskiner, kjøkkenutstyr og annet vaskeutstyr skal brukes i samsvar med bruksanvisningene."
         },
         {
-          "heading": "Klesvask"
-        },
-        {
-          "heading": "Renhold"
-        },
-        {
-          "heading": "Besøk"
-        },
-        {
-          "heading": "Røyking"
-        },
-        {
-          "heading": "Fravær og overnatting borte"
-        },
-        {
-          "heading": "Feil og skader"
-        },
-        {
-          "heading": "Brannsikkerhet"
+          "heading": "Overnattingsbesøk",
+          "body": "• Overnattingsbesøk må alltid avtales og godkjennes av mottaket på forhånd. Mottaket kan avslå forespørselen.\n• Voksne kan ha overnattingsbesøk av egne barn, samt venner og familiemedlemmer som bor på andre asylmottak.\n• Barn under 18 år kan ha overnattingsbesøk av foreldre, søsken og jevnaldrende venner.\n• Alle overnattingsgjester må bo i Norge og fremvise gyldig legitimasjon eller asylsøkerbevis til de ansatte.\n• Du er selv ansvarlig for å skaffe mat og sengetøy til dine gjester, og du må sørge for at de viser hensyn til andre beboere."
         }
       ]
     },
@@ -108,16 +126,10 @@
       "cardDesc": "Helse, skole, bank og transport",
       "blocks": [
         {
-          "heading": "Helse og lege"
-        },
-        {
-          "heading": "Tannlege"
+          "heading": "Helse, lege og tannlege"
         },
         {
           "heading": "Skole og barnehage"
-        },
-        {
-          "heading": "Norskkurs"
         },
         {
           "heading": "UDI og asylprosessen"
@@ -138,13 +150,7 @@
           "heading": "Butikker og handel"
         },
         {
-          "heading": "Vinter, klær og vær"
-        },
-        {
           "heading": "Fritid og aktiviteter"
-        },
-        {
-          "heading": "Tolk"
         }
       ]
     }

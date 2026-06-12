@@ -11,9 +11,10 @@
     "tagline": "Information for residents",
     "intro": "Here you will find information about the centre, the house rules, waste sorting and the essentials of life in Norway. Choose your language at the top of the page.",
     "sectionsLabel": "Contents",
-    "backHome": "Back to the front page",
     "comingSoon": "More information will be added here.",
     "mapTitle": "Map and directions",
+    "dutyTitle": "Duty phone – around the clock",
+    "dutyText": "When the office is closed, call the duty phone. In urgent situations all relevant staff step in until the matter is resolved.",
     "emergencyTitle": "Emergency numbers in Norway",
     "emergencyNote": "Free from any phone, day and night.",
     "emergencyFire": "Fire",
@@ -62,43 +63,60 @@
       "title": "About the centre",
       "lead": "Vensmoen reception centre is located at Røkland in Saltdal municipality, Nordland.",
       "cardDesc": "Address, contact and directions",
+      "contactsTitle": "Staff and Contact Persons",
+      "contactsIntro": "Every matter has its own contact person. Write directly to the right one, and you will get an answer faster.",
+      "contacts": [
+        {
+          "role": "Logistics",
+          "email": "Logistikk.vensmoen@mottaksdriftnor.no",
+          "desc": "Description coming soon."
+        },
+        {
+          "role": "Finances",
+          "email": "saldo2023@yahoo.com",
+          "desc": "Description coming soon."
+        },
+        {
+          "role": "Nurse",
+          "email": "Inga.Mari.johansen@Saltdal.kommune.no",
+          "desc": "Description coming soon."
+        },
+        {
+          "role": "Settlement",
+          "email": "innretur.vensmoen@mottaksdriftnor.no",
+          "desc": "Description coming soon."
+        },
+        {
+          "role": "Children and youth",
+          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no",
+          "desc": "Description coming soon."
+        }
+      ],
       "blocks": [
         {
-          "heading": "Address and contact"
+          "heading": "The office",
+          "body": "The office is open on weekdays from 08:00 to 16:00; on weekends and public holidays the building is closed.\nBefore coming by, email the logistics coordinator and briefly state the reason. That way the person you need will be there when you arrive – or will help you without a visit."
         }
-      ]
+      ],
+      "transportTitle": "Bus and train",
+      "transportIntro": "Buses and trains through Røkland run infrequently, and even less often on public holidays. Check the timetable before every trip:"
     },
     "regler": {
       "title": "House rules",
       "lead": "The rules apply to everyone living at the centre and are available here in several languages.",
-      "cardDesc": "Quiet hours, kitchen, laundry, visitors",
+      "cardDesc": "Order, room usage, overnight visits",
       "blocks": [
         {
-          "heading": "Quiet hours"
+          "heading": "Peace, order and safety",
+          "body": "• The reception centre must be quiet from 23:00 to 06:00.\n• You must not disturb others or behave in an unpleasant manner. Violence, vandalism, or other criminal acts will be reported to the police.\n• Drinking alcohol in common areas is not allowed.\n• Smoking, water pipes, and e-cigarettes are prohibited in common areas and in your room.\n• Pets are not allowed at the reception centre.\n• You must familiarize yourself with the fire safety rules and know what to do in an emergency."
         },
         {
-          "heading": "Kitchen"
+          "heading": "Use of rooms and equipment",
+          "body": "• Keep common areas and outdoor spaces tidy. Bicycles, strollers, and other equipment must not block escape routes.\n• Keep your room clean and tidy.\n• You must sort your waste and throw it into the correct bins.\n• Common indoor areas must be cleaned regularly according to the cleaning schedules. You must clean when it is your turn.\n• Washing machines, kitchen appliances, and cleaning equipment must be used according to their user manuals."
         },
         {
-          "heading": "Laundry"
-        },
-        {
-          "heading": "Cleaning"
-        },
-        {
-          "heading": "Visitors"
-        },
-        {
-          "heading": "Smoking"
-        },
-        {
-          "heading": "Absence and nights away"
-        },
-        {
-          "heading": "Faults and damage"
-        },
-        {
-          "heading": "Fire safety"
+          "heading": "Overnight visits",
+          "body": "• Overnight visits must always be arranged and approved by the reception centre in advance. The centre may deny the request.\n• Adults may have overnight visits from their own children, as well as friends and family members living in other reception centres.\n• Children under 18 may have overnight visits from parents, siblings, and peer friends.\n• All overnight guests must reside in Norway and present a valid ID or asylum seeker certificate to the staff.\n• You are responsible for providing food and bedding for your guests, and you must ensure they show consideration for other residents."
         }
       ]
     },
@@ -108,16 +126,10 @@
       "cardDesc": "Health, school, bank and transport",
       "blocks": [
         {
-          "heading": "Health and doctor"
-        },
-        {
-          "heading": "Dentist"
+          "heading": "Health, doctor and dentist"
         },
         {
           "heading": "School and kindergarten"
-        },
-        {
-          "heading": "Norwegian classes"
         },
         {
           "heading": "UDI and the asylum process"
@@ -138,13 +150,7 @@
           "heading": "Shops and shopping"
         },
         {
-          "heading": "Winter, clothing and weather"
-        },
-        {
           "heading": "Leisure and activities"
-        },
-        {
-          "heading": "Interpreter"
         }
       ]
     }

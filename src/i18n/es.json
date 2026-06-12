@@ -11,9 +11,10 @@
     "tagline": "Información para residentes",
     "intro": "Aquí encontrarás información sobre el centro, las normas de la casa, la separación de residuos y lo esencial de la vida en Noruega. Elige tu idioma en la parte superior de la página.",
     "sectionsLabel": "Contenido",
-    "backHome": "Volver a la página principal",
     "comingSoon": "Aquí se añadirá más información.",
     "mapTitle": "Mapa y cómo llegar",
+    "dutyTitle": "Teléfono de guardia – las 24 horas",
+    "dutyText": "Cuando la oficina está cerrada, llame al teléfono de guardia. En situaciones urgentes interviene todo el personal necesario hasta resolver el asunto.",
     "emergencyTitle": "Números de emergencia en Noruega",
     "emergencyNote": "Gratis desde cualquier teléfono, a cualquier hora.",
     "emergencyFire": "Bomberos",
@@ -62,43 +63,60 @@
       "title": "Sobre el centro",
       "lead": "El centro de acogida Vensmoen está en Røkland, municipio de Saltdal, en Nordland.",
       "cardDesc": "Dirección, contacto y cómo llegar",
+      "contactsTitle": "Personal y Personas de Contacto",
+      "contactsIntro": "Cada asunto tiene su responsable. Escriba directamente a la persona indicada y recibirá respuesta antes.",
+      "contacts": [
+        {
+          "role": "Logística",
+          "email": "Logistikk.vensmoen@mottaksdriftnor.no",
+          "desc": "La descripción estará disponible pronto."
+        },
+        {
+          "role": "Economía",
+          "email": "saldo2023@yahoo.com",
+          "desc": "La descripción estará disponible pronto."
+        },
+        {
+          "role": "Enfermera",
+          "email": "Inga.Mari.johansen@Saltdal.kommune.no",
+          "desc": "La descripción estará disponible pronto."
+        },
+        {
+          "role": "Asentamiento",
+          "email": "innretur.vensmoen@mottaksdriftnor.no",
+          "desc": "La descripción estará disponible pronto."
+        },
+        {
+          "role": "Infancia y juventud",
+          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no",
+          "desc": "La descripción estará disponible pronto."
+        }
+      ],
       "blocks": [
         {
-          "heading": "Dirección y contacto"
+          "heading": "La oficina",
+          "body": "La oficina abre los días laborables de 08:00 a 16:00; los fines de semana y festivos el edificio permanece cerrado.\nAntes de venir, escriba al responsable de logística indicando brevemente el motivo. Así la persona que necesita estará en su puesto cuando llegue, o le ayudará a distancia, sin necesidad de visita."
         }
-      ]
+      ],
+      "transportTitle": "Autobús y tren",
+      "transportIntro": "Los autobuses y trenes por Røkland pasan con poca frecuencia, y menos aún en festivos. Consulte los horarios antes de cada viaje:"
     },
     "regler": {
       "title": "Normas de la casa",
       "lead": "Las normas se aplican a todas las personas que viven en el centro y están disponibles aquí en varios idiomas.",
-      "cardDesc": "Silencio, cocina, lavandería, visitas",
+      "cardDesc": "Orden, uso de habitaciones, pernoctación",
       "blocks": [
         {
-          "heading": "Silencio nocturno"
+          "heading": "Paz, orden y seguridad",
+          "body": "• Debe haber silencio en el centro desde las 23:00 hasta las 06:00.\n• No debe molestar a los demás ni comportarse de manera desagradable. La violencia, el vandalismo u otros actos delictivos se denunciarán a la policía.\n• No está permitido consumir alcohol en las zonas comunes.\n• Está prohibido fumar cigarrillos, pipas de agua o cigarrillos electrónicos en las zonas comunes o en su habitación.\n• No se permiten mascotas en el centro de acogida.\n• Debe familiarizarse con las normas de seguridad contra incendios y saber qué hacer en caso de emergencia."
         },
         {
-          "heading": "Cocina"
+          "heading": "Uso de habitaciones y equipamiento",
+          "body": "• Mantenga ordenadas las zonas comunes y los espacios exteriores. Las bicicletas, cochecitos y otros equipos no deben bloquear las vías de escape.\n• Mantenga su habitación limpia y ordenada.\n• Debe clasificar sus residuos y tirarlos en los contenedores correctos.\n• Las zonas comunes interiores deben limpiarse regularmente según los turnos de limpieza establecidos. Debe limpiar cuando sea su turno.\n• Las lavadoras, los utensilios de cocina y los equipos de limpieza deben utilizarse de acuerdo con sus manuales de instrucciones."
         },
         {
-          "heading": "Lavandería"
-        },
-        {
-          "heading": "Limpieza"
-        },
-        {
-          "heading": "Visitas"
-        },
-        {
-          "heading": "Fumar"
-        },
-        {
-          "heading": "Ausencias y noches fuera"
-        },
-        {
-          "heading": "Averías y daños"
-        },
-        {
-          "heading": "Seguridad contra incendios"
+          "heading": "Visitas de pernocta",
+          "body": "• Las visitas de pernocta deben acordarse y aprobarse siempre con el centro de antemano. El centro puede rechazar la solicitud.\n• Los adultos pueden recibir visitas de pernocta de sus propios hijos, así como de amigos y familiares que vivan en otros centros de acogida.\n• Los menores de 18 años pueden recibir visitas de pernocta de padres, hermanos y amigos de edad similar.\n• Todos los huéspedes que pernocten deben residir en Noruega y presentar un documento de identidad válido o un certificado de solicitante de asilo al personal.\n• Usted es responsable de proporcionar comida y ropa de cama a sus huéspedes, y debe asegurarse de que respeten a los demás residentes."
         }
       ]
     },
@@ -108,16 +126,10 @@
       "cardDesc": "Salud, escuela, banco y transporte",
       "blocks": [
         {
-          "heading": "Salud y médico"
-        },
-        {
-          "heading": "Dentista"
+          "heading": "Salud, médico y dentista"
         },
         {
           "heading": "Escuela y guardería"
-        },
-        {
-          "heading": "Clases de noruego"
         },
         {
           "heading": "UDI y el proceso de asilo"
@@ -138,13 +150,7 @@
           "heading": "Tiendas y compras"
         },
         {
-          "heading": "Invierno, ropa y clima"
-        },
-        {
           "heading": "Ocio y actividades"
-        },
-        {
-          "heading": "Intérprete"
         }
       ]
     }

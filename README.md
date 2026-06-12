@@ -1,94 +1,96 @@
-# Vensmoen mottak — flerspråklig informasjonsside
+# Vensmoen mottak — багатомовний інформаційний сайт
 
-Statisk informasjonsside for beboere på Vensmoen mottak (Saltdal):
-om mottaket, husregler, en praktisk guide til livet i Norge — og en
-komplett kildesorteringsguide. Kun fast informasjon som ikke foreldes.
-Bygget som statisk side for **GitHub Pages**.
+Статичний інформаційний сайт для мешканців центру прийому Vensmoen
+(Салтдал): про центр, правила проживання, практичний гід життям у Норвегії
+та повний гід із сортування відходів. Лише постійна інформація, що не
+застаріває. Збирається як статичний сайт для **GitHub Pages**.
 
-🌍 Språk: Norsk · English · Українська · العربية · Español · ትግርኛ
-🖨️ Sorteringsguiden har egen utskriftsrute per språk (A4, QR til nettsiden)
-✅ Sorteringsinnhold verifisert mot den nasjonale standarden **sortere.no**
+🌍 Мови: Norsk · English · Українська · العربية · Español · ትግርኛ
+🖨️ Гід із сортування має окрему сторінку друку для кожної мови (A4, QR на сайт)
+✅ Контент сортування звірено з національним стандартом **sortere.no**
 
-## Teknologi
+## Технології
 
-- [Astro](https://astro.build) — statisk output, null runtime-JS
-- Ingen UI-rammeverk, ingen nettfonter (systemfonter for alle skript)
-- QR-kode genereres ved bygg (`qrcode`), ingen ekstern tjeneste
+- [Astro](https://astro.build) — статичний вивід, нуль runtime-JS
+- Без UI-фреймворків і вебшрифтів (системні шрифти для всіх скриптів)
+- QR-код генерується під час збірки (`qrcode`), без зовнішніх сервісів
 
-## Utvikling
+## Розробка
 
 ```bash
 npm install
-npm run dev      # lokal utviklingsserver
-npm run build    # bygger til dist/
-npm run preview  # forhåndsvis bygget
-npm run check    # i18n-validering + typesjekk
+npm run dev      # локальний сервер розробки
+npm run build    # збірка в dist/
+npm run preview  # перегляд збірки
+npm run check    # валідація i18n + перевірка типів + лінтинг
 ```
 
-## Struktur
+## Структура
 
 ```
 src/
-  data/fractions.ts        Språkuavhengige metadata (farge, kilde, dato)
-  data/emergency.ts        Nasjonale nødnumre (permanente fakta)
-  i18n/locales.ts          Liste over språk (kode, navn, dir)
-  i18n/<kode>.json          All oversettbar tekst for ett språk
-  i18n/strings.ts           Typet loader for JSON-ordbøkene
-  i18n/paths.ts             URL-byggere (respekterer Astro base)
+  data/fractions.ts        Мовонезалежні метадані фракцій (колір, джерело, дата)
+  data/emergency.ts        Національні екстрені номери + черговий телефон центру
+  data/location.ts         Посилання на карти (Google/Apple Maps)
+  data/transport.ts        Застосунки з розкладом транспорту
+  i18n/locales.ts          Список мов (код, назва, dir)
+  i18n/<код>.json           Усі перекладні тексти однієї мови
+  i18n/strings.ts           Типізований лоадер JSON-словників
+  i18n/paths.ts             Будівники URL (з урахуванням Astro base)
   layouts/BaseLayout.astro  <html lang/dir>, head, hreflang/canonical
-  components/               GuideBody/FractionCard (delt web+print),
+  components/               GuideBody/FractionCard (спільні веб+друк),
                             InfoPage (om/regler/guide), SectionIcon,
                             LanguagePicker
-  pages/index.astro         Omdirigerer til nettleserens språk
-  pages/[locale]/index.astro        Forsiden: hub med seksjonskort + nødnumre
-  pages/[locale]/om/                Om mottaket og kontakt
-  pages/[locale]/regler/            Husregler
-  pages/[locale]/guide/             Praktisk guide til livet i Norge
-  pages/[locale]/avfall/            Kildesorteringsguiden
-  pages/[locale]/avfall/quiz/       Interaktiv quiz
-  pages/[locale]/avfall/print/      Utskriftsark + QR
+  pages/index.astro         Перенаправлення на мову браузера
+  pages/[locale]/index.astro        Головна: хаб із картками + екстрені номери
+  pages/[locale]/om/                Про центр, контакти, карти, транспорт
+  pages/[locale]/regler/            Правила проживання
+  pages/[locale]/guide/             Практичний гід життям у Норвегії
+  pages/[locale]/avfall/            Гід із сортування відходів
+  pages/[locale]/avfall/quiz/       Інтерактивний квіз
+  pages/[locale]/avfall/print/      Аркуш для друку + QR
   styles/                   tokens.css, global.css, print.css
-scripts/validate-i18n.mjs   Sjekker at alle språk er synkronisert mot nb
+scripts/validate-i18n.mjs   Перевіряє синхронність усіх мов із nb
 ```
 
-Innholdet på infosidene (`om`/`regler`/`guide`) ligger i `pages`-delen av
-hver språkfil. En blokk uten `body` rendres som en tydelig «mer informasjon
-kommer»-plassholder — skriv inn `body` når faktainnholdet er klart, og
-validatoren krever det da i alle språk.
+Контент інфосторінок (`om`/`regler`/`guide`) лежить у секції `pages` кожного
+мовного файлу. Блок без `body` рендериться як чесна плашка «інформація
+з'явиться згодом» — впишіть `body`, коли фактичний текст буде готовий, і
+валідатор вимагатиме його в усіх мовах.
 
-Samme `FractionCard`/`GuideBody` brukes på nettsiden og på utskriftsarket –
-innholdet finnes bare ett sted (DRY). `print.css` komprimerer kun layouten
-til A4.
+Той самий `FractionCard`/`GuideBody` використовується на сайті й на аркуші
+друку — контент існує лише в одному місці (DRY). `print.css` лише стискає
+макет до A4.
 
-## Legge til et nytt språk
+## Як додати нову мову
 
-1. Kopier `src/i18n/en.json` til `src/i18n/<kode>.json` og oversett alle
-   verdier (ikke nøklene).
-2. Importer fila i `src/i18n/strings.ts` og legg den til i `dictionaries`.
-3. Legg til én linje i `src/i18n/locales.ts` (`code`, `label`, `dir`,
-   `htmlLang`). Bruk `dir: 'rtl'` for høyre-mot-venstre-skript.
-4. `npm run check && npm run build` — validatoren fanger manglende nøkler;
-   alle ruter under `/<kode>/` lages automatisk.
+1. Скопіюйте `src/i18n/en.json` у `src/i18n/<код>.json` і перекладіть усі
+   значення (ключі не чіпати).
+2. Імпортуйте файл у `src/i18n/strings.ts` і додайте в `dictionaries`.
+3. Додайте один рядок у `src/i18n/locales.ts` (`code`, `label`, `dir`,
+   `htmlLang`). Для скриптів справа наліво — `dir: 'rtl'`.
+4. `npm run check && npm run build` — валідатор зловить пропущені ключі;
+   всі маршрути під `/<код>/` створяться автоматично.
 
-## Oppdatere og verifisere innhold
+## Оновлення та перевірка контенту
 
-- Faktatekst per fraksjon ligger i `src/i18n/*.json` under `fractions`.
-- `lastVerified`-dato ligger i `src/data/fractions.ts`.
-- Norsk (`nb.json`) er fasit — oversett andre språk fra den.
+- Фактичні тексти фракцій — у `src/i18n/*.json` під ключем `fractions`.
+- Дата `lastVerified` — у `src/data/fractions.ts`.
+- Норвезька (`nb.json`) — еталон; інші мови перекладаються з неї.
 
-Hver fraksjon har `bin` (hvilken dunk/pose), `accepted`, `rejected` og
-`note`. Når du har sjekket en fraksjon mot den nasjonale standarden
-[sortere.no](https://sortere.no/): oppdater teksten **og** sett ny
-`VERIFIED`-dato i `src/data/fractions.ts`.
+Кожна фракція має `bin` (який бак/пакет), `accepted`, `rejected` та `note`.
+Після звірки фракції з національним стандартом
+[sortere.no](https://sortere.no/) оновіть текст **і** поставте нову дату
+`VERIFIED` у `src/data/fractions.ts`.
 
-Guiden dekker bevisst kun det innbyggeren trenger hjemme. Praktisk logistikk
-(miljøtorg, henteplan) er holdt utenfor for å gjøre den enkel å forstå.
+Гід свідомо охоплює лише те, що мешканцю потрібно вдома. Практична
+логістика (miljøtorg, графік вивозу) винесена за дужки заради простоти.
 
-## Publisering (GitHub Pages)
+## Публікація (GitHub Pages)
 
-`.github/workflows/deploy.yml` bygger og deployer automatisk ved push til
-`main`. Sett **Settings → Pages → Source: GitHub Actions** én gang.
+`.github/workflows/deploy.yml` автоматично збирає та деплоїть при push у
+`main`. Один раз увімкніть **Settings → Pages → Source: GitHub Actions**.
 
-## Kilder
+## Джерела
 
-- Nasjonal standard for kildesortering: <https://sortere.no/>
+- Національний стандарт сортування: <https://sortere.no/>

@@ -92,6 +92,37 @@ for (const code of codes) {
         errors.push(`[${code}] pages.${pageKey}.blocks[${i}].body mangler`);
     });
   }
+
+  // Om-siden har ekstra struktur: kontakter og transport. E-postadressene
+  // er fakta og må være identiske med referansen i alle språk.
+  for (const key of [
+    'contactsTitle',
+    'contactsIntro',
+    'transportTitle',
+    'transportIntro',
+  ]) {
+    if (typeof loc.pages?.om?.[key] !== 'string' || !loc.pages.om[key].trim())
+      errors.push(`[${code}] pages.om.${key} mangler eller er tom`);
+  }
+  const refContacts = ref.pages.om.contacts ?? [];
+  const locContacts = loc.pages?.om?.contacts ?? [];
+  if (locContacts.length !== refContacts.length) {
+    errors.push(
+      `[${code}] pages.om.contacts: ${locContacts.length} kontakter, forventet ${refContacts.length}`,
+    );
+  } else {
+    refContacts.forEach((refContact, i) => {
+      const c = locContacts[i];
+      for (const field of ['role', 'desc']) {
+        if (typeof c?.[field] !== 'string' || !c[field].trim())
+          errors.push(`[${code}] pages.om.contacts[${i}].${field} ugyldig`);
+      }
+      if (c?.email !== refContact.email)
+        errors.push(
+          `[${code}] pages.om.contacts[${i}].email avviker fra ${REFERENCE}`,
+        );
+    });
+  }
 }
 
 if (errors.length) {

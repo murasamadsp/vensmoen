@@ -4,12 +4,47 @@ import { localeHome } from '../i18n/paths';
 import { getStrings, type PageKey } from '../i18n/strings';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Felles mal for mottakets infosider (om/regler/guide): tittel, ingress
-// og blokker. Blokk uten body rendres som en ærlig «kommer her»-plakett.
+// Спільний шаблон інфосторінок центру (om/regler/guide): заголовок, лід
+// і блоки. Блок без body рендериться як чесна плашка «згодом буде».
 interface Props {
   locale: string;
   pageKey: PageKey;
 }
+
+// Простий текст з i18n → структура: рядки з «•»/«-» збираються в списки,
+// решта стає абзацами.
+type BodyElement =
+  | { type: 'list'; items: string[] }
+  | { type: 'paragraph'; text: string };
+
+function parseBody(body: string): BodyElement[] {
+  const lines = body
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  const elements: BodyElement[] = [];
+  for (const line of lines) {
+    if (!/^[•-]/.test(line)) {
+      elements.push({ type: 'paragraph', text: line });
+      continue;
+    }
+    const item = line.replace(/^[•-]\s*/, '');
+    const last = elements.at(-1);
+    if (last?.type === 'list') {
+      last.items.push(item);
+    } else {
+      elements.push({ type: 'list', items: [item] });
+    }
+  }
+  return elements;
+}
+
+// E-mail-адреси в тексті стають mailto-лінками: split із групою захоплення
+// кладе адреси на непарні індекси.
+const EMAIL_RE = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/g;
+const splitOnEmails = (text: string): string[] => text.split(EMAIL_RE);
+
 const { locale, pageKey } = Astro.props;
 const t = getStrings(locale);
 const site = t.site;
@@ -32,7 +67,6 @@ const page = t.pages[pageKey];
       </div>
       <div class="site-header__tools">
         <LanguagePicker current={locale} label={t.ui.languagePicker} />
-        <a class="btn btn--ghost" href={localeHome(locale)}>{site.backHome}</a>
       </div>
     </div>
   </header>
@@ -48,7 +82,29 @@ const page = t.pages[pageKey];
         <section class="info-block">
           <h2 class="info-block__heading">{block.heading}</h2>
           {block.body ? (
-            <p class="info-block__body">{block.body}</p>
+            parseBody(block.body).map((el) =>
+              el.type === 'list' ? (
+                <ul class="info-block__list">
+                  {el.items.map((item) => (
+                    <li class="info-block__item">
+                      {splitOnEmails(item).map((part, i) =>
+                        i % 2 === 1 ? (
+                          <a href={`mailto:${part}`}>{part}</a>
+                        ) : (
+                          part
+                        ),
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p class="info-block__body">
+                  {splitOnEmails(el.text).map((part, i) =>
+                    i % 2 === 1 ? <a href={`mailto:${part}`}>{part}</a> : part,
+                  )}
+                </p>
+              ),
+            )
           ) : (
             <p class="info-block__soon">{site.comingSoon}</p>
           )}
