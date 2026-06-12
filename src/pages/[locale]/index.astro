@@ -4,10 +4,10 @@ import SectionIcon from '../../components/SectionIcon.astro';
 import { dutyPhone, emergencyNumbers } from '../../data/emergency';
 import { localeCodes } from '../../i18n/locales';
 import {
-  localeAvfall,
+  localeAbout,
   localeGuide,
-  localeOm,
-  localeRegler,
+  localeRules,
+  localeWaste,
 } from '../../i18n/paths';
 import { getStrings } from '../../i18n/strings';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -21,20 +21,20 @@ if (!locale) throw new Error('locale route param is required');
 const t = getStrings(locale);
 const site = t.site;
 
-// Forsiden er en hub: fire seksjonskort. Sorteringsguiden gjenbruker
-// sine eksisterende oversettelser (ui.siteTitle/tagline) som korttekst.
+// Головна – це хаб: чотири секційні картки. Гід із сортування перевикористовує
+// свої наявні переклади (ui.siteTitle/tagline) як текст картки.
 const cards = [
   {
-    key: 'om',
-    href: localeOm(locale),
-    title: t.pages.om.title,
-    desc: t.pages.om.cardDesc,
+    key: 'about',
+    href: localeAbout(locale),
+    title: t.pages.about.title,
+    desc: t.pages.about.cardDesc,
   },
   {
-    key: 'regler',
-    href: localeRegler(locale),
-    title: t.pages.regler.title,
-    desc: t.pages.regler.cardDesc,
+    key: 'rules',
+    href: localeRules(locale),
+    title: t.pages.rules.title,
+    desc: t.pages.rules.cardDesc,
   },
   {
     key: 'guide',
@@ -43,8 +43,8 @@ const cards = [
     desc: t.pages.guide.cardDesc,
   },
   {
-    key: 'avfall',
-    href: localeAvfall(locale),
+    key: 'waste',
+    href: localeWaste(locale),
     title: t.ui.siteTitle,
     desc: t.ui.tagline,
   },

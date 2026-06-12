@@ -1,39 +1,39 @@
-// Bygger URL-er som respekterer Astro `base` (/vensmoen på GitHub Pages).
+// Будує URL-и з урахуванням Astro `base` (/vensmoen на GitHub Pages).
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-/** Forsiden = mottakets hub. */
+/** Головна сторінка = хаб центру. */
 export function localeHome(code: string): string {
   return `${BASE}/${code}/`;
 }
 
-export function localeOm(code: string): string {
-  return `${BASE}/${code}/om/`;
+export function localeAbout(code: string): string {
+  return `${BASE}/${code}/about/`;
 }
 
-export function localeRegler(code: string): string {
-  return `${BASE}/${code}/regler/`;
+export function localeRules(code: string): string {
+  return `${BASE}/${code}/rules/`;
 }
 
 export function localeGuide(code: string): string {
   return `${BASE}/${code}/guide/`;
 }
 
-/** Kildesorteringsguiden – eget underområde med quiz og utskrift. */
-export function localeAvfall(code: string): string {
-  return `${BASE}/${code}/avfall/`;
+/** Гід із сортування – окремий підрозділ із квізом та друком. */
+export function localeWaste(code: string): string {
+  return `${BASE}/${code}/waste/`;
 }
 
 export function localePrint(code: string): string {
-  return `${BASE}/${code}/avfall/print/`;
+  return `${BASE}/${code}/waste/print/`;
 }
 
 export function localeQuiz(code: string): string {
-  return `${BASE}/${code}/avfall/quiz/`;
+  return `${BASE}/${code}/waste/quiz/`;
 }
 
 export function siteUrl(code: string): string {
-  // Absolutt URL til nettversjonen av sorteringsguiden – brukes i QR-koden.
-  // Utledes fra astro.config (site + base) – ingen hardkodet host/sti.
+  // Абсолютний URL веб-версії гіда із сортування – використовується в QR-коді.
+  // Виводиться з astro.config (site + base) – без хардкоду хоста/шляху.
   const site = import.meta.env.SITE.replace(/\/$/, '');
-  return `${site}${BASE}/${code}/avfall/`;
+  return `${site}${BASE}/${code}/waste/`;
 }

@@ -52,17 +52,17 @@
   transform: translateY(-3px);
   box-shadow: var(--shadow-lift);
 }
-.hub-card--om {
-  --sec: var(--sec-om);
+.hub-card--about {
+  --sec: var(--sec-about);
 }
-.hub-card--regler {
-  --sec: var(--sec-regler);
+.hub-card--rules {
+  --sec: var(--sec-rules);
 }
 .hub-card--guide {
   --sec: var(--sec-guide);
 }
-.hub-card--avfall {
-  --sec: var(--sec-avfall);
+.hub-card--waste {
+  --sec: var(--sec-waste);
 }
 
 .hub-card__icon {
@@ -112,7 +112,7 @@
   transform: scaleX(-1);
 }
 
-/* Черговий телефон центру – акцентна плашка на головній та om-сторінці.
+/* Черговий телефон центру – акцентна плашка на головній сторінці.
    Акцентний колір (не червоний), щоб не плутати з нацномерами 110/112/113. */
 .duty {
   display: flex;

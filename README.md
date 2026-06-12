@@ -39,21 +39,21 @@ src/
   i18n/paths.ts             Будівники URL (з урахуванням Astro base)
   layouts/BaseLayout.astro  <html lang/dir>, head, hreflang/canonical
   components/               GuideBody/FractionCard (спільні веб+друк),
-                            InfoPage (om/regler/guide), SectionIcon,
+                            InfoPage (about/rules/guide), SectionIcon,
                             LanguagePicker
   pages/index.astro         Перенаправлення на мову браузера
   pages/[locale]/index.astro        Головна: хаб із картками + екстрені номери
-  pages/[locale]/om/                Про центр, контакти, карти, транспорт
-  pages/[locale]/regler/            Правила проживання
+  pages/[locale]/about/                Про центр, контакти, карти, транспорт
+  pages/[locale]/rules/            Правила проживання
   pages/[locale]/guide/             Практичний гід життям у Норвегії
-  pages/[locale]/avfall/            Гід із сортування відходів
-  pages/[locale]/avfall/quiz/       Інтерактивний квіз
-  pages/[locale]/avfall/print/      Аркуш для друку + QR
+  pages/[locale]/waste/            Гід із сортування відходів
+  pages/[locale]/waste/quiz/       Інтерактивний квіз
+  pages/[locale]/waste/print/      Аркуш для друку + QR
   styles/                   tokens.css, global.css, print.css
 scripts/validate-i18n.mjs   Перевіряє синхронність усіх мов із nb
 ```
 
-Контент інфосторінок (`om`/`regler`/`guide`) лежить у секції `pages` кожного
+Контент інфосторінок (`about`/`rules`/`guide`) лежить у секції `pages` кожного
 мовного файлу. Блок без `body` рендериться як чесна плашка «інформація
 з'явиться згодом» — впишіть `body`, коли фактичний текст буде готовий, і
 валідатор вимагатиме його в усіх мовах.

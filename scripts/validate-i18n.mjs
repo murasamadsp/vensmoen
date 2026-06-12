@@ -93,33 +93,36 @@ for (const code of codes) {
     });
   }
 
-  // Om-siden har ekstra struktur: kontakter og transport. E-postadressene
-  // er fakta og må være identiske med referansen i alle språk.
+  // Сторінка about має додаткову структуру: контакти й транспорт. E-mail —
+  // це факти, тому мають бути ідентичні референсу в усіх мовах.
   for (const key of [
     'contactsTitle',
     'contactsIntro',
     'transportTitle',
     'transportIntro',
   ]) {
-    if (typeof loc.pages?.om?.[key] !== 'string' || !loc.pages.om[key].trim())
-      errors.push(`[${code}] pages.om.${key} mangler eller er tom`);
+    if (
+      typeof loc.pages?.about?.[key] !== 'string' ||
+      !loc.pages.about[key].trim()
+    )
+      errors.push(`[${code}] pages.about.${key} mangler eller er tom`);
   }
-  const refContacts = ref.pages.om.contacts ?? [];
-  const locContacts = loc.pages?.om?.contacts ?? [];
+  const refContacts = ref.pages.about.contacts ?? [];
+  const locContacts = loc.pages?.about?.contacts ?? [];
   if (locContacts.length !== refContacts.length) {
     errors.push(
-      `[${code}] pages.om.contacts: ${locContacts.length} kontakter, forventet ${refContacts.length}`,
+      `[${code}] pages.about.contacts: ${locContacts.length} kontakter, forventet ${refContacts.length}`,
     );
   } else {
     refContacts.forEach((refContact, i) => {
       const c = locContacts[i];
       for (const field of ['role', 'desc']) {
         if (typeof c?.[field] !== 'string' || !c[field].trim())
-          errors.push(`[${code}] pages.om.contacts[${i}].${field} ugyldig`);
+          errors.push(`[${code}] pages.about.contacts[${i}].${field} ugyldig`);
       }
       if (c?.email !== refContact.email)
         errors.push(
-          `[${code}] pages.om.contacts[${i}].email avviker fra ${REFERENCE}`,
+          `[${code}] pages.about.contacts[${i}].email avviker fra ${REFERENCE}`,
         );
     });
   }

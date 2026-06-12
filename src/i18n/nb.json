@@ -59,7 +59,7 @@
     "quizBelongPrompt": "Skal dette i denne dunken?"
   },
   "pages": {
-    "om": {
+    "about": {
       "title": "Om mottaket",
       "lead": "Vensmoen mottak ligger på Røkland i Saltdal kommune i Nordland.",
       "cardDesc": "Adresse, kontakt og veibeskrivelse",
@@ -101,7 +101,7 @@
         }
       ]
     },
-    "regler": {
+    "rules": {
       "title": "Husregler",
       "lead": "Reglene gjelder for alle som bor på mottaket, og finnes her på flere språk.",
       "cardDesc": "Orden, bruk av rom, overnatting",

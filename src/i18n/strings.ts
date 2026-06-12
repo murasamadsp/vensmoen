@@ -28,7 +28,7 @@ export interface ContactInfo {
   desc: string;
 }
 
-export interface OmPageStrings extends PageStrings {
+export interface AboutPageStrings extends PageStrings {
   contactsTitle: string;
   contactsIntro: string;
   contacts: ContactInfo[];
@@ -44,8 +44,8 @@ export interface PageStrings {
   blocks: PageBlock[];
 }
 
-/** Sidenøkler = URL-segmenter (samme på alle språk, kun locale varierer). */
-export type PageKey = 'om' | 'regler' | 'guide';
+/** Ключі сторінок = сегменти URL (однакові всіма мовами, змінюється лише locale). */
+export type PageKey = 'about' | 'rules' | 'guide';
 
 /** Tekster for mottaks-huben (forsiden + infosidene). */
 export interface SiteStrings {
@@ -72,8 +72,8 @@ export interface Strings {
   meta: { title: string; description: string; descriptionQuiz: string };
   site: SiteStrings;
   pages: {
-    om: OmPageStrings;
-    regler: PageStrings;
+    about: AboutPageStrings;
+    rules: PageStrings;
     guide: PageStrings;
   };
   ui: {

@@ -2,7 +2,7 @@
 import LanguagePicker from '../../../../components/LanguagePicker.astro';
 import { fractions } from '../../../../data/fractions';
 import { localeCodes } from '../../../../i18n/locales';
-import { localeAvfall } from '../../../../i18n/paths';
+import { localeWaste } from '../../../../i18n/paths';
 import { getStrings } from '../../../../i18n/strings';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 
@@ -75,7 +75,7 @@ const quizData = JSON.stringify({ questions, options, str }).replace(
       </div>
       <div class="site-header__tools">
         <LanguagePicker current={locale} label={ui.languagePicker} />
-        <a class="btn btn--ghost" href={localeAvfall(locale)}
+        <a class="btn btn--ghost" href={localeWaste(locale)}
           >{ui.backToGuide}</a
         >
       </div>
@@ -126,7 +126,7 @@ const quizData = JSON.stringify({ questions, options, str }).replace(
         <button class="btn quiz__big" type="button" data-act="restart"
           >{ui.quizAgain} <span aria-hidden="true">↺</span></button
         >
-        <a class="btn btn--ghost" href={localeAvfall(locale)}>{ui.backToGuide}</a>
+        <a class="btn btn--ghost" href={localeWaste(locale)}>{ui.backToGuide}</a>
       </div>
     </section>
   </main>

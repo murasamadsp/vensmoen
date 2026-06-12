@@ -12,16 +12,16 @@ export function getStaticPaths() {
 const { locale } = Astro.params;
 if (!locale) throw new Error('locale route param is required');
 const t = getStrings(locale);
-const om = t.pages.om;
+const about = t.pages.about;
 ---
 
-<InfoPage locale={locale} pageKey="om">
+<InfoPage locale={locale} pageKey="about">
   <section class="info-block" aria-labelledby="contacts-title">
-    <h2 id="contacts-title" class="info-block__heading">{om.contactsTitle}</h2>
-    <p class="info-block__body contacts-intro">{om.contactsIntro}</p>
+    <h2 id="contacts-title" class="info-block__heading">{about.contactsTitle}</h2>
+    <p class="info-block__body contacts-intro">{about.contactsIntro}</p>
     <ul class="contacts" role="list">
       {
-        om.contacts.map((contact) => (
+        about.contacts.map((contact) => (
           <li class="contact-card">
             <h3 class="contact-card__role">{contact.role}</h3>
             <p class="contact-card__desc">{contact.desc}</p>
@@ -68,8 +68,8 @@ const om = t.pages.om;
   </section>
 
   <section class="info-block" aria-labelledby="transport-title">
-    <h2 id="transport-title" class="info-block__heading">{om.transportTitle}</h2>
-    <p class="info-block__body contacts-intro">{om.transportIntro}</p>
+    <h2 id="transport-title" class="info-block__heading">{about.transportTitle}</h2>
+    <p class="info-block__body contacts-intro">{about.transportIntro}</p>
     <div class="map-links">
       {
         transportApps.map((app) => (

@@ -59,7 +59,7 @@
     "quizBelongPrompt": "Does this go in this bin?"
   },
   "pages": {
-    "om": {
+    "about": {
       "title": "About the centre",
       "lead": "Vensmoen reception centre is located at Røkland in Saltdal municipality, Nordland.",
       "cardDesc": "Address, contact and directions",
@@ -101,7 +101,7 @@
       "transportTitle": "Bus and train",
       "transportIntro": "Buses and trains through Røkland run infrequently, and even less often on public holidays. Check the timetable before every trip:"
     },
-    "regler": {
+    "rules": {
       "title": "House rules",
       "lead": "The rules apply to everyone living at the centre and are available here in several languages.",
       "cardDesc": "Order, room usage, overnight visits",

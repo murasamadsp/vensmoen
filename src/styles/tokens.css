@@ -20,10 +20,10 @@
   --no: oklch(46% 0.18 25);
 
   /* Seksjonsfarger for mottaks-huben (rolig, humanitær palett) */
-  --sec-om: #1f5fa8;
-  --sec-regler: #a36400;
+  --sec-about: #1f5fa8;
+  --sec-rules: #a36400;
   --sec-guide: oklch(44% 0.13 200);
-  --sec-avfall: #2f7d3b;
+  --sec-waste: #2f7d3b;
   --emg: #b0392b;
 
   /* Typografi — systembasert (null nettverk, fungerer for alle skript
@@ -73,10 +73,10 @@
     /* Lysere semantiske farger – kontrast mot mørk flate (WCAG 1.4.3) */
     --ok: oklch(72% 0.15 150);
     --no: oklch(72% 0.17 25);
-    --sec-om: #82b4ec;
-    --sec-regler: #e0a648;
+    --sec-about: #82b4ec;
+    --sec-rules: #e0a648;
     --sec-guide: oklch(72% 0.12 200);
-    --sec-avfall: #7cc489;
+    --sec-waste: #7cc489;
     --emg: #ee8d7f;
     --shadow-card:
       0 1px 2px oklch(0% 0 0 / 0.3), 0 8px 24px oklch(0% 0 0 / 0.35);

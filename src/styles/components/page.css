@@ -1,4 +1,4 @@
-/* Infosider (om/regler/guide): tittel, ingress og innholdsblokker */
+/* Infosider (about/rules/guide): tittel, ingress og innholdsblokker */
 .info-page {
   padding-block-end: var(--space-5);
 }
@@ -63,7 +63,7 @@
   color: var(--color-ink);
 }
 
-/* Kartlenker (om-siden): åpner kart-appen – ingen innebygd iframe */
+/* Kartlenker (about-сторінка): åpner kart-appen – ingen innebygd iframe */
 .map-links {
   display: flex;
   flex-wrap: wrap;
@@ -81,7 +81,7 @@
   margin: 0;
 }
 
-/* Контакти (om-сторінка): роль → хто → за що відповідає → e-mail.
+/* Контакти (about-сторінка): роль → хто → за що відповідає → e-mail.
    Та сама мова форм, що й у emg-плитках: фон bg на surface, radius-sm. */
 .contacts-intro {
   margin-block-end: var(--space-3);

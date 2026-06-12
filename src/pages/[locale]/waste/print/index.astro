@@ -2,7 +2,7 @@
 import QRCode from 'qrcode';
 import GuideBody from '../../../../components/GuideBody.astro';
 import { localeCodes } from '../../../../i18n/locales';
-import { localeAvfall, siteUrl } from '../../../../i18n/paths';
+import { localeWaste, siteUrl } from '../../../../i18n/paths';
 import { getStrings } from '../../../../i18n/strings';
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import '../../../../styles/print.css';
@@ -34,7 +34,7 @@ const qrSvg = await QRCode.toString(siteUrl(locale), {
   <a class="skip-link" href="#main">{ui.skipToContent}</a>
 
   <div class="no-print">
-    <a class="btn btn--ghost" href={localeAvfall(locale)}>{ui.backToGuide}</a>
+    <a class="btn btn--ghost" href={localeWaste(locale)}>{ui.backToGuide}</a>
     <button class="btn" type="button" id="printBtn">{ui.print}</button>
   </div>
 

@@ -2,14 +2,14 @@
 // Piktogrammer for hub-kortene – ren dekor (aria-hidden), fargen styres
 // av kortets CSS via currentColor. Enkle strektegninger à la Lucide.
 interface Props {
-  section: 'om' | 'regler' | 'guide' | 'avfall';
+  section: 'about' | 'rules' | 'guide' | 'waste';
 }
 const { section } = Astro.props;
 ---
 
 <span class="hub-card__icon" aria-hidden="true">
   {
-    section === 'om' && (
+    section === 'about' && (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M3 21h18" />
         <path d="M5 21V7l7-4 7 4v14" />
@@ -19,7 +19,7 @@ const { section } = Astro.props;
     )
   }
   {
-    section === 'regler' && (
+    section === 'rules' && (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <rect x="5" y="3" width="14" height="18" rx="2" />
         <path d="m9 11 2 2 4-4" />
@@ -36,7 +36,7 @@ const { section } = Astro.props;
     )
   }
   {
-    section === 'avfall' && (
+    section === 'waste' && (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5" />
         <path d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12" />

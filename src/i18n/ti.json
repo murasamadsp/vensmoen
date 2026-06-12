@@ -59,7 +59,7 @@
     "quizBelongPrompt": "እዚ ኣብዚ በርሚል ይኣቱ ድዩ?"
   },
   "pages": {
-    "om": {
+    "about": {
       "title": "ብዛዕባ እቲ ማእከል",
       "lead": "ማእከል መቐበሊ Vensmoen ኣብ Røkland፣ ኮሙነ Saltdal፣ Nordland ይርከብ።",
       "cardDesc": "ኣድራሻ፣ ርክብ፣ መገዲ",
@@ -101,7 +101,7 @@
       "transportTitle": "ኣውቶቡስን ባቡርን",
       "transportIntro": "ብ Røkland ዝሓልፉ ኣውቶቡሳትን ባቡራትን ውሑዳት እዮም፣ ኣብ በዓላት ድማ ዝያዳ ይውሕዱ። ቅድሚ ነፍሲ ወከፍ ጉዕዞ ሰዓታት ኣረጋግጹ፦"
     },
-    "regler": {
+    "rules": {
       "title": "ሕግታት መንበሪ",
       "lead": "እዞም ሕግታት ንኹሎም ኣብቲ ማእከል ዝነብሩ ይምልከቱ፣ ኣብዚ ብብዙሕ ቋንቋታት ይርከቡ።",
       "cardDesc": "ስርዓት፣ ኣጠቓቕማ ክፍልታት፣ ሓደር",
