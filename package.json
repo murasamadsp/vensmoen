@@ -11,6 +11,7 @@
     "astro": "astro",
     "typecheck": "astro check",
     "validate:i18n": "node scripts/validate-i18n.mjs",
+    "check:links": "node scripts/check-links.mjs",
     "check": "npm run validate:i18n && npm run typecheck && npm run lint",
     "lint": "biome check",
     "lint:write": "biome check --write"

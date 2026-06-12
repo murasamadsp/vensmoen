@@ -1,5 +1,8 @@
+# Увага: для пошуковиків діє лише robots.txt у корені домену
+# (murasamadsp.github.io/robots.txt), а не в підшляху проєкту.
+# Цей файл — документація намірів; реальний захист print-сторінок
+# дає <meta name="robots" content="noindex"> на самих сторінках.
 User-agent: *
 Allow: /
-Disallow: /*/print/
 
-Sitemap: https://murasamadsp.github.io/avfallssortering/sitemap-index.xml
+Sitemap: https://murasamadsp.github.io/vensmoen/sitemap-index.xml

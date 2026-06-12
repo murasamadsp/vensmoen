@@ -9,12 +9,17 @@ export default defineConfig({
   base: '/vensmoen',
   trailingSlash: 'always',
   output: 'static',
-  build: { format: 'directory' },
+  // inlineStylesheets: увесь CSS ~4 КБ — інлайн прибирає єдиний
+  // render-blocking запит (на GitHub Pages RTT дорожчий за байти).
+  build: { format: 'directory', inlineStylesheets: 'always' },
   compressHTML: true,
   integrations: [
     sitemap({
-      // /print/ er noindex-duplikat av guiden – hold den ute av sitemap.
-      filter: (page) => !page.includes('/print/'),
+      // У sitemap лише індексовані сторінки: /print/ — noindex-дублікат гіда,
+      // корінь /vensmoen/ — noindex-редірект на мовну версію.
+      filter: (page) =>
+        !page.includes('/print/') &&
+        page !== 'https://murasamadsp.github.io/vensmoen/',
     }),
   ],
 });

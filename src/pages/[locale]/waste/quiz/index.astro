@@ -115,9 +115,10 @@ const quizData = JSON.stringify({ questions, options, str }).replace(
     </section>
 
     <section id="q-result" class="quiz__screen" hidden>
-      <h1 class="quiz__title" id="q-result-title" tabindex="-1">
+      {/* h2: на сторінці один h1 (стартовий екран); стиль той самий через клас */}
+      <h2 class="quiz__title" id="q-result-title" tabindex="-1">
         {ui.quizResultTitle}
-      </h1>
+      </h2>
       <p class="quiz__score">
         <span id="q-score">0</span> / <span id="q-score-total">0</span>
         <small>{ui.quizScoreSuffix}</small>
