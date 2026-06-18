@@ -23,9 +23,6 @@ export interface PageBlock {
 export interface ContactInfo {
   role: string;
   email: string;
-  /** Що ця людина вирішує. Поки реального тексту немає – чесна заглушка
-      («опис з'явиться»). Не вигадуємо те, чого не знаємо. */
-  desc: string;
 }
 
 export interface AboutPageStrings extends PageStrings {

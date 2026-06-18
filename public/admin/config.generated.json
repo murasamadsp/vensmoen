@@ -406,12 +406,6 @@
                           "label": "E-post",
                           "i18n": true,
                           "widget": "string"
-                        },
-                        {
-                          "name": "desc",
-                          "label": "Beskrivelse",
-                          "i18n": true,
-                          "widget": "string"
                         }
                       ]
                     },

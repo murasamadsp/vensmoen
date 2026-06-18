@@ -24,7 +24,6 @@ const about = t.pages.about;
         about.contacts.map((contact) => (
           <li class="contact-card">
             <h3 class="contact-card__role">{contact.role}</h3>
-            <p class="contact-card__desc">{contact.desc}</p>
             <a class="contact-card__email" href={`mailto:${contact.email}`}>
               <svg
                 class="contact-card__icon"

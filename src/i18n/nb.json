@@ -63,28 +63,23 @@
       "contacts": [
         {
           "role": "Logistikk",
-          "email": "Logistikk.vensmoen@mottaksdriftnor.no",
-          "desc": "Beskrivelse kommer."
+          "email": "Logistikk.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "Økonomi",
-          "email": "saldo2023@yahoo.com",
-          "desc": "Beskrivelse kommer."
+          "email": "saldo2023@yahoo.com"
         },
         {
           "role": "Sykepleier",
-          "email": "Inga.Mari.johansen@Saltdal.kommune.no",
-          "desc": "Beskrivelse kommer."
+          "email": "Inga.Mari.johansen@Saltdal.kommune.no"
         },
         {
           "role": "Bosetting",
-          "email": "innretur.vensmoen@mottaksdriftnor.no",
-          "desc": "Beskrivelse kommer."
+          "email": "innretur.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "Barnefaglig",
-          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no",
-          "desc": "Beskrivelse kommer."
+          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no"
         }
       ],
       "transportTitle": "Buss og tog",

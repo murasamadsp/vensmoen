@@ -63,28 +63,23 @@
       "contacts": [
         {
           "role": "اللوجستيات",
-          "email": "Logistikk.vensmoen@mottaksdriftnor.no",
-          "desc": "سيُضاف الوصف قريبًا."
+          "email": "Logistikk.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "الشؤون المالية",
-          "email": "saldo2023@yahoo.com",
-          "desc": "سيُضاف الوصف قريبًا."
+          "email": "saldo2023@yahoo.com"
         },
         {
           "role": "الممرضة",
-          "email": "Inga.Mari.johansen@Saltdal.kommune.no",
-          "desc": "سيُضاف الوصف قريبًا."
+          "email": "Inga.Mari.johansen@Saltdal.kommune.no"
         },
         {
           "role": "التوطين",
-          "email": "innretur.vensmoen@mottaksdriftnor.no",
-          "desc": "سيُضاف الوصف قريبًا."
+          "email": "innretur.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "شؤون الأطفال والشباب",
-          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no",
-          "desc": "سيُضاف الوصف قريبًا."
+          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no"
         }
       ],
       "transportTitle": "الحافلة والقطار",

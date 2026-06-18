@@ -63,28 +63,23 @@
       "contacts": [
         {
           "role": "Logistics",
-          "email": "Logistikk.vensmoen@mottaksdriftnor.no",
-          "desc": "Description coming soon."
+          "email": "Logistikk.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "Finances",
-          "email": "saldo2023@yahoo.com",
-          "desc": "Description coming soon."
+          "email": "saldo2023@yahoo.com"
         },
         {
           "role": "Nurse",
-          "email": "Inga.Mari.johansen@Saltdal.kommune.no",
-          "desc": "Description coming soon."
+          "email": "Inga.Mari.johansen@Saltdal.kommune.no"
         },
         {
           "role": "Settlement",
-          "email": "innretur.vensmoen@mottaksdriftnor.no",
-          "desc": "Description coming soon."
+          "email": "innretur.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "Children and youth",
-          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no",
-          "desc": "Description coming soon."
+          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no"
         }
       ],
       "transportTitle": "Bus and train",

@@ -63,28 +63,23 @@
       "contacts": [
         {
           "role": "Logística",
-          "email": "Logistikk.vensmoen@mottaksdriftnor.no",
-          "desc": "La descripción estará disponible pronto."
+          "email": "Logistikk.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "Economía",
-          "email": "saldo2023@yahoo.com",
-          "desc": "La descripción estará disponible pronto."
+          "email": "saldo2023@yahoo.com"
         },
         {
           "role": "Enfermera",
-          "email": "Inga.Mari.johansen@Saltdal.kommune.no",
-          "desc": "La descripción estará disponible pronto."
+          "email": "Inga.Mari.johansen@Saltdal.kommune.no"
         },
         {
           "role": "Asentamiento",
-          "email": "innretur.vensmoen@mottaksdriftnor.no",
-          "desc": "La descripción estará disponible pronto."
+          "email": "innretur.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "Infancia y juventud",
-          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no",
-          "desc": "La descripción estará disponible pronto."
+          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no"
         }
       ],
       "transportTitle": "Autobús y tren",

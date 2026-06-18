@@ -63,28 +63,23 @@
       "contacts": [
         {
           "role": "ሎጂስቲክስ (Logistikk)",
-          "email": "Logistikk.vensmoen@mottaksdriftnor.no",
-          "desc": "መግለጺ ድሒሩ ክውሰኽ እዩ።"
+          "email": "Logistikk.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "ፋይናንስ (Økonomi)",
-          "email": "saldo2023@yahoo.com",
-          "desc": "መግለጺ ድሒሩ ክውሰኽ እዩ።"
+          "email": "saldo2023@yahoo.com"
         },
         {
           "role": "ነርስ (Sykepleier)",
-          "email": "Inga.Mari.johansen@Saltdal.kommune.no",
-          "desc": "መግለጺ ድሒሩ ክውሰኽ እዩ።"
+          "email": "Inga.Mari.johansen@Saltdal.kommune.no"
         },
         {
           "role": "ምጥያስ (Bosetting)",
-          "email": "innretur.vensmoen@mottaksdriftnor.no",
-          "desc": "መግለጺ ድሒሩ ክውሰኽ እዩ።"
+          "email": "innretur.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "ጉዳያት ህጻናት (Barnefaglig)",
-          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no",
-          "desc": "መግለጺ ድሒሩ ክውሰኽ እዩ።"
+          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no"
         }
       ],
       "transportTitle": "ኣውቶቡስን ባቡርን",

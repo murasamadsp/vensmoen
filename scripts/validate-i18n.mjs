@@ -111,7 +111,7 @@ for (const code of codes) {
   } else {
     refContacts.forEach((refContact, i) => {
       const c = locContacts[i];
-      for (const field of ['role', 'desc']) {
+      for (const field of ['role']) {
         if (typeof c?.[field] !== 'string' || !c[field].trim())
           errors.push(`[${code}] pages.about.contacts[${i}].${field} ugyldig`);
       }

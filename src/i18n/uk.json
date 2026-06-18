@@ -63,28 +63,23 @@
       "contacts": [
         {
           "role": "Логістика",
-          "email": "Logistikk.vensmoen@mottaksdriftnor.no",
-          "desc": "Опис з’явиться згодом."
+          "email": "Logistikk.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "Фінанси",
-          "email": "saldo2023@yahoo.com",
-          "desc": "Опис з’явиться згодом."
+          "email": "saldo2023@yahoo.com"
         },
         {
           "role": "Медсестра",
-          "email": "Inga.Mari.johansen@Saltdal.kommune.no",
-          "desc": "Опис з’явиться згодом."
+          "email": "Inga.Mari.johansen@Saltdal.kommune.no"
         },
         {
           "role": "Розселення",
-          "email": "innretur.vensmoen@mottaksdriftnor.no",
-          "desc": "Опис з’явиться згодом."
+          "email": "innretur.vensmoen@mottaksdriftnor.no"
         },
         {
           "role": "Робота з дітьми",
-          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no",
-          "desc": "Опис з’явиться згодом."
+          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no"
         }
       ],
       "transportTitle": "Автобус і потяг",
