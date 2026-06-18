@@ -92,14 +92,14 @@
           "desc": "La descripción estará disponible pronto."
         }
       ],
+      "transportTitle": "Autobús y tren",
+      "transportIntro": "Los autobuses y trenes por Røkland pasan con poca frecuencia, y menos aún en festivos. Consulte los horarios antes de cada viaje:",
       "blocks": [
         {
           "heading": "La oficina",
           "body": "La oficina abre los días laborables de 08:00 a 16:00; los fines de semana y festivos el edificio permanece cerrado.\nAntes de venir, escriba al responsable de logística indicando brevemente el motivo. Así la persona que necesita estará en su puesto cuando llegue, o le ayudará a distancia, sin necesidad de visita."
         }
-      ],
-      "transportTitle": "Autobús y tren",
-      "transportIntro": "Los autobuses y trenes por Røkland pasan con poca frecuencia, y menos aún en festivos. Consulte los horarios antes de cada viaje:"
+      ]
     },
     "rules": {
       "title": "Normas de la casa",

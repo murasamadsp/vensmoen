@@ -92,14 +92,14 @@
           "desc": "Description coming soon."
         }
       ],
+      "transportTitle": "Bus and train",
+      "transportIntro": "Buses and trains through Røkland run infrequently, and even less often on public holidays. Check the timetable before every trip:",
       "blocks": [
         {
           "heading": "The office",
           "body": "The office is open on weekdays from 08:00 to 16:00; on weekends and public holidays the building is closed.\nBefore coming by, email the logistics coordinator and briefly state the reason. That way the person you need will be there when you arrive – or will help you without a visit."
         }
-      ],
-      "transportTitle": "Bus and train",
-      "transportIntro": "Buses and trains through Røkland run infrequently, and even less often on public holidays. Check the timetable before every trip:"
+      ]
     },
     "rules": {
       "title": "House rules",

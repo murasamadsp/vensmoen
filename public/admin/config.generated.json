@@ -1,0 +1,893 @@
+{
+  "backend": {
+    "name": "github",
+    "repo": "murasamadsp/vensmoen",
+    "branch": "main"
+  },
+  "media_folder": "public/uploads",
+  "public_folder": "/vensmoen/uploads",
+  "i18n": {
+    "structure": "multiple_files",
+    "locales": ["nb", "en", "uk", "ar", "es", "ti"],
+    "default_locale": "nb"
+  },
+  "collections": [
+    {
+      "name": "i18n",
+      "label": "Tekster",
+      "i18n": true,
+      "files": [
+        {
+          "name": "strings",
+          "label": "Nettstedstekster (alle språk)",
+          "file": "src/i18n/{{locale}}.json",
+          "i18n": true,
+          "fields": [
+            {
+              "name": "meta",
+              "label": "SEO / metadata",
+              "i18n": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "descriptionQuiz",
+                  "label": "Description Quiz",
+                  "i18n": true,
+                  "widget": "text"
+                }
+              ]
+            },
+            {
+              "name": "site",
+              "label": "Nettsted (navn, nødnumre, kart)",
+              "i18n": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "Title",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "description",
+                  "label": "Description",
+                  "i18n": true,
+                  "widget": "text"
+                },
+                {
+                  "name": "name",
+                  "label": "Name",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "tagline",
+                  "label": "Tagline",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Intro",
+                  "i18n": true,
+                  "widget": "text"
+                },
+                {
+                  "name": "sectionsLabel",
+                  "label": "Sections Label",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "comingSoon",
+                  "label": "Coming Soon",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "mapTitle",
+                  "label": "Map Title",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "dutyTitle",
+                  "label": "Duty Title",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "dutyText",
+                  "label": "Duty Text",
+                  "i18n": true,
+                  "widget": "text"
+                },
+                {
+                  "name": "emergencyTitle",
+                  "label": "Emergency Title",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "emergencyNote",
+                  "label": "Emergency Note",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "emergencyFire",
+                  "label": "Emergency Fire",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "emergencyPolice",
+                  "label": "Emergency Police",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "emergencyAmbulance",
+                  "label": "Emergency Ambulance",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "emergencyDoctor",
+                  "label": "Emergency Doctor",
+                  "i18n": true,
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "ui",
+              "label": "Grensesnitt-tekster",
+              "i18n": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "siteTitle",
+                  "label": "Site Title",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "tagline",
+                  "label": "Tagline",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "intro",
+                  "label": "Intro",
+                  "i18n": true,
+                  "widget": "text"
+                },
+                {
+                  "name": "binLabel",
+                  "label": "Bin Label",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "accepted",
+                  "label": "Accepted",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "rejected",
+                  "label": "Rejected",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "note",
+                  "label": "Note",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "source",
+                  "label": "Source",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "lastVerified",
+                  "label": "Last Verified",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "print",
+                  "label": "Print",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "backToGuide",
+                  "label": "Back To Guide",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "languagePicker",
+                  "label": "Language Picker",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "skipToContent",
+                  "label": "Skip To Content",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "legalNote",
+                  "label": "Legal Note",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "sourcesTitle",
+                  "label": "Sources Title",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "scanHint",
+                  "label": "Scan Hint",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizNav",
+                  "label": "Quiz Nav",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizTitle",
+                  "label": "Quiz Title",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizIntro",
+                  "label": "Quiz Intro",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizStart",
+                  "label": "Quiz Start",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizPrompt",
+                  "label": "Quiz Prompt",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizOf",
+                  "label": "Quiz Of",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizCorrect",
+                  "label": "Quiz Correct",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizWrong",
+                  "label": "Quiz Wrong",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizAnswerWas",
+                  "label": "Quiz Answer Was",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizNext",
+                  "label": "Quiz Next",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizFinish",
+                  "label": "Quiz Finish",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizResultTitle",
+                  "label": "Quiz Result Title",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizScoreSuffix",
+                  "label": "Quiz Score Suffix",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizAgain",
+                  "label": "Quiz Again",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "opensInNewTab",
+                  "label": "Opens In New Tab",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizYes",
+                  "label": "Quiz Yes",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizNo",
+                  "label": "Quiz No",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "quizBelongPrompt",
+                  "label": "Quiz Belong Prompt",
+                  "i18n": true,
+                  "widget": "string"
+                }
+              ]
+            },
+            {
+              "name": "pages",
+              "label": "Sider",
+              "i18n": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "about",
+                  "label": "Om mottaket",
+                  "i18n": true,
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Title",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "lead",
+                      "label": "Lead",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "cardDesc",
+                      "label": "Card Desc",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "contactsTitle",
+                      "label": "Contacts Title",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "contactsIntro",
+                      "label": "Contacts Intro",
+                      "i18n": true,
+                      "widget": "text"
+                    },
+                    {
+                      "name": "contacts",
+                      "label": "Kontaktpersoner",
+                      "i18n": true,
+                      "widget": "list",
+                      "collapsed": true,
+                      "summary": "{{fields.role}}",
+                      "fields": [
+                        {
+                          "name": "role",
+                          "label": "Role",
+                          "i18n": true,
+                          "widget": "string"
+                        },
+                        {
+                          "name": "email",
+                          "label": "Email",
+                          "i18n": true,
+                          "widget": "string"
+                        },
+                        {
+                          "name": "desc",
+                          "label": "Desc",
+                          "i18n": true,
+                          "widget": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "transportTitle",
+                      "label": "Transport Title",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "transportIntro",
+                      "label": "Transport Intro",
+                      "i18n": true,
+                      "widget": "text"
+                    },
+                    {
+                      "name": "blocks",
+                      "label": "Tekstblokker",
+                      "i18n": true,
+                      "widget": "list",
+                      "collapsed": true,
+                      "summary": "{{fields.heading}}",
+                      "fields": [
+                        {
+                          "name": "heading",
+                          "label": "Heading",
+                          "i18n": true,
+                          "widget": "string"
+                        },
+                        {
+                          "name": "body",
+                          "label": "Body",
+                          "i18n": true,
+                          "widget": "text"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "rules",
+                  "label": "Husregler",
+                  "i18n": true,
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Title",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "lead",
+                      "label": "Lead",
+                      "i18n": true,
+                      "widget": "text"
+                    },
+                    {
+                      "name": "cardDesc",
+                      "label": "Card Desc",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "blocks",
+                      "label": "Tekstblokker",
+                      "i18n": true,
+                      "widget": "list",
+                      "collapsed": true,
+                      "summary": "{{fields.heading}}",
+                      "fields": [
+                        {
+                          "name": "heading",
+                          "label": "Heading",
+                          "i18n": true,
+                          "widget": "string"
+                        },
+                        {
+                          "name": "body",
+                          "label": "Body",
+                          "i18n": true,
+                          "widget": "text"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "guide",
+                  "label": "Praktisk guide",
+                  "i18n": true,
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Title",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "lead",
+                      "label": "Lead",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "cardDesc",
+                      "label": "Card Desc",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "blocks",
+                      "label": "Tekstblokker",
+                      "i18n": true,
+                      "widget": "list",
+                      "collapsed": true,
+                      "summary": "{{fields.heading}}",
+                      "fields": [
+                        {
+                          "name": "heading",
+                          "label": "Heading",
+                          "i18n": true,
+                          "widget": "string"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "fractions",
+              "label": "Avfallstyper",
+              "i18n": true,
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "name": "matavfall",
+                  "label": "Matavfall",
+                  "i18n": true,
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "name",
+                      "label": "Name",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "bin",
+                      "label": "Bin",
+                      "i18n": true,
+                      "widget": "text"
+                    },
+                    {
+                      "name": "accepted",
+                      "label": "Accepted",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "rejected",
+                      "label": "Rejected",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "note",
+                      "label": "Note",
+                      "i18n": true,
+                      "widget": "text"
+                    }
+                  ]
+                },
+                {
+                  "name": "papir",
+                  "label": "Papir",
+                  "i18n": true,
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "name",
+                      "label": "Name",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "bin",
+                      "label": "Bin",
+                      "i18n": true,
+                      "widget": "text"
+                    },
+                    {
+                      "name": "accepted",
+                      "label": "Accepted",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "rejected",
+                      "label": "Rejected",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "note",
+                      "label": "Note",
+                      "i18n": true,
+                      "widget": "string"
+                    }
+                  ]
+                },
+                {
+                  "name": "plast",
+                  "label": "Plast",
+                  "i18n": true,
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "name",
+                      "label": "Name",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "bin",
+                      "label": "Bin",
+                      "i18n": true,
+                      "widget": "text"
+                    },
+                    {
+                      "name": "accepted",
+                      "label": "Accepted",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "rejected",
+                      "label": "Rejected",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "note",
+                      "label": "Note",
+                      "i18n": true,
+                      "widget": "text"
+                    }
+                  ]
+                },
+                {
+                  "name": "glassmetall",
+                  "label": "Glassmetall",
+                  "i18n": true,
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "name",
+                      "label": "Name",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "bin",
+                      "label": "Bin",
+                      "i18n": true,
+                      "widget": "text"
+                    },
+                    {
+                      "name": "accepted",
+                      "label": "Accepted",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "rejected",
+                      "label": "Rejected",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "note",
+                      "label": "Note",
+                      "i18n": true,
+                      "widget": "text"
+                    }
+                  ]
+                },
+                {
+                  "name": "restavfall",
+                  "label": "Restavfall",
+                  "i18n": true,
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "name",
+                      "label": "Name",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "bin",
+                      "label": "Bin",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "accepted",
+                      "label": "Accepted",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "rejected",
+                      "label": "Rejected",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "note",
+                      "label": "Note",
+                      "i18n": true,
+                      "widget": "text"
+                    }
+                  ]
+                },
+                {
+                  "name": "farlig",
+                  "label": "Farlig",
+                  "i18n": true,
+                  "widget": "object",
+                  "collapsed": true,
+                  "fields": [
+                    {
+                      "name": "name",
+                      "label": "Name",
+                      "i18n": true,
+                      "widget": "string"
+                    },
+                    {
+                      "name": "bin",
+                      "label": "Bin",
+                      "i18n": true,
+                      "widget": "text"
+                    },
+                    {
+                      "name": "accepted",
+                      "label": "Accepted",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "rejected",
+                      "label": "Rejected",
+                      "i18n": true,
+                      "widget": "list",
+                      "field": {
+                        "name": "item",
+                        "label": "Linje",
+                        "widget": "string",
+                        "i18n": true
+                      }
+                    },
+                    {
+                      "name": "note",
+                      "label": "Note",
+                      "i18n": true,
+                      "widget": "string"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
