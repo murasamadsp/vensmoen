@@ -69,7 +69,6 @@ export interface SiteStrings {
 }
 
 export interface Strings {
-  meta: { title: string; description: string; descriptionQuiz: string };
   site: SiteStrings;
   pages: {
     about: AboutPageStrings;

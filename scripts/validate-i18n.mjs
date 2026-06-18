@@ -24,11 +24,6 @@ for (const code of codes) {
   if (code === REFERENCE) continue;
   const loc = load(code);
 
-  for (const key of Object.keys(ref.meta)) {
-    if (typeof loc.meta?.[key] !== 'string' || !loc.meta[key].trim())
-      errors.push(`[${code}] meta.${key} mangler eller er tom`);
-  }
-
   for (const key of Object.keys(ref.ui)) {
     if (typeof loc.ui?.[key] !== 'string' || !loc.ui[key].trim())
       errors.push(`[${code}] ui.${key} mangler eller er tom`);
@@ -134,5 +129,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(
-  `i18n OK: ${codes.length} lokaler, alle ui/meta/site/pages/fraksjon-nøkler synkronisert mot ${REFERENCE}.`,
+  `i18n OK: ${codes.length} lokaler, alle ui/site/pages/fraksjon-nøkler synkronisert mot ${REFERENCE}.`,
 );

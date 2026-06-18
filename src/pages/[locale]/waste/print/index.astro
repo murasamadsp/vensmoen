@@ -26,8 +26,8 @@ const qrSvg = await QRCode.toString(siteUrl(locale), {
 
 <BaseLayout
   locale={locale}
-  title={`${t.meta.title} – ${ui.print}`}
-  description={t.meta.description}
+  title={`${ui.siteTitle} – ${ui.print}`}
+  description={ui.tagline}
   bodyClass="print-page"
   noindex={true}
 >

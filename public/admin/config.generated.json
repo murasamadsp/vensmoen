@@ -26,33 +26,6 @@
           "i18n": true,
           "fields": [
             {
-              "name": "meta",
-              "label": "SEO / metadata",
-              "i18n": true,
-              "widget": "object",
-              "collapsed": true,
-              "fields": [
-                {
-                  "name": "title",
-                  "label": "Tittel",
-                  "i18n": true,
-                  "widget": "string"
-                },
-                {
-                  "name": "description",
-                  "label": "Beskrivelse",
-                  "i18n": true,
-                  "widget": "string"
-                },
-                {
-                  "name": "descriptionQuiz",
-                  "label": "Description Quiz",
-                  "i18n": true,
-                  "widget": "text"
-                }
-              ]
-            },
-            {
               "name": "site",
               "label": "Nettsted (navn, nødnumre, kart)",
               "i18n": true,

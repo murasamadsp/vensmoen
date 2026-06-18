@@ -63,8 +63,8 @@ const quizData = JSON.stringify({ questions, options, str }).replace(
 
 <BaseLayout
   locale={locale}
-  title={`${ui.quizTitle} · ${t.meta.title}`}
-  description={t.meta.descriptionQuiz}
+  title={`${ui.quizTitle} · ${ui.siteTitle}`}
+  description={ui.quizIntro}
 >
   <a class="skip-link" href="#main">{ui.skipToContent}</a>
 
