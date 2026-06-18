@@ -84,8 +84,9 @@
   margin: 0 0 var(--space-3);
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-sm);
-  background: color-mix(in oklch, var(--bin) 14%, var(--color-surface));
-  border: 1px solid color-mix(in oklch, var(--bin) 35%, transparent);
+  /* oklab: hue-blanding mot lys surface i oklch dreier fargen feil (grønt→rosa). */
+  background: color-mix(in oklab, var(--bin) 14%, var(--color-surface));
+  border: 1px solid color-mix(in oklab, var(--bin) 35%, transparent);
   font-size: var(--text-base);
 }
 .frac__where-label {

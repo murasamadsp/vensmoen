@@ -86,15 +86,17 @@
   cursor: default;
   opacity: 0.55;
 }
+/* oklab (ikke oklch) for bakgrunnsblanding: hue-interpolasjon mot nær-hvit
+   surface i oklch dreier grønt mot rosa. oklab blander langs a/b – riktig tone. */
 .quiz__opt.is-correct {
   opacity: 1;
-  background: color-mix(in oklch, var(--ok) 16%, var(--color-surface));
+  background: color-mix(in oklab, var(--ok) 16%, var(--color-surface));
   border-color: var(--ok);
   border-inline-start-color: var(--ok);
 }
 .quiz__opt.is-wrong {
   opacity: 1;
-  background: color-mix(in oklch, var(--no) 16%, var(--color-surface));
+  background: color-mix(in oklab, var(--no) 16%, var(--color-surface));
   border-color: var(--no);
   border-inline-start-color: var(--no);
 }
