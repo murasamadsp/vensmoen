@@ -1,8 +1,10 @@
 {
+  "load_config_file": false,
   "backend": {
     "name": "github",
     "repo": "murasamadsp/vensmoen",
-    "branch": "main"
+    "branch": "main",
+    "auth_methods": ["token"]
   },
   "media_folder": "public/uploads",
   "public_folder": "/vensmoen/uploads",

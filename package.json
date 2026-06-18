@@ -19,8 +19,8 @@
     "gen:cms": "node scripts/gen-cms-config.mjs && biome check --write public/admin/config.generated.json"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.2",
-    "astro": "^6.3.7",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^6.4.8",
     "qrcode": "^1.5.4"
   },
   "devDependencies": {

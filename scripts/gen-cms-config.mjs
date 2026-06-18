@@ -98,7 +98,16 @@ const buildFields = (obj) =>
   Object.keys(obj).map((key) => buildField(key, obj[key]));
 
 const config = {
-  backend: { name: 'github', repo: REPO, branch: BRANCH },
+  // Vi sender konfig direkte via CMS.init(); ikke prøv å hente config.yml.
+  load_config_file: false,
+  backend: {
+    name: 'github',
+    repo: REPO,
+    branch: BRANCH,
+    // Kun innlogging med personlig token (PAT). Ingen OAuth-app,
+    // ingen server/worker. Redaktøren limer inn et GitHub-token én gang.
+    auth_methods: ['token'],
+  },
   // Tekstnettsted uten mediebibliotek, men Decap/Sveltia krever feltene.
   media_folder: 'public/uploads',
   public_folder: '/vensmoen/uploads',
