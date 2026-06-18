@@ -165,13 +165,20 @@
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-2) var(--space-4);
-  margin-block-end: var(--space-3);
+  /* Велика нижня прогалина – тут (перед футером); .emg вище притиснута. */
+  margin-block-end: var(--space-section);
   padding: var(--space-3) var(--space-4);
+  color: var(--color-ink); /* картка-посилання: текст не як лінк */
+  text-decoration: none;
   background: color-mix(in oklab, var(--support) 8%, var(--color-surface));
   border: 1px solid color-mix(in oklab, var(--support) 22%, var(--color-line));
   border-inline-start: 6px solid var(--support);
   border-radius: var(--radius);
   box-shadow: var(--shadow-card);
+  transition: border-color var(--duration) var(--ease);
+}
+.support:hover {
+  border-color: var(--support);
 }
 .support__icon {
   display: grid;
@@ -184,15 +191,16 @@
   background: color-mix(in oklab, var(--support) 14%, var(--color-surface));
 }
 .support__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
   flex: 1 1 22rem;
 }
 .support__title {
-  margin: 0 0 var(--space-1);
   font-family: var(--font-display);
   font-size: var(--text-lg);
 }
 .support__text {
-  margin: 0;
   max-width: 60ch;
   color: var(--color-ink-soft);
   font-size: var(--text-sm);
@@ -203,11 +211,10 @@
   font-weight: 700;
   white-space: nowrap;
   color: var(--support);
-  text-decoration: none;
   direction: ltr; /* nummer alltid venstre-til-høyre, også i RTL */
   unicode-bidi: isolate;
 }
-.support__phone:hover {
+.support:hover .support__phone {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -219,7 +226,7 @@
 
 /* Nødnumre – tydelig avgrenset, store tall, trykkbare tel:-lenker */
 .emg {
-  margin-block-end: var(--space-section);
+  margin-block-end: var(--space-3); /* støtte-kortet rett under – liten luft */
   padding: var(--space-4);
   background: var(--color-surface);
   border: 1px solid var(--color-line);
