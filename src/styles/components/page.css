@@ -2,6 +2,15 @@
 .info-page {
   padding-block-end: var(--space-5);
 }
+/* Lengre tekstsider (husregler/guide) leses som én smal redaksjonell spalte –
+   ikke brede bokser med tekst klemt til venstre og tom høyremarg. About
+   beholder full bredde (kontaktkort-rutenett, kart, transport). */
+/* Tekstsidene (husregler/guide) er rene artikler – smal lesespalte. About er
+   bredere fordi den har kontaktkort-rutenett, kart og transport. */
+.info-page[data-page="rules"],
+.info-page[data-page="guide"] {
+  max-width: 46rem;
+}
 .info-page__head {
   margin-block: var(--space-section) var(--space-5);
 }
@@ -9,16 +18,16 @@
   margin-block-end: var(--space-2);
 }
 
+/* Redaksjonell seksjon (ikke boks): overskrift med hårfin linje + luft.
+   Felles for alle infosider (about/rules/guide) → konsistent uttrykk.
+   Kort/knapper INNI seksjonene (kontakter, kart, transport) beholder sin stil. */
 .info-block {
-  margin-block-end: var(--space-3);
-  padding: var(--space-4);
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-card);
+  margin-block-end: var(--space-5);
 }
 .info-block__heading {
-  margin: 0 0 var(--space-2);
+  margin: 0 0 var(--space-3);
+  padding-block-end: var(--space-2);
+  border-block-end: 1px solid var(--color-line);
   font-family: var(--font-display);
   font-size: var(--text-lg);
 }
