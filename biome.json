@@ -54,6 +54,12 @@
           }
         }
       }
+    },
+    {
+      "includes": ["src/i18n/*.json"],
+      "formatter": {
+        "enabled": false
+      }
     }
   ]
 }
