@@ -34,13 +34,13 @@
               "fields": [
                 {
                   "name": "title",
-                  "label": "Title",
+                  "label": "Tittel",
                   "i18n": true,
                   "widget": "string"
                 },
                 {
                   "name": "description",
-                  "label": "Description",
+                  "label": "Beskrivelse",
                   "i18n": true,
                   "widget": "string"
                 },
@@ -61,19 +61,19 @@
               "fields": [
                 {
                   "name": "title",
-                  "label": "Title",
+                  "label": "Tittel",
                   "i18n": true,
                   "widget": "string"
                 },
                 {
                   "name": "description",
-                  "label": "Description",
+                  "label": "Beskrivelse",
                   "i18n": true,
                   "widget": "text"
                 },
                 {
                   "name": "name",
-                  "label": "Name",
+                  "label": "Navn",
                   "i18n": true,
                   "widget": "string"
                 },
@@ -190,19 +190,19 @@
                 },
                 {
                   "name": "accepted",
-                  "label": "Accepted",
+                  "label": "Ja takk",
                   "i18n": true,
                   "widget": "string"
                 },
                 {
                   "name": "rejected",
-                  "label": "Rejected",
+                  "label": "Nei takk",
                   "i18n": true,
                   "widget": "string"
                 },
                 {
                   "name": "note",
-                  "label": "Note",
+                  "label": "Husk",
                   "i18n": true,
                   "widget": "string"
                 },
@@ -386,31 +386,31 @@
                   "fields": [
                     {
                       "name": "title",
-                      "label": "Title",
+                      "label": "Tittel",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "lead",
-                      "label": "Lead",
+                      "label": "Ingress",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "cardDesc",
-                      "label": "Card Desc",
+                      "label": "Kort beskrivelse",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "contactsTitle",
-                      "label": "Contacts Title",
+                      "label": "Tittel for kontakter",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "contactsIntro",
-                      "label": "Contacts Intro",
+                      "label": "Innledning for kontakter",
                       "i18n": true,
                       "widget": "text"
                     },
@@ -424,19 +424,19 @@
                       "fields": [
                         {
                           "name": "role",
-                          "label": "Role",
+                          "label": "Rolle",
                           "i18n": true,
                           "widget": "string"
                         },
                         {
                           "name": "email",
-                          "label": "Email",
+                          "label": "E-post",
                           "i18n": true,
                           "widget": "string"
                         },
                         {
                           "name": "desc",
-                          "label": "Desc",
+                          "label": "Beskrivelse",
                           "i18n": true,
                           "widget": "string"
                         }
@@ -444,13 +444,13 @@
                     },
                     {
                       "name": "transportTitle",
-                      "label": "Transport Title",
+                      "label": "Tittel for transport",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "transportIntro",
-                      "label": "Transport Intro",
+                      "label": "Innledning for transport",
                       "i18n": true,
                       "widget": "text"
                     },
@@ -464,13 +464,13 @@
                       "fields": [
                         {
                           "name": "heading",
-                          "label": "Heading",
+                          "label": "Overskrift",
                           "i18n": true,
                           "widget": "string"
                         },
                         {
                           "name": "body",
-                          "label": "Body",
+                          "label": "Tekst",
                           "i18n": true,
                           "widget": "text"
                         }
@@ -487,19 +487,19 @@
                   "fields": [
                     {
                       "name": "title",
-                      "label": "Title",
+                      "label": "Tittel",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "lead",
-                      "label": "Lead",
+                      "label": "Ingress",
                       "i18n": true,
                       "widget": "text"
                     },
                     {
                       "name": "cardDesc",
-                      "label": "Card Desc",
+                      "label": "Kort beskrivelse",
                       "i18n": true,
                       "widget": "string"
                     },
@@ -513,13 +513,13 @@
                       "fields": [
                         {
                           "name": "heading",
-                          "label": "Heading",
+                          "label": "Overskrift",
                           "i18n": true,
                           "widget": "string"
                         },
                         {
                           "name": "body",
-                          "label": "Body",
+                          "label": "Tekst",
                           "i18n": true,
                           "widget": "text"
                         }
@@ -536,19 +536,19 @@
                   "fields": [
                     {
                       "name": "title",
-                      "label": "Title",
+                      "label": "Tittel",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "lead",
-                      "label": "Lead",
+                      "label": "Ingress",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "cardDesc",
-                      "label": "Card Desc",
+                      "label": "Kort beskrivelse",
                       "i18n": true,
                       "widget": "string"
                     },
@@ -562,7 +562,7 @@
                       "fields": [
                         {
                           "name": "heading",
-                          "label": "Heading",
+                          "label": "Overskrift",
                           "i18n": true,
                           "widget": "string"
                         }
@@ -588,19 +588,19 @@
                   "fields": [
                     {
                       "name": "name",
-                      "label": "Name",
+                      "label": "Navn",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "bin",
-                      "label": "Bin",
+                      "label": "Hvor det skal",
                       "i18n": true,
                       "widget": "text"
                     },
                     {
                       "name": "accepted",
-                      "label": "Accepted",
+                      "label": "Ja takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -612,7 +612,7 @@
                     },
                     {
                       "name": "rejected",
-                      "label": "Rejected",
+                      "label": "Nei takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -624,7 +624,7 @@
                     },
                     {
                       "name": "note",
-                      "label": "Note",
+                      "label": "Husk",
                       "i18n": true,
                       "widget": "text"
                     }
@@ -639,19 +639,19 @@
                   "fields": [
                     {
                       "name": "name",
-                      "label": "Name",
+                      "label": "Navn",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "bin",
-                      "label": "Bin",
+                      "label": "Hvor det skal",
                       "i18n": true,
                       "widget": "text"
                     },
                     {
                       "name": "accepted",
-                      "label": "Accepted",
+                      "label": "Ja takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -663,7 +663,7 @@
                     },
                     {
                       "name": "rejected",
-                      "label": "Rejected",
+                      "label": "Nei takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -675,7 +675,7 @@
                     },
                     {
                       "name": "note",
-                      "label": "Note",
+                      "label": "Husk",
                       "i18n": true,
                       "widget": "string"
                     }
@@ -690,19 +690,19 @@
                   "fields": [
                     {
                       "name": "name",
-                      "label": "Name",
+                      "label": "Navn",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "bin",
-                      "label": "Bin",
+                      "label": "Hvor det skal",
                       "i18n": true,
                       "widget": "text"
                     },
                     {
                       "name": "accepted",
-                      "label": "Accepted",
+                      "label": "Ja takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -714,7 +714,7 @@
                     },
                     {
                       "name": "rejected",
-                      "label": "Rejected",
+                      "label": "Nei takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -726,7 +726,7 @@
                     },
                     {
                       "name": "note",
-                      "label": "Note",
+                      "label": "Husk",
                       "i18n": true,
                       "widget": "text"
                     }
@@ -741,19 +741,19 @@
                   "fields": [
                     {
                       "name": "name",
-                      "label": "Name",
+                      "label": "Navn",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "bin",
-                      "label": "Bin",
+                      "label": "Hvor det skal",
                       "i18n": true,
                       "widget": "text"
                     },
                     {
                       "name": "accepted",
-                      "label": "Accepted",
+                      "label": "Ja takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -765,7 +765,7 @@
                     },
                     {
                       "name": "rejected",
-                      "label": "Rejected",
+                      "label": "Nei takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -777,7 +777,7 @@
                     },
                     {
                       "name": "note",
-                      "label": "Note",
+                      "label": "Husk",
                       "i18n": true,
                       "widget": "text"
                     }
@@ -792,19 +792,19 @@
                   "fields": [
                     {
                       "name": "name",
-                      "label": "Name",
+                      "label": "Navn",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "bin",
-                      "label": "Bin",
+                      "label": "Hvor det skal",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "accepted",
-                      "label": "Accepted",
+                      "label": "Ja takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -816,7 +816,7 @@
                     },
                     {
                       "name": "rejected",
-                      "label": "Rejected",
+                      "label": "Nei takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -828,7 +828,7 @@
                     },
                     {
                       "name": "note",
-                      "label": "Note",
+                      "label": "Husk",
                       "i18n": true,
                       "widget": "text"
                     }
@@ -843,19 +843,19 @@
                   "fields": [
                     {
                       "name": "name",
-                      "label": "Name",
+                      "label": "Navn",
                       "i18n": true,
                       "widget": "string"
                     },
                     {
                       "name": "bin",
-                      "label": "Bin",
+                      "label": "Hvor det skal",
                       "i18n": true,
                       "widget": "text"
                     },
                     {
                       "name": "accepted",
-                      "label": "Accepted",
+                      "label": "Ja takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -867,7 +867,7 @@
                     },
                     {
                       "name": "rejected",
-                      "label": "Rejected",
+                      "label": "Nei takk",
                       "i18n": true,
                       "widget": "list",
                       "field": {
@@ -879,7 +879,7 @@
                     },
                     {
                       "name": "note",
-                      "label": "Note",
+                      "label": "Husk",
                       "i18n": true,
                       "widget": "string"
                     }

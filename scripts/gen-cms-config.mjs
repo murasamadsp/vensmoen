@@ -23,8 +23,9 @@ const LOCALES = ['nb', 'en', 'uk', 'ar', 'es', 'ti'];
 const DEFAULT_LOCALE = 'nb';
 const LONG_TEXT = 70; // strenger lengre enn dette redigeres som tekstområde
 
-// Vennlige etiketter for kjente grupper (resten utledes fra nøkkelnavnet).
+// Vennlige etiketter på norsk (resten utledes fra nøkkelnavnet).
 const LABELS = {
+  // grupper
   meta: 'SEO / metadata',
   site: 'Nettsted (navn, nødnumre, kart)',
   ui: 'Grensesnitt-tekster',
@@ -35,6 +36,25 @@ const LABELS = {
   contacts: 'Kontaktpersoner',
   blocks: 'Tekstblokker',
   fractions: 'Avfallstyper',
+  // felt som går igjen
+  title: 'Tittel',
+  lead: 'Ingress',
+  heading: 'Overskrift',
+  body: 'Tekst',
+  description: 'Beskrivelse',
+  cardDesc: 'Kort beskrivelse',
+  name: 'Navn',
+  bin: 'Hvor det skal',
+  accepted: 'Ja takk',
+  rejected: 'Nei takk',
+  note: 'Husk',
+  role: 'Rolle',
+  email: 'E-post',
+  desc: 'Beskrivelse',
+  contactsTitle: 'Tittel for kontakter',
+  contactsIntro: 'Innledning for kontakter',
+  transportTitle: 'Tittel for transport',
+  transportIntro: 'Innledning for transport',
 };
 
 const isObject = (v) =>
