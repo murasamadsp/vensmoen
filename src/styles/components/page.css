@@ -2,9 +2,6 @@
 .info-page {
   padding-block-end: var(--space-5);
 }
-/* Lengre tekstsider (husregler/guide) leses som én smal redaksjonell spalte –
-   ikke brede bokser med tekst klemt til venstre og tom høyremarg. About
-   beholder full bredde (kontaktkort-rutenett, kart, transport). */
 /* Tekstsidene (husregler/guide) er rene artikler – smal lesespalte. About er
    bredere fordi den har kontaktkort-rutenett, kart og transport. */
 .info-page[data-page="rules"],
