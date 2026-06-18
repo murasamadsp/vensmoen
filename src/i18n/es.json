@@ -15,7 +15,9 @@
     "emergencyFire": "Bomberos",
     "emergencyPolice": "Policía",
     "emergencyAmbulance": "Ambulancia",
-    "emergencyDoctor": "Médico de guardia (legevakt)"
+    "emergencyDoctor": "Médico de guardia (legevakt)",
+    "mentalTitle": "Alguien con quien hablar",
+    "mentalText": "¿Lo estás pasando mal, te sientes decaído o necesitas hablar con alguien? Mental Helse atiende las 24 horas, gratis y de forma anónima."
   },
   "ui": {
     "siteTitle": "Separación de residuos",

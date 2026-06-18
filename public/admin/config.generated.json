@@ -127,6 +127,18 @@
                   "label": "Emergency Doctor",
                   "i18n": true,
                   "widget": "string"
+                },
+                {
+                  "name": "mentalTitle",
+                  "label": "Mental Title",
+                  "i18n": true,
+                  "widget": "string"
+                },
+                {
+                  "name": "mentalText",
+                  "label": "Mental Text",
+                  "i18n": true,
+                  "widget": "text"
                 }
               ]
             },

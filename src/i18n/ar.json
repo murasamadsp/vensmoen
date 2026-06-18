@@ -15,7 +15,9 @@
     "emergencyFire": "الإطفاء",
     "emergencyPolice": "الشرطة",
     "emergencyAmbulance": "الإسعاف",
-    "emergencyDoctor": "عيادة الطوارئ (legevakt)"
+    "emergencyDoctor": "عيادة الطوارئ (legevakt)",
+    "mentalTitle": "من تتحدث إليه",
+    "mentalText": "هل تمرّ بوقت صعب أو تشعر بالضيق أو تحتاج إلى من تتحدث إليه؟ خط Mental Helse متاح على مدار الساعة، مجانًا وبسرّية تامة."
   },
   "ui": {
     "siteTitle": "فرز النفايات",

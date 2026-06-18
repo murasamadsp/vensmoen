@@ -1,7 +1,11 @@
 ---
 import LanguagePicker from '../../components/LanguagePicker.astro';
 import SectionIcon from '../../components/SectionIcon.astro';
-import { dutyPhone, emergencyNumbers } from '../../data/emergency';
+import {
+  dutyPhone,
+  emergencyNumbers,
+  mentalHealth,
+} from '../../data/emergency';
 import { localeCodes } from '../../i18n/locales';
 import {
   localeAbout,
@@ -105,6 +109,24 @@ const emergencyLabels: Record<string, string> = {
         <p class="duty__text">{site.dutyText}</p>
       </div>
       <a class="duty__phone" href={`tel:${dutyPhone.tel}`}>{dutyPhone.display}</a>
+    </section>
+
+    {/* Психологічна підтримка – окрема картка з теплим акцентом, щоб
+        читалась як «турбота», а не як медичний/екстрений номер. */}
+    <section class="support" aria-labelledby="support-title">
+      <span class="support__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7.5 20.5 5 18H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-8.5z" />
+          <path d="M12 8.5c1-1.6 3.5-1.3 3.5.6 0 1.4-1.7 2.6-3.5 3.9-1.8-1.3-3.5-2.5-3.5-3.9 0-1.9 2.5-2.2 3.5-.6z" />
+        </svg>
+      </span>
+      <div class="support__body">
+        <h2 id="support-title" class="support__title">{site.mentalTitle}</h2>
+        <p class="support__text">{site.mentalText}</p>
+      </div>
+      <a class="support__phone" href={`tel:${mentalHealth.tel}`}>
+        {mentalHealth.display}
+      </a>
     </section>
 
     <section class="emg" aria-labelledby="emg-title">

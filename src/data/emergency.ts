@@ -21,3 +21,11 @@ export const dutyPhone = {
   tel: '+4748201948',
   display: '+47 482 01 948',
 } as const;
+
+// Психологічна підтримка: Mental Helse hjelpetelefon — національна,
+// цілодобова, безкоштовна й анонімна. Окремо від медичного legevakt (116117).
+// Підписи (site.mentalTitle/mentalText) перекладаються в i18n.
+export const mentalHealth = {
+  tel: '116123',
+  display: '116 123',
+} as const;

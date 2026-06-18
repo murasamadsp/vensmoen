@@ -15,7 +15,9 @@
     "emergencyFire": "Brann",
     "emergencyPolice": "Politi",
     "emergencyAmbulance": "Ambulanse",
-    "emergencyDoctor": "Legevakt"
+    "emergencyDoctor": "Legevakt",
+    "mentalTitle": "Noen å snakke med",
+    "mentalText": "Har du det vanskelig, føler deg nedfor eller trenger noen å snakke med? Mental Helse svarer hele døgnet – gratis og anonymt."
   },
   "ui": {
     "siteTitle": "Kildesortering",

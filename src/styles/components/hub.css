@@ -157,6 +157,66 @@
   text-underline-offset: 4px;
 }
 
+/* Psykisk helse – samme kort-mønster som .duty, men varm lilla aksent
+   (ikke teal som resten) + ikon, så den leses som «omsorg», ikke nødnummer. */
+.support {
+  --support: oklch(52% 0.14 300);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  margin-block-end: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: color-mix(in oklab, var(--support) 8%, var(--color-surface));
+  border: 1px solid color-mix(in oklab, var(--support) 22%, var(--color-line));
+  border-inline-start: 6px solid var(--support);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+.support__icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  inline-size: 3rem;
+  block-size: 3rem;
+  border-radius: 50%;
+  color: var(--support);
+  background: color-mix(in oklab, var(--support) 14%, var(--color-surface));
+}
+.support__body {
+  flex: 1 1 22rem;
+}
+.support__title {
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+.support__text {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+}
+.support__phone {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--support);
+  text-decoration: none;
+  direction: ltr; /* nummer alltid venstre-til-høyre, også i RTL */
+  unicode-bidi: isolate;
+}
+.support__phone:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (prefers-color-scheme: dark) {
+  .support {
+    --support: oklch(78% 0.12 300);
+  }
+}
+
 /* Nødnumre – tydelig avgrenset, store tall, trykkbare tel:-lenker */
 .emg {
   margin-block-end: var(--space-section);

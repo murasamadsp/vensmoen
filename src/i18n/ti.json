@@ -15,7 +15,9 @@
     "emergencyFire": "መጥፋእቲ ሓዊ",
     "emergencyPolice": "ፖሊስ",
     "emergencyAmbulance": "ኣምቡላንስ",
-    "emergencyDoctor": "ህጹጽ ሕክምና (legevakt)"
+    "emergencyDoctor": "ህጹጽ ሕክምና (legevakt)",
+    "mentalTitle": "ምስ እትዛረቦ",
+    "mentalText": "ኣጸጋሚ እዋን ይሓልፍ ኣሎ፡ ጭንቀት ይስምዓካ ወይ ምስ ሰብ ክትዛረብ ትደሊ ዲኻ? Mental Helse ንመዓልትን ለይትን ብናጻን ብሕቡእን ይምልሽ።"
   },
   "ui": {
     "siteTitle": "ምፍላይ ጓሓፍ",

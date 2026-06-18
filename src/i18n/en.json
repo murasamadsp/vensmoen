@@ -15,7 +15,9 @@
     "emergencyFire": "Fire",
     "emergencyPolice": "Police",
     "emergencyAmbulance": "Ambulance",
-    "emergencyDoctor": "Out-of-hours doctor (legevakt)"
+    "emergencyDoctor": "Out-of-hours doctor (legevakt)",
+    "mentalTitle": "Someone to talk to",
+    "mentalText": "Going through a hard time, feeling low, or just need someone to talk to? Mental Helse answers around the clock — free and anonymous."
   },
   "ui": {
     "siteTitle": "Waste sorting",

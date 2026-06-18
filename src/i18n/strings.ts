@@ -57,6 +57,9 @@ export interface SiteStrings {
   /** Черговий телефон центру – цілодобовий, показується на головній сторінці. */
   dutyTitle: string;
   dutyText: string;
+  /** Психологічна підтримка (Mental Helse) – окрема картка на головній. */
+  mentalTitle: string;
+  mentalText: string;
   emergencyTitle: string;
   emergencyNote: string;
   emergencyFire: string;
