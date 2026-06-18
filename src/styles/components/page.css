@@ -89,7 +89,8 @@
 
 .contacts {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(17rem, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(22rem, 100%), 1fr));
+  align-items: start; /* картки за висотою контенту – без порожньої дірки знизу */
   gap: var(--space-2);
   margin: 0;
   padding: 0;
@@ -99,6 +100,7 @@
 .contact-card {
   display: flex;
   flex-direction: column;
+  gap: var(--space-2);
   padding: var(--space-3);
   background: var(--color-bg);
   border: 1px solid var(--color-line);
@@ -109,28 +111,24 @@
   border-color: var(--color-accent);
 }
 
-/* Однакова висота карток у всіх мовах: кожна зона резервує фіксовану
-   кількість рядків (той самий прийом, що 2lh у .emg__label). */
 .contact-card__role {
   margin: 0;
   font-family: var(--font-display);
   font-size: var(--text-lg);
   line-height: 1.2;
-  min-block-size: 2.4em; /* 2 рядки – «Робота з дітьми» тощо переноситься */
 }
 
-/* E-mail = сам лінк: адресу видно, її можна скопіювати, тап відкриває пошту */
+/* E-mail = сам лінк: адресу видно, її можна скопіювати, тап відкриває пошту.
+   overflow-wrap (не break-all) → перенос лише за потреби, без розриву слова. */
 .contact-card__email {
   display: inline-flex;
   align-items: flex-start;
   gap: var(--space-1);
-  margin-block-start: auto;
   color: var(--color-accent);
   font-size: var(--text-sm);
   font-weight: 500;
   text-decoration: none;
-  word-break: break-all;
-  min-block-size: 2lh; /* довгі адреси займають 2 рядки, короткі – теж 2 */
+  overflow-wrap: anywhere;
 }
 .contact-card__email:hover span {
   text-decoration: underline;
