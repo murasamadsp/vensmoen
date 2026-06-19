@@ -100,7 +100,18 @@ async function claudeTranslateBatch(map, from, to) {
   if (!key) throw new Error('ANTHROPIC_API_KEY mangler (.env i fork-mappa)');
   const userMsg =
     `Translate these JSON values from ${LANG_NAME[from]} to ${LANG_NAME[to]}. ` +
-    `Return ONLY a JSON object with the same keys.\n\n${JSON.stringify(map)}`;
+    `Return a JSON object with the same keys.\n\n${JSON.stringify(map)}`;
+  // Structured outputs: tving gyldig JSON med nøyaktig samme nøkler (stiene).
+  // SO krever additionalProperties:false + eksplisitte properties, så schema
+  // bygges per kall fra nøklene i map.
+  const properties = {};
+  for (const k of Object.keys(map)) properties[k] = { type: 'string' };
+  const schema = {
+    type: 'object',
+    properties,
+    required: Object.keys(map),
+    additionalProperties: false,
+  };
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -110,9 +121,10 @@ async function claudeTranslateBatch(map, from, to) {
     },
     body: JSON.stringify({
       model: MODEL,
-      max_tokens: 4096,
-      // Stilguiden som cache-bar prefiks; målspråk + innhold ligger i user-meldinga
-      // (varierer per kall) slik at prefikset forblir identisk og kan caches.
+      max_tokens: 8192,
+      // Stilguiden som cache-bar prefiks. (NB: structured outputs-schema varierer
+      // per kall → cachen invalideres uansett; men prefikset er < 1024 tok her,
+      // så caching er likevel inaktiv. cache_control beholdes ufarlig.)
       system: [
         {
           type: 'text',
@@ -121,18 +133,23 @@ async function claudeTranslateBatch(map, from, to) {
         },
       ],
       messages: [{ role: 'user', content: userMsg }],
+      output_config: { format: { type: 'json_schema', schema } },
     }),
   });
   if (!res.ok) throw new Error(`claude ${res.status}: ${await res.text()}`);
   const data = await res.json();
+  if (data.stop_reason === 'refusal')
+    throw new Error('Claude nektet forespørselen (refusal)');
+  if (data.stop_reason === 'max_tokens')
+    throw new Error('Svar avkuttet (øk max_tokens)');
   const u = data.usage || {};
   if (u.cache_creation_input_tokens || u.cache_read_input_tokens) {
     console.log(
       `     [cache: skrevet ${u.cache_creation_input_tokens || 0}, lest ${u.cache_read_input_tokens || 0} tok]`,
     );
   }
-  const txt = data.content?.[0]?.text ?? '{}';
-  return JSON.parse(txt.replace(/^```json\n?|```$/g, '').trim());
+  // Structured outputs garanterer gyldig JSON → parse direkte.
+  return JSON.parse(data.content?.[0]?.text ?? '{}');
 }
 
 // Oversett { path: text } fra ett språk til ett annet.
