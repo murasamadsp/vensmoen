@@ -39,16 +39,11 @@ const LANG_NAME = {
 // Statisk stilguide. Holdes identisk på tvers av kall → cache-bar prefiks.
 // (Cacher først når prefikset > modellens minimum: Sonnet 4.6 = 1024 tok,
 //  Haiku 4.5 = 4096. På små oppdateringer aktiveres ikke caching – det er ok.)
-const STYLE_GUIDE = `You are a professional translator for the public information site of Vensmoen mottak, a Norwegian refugee reception centre.
+const STYLE_GUIDE = `You are a professional translator for the public information site of Vensmoen mottak, a Norwegian refugee reception centre. Readers are residents — asylum seekers and refugees, often with limited literacy.
 
-Audience: residents — asylum seekers and refugees, often with limited reading skills. Use clear, simple, concrete language. Tone: official but warm and respectful, in the style of Norwegian public-sector information. Prefer short sentences.
+Translate faithfully: convey the exact meaning, never add, drop or "improve" information. Use natural, clear phrasing in the target language, matching the source's plain, respectful public-sector tone; prefer common everyday words over rare synonyms, and address the reader directly with the standard polite form. Keep domain terms accurate and consistent (e.g. "mottak" = the reception centre where residents live, not a front desk).
 
-Rules:
-- Translate only the VALUES. Return a JSON object with the SAME keys and nothing else (no prose, no markdown code fences).
-- Preserve exactly: line breaks (\\n), bullet characters "•", list order, email addresses, phone numbers and digits.
-- Do NOT translate proper nouns: Vensmoen, Saltdal, Røkland, UDI, NAV, Mental Helse, sortere.no, and personal names.
-- Use the standard, official term in the target language for domain words (refugee reception centre, emergency numbers, waste-sorting categories, health services).
-- Translate the meaning faithfully — never add, drop or "improve" information.`;
+Preserve exactly: line breaks (\\n), the "•" bullet, list order, email addresses, phone numbers and digits. Never translate proper nouns: Vensmoen, Saltdal, Røkland, UDI, NAV, Mental Helse, sortere.no, and personal names.`;
 
 // ---- args -------------------------------------------------------------
 const args = process.argv.slice(2);
@@ -99,8 +94,8 @@ async function claudeTranslateBatch(map, from, to) {
   const key = process.env.ANTHROPIC_API_KEY;
   if (!key) throw new Error('ANTHROPIC_API_KEY mangler (.env i fork-mappa)');
   const userMsg =
-    `Translate these JSON values from ${LANG_NAME[from]} to ${LANG_NAME[to]}. ` +
-    `Return a JSON object with the same keys.\n\n${JSON.stringify(map)}`;
+    `Translate these values from ${LANG_NAME[from]} to ${LANG_NAME[to]}:\n\n` +
+    JSON.stringify(map);
   // Structured outputs: tving gyldig JSON med nøyaktig samme nøkler (stiene).
   // SO krever additionalProperties:false + eksplisitte properties, så schema
   // bygges per kall fra nøklene i map.
