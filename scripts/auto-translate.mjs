@@ -36,6 +36,20 @@ const LANG_NAME = {
   ti: 'Tigrinya',
 };
 
+// Statisk stilguide. Holdes identisk på tvers av kall → cache-bar prefiks.
+// (Cacher først når prefikset > modellens minimum: Sonnet 4.6 = 1024 tok,
+//  Haiku 4.5 = 4096. På små oppdateringer aktiveres ikke caching – det er ok.)
+const STYLE_GUIDE = `You are a professional translator for the public information site of Vensmoen mottak, a Norwegian refugee reception centre.
+
+Audience: residents — asylum seekers and refugees, often with limited reading skills. Use clear, simple, concrete language. Tone: official but warm and respectful, in the style of Norwegian public-sector information. Prefer short sentences.
+
+Rules:
+- Translate only the VALUES. Return a JSON object with the SAME keys and nothing else (no prose, no markdown code fences).
+- Preserve exactly: line breaks (\\n), bullet characters "•", list order, email addresses, phone numbers and digits.
+- Do NOT translate proper nouns: Vensmoen, Saltdal, Røkland, UDI, NAV, Mental Helse, sortere.no, and personal names.
+- Use the standard, official term in the target language for domain words (refugee reception centre, emergency numbers, waste-sorting categories, health services).
+- Translate the meaning faithfully — never add, drop or "improve" information.`;
+
 // ---- args -------------------------------------------------------------
 const args = process.argv.slice(2);
 const has = (f) => args.includes(f);
@@ -84,11 +98,9 @@ function getPath(root, path) {
 async function claudeTranslateBatch(map, from, to) {
   const key = process.env.ANTHROPIC_API_KEY;
   if (!key) throw new Error('ANTHROPIC_API_KEY mangler (.env i fork-mappa)');
-  const system =
-    `You are a professional translator for a Norwegian refugee-reception ` +
-    `info site. Translate the JSON VALUES from ${LANG_NAME[from]} to ${LANG_NAME[to]}. ` +
-    `Keep keys identical. Preserve line breaks (\\n), bullet "•" characters, ` +
-    `email addresses, phone numbers and proper nouns. Return ONLY a JSON object, no prose.`;
+  const userMsg =
+    `Translate these JSON values from ${LANG_NAME[from]} to ${LANG_NAME[to]}. ` +
+    `Return ONLY a JSON object with the same keys.\n\n${JSON.stringify(map)}`;
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -99,12 +111,26 @@ async function claudeTranslateBatch(map, from, to) {
     body: JSON.stringify({
       model: MODEL,
       max_tokens: 4096,
-      system,
-      messages: [{ role: 'user', content: JSON.stringify(map) }],
+      // Stilguiden som cache-bar prefiks; målspråk + innhold ligger i user-meldinga
+      // (varierer per kall) slik at prefikset forblir identisk og kan caches.
+      system: [
+        {
+          type: 'text',
+          text: STYLE_GUIDE,
+          cache_control: { type: 'ephemeral' },
+        },
+      ],
+      messages: [{ role: 'user', content: userMsg }],
     }),
   });
   if (!res.ok) throw new Error(`claude ${res.status}: ${await res.text()}`);
   const data = await res.json();
+  const u = data.usage || {};
+  if (u.cache_creation_input_tokens || u.cache_read_input_tokens) {
+    console.log(
+      `     [cache: skrevet ${u.cache_creation_input_tokens || 0}, lest ${u.cache_read_input_tokens || 0} tok]`,
+    );
+  }
   const txt = data.content?.[0]?.text ?? '{}';
   return JSON.parse(txt.replace(/^```json\n?|```$/g, '').trim());
 }
