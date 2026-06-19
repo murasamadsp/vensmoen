@@ -43,7 +43,15 @@ jobs:
         continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: node scripts/auto-translate.mjs --base ${{ github.event.before }}
+        run: |
+          # Diff fra siste VELLYKKEDE oversettelse (siste bot-commit), ikke bare
+          # forrige push. Boten committer kun ved suksess, så hvis en kjøring ble
+          # hoppet over (tom kreditt / API-feil), står basen igjen og NESTE kjøring
+          # tar med alle akkumulerte endringer – ingen permanent desync.
+          BASE=$(git log --author='vensmoen-translate-bot' -1 --format=%H || true)
+          [ -z "$BASE" ] && BASE="${{ github.event.before }}"
+          echo "Oversetter endringer siden $BASE"
+          node scripts/auto-translate.mjs --base "$BASE"
       # Skriv oversettelsene tilbake til repoet (så CMS/repo viser dem).
       # Push med GITHUB_TOKEN trigger IKKE ny workflow → ingen oversettelses-løkke.
       - name: Commit translations
