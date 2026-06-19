@@ -16,6 +16,13 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 
+// Last inn .env hvis den finnes (API-nøkkel holdes lokalt, aldri i git/chat).
+try {
+  process.loadEnvFile('.env');
+} catch {
+  /* ingen .env – greit */
+}
+
 const DIR = 'src/i18n';
 const LOCALES = ['nb', 'en', 'uk', 'ar', 'es', 'ti'];
 const REFERENCE = 'nb';
@@ -194,6 +201,11 @@ function jobsDiff() {
     console.error('Velg modus: --fill-todo | --source <l> --paths ... | --base <sha>');
     process.exit(1);
   }
+
+  // --targets uk,ar : begrens til gitte mållokaler (ikke rør gode oversettelser).
+  const onlyTargets = (val('--targets') || '').split(',').filter(Boolean);
+  if (onlyTargets.length)
+    for (const k of Object.keys(jobs)) if (!onlyTargets.includes(k)) delete jobs[k];
 
   const targets = Object.keys(jobs);
   if (!targets.length) {

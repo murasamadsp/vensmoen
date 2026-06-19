@@ -14,6 +14,17 @@
   - [ ] мелочь: google иногда лепит хвост `" ."` — добавить trim в постобработку.
   - [ ] когда устроит — вшить шаг в `deploy.yml` + добавить `ANTHROPIC_API_KEY` (если Claude).
 
+## 🔴 Консистентность переводов (аудит Haiku, 2026-06-19)
+
+`uk` разошёлся по смыслу с nb/en/es. Решение: выровнять uk → nb (рекомендую) или оставить uk и подтянуть остальные.
+- [ ] 🔴 `pages.rules.lead` — uk = SEO-ключевики, не лид → к nb.
+- [ ] 🔴 `pages.about.blocks[0].body` — uk изменил смысл доступности офиса → к nb.
+- [ ] 🔴 `site.description` — uk «інтеграція» vs «життя в Норвегії» → решить (к nb).
+- [ ] 🟡 `site.dutyText` — uk потерял «доки не буде вирішено» → к nb.
+- [ ] 🟡 `pages.rules.blocks[2].body` — uk добавил «стороннім людям» → к nb.
+- [ ] 🟡 ti: `restavfall.accepted[6..7]` — 2 `[TODO]` → перевести.
+Итого: 4 поля uk + 2 ti. План: выровнять через `npm run translate --source nb --paths ... --targets uk` (заодно тест Claude на украинском — его ты прочитаешь и оценишь).
+
 ## Контент (пустые поля / переводы)
 
 - [ ] 🔴 **Guide: 9 тем без текста.** В CMS у «Praktisk guide» 9 заголовков без `body` (Helse, Skole, UDI, Penger, Post, Internett, Transport, Butikker, Fritid) — отсюда пустые поля «Tekst» во всех 6 языках. → написать контент (или временно скрыть body у guide, чтобы не выглядело сломанным).
