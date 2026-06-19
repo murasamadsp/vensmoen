@@ -15,8 +15,7 @@
     "check": "npm run validate:i18n && npm run typecheck && npm run lint",
     "lint": "biome check",
     "lint:write": "biome check --write",
-    "sync:i18n": "node scripts/sync-i18n.mjs",
-    "gen:cms": "node scripts/gen-cms-config.mjs && biome check --write public/admin/config.generated.json"
+    "sync:i18n": "node scripts/sync-i18n.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

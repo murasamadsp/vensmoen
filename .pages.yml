@@ -1,0 +1,203 @@
+# Pages CMS – enkel redigering av innholdet via app.pagescms.org
+# Hvert språk = én oppføring i sidemenyen som peker på src/i18n/<kode>.json.
+# Feltskjemaet (&fields) er felles for alle språk via YAML-anker.
+# Lagre i CMS → commit i repoet → nettstedet bygges på nytt automatisk.
+
+media:
+  input: public
+  output: /
+
+content:
+  - name: nb
+    label: Norsk
+    type: file
+    path: src/i18n/nb.json
+    format: json
+    fields: &fields
+      - name: site
+        label: Nettstedstekster (forsiden)
+        type: object
+        fields:
+          - { name: title, label: "Sidetittel (SEO)", type: string }
+          - { name: description, label: "Beskrivelse (SEO)", type: text }
+          - { name: name, label: "Navn på mottaket", type: string }
+          - { name: tagline, label: "Undertittel", type: string }
+          - { name: intro, label: "Introtekst", type: text }
+          - { name: sectionsLabel, label: "Etikett: Innhold", type: string }
+          - { name: comingSoon, label: "Tekst: Mer kommer", type: string }
+          - { name: mapTitle, label: "Tittel: Kart", type: string }
+          - { name: dutyTitle, label: "Tittel: Vakttelefon", type: string }
+          - { name: dutyText, label: "Tekst: Vakttelefon", type: text }
+          - { name: emergencyTitle, label: "Tittel: Nødnumre", type: string }
+          - { name: emergencyNote, label: "Notat: Nødnumre", type: string }
+          - { name: emergencyFire, label: "Etikett: Brann", type: string }
+          - { name: emergencyPolice, label: "Etikett: Politi", type: string }
+          - { name: emergencyAmbulance, label: "Etikett: Ambulanse", type: string }
+          - { name: emergencyDoctor, label: "Etikett: Legevakt", type: string }
+
+      - name: pages
+        label: Sider
+        type: object
+        fields:
+          - name: about
+            label: Om mottaket
+            type: object
+            fields:
+              - { name: title, label: "Tittel", type: string }
+              - { name: lead, label: "Ingress", type: text }
+              - { name: cardDesc, label: "Kort-beskrivelse (forsiden)", type: string }
+              - { name: contactsTitle, label: "Tittel: Kontakter", type: string }
+              - { name: contactsIntro, label: "Ingress: Kontakter", type: text }
+              - name: contacts
+                label: Kontaktpersoner
+                type: object
+                list: true
+                fields:
+                  - { name: role, label: "Rolle", type: string }
+                  - { name: email, label: "E-post", type: string }
+              - { name: transportTitle, label: "Tittel: Transport", type: string }
+              - { name: transportIntro, label: "Ingress: Transport", type: text }
+              - name: blocks
+                label: Tekstblokker
+                type: object
+                list: true
+                fields:
+                  - { name: heading, label: "Overskrift", type: string }
+                  - { name: body, label: "Tekst", type: text }
+          - name: rules
+            label: Husregler
+            type: object
+            fields:
+              - { name: title, label: "Tittel", type: string }
+              - { name: lead, label: "Ingress", type: text }
+              - { name: cardDesc, label: "Kort-beskrivelse (forsiden)", type: string }
+              - name: blocks
+                label: Regler
+                type: object
+                list: true
+                fields:
+                  - { name: heading, label: "Overskrift", type: string }
+                  - { name: body, label: "Tekst", type: text }
+          - name: guide
+            label: Praktisk guide
+            type: object
+            fields:
+              - { name: title, label: "Tittel", type: string }
+              - { name: lead, label: "Ingress", type: text }
+              - { name: cardDesc, label: "Kort-beskrivelse (forsiden)", type: string }
+              - name: blocks
+                label: Temaer
+                type: object
+                list: true
+                fields:
+                  - { name: heading, label: "Overskrift", type: string }
+                  - { name: body, label: "Tekst", type: text }
+
+      - name: fractions
+        label: Kildesortering (avfallstyper)
+        type: object
+        fields:
+          - name: matavfall
+            label: Matavfall
+            type: object
+            fields: &fractionFields
+              - { name: name, label: "Navn", type: string }
+              - { name: bin, label: "Hvor det skal", type: text }
+              - { name: accepted, label: "Ja takk", type: string, list: true }
+              - { name: rejected, label: "Nei takk", type: string, list: true }
+              - { name: note, label: "Husk", type: text }
+          - name: papir
+            label: Papp, papir og kartong
+            type: object
+            fields: *fractionFields
+          - name: plast
+            label: Plastemballasje
+            type: object
+            fields: *fractionFields
+          - name: glassmetall
+            label: Glass- og metallemballasje
+            type: object
+            fields: *fractionFields
+          - name: restavfall
+            label: Restavfall
+            type: object
+            fields: *fractionFields
+          - name: farlig
+            label: Farlig avfall og elektronikk
+            type: object
+            fields: *fractionFields
+
+      - name: ui
+        label: Grensesnitt (knapper og systemtekster – endres sjelden)
+        description: Disse styrer knapper, etiketter og quiz-tekster. Normalt trenger du ikke å røre dem.
+        type: object
+        fields:
+          - { name: siteTitle, label: "Tittel: Kildesortering", type: string }
+          - { name: tagline, label: "Undertittel: Kildesortering", type: string }
+          - { name: intro, label: "Introtekst: Kildesortering", type: text }
+          - { name: binLabel, label: "Etikett: Hvor", type: string }
+          - { name: accepted, label: "Etikett: Ja takk", type: string }
+          - { name: rejected, label: "Etikett: Nei takk", type: string }
+          - { name: note, label: "Etikett: Husk", type: string }
+          - { name: source, label: "Etikett: Kilde", type: string }
+          - { name: lastVerified, label: "Etikett: Sist verifisert", type: string }
+          - { name: print, label: "Knapp: Skriv ut", type: string }
+          - { name: backToGuide, label: "Knapp: Tilbake til guiden", type: string }
+          - { name: languagePicker, label: "Etikett: Språkvelger", type: string }
+          - { name: skipToContent, label: "Etikett: Hopp til innhold", type: string }
+          - { name: legalNote, label: "Juridisk notat", type: text }
+          - { name: sourcesTitle, label: "Tittel: Kilder", type: string }
+          - { name: scanHint, label: "Tekst: Skann QR", type: string }
+          - { name: quizNav, label: "Quiz: Nav-etikett", type: string }
+          - { name: quizTitle, label: "Quiz: Tittel", type: string }
+          - { name: quizIntro, label: "Quiz: Introtekst", type: string }
+          - { name: quizStart, label: "Quiz: Start-knapp", type: string }
+          - { name: quizPrompt, label: "Quiz: Spørsmål", type: string }
+          - { name: quizOf, label: "Quiz: av", type: string }
+          - { name: quizCorrect, label: "Quiz: Riktig", type: string }
+          - { name: quizWrong, label: "Quiz: Feil", type: string }
+          - { name: quizAnswerWas, label: "Quiz: Riktig svar var", type: string }
+          - { name: quizNext, label: "Quiz: Neste", type: string }
+          - { name: quizFinish, label: "Quiz: Se resultat", type: string }
+          - { name: quizResultTitle, label: "Quiz: Resultattittel", type: string }
+          - { name: quizScoreSuffix, label: "Quiz: Poeng-suffiks", type: string }
+          - { name: quizAgain, label: "Quiz: Ta på nytt", type: string }
+          - { name: opensInNewTab, label: "Etikett: Åpnes i ny fane", type: string }
+          - { name: quizYes, label: "Quiz: Ja", type: string }
+          - { name: quizNo, label: "Quiz: Nei", type: string }
+          - { name: quizBelongPrompt, label: "Quiz: Hører dette til?", type: string }
+
+  - name: en
+    label: English
+    type: file
+    path: src/i18n/en.json
+    format: json
+    fields: *fields
+
+  - name: uk
+    label: Українська
+    type: file
+    path: src/i18n/uk.json
+    format: json
+    fields: *fields
+
+  - name: ar
+    label: العربية
+    type: file
+    path: src/i18n/ar.json
+    format: json
+    fields: *fields
+
+  - name: es
+    label: Español
+    type: file
+    path: src/i18n/es.json
+    format: json
+    fields: *fields
+
+  - name: ti
+    label: ትግርኛ
+    type: file
+    path: src/i18n/ti.json
+    format: json
+    fields: *fields
