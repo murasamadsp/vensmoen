@@ -50,6 +50,12 @@ jobs:
           # tar med alle akkumulerte endringer – ingen permanent desync.
           BASE=$(git log --author='vensmoen-translate-bot' -1 --format=%H || true)
           [ -z "$BASE" ] && BASE="${{ github.event.before }}"
+          # Hopp helt over hvis ingen språkfiler er endret (f.eks. kun CSS/docs):
+          # da startes ikke Claude i det hele tatt – ingen kostnad.
+          if git diff --quiet "$BASE" HEAD -- src/i18n; then
+            echo "i18n uendret siden $BASE – ingen oversettelse, hopper over."
+            exit 0
+          fi
           echo "Oversetter endringer siden $BASE"
           node scripts/auto-translate.mjs --base "$BASE"
       # Skriv oversettelsene tilbake til repoet (så CMS/repo viser dem).

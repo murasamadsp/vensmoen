@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Vensmoen mottak – informasjon for beboere",
-    "description": "Fast informasjon for beboere på Vensmoen mottak i Saltdal: om mottaket, husregler, kildesortering og en praktisk guide til livet i Norge.",
+    "description": "Informasjon til beboere på Vensmoen mottak i Saltdal: om mottaket, regler for opphold, sortering av avfall og praktiske råd for integrering i Norge.",
     "name": "Vensmoen mottak",
     "tagline": "Informasjon for beboere",
     "intro": "Her finner du informasjon om mottaket, husreglene, kildesortering og det viktigste om livet i Norge. Velg språket ditt øverst på siden.",
@@ -9,7 +9,7 @@
     "comingSoon": "Mer informasjon kommer her.",
     "mapTitle": "Kart og veibeskrivelse",
     "dutyTitle": "Vakttelefon – hele døgnet",
-    "dutyText": "Når kontoret er stengt, ring vakttelefonen. I akutte situasjoner kobles alle aktuelle ansatte inn til saken er løst.",
+    "dutyText": "Når kontoret er stengt, ring vaktnummeret. I en nødsituasjon stiller alle kompetente medarbeidere opp.",
     "emergencyTitle": "Nødnumre i Norge",
     "emergencyNote": "Gratis fra alle telefoner, hele døgnet.",
     "emergencyFire": "Brann",
@@ -89,13 +89,13 @@
       "blocks": [
         {
           "heading": "Kontoret",
-          "body": "Kontoret er åpent på hverdager kl. 08.00–16.00, i helger og på helligdager er bygget stengt.\nFør du kommer innom, send en e-post til logistikkansvarlig og oppgi kort årsaken. Da er den ansatte du trenger på plass når du kommer – eller hjelper deg uten at du trenger å møte opp."
+          "body": "Kontoret er åpent mandag til fredag fra 08:00 til 16:00, og stengt i helger og på helligdager.\nFør du kommer, send en e-post til logistikken og beskriv kort hva saken gjelder. Den ansvarlige medarbeideren vil bli informert og forberede nødvendig informasjon."
         }
       ]
     },
     "rules": {
       "title": "Husregler",
-      "lead": "Reglene gjelder for alle som bor på mottaket, og finnes her på flere språk.",
+      "lead": "Regler for beboere på asylmottak i Norge, rettigheter og plikter for asylsøkere i Norge, regler for opphold på Vensmoen mottak",
       "cardDesc": "Orden, bruk av rom, overnatting",
       "blocks": [
         {
@@ -108,7 +108,7 @@
         },
         {
           "heading": "Overnattingsbesøk",
-          "body": "• Overnattingsbesøk må alltid avtales og godkjennes av mottaket på forhånd. Mottaket kan avslå forespørselen.\n• Voksne kan ha overnattingsbesøk av egne barn, samt venner og familiemedlemmer som bor på andre asylmottak.\n• Barn under 18 år kan ha overnattingsbesøk av foreldre, søsken og jevnaldrende venner.\n• Alle overnattingsgjester må bo i Norge og fremvise gyldig legitimasjon eller asylsøkerbevis til de ansatte.\n• Du er selv ansvarlig for å skaffe mat og sengetøy til dine gjester, og du må sørge for at de viser hensyn til andre beboere."
+          "body": "• Overnatting av gjester må alltid avtales og godkjennes av mottakets administrasjon på forhånd. Mottaket har rett til å avslå overnatting for utenforstående.\n• Voksne kan ta imot egne barn til overnatting, samt venner og familiemedlemmer som bor på andre asylmottak.\n• Barn under 18 år kan ta imot foreldre, søsken og jevnaldrende venner til overnatting.\n• Alle gjester som overnatter, må være bosatt i Norge og fremvise gyldig legitimasjon eller asylsøkerbevis for administrasjonen.\n• Du har personlig ansvar for å sørge for mat og sengetøy til gjestene dine, og du må påse at de respekterer ro og orden for de øvrige beboerne."
         }
       ]
     },

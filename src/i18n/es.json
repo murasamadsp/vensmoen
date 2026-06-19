@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Centro de acogida Vensmoen – información para residentes",
-    "description": "Información permanente para los residentes del centro de acogida Vensmoen en Saltdal: sobre el centro, las normas de la casa, la separación de residuos y una guía práctica para la vida en Noruega.",
+    "description": "Información para los residentes del centro de acogida Vensmoen en Saltdal: sobre el centro, las normas de convivencia, la separación de residuos y consejos prácticos para la integración en Noruega.",
     "name": "Vensmoen mottak",
     "tagline": "Información para residentes",
     "intro": "Aquí encontrarás información sobre el centro, las normas de la casa, la separación de residuos y lo esencial de la vida en Noruega. Elige tu idioma en la parte superior de la página.",
@@ -9,7 +9,7 @@
     "comingSoon": "Aquí se añadirá más información.",
     "mapTitle": "Mapa y cómo llegar",
     "dutyTitle": "Teléfono de guardia – las 24 horas",
-    "dutyText": "Cuando la oficina está cerrada, llame al teléfono de guardia. En situaciones urgentes interviene todo el personal necesario hasta resolver el asunto.",
+    "dutyText": "Cuando la oficina está cerrada, llame al número de guardia. En caso de emergencia, todos los trabajadores competentes se incorporan al servicio.",
     "emergencyTitle": "Números de emergencia en Noruega",
     "emergencyNote": "Gratis desde cualquier teléfono, a cualquier hora.",
     "emergencyFire": "Bomberos",
@@ -89,13 +89,13 @@
       "blocks": [
         {
           "heading": "La oficina",
-          "body": "La oficina abre los días laborables de 08:00 a 16:00; los fines de semana y festivos el edificio permanece cerrado.\nAntes de venir, escriba al responsable de logística indicando brevemente el motivo. Así la persona que necesita estará en su puesto cuando llegue, o le ayudará a distancia, sin necesidad de visita."
+          "body": "La oficina está abierta de lunes a viernes de 8:00 a 16:00; los fines de semana y días festivos permanece cerrada.\nAntes de su visita, envíe un mensaje al logista indicando brevemente el motivo. El trabajador responsable será informado y preparará la información necesaria."
         }
       ]
     },
     "rules": {
       "title": "Normas de la casa",
-      "lead": "Las normas se aplican a todas las personas que viven en el centro y están disponibles aquí en varios idiomas.",
+      "lead": "Normas de convivencia en el centro de acogida de refugiados en Noruega, derechos y obligaciones de los solicitantes de asilo en Noruega, normas de estancia en Vensmoen mottak",
       "cardDesc": "Orden, uso de habitaciones, pernoctación",
       "blocks": [
         {
@@ -108,7 +108,7 @@
         },
         {
           "heading": "Visitas de pernocta",
-          "body": "• Las visitas de pernocta deben acordarse y aprobarse siempre con el centro de antemano. El centro puede rechazar la solicitud.\n• Los adultos pueden recibir visitas de pernocta de sus propios hijos, así como de amigos y familiares que vivan en otros centros de acogida.\n• Los menores de 18 años pueden recibir visitas de pernocta de padres, hermanos y amigos de edad similar.\n• Todos los huéspedes que pernocten deben residir en Noruega y presentar un documento de identidad válido o un certificado de solicitante de asilo al personal.\n• Usted es responsable de proporcionar comida y ropa de cama a sus huéspedes, y debe asegurarse de que respeten a los demás residentes."
+          "body": "• El alojamiento de invitados debe coordinarse y aprobarse previamente con la administración del centro. El centro tiene derecho a denegar el alojamiento a personas externas.\n• Los adultos pueden alojar a sus propios hijos, así como a amigos y familiares que residan en otros centros de acogida de refugiados.\n• Los menores de 18 años pueden alojar a sus padres, hermanos/hermanas y amigos de su misma edad.\n• Todos los invitados que pernocten deben residir en Noruega y presentar a la administración un documento de identidad válido o un documento de solicitante de asilo.\n• Usted es personalmente responsable de proporcionar a sus invitados comida y ropa de cama, y debe asegurarse de que respeten la tranquilidad de los demás residentes."
         }
       ]
     },

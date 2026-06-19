@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Vensmoen reception centre – information for residents",
-    "description": "Permanent information for residents of Vensmoen reception centre in Saltdal: about the centre, house rules, waste sorting and a practical guide to life in Norway.",
+    "description": "Information for residents of Vensmoen reception centre in Saltdal: about the centre, rules for living here, waste sorting, and practical advice for integration in Norway.",
     "name": "Vensmoen mottak",
     "tagline": "Information for residents",
     "intro": "Here you will find information about the centre, the house rules, waste sorting and the essentials of life in Norway. Choose your language at the top of the page.",
@@ -9,7 +9,7 @@
     "comingSoon": "More information will be added here.",
     "mapTitle": "Map and directions",
     "dutyTitle": "Duty phone – around the clock",
-    "dutyText": "When the office is closed, call the duty phone. In urgent situations all relevant staff step in until the matter is resolved.",
+    "dutyText": "When the office is closed, please call the duty number. In an emergency, all qualified staff will be involved.",
     "emergencyTitle": "Emergency numbers in Norway",
     "emergencyNote": "Free from any phone, day and night.",
     "emergencyFire": "Fire",
@@ -89,13 +89,13 @@
       "blocks": [
         {
           "heading": "The office",
-          "body": "The office is open on weekdays from 08:00 to 16:00; on weekends and public holidays the building is closed.\nBefore coming by, email the logistics coordinator and briefly state the reason. That way the person you need will be there when you arrive – or will help you without a visit."
+          "body": "The office is open Monday to Friday from 08:00 to 16:00, and is closed on weekends and public holidays.\nBefore visiting, please write to the logistics officer and briefly state the reason for your visit. The responsible staff member will be informed and will prepare the necessary information."
         }
       ]
     },
     "rules": {
       "title": "House rules",
-      "lead": "The rules apply to everyone living at the centre and are available here in several languages.",
+      "lead": "Rules for living at a refugee reception centre in Norway, rights and duties of asylum seekers in Norway, rules for staying at Vensmoen mottak",
       "cardDesc": "Order, room usage, overnight visits",
       "blocks": [
         {
@@ -108,7 +108,7 @@
         },
         {
           "heading": "Overnight visits",
-          "body": "• Overnight visits must always be arranged and approved by the reception centre in advance. The centre may deny the request.\n• Adults may have overnight visits from their own children, as well as friends and family members living in other reception centres.\n• Children under 18 may have overnight visits from parents, siblings, and peer friends.\n• All overnight guests must reside in Norway and present a valid ID or asylum seeker certificate to the staff.\n• You are responsible for providing food and bedding for your guests, and you must ensure they show consideration for other residents."
+          "body": "• Overnight guests must always be agreed and approved in advance by the reception centre management. The centre has the right to refuse overnight stays to outside visitors.\n• Adults may have their own children, as well as friends and family members who live at other reception centres, stay overnight.\n• Children under the age of 18 may have parents, siblings and same-age friends stay overnight.\n• All guests staying overnight must be resident in Norway and must show valid identity documents or an asylum seeker identity card to the management.\n• You are personally responsible for providing your guests with food and bedding, and you must also ensure that they respect the peace and quiet of other residents."
         }
       ]
     },
