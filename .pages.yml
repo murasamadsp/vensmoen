@@ -128,9 +128,10 @@ content:
             fields: *fractionFields
 
       - name: ui
-        label: Grensesnitt (knapper og systemtekster – endres sjelden)
-        description: Disse styrer knapper, etiketter og quiz-tekster. Normalt trenger du ikke å røre dem.
+        label: Grensesnitt (knapper og systemtekster)
+        description: Tekniske etiketter/knapper. Skjult fra skjemaet – endres kun i kode ved behov.
         type: object
+        hidden: true
         fields:
           - { name: siteTitle, label: "Tittel: Kildesortering", type: string }
           - { name: tagline, label: "Undertittel: Kildesortering", type: string }

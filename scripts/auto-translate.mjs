@@ -1,17 +1,18 @@
 #!/usr/bin/env node
-// Auto-oversettelse av i18n-felt mellom språk.
-// Providere:  google (gratis, ingen nøkkel)  |  claude (API-nøkkel, beste kvalitet)
+// Auto-oversettelse av i18n-felt via Claude (Anthropic API).
+// Krever ANTHROPIC_API_KEY (med kreditt) i .env eller miljøet.
 //
 // Moduser:
-//   --fill-todo                fyll alle "[TODO] <nb-tekst>" ved å oversette nb→lokale
+//   --fill-todo                fyll alle "[TODO] <nb-tekst>" (oversetter nb→lokale)
 //   --source <l> --paths a.b   oversett gitte dot-stier fra kildespråk til de andre
-//   --base <sha>               CI: diff base..HEAD, propager endrede felt til andre språk
+//   --base <sha>               diff base..HEAD → propager endrede felt til andre språk
 // Flagg:
-//   --provider google|claude   (default: env TRANSLATE_PROVIDER || "google")
-//   --model <id>               claude-modell (default "claude-sonnet-4-6"; IKKE haiku)
-//   --dry                      skriv ikke filer, bare vis
+//   --targets uk,ar            begrens til gitte mållokaler (ikke rør resten)
+//   --model <id>               claude-modell (default "claude-sonnet-4-6")
+//   --dry                      vis forslag, skriv ikke filer
 //
-// Eksempel test:  npm run translate -- --fill-todo --dry
+// Kjøres MANUELT, med gjennomsyn (--dry først). Bevisst IKKE koblet til deploy:
+// auto-oversettelse skal aldri trigge ny auto-oversettelse (unngår drift-løkke).
 
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -26,8 +27,6 @@ try {
 const DIR = 'src/i18n';
 const LOCALES = ['nb', 'en', 'uk', 'ar', 'es', 'ti'];
 const REFERENCE = 'nb';
-// Google bruker "no" for norsk; resten matcher.
-const GOOGLE_CODE = { nb: 'no', en: 'en', uk: 'uk', ar: 'ar', es: 'es', ti: 'ti' };
 const LANG_NAME = {
   nb: 'Norwegian (Bokmål)',
   en: 'English',
@@ -44,12 +43,12 @@ const val = (f) => {
   const i = args.indexOf(f);
   return i >= 0 ? args[i + 1] : undefined;
 };
-const PROVIDER = val('--provider') || process.env.TRANSLATE_PROVIDER || 'google';
 const MODEL = val('--model') || process.env.CLAUDE_MODEL || 'claude-sonnet-4-6';
 const DRY = has('--dry');
 
 // ---- json path helpers ------------------------------------------------
-const readLocale = (code) => JSON.parse(fs.readFileSync(`${DIR}/${code}.json`, 'utf8'));
+const readLocale = (code) =>
+  JSON.parse(fs.readFileSync(`${DIR}/${code}.json`, 'utf8'));
 const writeLocale = (code, obj) =>
   fs.writeFileSync(`${DIR}/${code}.json`, `${JSON.stringify(obj, null, 2)}\n`);
 
@@ -57,9 +56,12 @@ function flatten(obj, prefix = '', out = {}) {
   if (typeof obj === 'string') {
     out[prefix] = obj;
   } else if (Array.isArray(obj)) {
-    obj.forEach((v, i) => flatten(v, `${prefix}[${i}]`, out));
+    obj.forEach((v, i) => {
+      flatten(v, `${prefix}[${i}]`, out);
+    });
   } else if (obj && typeof obj === 'object') {
-    for (const k of Object.keys(obj)) flatten(obj[k], prefix ? `${prefix}.${k}` : k, out);
+    for (const k of Object.keys(obj))
+      flatten(obj[k], prefix ? `${prefix}.${k}` : k, out);
   }
   return out;
 }
@@ -78,23 +80,10 @@ function getPath(root, path) {
   return node;
 }
 
-// ---- providers --------------------------------------------------------
-async function googleTranslate(text, from, to) {
-  const sl = GOOGLE_CODE[from];
-  const tl = GOOGLE_CODE[to];
-  const url =
-    `https://translate.googleapis.com/translate_a/single?client=gtx` +
-    `&sl=${sl}&tl=${tl}&dt=t&q=${encodeURIComponent(text)}`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`google ${res.status}`);
-  const data = await res.json();
-  // data[0] = liste av [oversatt, original, ...]; sett sammen.
-  return (data[0] || []).map((seg) => seg[0]).join('');
-}
-
+// ---- Claude -----------------------------------------------------------
 async function claudeTranslateBatch(map, from, to) {
   const key = process.env.ANTHROPIC_API_KEY;
-  if (!key) throw new Error('ANTHROPIC_API_KEY mangler');
+  if (!key) throw new Error('ANTHROPIC_API_KEY mangler (.env i fork-mappa)');
   const system =
     `You are a professional translator for a Norwegian refugee-reception ` +
     `info site. Translate the JSON VALUES from ${LANG_NAME[from]} to ${LANG_NAME[to]}. ` +
@@ -122,17 +111,10 @@ async function claudeTranslateBatch(map, from, to) {
 
 // Oversett { path: text } fra ett språk til ett annet.
 async function translateMap(map, from, to) {
-  if (PROVIDER === 'claude') return claudeTranslateBatch(map, from, to);
-  // google: én og én streng
-  const out = {};
-  for (const [path, text] of Object.entries(map)) {
-    out[path] = await googleTranslate(text, from, to);
-    await new Promise((r) => setTimeout(r, 250)); // vær snill mot gratis-endepunktet
-  }
-  return out;
+  return claudeTranslateBatch(map, from, to);
 }
 
-// ---- modus: bygg jobb-liste { targetLocale: { path: sourceText, srcLocale } } ----
+// ---- modus: bygg jobb-liste { targetLocale: { from, map } } -----------
 function jobsFillTodo() {
   // For hvert språk: verdier "[TODO] <nb-tekst>" → oversett nb-teksten til språket.
   const jobs = {};
@@ -140,7 +122,10 @@ function jobsFillTodo() {
     const flat = flatten(readLocale(code));
     for (const [path, v] of Object.entries(flat)) {
       const m = /^\[TODO\]\s?(.*)$/s.exec(v);
-      if (m) (jobs[code] ||= { from: REFERENCE, map: {} }).map[path] = m[1];
+      if (m) {
+        jobs[code] ||= { from: REFERENCE, map: {} };
+        jobs[code].map[path] = m[1];
+      }
     }
   }
   return jobs;
@@ -168,7 +153,9 @@ function jobsDiff() {
   for (const code of LOCALES) {
     let oldObj;
     try {
-      oldObj = JSON.parse(execSync(`git show ${base}:${DIR}/${code}.json`).toString());
+      oldObj = JSON.parse(
+        execSync(`git show ${base}:${DIR}/${code}.json`).toString(),
+      );
     } catch {
       oldObj = {};
     }
@@ -177,7 +164,8 @@ function jobsDiff() {
     for (const [path, v] of Object.entries(newFlat)) {
       if (oldFlat[path] !== v && !/^\[TODO\]/.test(v)) {
         // Konflikt: prioriter referansespråket som kilde.
-        if (!changed[path] || code === REFERENCE) changed[path] = { locale: code, value: v };
+        if (!changed[path] || code === REFERENCE)
+          changed[path] = { locale: code, value: v };
       }
     }
   }
@@ -185,7 +173,8 @@ function jobsDiff() {
   for (const [path, { locale, value }] of Object.entries(changed)) {
     for (const code of LOCALES) {
       if (code === locale) continue;
-      (jobs[code] ||= { from: locale, map: {} }).map[path] = value;
+      jobs[code] ||= { from: locale, map: {} };
+      jobs[code].map[path] = value;
     }
   }
   return jobs;
@@ -198,21 +187,24 @@ function jobsDiff() {
   else if (has('--source')) jobs = jobsSourcePaths();
   else if (has('--base')) jobs = jobsDiff();
   else {
-    console.error('Velg modus: --fill-todo | --source <l> --paths ... | --base <sha>');
+    console.error(
+      'Velg modus: --fill-todo | --source <l> --paths ... | --base <sha>',
+    );
     process.exit(1);
   }
 
   // --targets uk,ar : begrens til gitte mållokaler (ikke rør gode oversettelser).
   const onlyTargets = (val('--targets') || '').split(',').filter(Boolean);
   if (onlyTargets.length)
-    for (const k of Object.keys(jobs)) if (!onlyTargets.includes(k)) delete jobs[k];
+    for (const k of Object.keys(jobs))
+      if (!onlyTargets.includes(k)) delete jobs[k];
 
   const targets = Object.keys(jobs);
   if (!targets.length) {
     console.log('Ingenting å oversette.');
     return;
   }
-  console.log(`Provider: ${PROVIDER}${PROVIDER === 'claude' ? ` (${MODEL})` : ''}${DRY ? ' [DRY]' : ''}`);
+  console.log(`Modell: ${MODEL}${DRY ? ' [DRY]' : ''}`);
 
   for (const code of targets) {
     const { from, map } = jobs[code];
@@ -222,7 +214,9 @@ function jobsDiff() {
     const translated = await translateMap(map, from, code);
     const obj = readLocale(code);
     for (const [path, text] of Object.entries(translated)) {
-      console.log(`   ${path}\n     ${JSON.stringify(map[path])}\n  →  ${JSON.stringify(text)}`);
+      console.log(
+        `   ${path}\n     ${JSON.stringify(map[path])}\n  →  ${JSON.stringify(text)}`,
+      );
       if (!DRY) setPath(obj, path, text);
     }
     if (!DRY) writeLocale(code, obj);
