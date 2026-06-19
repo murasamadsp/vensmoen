@@ -15,7 +15,9 @@
     "emergencyFire": "Пожежна служба",
     "emergencyPolice": "Поліція",
     "emergencyAmbulance": "Швидка допомога",
-    "emergencyDoctor": "Чергова медслужба (legevakt)"
+    "emergencyDoctor": "Чергова медслужба (legevakt)",
+    "mentalTitle": "Є з ким поговорити",
+    "mentalText": "Вам важко, пригнічений настрій або просто потрібно з кимось поговорити? Mental Helse відповідає цілодобово — безкоштовно й анонімно."
   },
   "pages": {
     "about": {

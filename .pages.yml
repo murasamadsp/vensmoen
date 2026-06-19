@@ -34,6 +34,8 @@ content:
           - { name: emergencyPolice, label: "Etikett: Politi", type: string }
           - { name: emergencyAmbulance, label: "Etikett: Ambulanse", type: string }
           - { name: emergencyDoctor, label: "Etikett: Legevakt", type: string }
+          - { name: mentalTitle, label: "Tittel: Psykisk helse", type: string }
+          - { name: mentalText, label: "Tekst: Psykisk helse", type: text }
 
       - name: pages
         label: Sider
