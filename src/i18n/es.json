@@ -89,7 +89,7 @@
       "blocks": [
         {
           "heading": "La oficina",
-          "body": "<p>La oficina está abierta de lunes a viernes de 08:00 a 16:00, y cerrada los fines de semana y días festivos.</p><p>Antes de venir, envía un correo electrónico a logística y describe brevemente el motivo de tu consulta. El empleado responsable será informado y preparará la información necesaria.</p>"
+          "body": "La oficina está abierta de lunes a viernes de 08:00 a 16:00, y está cerrada los fines de semana y los días festivos.\n\nAntes de venir, envíe un correo electrónico a logística y describa brevemente el motivo de su consulta. El empleado responsable será informado y preparará la información necesaria."
         }
       ]
     },
@@ -100,15 +100,15 @@
       "blocks": [
         {
           "heading": "Paz, orden y seguridad",
-          "body": "<ul><li>Debe haber silencio en el centro de acogida desde las 23:00 hasta las 06:00.</li><li>No debes molestar ni comportarte de una manera que resulte incómoda para los demás. La violencia, los daños materiales u otras conductas delictivas serán denunciadas a la policía.</li><li>No está permitido consumir alcohol en las áreas comunes.</li><li>Fumar, usar pipa de agua y cigarrillos electrónicos está prohibido en las áreas comunes y en las habitaciones de los residentes.</li><li>No se permiten mascotas en el centro de acogida de asilo.</li><li>Debes familiarizarte con las normas de prevención de incendios y saber qué hacer en una situación de emergencia.</li></ul>"
+          "body": "- En el mottak debe haber silencio de 23:00 a 06:00.\n- No debe molestar a los demás ni comportarse de manera que resulte desagradable para otros. La violencia, el vandalismo u otras conductas delictivas serán comunicadas a la policía.\n- El consumo de alcohol en las áreas comunes está prohibido.\n- Fumar, usar cachimba y cigarrillos electrónicos está prohibido en las áreas comunes y en las habitaciones de los residentes.\n- No se permiten mascotas en el mottak.\n- Debe familiarizarse con las normas de seguridad contra incendios y saber qué hacer en caso de emergencia.\n\n"
         },
         {
           "heading": "Uso de habitaciones y equipamiento",
-          "body": "<ul><li>Mantén limpias y ordenadas las áreas comunes y los espacios exteriores. Las bicicletas, los cochecitos de bebé y otros equipos no deben bloquear las vías de evacuación.</li><li>Mantén tu habitación limpia y ordenada.</li><li>Debes separar tus residuos y depositarlos en los contenedores correctos.</li><li>Las áreas comunes interiores deben limpiarse regularmente según los turnos de limpieza establecidos. Debes limpiar cuando te corresponda.</li><li>Las lavadoras, los utensilios de cocina y demás equipos de limpieza deben utilizarse de acuerdo con las instrucciones de uso.</li></ul>"
+          "body": "- Mantenga las áreas comunes y los espacios exteriores en orden. Las bicicletas, los carritos de bebé y otros equipos no deben bloquear las vías de evacuación.\n- Mantenga su habitación limpia y ordenada.\n- Debe separar su basura y depositarla en los contenedores correspondientes.\n- Las áreas comunes interiores deben limpiarse regularmente según el calendario de limpieza establecido. Debe limpiar cuando le corresponda su turno.\n- Las lavadoras, los electrodomésticos de cocina y otros utensilios de limpieza deben usarse según las instrucciones.\n\n"
         },
         {
           "heading": "Visitas de pernocta",
-          "body": "<ul><li>El alojamiento de invitados siempre debe acordarse y ser aprobado de antemano por la administración del centro de acogida. El centro tiene derecho a rechazar el alojamiento de personas externas.</li><li>Los adultos pueden recibir a sus propios hijos a pernoctar, así como a amigos y familiares que residan en otros centros de acogida de asilo.</li><li>Los menores de 18 años pueden recibir a sus padres, hermanos y amigos de su misma edad a pernoctar.</li><li>Todos los invitados que pernocten deben residir en Noruega y presentar una identificación válida o un documento de solicitante de asilo a la administración.</li><li>Eres personalmente responsable de proporcionar comida y ropa de cama a tus invitados, y debes asegurarte de que respeten el descanso y el orden de los demás residentes.</li></ul>"
+          "body": "- El alojamiento de huéspedes siempre debe ser acordado y aprobado previamente por la administración del mottak. El mottak tiene derecho a denegar el alojamiento a personas externas.\n- Los adultos pueden alojar a sus propios hijos, así como a amigos y familiares que residan en otros mottak.\n- Los menores de 18 años pueden alojar a sus padres, hermanos y amigos de su misma edad.\n- Todos los huéspedes que pasen la noche deben residir en Noruega y presentar a la administración un documento de identidad válido o un certificado de solicitante de asilo.\n- Usted es personalmente responsable de proporcionar a sus huéspedes comida y ropa de cama, y debe asegurarse de que respeten el silencio y el orden para los demás residentes.\n\n"
         }
       ]
     },
@@ -122,7 +122,7 @@
         },
         {
           "heading": "Escuela y guardería",
-          "body": "<p>Los niños en edad escolar están obligados a asistir a la escuela primaria noruega. La educación secundaria en Noruega es voluntaria.</p>"
+          "body": "Los niños en edad escolar están obligados a asistir a la escuela primaria noruega. La educación secundaria en Noruega es voluntaria."
         },
         {
           "heading": "UDI y el proceso de asilo"
