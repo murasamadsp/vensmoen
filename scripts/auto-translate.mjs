@@ -211,6 +211,8 @@ function jobsDiff() {
   for (const [path, { locale, value }] of Object.entries(changed)) {
     for (const code of LOCALES) {
       if (code === locale) continue;
+      // nb — канонічне джерело, ніколи не перезаписуємо перекладом з інших мов
+      if (code === REFERENCE && locale !== REFERENCE) continue;
       jobs[code] ||= { from: locale, map: {} };
       jobs[code].map[path] = value;
     }

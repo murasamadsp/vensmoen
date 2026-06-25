@@ -6,7 +6,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Спільний шаблон інфосторінок центру (about/rules/guide): заголовок, лід
 // і блоки. Блок без body рендериться як чесна плашка «згодом буде».
-// body — HTML від Pages CMS rich-text редактора.
+// body — може бути HTML (збережений раніше) або plain text (Pages CMS TipTap
+// зберігає як plain text з "- " маркерами та "\n\n" між абзацами).
+// bodyToHtml() нормалізує обидва формати до HTML для рендерингу.
+function bodyToHtml(body: string): string {
+  if (!body.trim()) return '';
+  // Вже HTML — повертаємо як є
+  if (body.trimStart().startsWith('<')) return body;
+  // Plain text від Pages CMS: "- item\n- item\n\n" або "текст\n\nтекст"
+  const lines = body.split('\n');
+  const out: string[] = [];
+  let listItems: string[] = [];
+  const flushList = () => {
+    if (listItems.length) {
+      out.push(
+        '<ul>' + listItems.map((li) => `<li>${li}</li>`).join('') + '</ul>',
+      );
+      listItems = [];
+    }
+  };
+  for (const line of lines) {
+    const stripped = line.trim();
+    if (!stripped) {
+      flushList();
+      continue;
+    }
+    if (stripped.startsWith('- ') || stripped.startsWith('• ')) {
+      listItems.push(stripped.slice(2).trim());
+    } else {
+      flushList();
+      out.push(`<p>${stripped}</p>`);
+    }
+  }
+  flushList();
+  return out.join('');
+}
+
 interface Props {
   locale: string;
   pageKey: PageKey;
@@ -49,7 +84,7 @@ const page = t.pages[pageKey];
         <section class="info-block">
           <h2 class="info-block__heading">{block.heading}</h2>
           {block.body ? (
-            <div class="info-block__content" set:html={block.body} />
+            <div class="info-block__content" set:html={bodyToHtml(block.body)} />
           ) : (
             <p class="info-block__soon">{site.comingSoon}</p>
           )}
