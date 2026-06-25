@@ -89,7 +89,7 @@
       "blocks": [
         {
           "heading": "The office",
-          "body": "<p>The office is open Monday to Friday from 08:00 to 16:00, and is closed on weekends and public holidays.</p><p>Before visiting, please write to the logistics officer and briefly state the reason for your visit. The responsible staff member will be informed and will prepare the necessary information.</p>"
+          "body": "<p>The office is open Monday to Friday from 08:00 to 16:00, and closed on weekends and public holidays.</p><p>Before you come, send an email to the logistics team and briefly describe what your matter is about. The responsible staff member will be informed and will prepare the necessary information.</p>"
         }
       ]
     },
@@ -100,15 +100,15 @@
       "blocks": [
         {
           "heading": "Peace, order and safety",
-          "body": "<ul><li>The reception centre must be quiet from 23:00 to 06:00.</li><li>You must not disturb others or behave in an unpleasant manner. Violence, vandalism, or other criminal acts will be reported to the police.</li><li>Drinking alcohol in common areas is not allowed.</li><li>Smoking, water pipes, and e-cigarettes are prohibited in common areas and in your room.</li><li>Pets are not allowed at the reception centre.</li><li>You must familiarize yourself with the fire safety rules and know what to do in an emergency.</li></ul>"
+          "body": "<ul><li>It must be quiet at the reception centre from 23:00 to 06:00.</li><li>You must not disturb others or behave in a way that is unpleasant for others. Violence, vandalism or other criminal offences will be reported to the police.</li><li>Drinking alcohol in the common areas is not permitted.</li><li>Smoking, water pipes and e-cigarettes are prohibited in the common areas and in residents' rooms.</li><li>Pets are not permitted at the reception centre.</li><li>You must familiarise yourself with the fire safety rules and know what to do in an emergency.</li></ul>"
         },
         {
           "heading": "Use of rooms and equipment",
-          "body": "<ul><li>Keep common areas and outdoor spaces tidy. Bicycles, strollers, and other equipment must not block escape routes.</li><li>Keep your room clean and tidy.</li><li>You must sort your waste and throw it into the correct bins.</li><li>Common indoor areas must be cleaned regularly according to the cleaning schedules. You must clean when it is your turn.</li><li>Washing machines, kitchen appliances, and cleaning equipment must be used according to their user manuals.</li></ul>"
+          "body": "<ul><li>Keep common rooms and outdoor areas tidy. Bicycles, pushchairs and other equipment must not block escape routes.</li><li>Keep your room clean and tidy.</li><li>You must sort your waste and dispose of it in the correct bins.</li><li>The indoor common rooms must be cleaned regularly according to the posted cleaning rotas. You must clean when it is your turn.</li><li>Washing machines, kitchen equipment and other cleaning equipment must be used in accordance with the instructions.</li></ul>"
         },
         {
           "heading": "Overnight visits",
-          "body": "<ul><li>Overnight guests must always be agreed and approved in advance by the reception centre management. The centre has the right to refuse overnight stays to outside visitors.</li><li>Adults may have their own children, as well as friends and family members who live at other reception centres, stay overnight.</li><li>Children under the age of 18 may have parents, siblings and same-age friends stay overnight.</li><li>All guests staying overnight must be resident in Norway and must show valid identity documents or an asylum seeker identity card to the management.</li><li>You are personally responsible for providing your guests with food and bedding, and you must also ensure that they respect the peace and quiet of other residents.</li></ul>"
+          "body": "<ul><li>Overnight stays by guests must always be agreed and approved by the reception centre's administration in advance. The reception centre has the right to refuse overnight stays for outside guests.</li><li>Adults may have their own children to stay overnight, as well as friends and family members who live at other reception centres.</li><li>Children under 18 may have parents, siblings and friends of a similar age to stay overnight.</li><li>All guests who stay overnight must be resident in Norway and must show valid identification or an asylum seeker certificate to the administration.</li><li>You have personal responsibility for providing food and bedding for your guests, and you must ensure that they respect the peace and order of the other residents.</li></ul>"
         }
       ]
     },
@@ -122,7 +122,7 @@
         },
         {
           "heading": "School and kindergarten",
-          "body": "<p>Children of school age are required to attend Norwegian primary and lower secondary school. Upper secondary school in Norway is voluntary.</p>"
+          "body": "<p>Children of school age are required to attend Norwegian primary school. Upper secondary school in Norway is voluntary.</p>"
         },
         {
           "heading": "UDI and the asylum process"
