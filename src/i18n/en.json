@@ -187,9 +187,9 @@
       "name": "Plastic packaging",
       "bin": "A separate transparent bag – tie it shut. The bag is free in the shop and at the recycling station.",
       "accepted": [
-        "Plastic bags and carrier bags",
-        "Plastic film and bubble wrap",
-        "Plastic cans, cups and tubs",
+        "Plastic bags and carriers",
+        "Film and bubble wrap",
+        "Plastic canisters, cups and jars",
         "Shampoo and detergent bottles"
       ],
       "rejected": [

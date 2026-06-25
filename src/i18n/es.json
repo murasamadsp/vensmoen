@@ -187,10 +187,10 @@
       "name": "Envases de plástico",
       "bin": "Una bolsa transparente aparte – átala. La bolsa es gratis en la tienda y en el punto de reciclaje.",
       "accepted": [
-        "Bolsas de plástico y bolsas de la compra",
-        "Film plástico y plástico de burbujas",
-        "Garrafas, vasos y botes de plástico",
-        "Botellas de champú y de detergente"
+        "Bolsas y fundas de plástico",
+        "Film y plástico de burbujas",
+        "Bidones, vasos y tarros de plástico",
+        "Botellas de champú y productos de limpieza"
       ],
       "rejected": [
         "Bolsas con lámina plateada por dentro",
