@@ -1,0 +1,24 @@
+# Автовизначення текстових файлів, нормалізація LF
+* text=auto
+
+# Shell — примусово LF
+*.sh text eol=lf
+
+# Текстові формати
+*.astro text
+*.ts text
+*.css text
+*.js text
+*.mjs text
+*.json text
+*.yml text
+*.yaml text
+*.md text
+*.svg text
+*.env text
+
+# Бінарні
+*.png binary
+
+# Linguist
+*.astro linguist-language=Astro

@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm: check (i18n + types + lint)",
+      "type": "npm",
+      "script": "check",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "npm: validate i18n",
+      "type": "npm",
+      "script": "validate:i18n",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "npm: sync i18n",
+      "type": "npm",
+      "script": "sync:i18n",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "npm: auto-translate (fill-todo)",
+      "type": "npm",
+      "script": "translate",
+      "args": ["--", "--fill-todo"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "npm: check links",
+      "type": "npm",
+      "script": "check:links",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "npm: lint (write)",
+      "type": "npm",
+      "script": "lint:write",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    }
+  ]
+}
