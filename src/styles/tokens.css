@@ -40,7 +40,7 @@
   --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.1rem);
   --text-lg: clamp(1.2rem, 1.05rem + 0.6vw, 1.45rem);
   --text-xl: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
-  --text-hero: clamp(2.4rem, 1.4rem + 4.2vw, 4.6rem);
+  --text-hero: clamp(2.2rem, 1rem + 3.5vw, 3.5rem);
   /* Rytme — bevisst, ikke uniform */
   --space-1: 0.4rem;
   --space-2: 0.75rem;

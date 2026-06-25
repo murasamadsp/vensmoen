@@ -41,9 +41,15 @@ const LANG_NAME = {
 //  Haiku 4.5 = 4096. På små oppdateringer aktiveres ikke caching – det er ok.)
 const STYLE_GUIDE = `You are a professional translator for the public information site of Vensmoen mottak, a Norwegian refugee reception centre. Readers are residents — asylum seekers and refugees, often with limited literacy.
 
-Translate faithfully: convey the exact meaning, never add, drop or "improve" information. Use natural, clear phrasing in the target language, matching the source's plain, respectful public-sector tone; prefer common everyday words over rare synonyms, and address the reader directly with the standard polite form. Keep domain terms accurate and consistent (e.g. "mottak" = the reception centre where residents live, not a front desk).
+Translate faithfully: convey the exact meaning, never add, drop or "improve" information. Use natural, clear phrasing in the target language, matching the source's plain, respectful public-sector tone; prefer common everyday words over rare synonyms, and address the reader directly with the standard polite form.
 
-Preserve exactly: all HTML tags and their structure — never add, remove or alter any tag, attribute or entity; translate only the plain-text content between tags. Also preserve email addresses, phone numbers and digits unchanged. Never translate proper nouns: Vensmoen, Saltdal, Røkland, UDI, NAV, Mental Helse, sortere.no, and personal names.`;
+CRITICAL — script integrity: Every word in your output must use a single writing system. Never mix Latin and Cyrillic (or any two scripts) within the same word. Writing a hybrid like "мотtak" or "мотТak" is a critical error with zero tolerance.
+
+Preserve exactly: all HTML tags and their structure — never add, remove or alter any tag, attribute or entity; translate only the plain-text content between tags. Also preserve email addresses, phone numbers, URLs and digits unchanged.
+
+Proper nouns — never translate or transliterate: Vensmoen, Saltdal, Røkland, UDI, NAV, Mental Helse, sortere.no, and all personal names.
+
+The word "mottak" and all its Norwegian grammatical forms (mottaket, mottaks, mottakets, asylmottaket, asylmottaks, asylmottak) must never be partially transliterated. When translating to non-Norwegian languages, use the natural target-language equivalent: "the reception centre" (English), "центр прийому" (Ukrainian), "el centro de acogida" (Spanish), "مركز الاستقبال" (Arabic), "ማቀባበያ ማዕከል" (Tigrinya). Never write "mottak" or any hybrid — always use the full target-language phrase.`;
 
 // ---- args -------------------------------------------------------------
 const args = process.argv.slice(2);
@@ -186,8 +192,10 @@ function jobsSourcePaths() {
 function jobsDiff() {
   const base = val('--base');
   if (!base) throw new Error('--base <sha> kreves');
-  // Finn endrede string-stier per språk mellom base og HEAD.
-  const changed = {}; // path -> { locale, value }
+
+  // Підрахунок: скільки мов змінило кожен path і яке значення кожна мова має.
+  // { path → { locales: { code → value }, nbValue? } }
+  const changedBy = {}; // path → Map<locale, newValue>
   for (const code of LOCALES) {
     let oldObj;
     try {
@@ -201,20 +209,46 @@ function jobsDiff() {
     const newFlat = flatten(readLocale(code));
     for (const [path, v] of Object.entries(newFlat)) {
       if (oldFlat[path] !== v && !/^\[TODO\]/.test(v)) {
-        // Konflikt: prioriter referansespråket som kilde.
-        if (!changed[path] || code === REFERENCE)
-          changed[path] = { locale: code, value: v };
+        changedBy[path] ||= {};
+        changedBy[path][code] = v;
       }
     }
   }
+
+  // Масова програмна міграція: якщо ≥ (N-1) мов змінили той самий path —
+  // це форматна/структурна зміна (plain-text→HTML тощо), не CMS-правка.
+  // Такі path пропускаємо — перезапис коректних перекладів неприпустимий.
+  const MASS_THRESHOLD = LOCALES.length - 1; // 5 з 6 або більше
+
   const jobs = {};
-  for (const [path, { locale, value }] of Object.entries(changed)) {
+  for (const [path, localeMap] of Object.entries(changedBy)) {
+    const changedLocales = Object.keys(localeMap);
+    if (changedLocales.length >= MASS_THRESHOLD) {
+      console.log(
+        `  [skip] ${path} — ${changedLocales.length}/${LOCALES.length} мов (масова міграція)`,
+      );
+      continue;
+    }
+
+    // CMS-сценарій: визначаємо джерело.
+    // Якщо тільки одна мова — вона і є джерелом.
+    // Якщо кілька (рідкісний ручний випадок) — nb як резервне, інакше перша.
+    let srcLocale;
+    if (changedLocales.length === 1) {
+      srcLocale = changedLocales[0];
+    } else if (changedLocales.includes(REFERENCE)) {
+      srcLocale = REFERENCE;
+    } else {
+      srcLocale = changedLocales[0];
+    }
+    const srcValue = localeMap[srcLocale];
+
     for (const code of LOCALES) {
-      if (code === locale) continue;
-      // nb — канонічне джерело, ніколи не перезаписуємо перекладом з інших мов
-      if (code === REFERENCE && locale !== REFERENCE) continue;
-      jobs[code] ||= { from: locale, map: {} };
-      jobs[code].map[path] = value;
+      if (code === srcLocale) continue;
+      // nb — еталон, ніколи не перезаписуємо перекладом з інших мов
+      if (code === REFERENCE && srcLocale !== REFERENCE) continue;
+      jobs[code] ||= { from: srcLocale, map: {} };
+      jobs[code].map[path] = srcValue;
     }
   }
   return jobs;

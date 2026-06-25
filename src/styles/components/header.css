@@ -39,9 +39,14 @@
     align-items: stretch;
     gap: var(--space-2);
   }
+  /* На вузьких екранах три інструменти (мова + тест + друк) ледве вміщаються –
+     менший проміжок запобігає переповненню рядка. */
+  .site-header__bar--quiz .site-header__tools {
+    gap: var(--space-2);
+  }
 }
 
-/* Merke (kun quiz-hodet) – egen typografi, ikke arvet kropps­tekst */
+/* Мерке – усі сторінки, включно з головною. Власна типографіка, не успадкована. */
 .brand {
   min-inline-size: 0;
 }

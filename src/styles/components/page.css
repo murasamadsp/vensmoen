@@ -2,14 +2,8 @@
 .info-page {
   padding-block-end: var(--space-5);
 }
-/* Tekstsidene (husregler/guide) er rene artikler – smal lesespalte. About er
-   bredere fordi den har kontaktkort-rutenett, kart og transport. */
-.info-page[data-page="rules"],
-.info-page[data-page="guide"] {
-  max-width: 46rem;
-}
 .info-page__head {
-  margin-block: var(--space-section) var(--space-5);
+  margin-block: clamp(1.5rem, 4vw, 3rem) var(--space-5);
 }
 .info-page__head .page-title {
   margin-block-end: var(--space-2);
@@ -123,9 +117,10 @@
   flex-direction: column;
   gap: var(--space-2);
   padding: var(--space-3);
-  background: var(--color-bg);
+  background: var(--color-surface);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
   transition: border-color var(--duration) var(--ease);
 }
 .contact-card:hover {

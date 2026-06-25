@@ -25,7 +25,7 @@ body.print-page {
 }
 
 .print-doc {
-  --pad: 11mm;
+  --pad: 9mm;
   inline-size: 210mm;
   min-block-size: 297mm;
   padding: var(--pad);
@@ -51,9 +51,9 @@ body.print-page {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 10mm;
-  margin: 0 0 8px;
-  padding-bottom: 6px;
+  gap: 6mm;
+  margin: 0 0 5px;
+  padding-bottom: 4px;
   border-bottom: 2px solid #111;
   flex: 0 0 auto;
 }
@@ -66,7 +66,7 @@ body.print-page {
 }
 .print-doc .lede {
   font-family: var(--font-body);
-  font-size: 8.5pt;
+  font-size: 9.5pt;
   line-height: 1.3;
   color: #444;
   max-width: 130mm;
@@ -91,7 +91,7 @@ body.print-page {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 1fr;
-  gap: 5px;
+  gap: 4px;
   padding: 0;
   margin: 0;
   min-block-size: 0;
@@ -101,7 +101,7 @@ body.print-page {
   border: 1px solid #999;
   border-inline-start: 4px solid var(--bin, #999);
   border-radius: 5px;
-  padding: 6px 8px;
+  padding: 5px 7px;
   box-shadow: none;
   break-inside: avoid;
   display: flex;
@@ -109,8 +109,8 @@ body.print-page {
   min-block-size: 0;
 }
 .print-doc .frac__title {
-  font-size: 11pt;
-  margin-block-end: 4px;
+  font-size: 12pt;
+  margin-block-end: 3px;
   gap: 5px;
 }
 .print-doc .frac__dot {
@@ -119,32 +119,32 @@ body.print-page {
   border-width: 1px;
 }
 .print-doc .frac__where {
-  margin: 0 0 4px;
-  padding: 4px 6px;
-  font-size: 8pt;
+  margin: 0 0 3px;
+  padding: 3px 5px;
+  font-size: 9pt;
   line-height: 1.3;
   border-radius: 3px;
 }
 .print-doc .frac__where-label {
-  font-size: 6.5pt;
+  font-size: 7pt;
   margin-inline-end: 4px;
 }
 .print-doc .frac__cols {
-  gap: 2px 10px;
+  gap: 2px 8px;
   grid-template-columns: 1fr 1fr;
 }
 .print-doc .frac__line {
-  font-size: 7.6pt;
+  font-size: 8.5pt;
   line-height: 1.3;
 }
-/* A4-tetthet: etikett + liste på samme linje (semantikken beholdes) */
+/* A4-тільне: мітка + список на одному рядку (семантика залишається) */
 .print-doc .frac__line-h {
   display: inline;
   margin: 0;
 }
 .print-doc .frac__line b {
   display: inline;
-  font-size: 7.6pt;
+  font-size: 8.5pt;
 }
 .print-doc .frac__line-h b::after {
   content: ": ";
@@ -153,17 +153,17 @@ body.print-page {
   display: inline;
 }
 .print-doc .frac__note {
-  font-size: 7pt;
+  font-size: 8pt;
   margin-block-start: auto;
   padding-block-start: 3px;
 }
 
 .print-doc .guide__foot {
   flex: 0 0 auto;
-  margin: 7px 0 0;
+  margin: 4px 0 0;
   border-top: 1px solid #999;
-  padding-top: 5px;
-  font-size: 7pt;
+  padding-top: 4px;
+  font-size: 8pt;
   color: #444;
 }
 .print-doc .guide__foot p {
