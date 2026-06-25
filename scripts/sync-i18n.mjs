@@ -26,6 +26,10 @@ const load = (code) =>
 const isObject = (v) =>
   v !== null && typeof v === 'object' && !Array.isArray(v);
 
+// Поля, які є фактами, а не перекладом (email-адреси однакові в усіх мовах).
+// validate-i18n вимагає точного збігу email з nb — не можна ставити [TODO].
+const IDENTITY_FIELDS = new Set(['email']);
+
 /**
  * Bygg en verdi for et språk som matcher referansens struktur.
  * - string:  behold oversettelsen hvis den finnes, ellers "[TODO] <ref>"
@@ -49,10 +53,15 @@ const syncValue = (refVal, locVal) => {
   if (isObject(refVal)) {
     const out = {};
     for (const key of Object.keys(refVal)) {
-      out[key] = syncValue(
-        refVal[key],
-        isObject(locVal) ? locVal[key] : undefined,
-      );
+      if (IDENTITY_FIELDS.has(key)) {
+        // Копіюємо як є — validate-i18n вимагає збігу з nb
+        out[key] = refVal[key];
+      } else {
+        out[key] = syncValue(
+          refVal[key],
+          isObject(locVal) ? locVal[key] : undefined,
+        );
+      }
     }
     return out;
   }

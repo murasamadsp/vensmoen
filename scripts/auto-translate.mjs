@@ -43,7 +43,7 @@ const STYLE_GUIDE = `You are a professional translator for the public informatio
 
 Translate faithfully: convey the exact meaning, never add, drop or "improve" information. Use natural, clear phrasing in the target language, matching the source's plain, respectful public-sector tone; prefer common everyday words over rare synonyms, and address the reader directly with the standard polite form. Keep domain terms accurate and consistent (e.g. "mottak" = the reception centre where residents live, not a front desk).
 
-Preserve exactly: line breaks (\\n), the "•" bullet, list order, email addresses, phone numbers and digits. Never translate proper nouns: Vensmoen, Saltdal, Røkland, UDI, NAV, Mental Helse, sortere.no, and personal names.`;
+Preserve exactly: all HTML tags and their structure — never add, remove or alter any tag, attribute or entity; translate only the plain-text content between tags. Also preserve email addresses, phone numbers and digits unchanged. Never translate proper nouns: Vensmoen, Saltdal, Røkland, UDI, NAV, Mental Helse, sortere.no, and personal names.`;
 
 // ---- args -------------------------------------------------------------
 const args = process.argv.slice(2);

@@ -16,3 +16,4 @@ npm-debug.log*
 shots/
 scratch/
 .playwright-mcp/
+.commandcode/

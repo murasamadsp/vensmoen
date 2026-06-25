@@ -65,7 +65,7 @@ content:
                 list: true
                 fields:
                   - { name: heading, label: "Overskrift", type: string }
-                  - { name: body, label: "Tekst", type: text }
+                  - { name: body, label: "Tekst", type: rich-text }
           - name: rules
             label: Husregler
             type: object
@@ -79,7 +79,7 @@ content:
                 list: true
                 fields:
                   - { name: heading, label: "Overskrift", type: string }
-                  - { name: body, label: "Tekst", type: text }
+                  - { name: body, label: "Tekst", type: rich-text }
           - name: guide
             label: Praktisk guide
             type: object
@@ -93,7 +93,7 @@ content:
                 list: true
                 fields:
                   - { name: heading, label: "Overskrift", type: string }
-                  - { name: body, label: "Tekst", type: text }
+                  - { name: body, label: "Tekst", type: rich-text }
 
       - name: fractions
         label: Kildesortering (avfallstyper)

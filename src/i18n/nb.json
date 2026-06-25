@@ -89,7 +89,7 @@
       "blocks": [
         {
           "heading": "Kontoret",
-          "body": "Kontoret er åpent mandag til fredag fra 08:00 til 16:00, og stengt i helger og på helligdager.\nFør du kommer, send en e-post til logistikken og beskriv kort hva saken gjelder. Den ansvarlige medarbeideren vil bli informert og forberede nødvendig informasjon."
+          "body": "<p>Kontoret er åpent mandag til fredag fra 08:00 til 16:00, og stengt i helger og på helligdager.</p><p>Før du kommer, send en e-post til logistikken og beskriv kort hva saken gjelder. Den ansvarlige medarbeideren vil bli informert og forberede nødvendig informasjon.</p>"
         }
       ]
     },
@@ -100,15 +100,15 @@
       "blocks": [
         {
           "heading": "Ro, orden og sikkerhet",
-          "body": "• Det skal være rolig på mottaket fra kl. 23.00 til kl. 06.00.\n• Du skal ikke forstyrre eller oppføre deg på en måte som er ubehagelig for andre. Vold, hærværk eller andre straffbare forhold blir politianmeldt.\n• Det er ikke tillatt å drikke alkohol i fellesarealene.\n• Røyking, vannpipe og e-sigaretter er forbudt i fellesarealene og på beboerrommene.\n• Kjæledyr er ikke tillatt på asylmottaket.\n• Du må gjøre deg kjent med brannvernreglene og vite hva du skal gjøre i en krisesituasjon."
+          "body": "<ul><li>Det skal være rolig på mottaket fra kl. 23.00 til kl. 06.00.</li><li>Du skal ikke forstyrre eller oppføre deg på en måte som er ubehagelig for andre. Vold, hærværk eller andre straffbare forhold blir politianmeldt.</li><li>Det er ikke tillatt å drikke alkohol i fellesarealene.</li><li>Røyking, vannpipe og e-sigaretter er forbudt i fellesarealene og på beboerrommene.</li><li>Kjæledyr er ikke tillatt på asylmottaket.</li><li>Du må gjøre deg kjent med brannvernreglene og vite hva du skal gjøre i en krisesituasjon.</li></ul>"
         },
         {
           "heading": "Bruk av rom og utstyr",
-          "body": "• Hold fellesrom og uteområder ryddige. Sykler, barnevogner og annet utstyr må ikke blokkere rømningsveier.\n• Hold beboerrommet ditt rent og ryddig.\n• Du må kildesortere avfallet ditt og kaste det i riktige søppelkasser.\n• Fellesrommene inne skal vaskes regelmessig etter oppsatte vaskelister. Du må vaske når det er din tur.\n• Vaskemaskiner, kjøkkenutstyr og annet vaskeutstyr skal brukes i samsvar med bruksanvisningene."
+          "body": "<ul><li>Hold fellesrom og uteområder ryddige. Sykler, barnevogner og annet utstyr må ikke blokkere rømningsveier.</li><li>Hold beboerrommet ditt rent og ryddig.</li><li>Du må kildesortere avfallet ditt og kaste det i riktige søppelkasser.</li><li>Fellesrommene inne skal vaskes regelmessig etter oppsatte vaskelister. Du må vaske når det er din tur.</li><li>Vaskemaskiner, kjøkkenutstyr og annet vaskeutstyr skal brukes i samsvar med bruksanvisningene.</li></ul>"
         },
         {
           "heading": "Overnattingsbesøk",
-          "body": "• Overnatting av gjester må alltid avtales og godkjennes av mottakets administrasjon på forhånd. Mottaket har rett til å avslå overnatting for utenforstående.\n• Voksne kan ta imot egne barn til overnatting, samt venner og familiemedlemmer som bor på andre asylmottak.\n• Barn under 18 år kan ta imot foreldre, søsken og jevnaldrende venner til overnatting.\n• Alle gjester som overnatter, må være bosatt i Norge og fremvise gyldig legitimasjon eller asylsøkerbevis for administrasjonen.\n• Du har personlig ansvar for å sørge for mat og sengetøy til gjestene dine, og du må påse at de respekterer ro og orden for de øvrige beboerne."
+          "body": "<ul><li>Overnatting av gjester må alltid avtales og godkjennes av mottakets administrasjon på forhånd. Mottaket har rett til å avslå overnatting for utenforstående.</li><li>Voksne kan ta imot egne barn til overnatting, samt venner og familiemedlemmer som bor på andre asylmottak.</li><li>Barn under 18 år kan ta imot foreldre, søsken og jevnaldrende venner til overnatting.</li><li>Alle gjester som overnatter, må være bosatt i Norge og fremvise gyldig legitimasjon eller asylsøkerbevis for administrasjonen.</li><li>Du har personlig ansvar for å sørge for mat og sengetøy til gjestene dine, og du må påse at de respekterer ro og orden for de øvrige beboerne.</li></ul>"
         }
       ]
     },
@@ -122,7 +122,7 @@
         },
         {
           "heading": "Skole og barnehage",
-          "body": "Barn i skolealder er pliktige til å gå på norsk grunnskole. Videregående skole i Norge er frivillig."
+          "body": "<p>Barn i skolealder er pliktige til å gå på norsk grunnskole. Videregående skole i Norge er frivillig.</p>"
         },
         {
           "heading": "UDI og asylprosessen"

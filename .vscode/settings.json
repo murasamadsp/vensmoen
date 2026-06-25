@@ -1,12 +1,117 @@
 {
-  "editor.defaultFormatter": "biomejs.biome",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.organizeImports.biome": "explicit"
-  },
+  // Astro потребує власного форматера
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
+  // Перенос у .md
+  "[markdown]": {
+    "editor.wordWrap": "on"
+  },
+  // YAML — 2 пробіли
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+  // JSON — 2 пробіли
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  // TypeScript — Biome форматер
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  // Власні назви, норвезькі/українські терміни, щоб не підсвічувались помилково
+  "cSpell.ignorePaths": [
+    ".astro/",
+    ".git/",
+    "dist/",
+    "node_modules/",
+    "package-lock.json",
+    "src/i18n/!(nb).json"
+  ],
+  "cSpell.language": "en, nb, uk",
+  "cSpell.words": [
+    "Astro",
+    "Biome",
+    "Bokmål",
+    "NAV",
+    "PagesCMS",
+    "Røkland",
+    "Saltdal",
+    "Sortere",
+    "Tigrinya",
+    "UDI",
+    "Vensmoen",
+    "biomejs",
+    "codeActions",
+    "falsey",
+    "filltodo",
+    "fillsource",
+    "mottak",
+    "pagescms",
+    "qrcode",
+    "sortere",
+    "tabSize",
+    "tsdk",
+    "wordWrap"
+  ],
+  // Форматування
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
+  "editor.rulers": [100],
+  // Еммет для Astro-шаблонів
+  "emmet.includeLanguages": {
+    "astro": "html"
+  },
+  "files.associations": {
+    "*.mjs": "javascript"
+  },
+  "files.autoSave": "onFocusChange",
+  // Explorer — вкладеність файлів
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "README.md": "AGENTS.md, CLAUDE.md, GEMINI.md",
+    ".gitignore": ".gitattributes"
+  },
+  // Explorer — сортування: директорії зверху, файли знизу
+  "explorer.sortOrder": "foldersNestsFiles",
+  // Сховати з Explorer артефакти збірки
+  "files.exclude": {
+    ".astro/": true,
+    "dist/": true
+  },
   "files.insertFinalNewline": true,
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
+  // Схеми
+  "json.schemas": [
+    {
+      "fileMatch": ["biome.json"],
+      "url": "https://biomejs.dev/schemas/2.4.15/schema.json"
+    },
+    {
+      "fileMatch": ["tsconfig.json"],
+      "url": "https://json.schemastore.org/tsconfig"
+    }
+  ],
+  "search.exclude": {
+    ".astro/": true,
+    "dist/": true,
+    "node_modules/": true,
+    ".pages.yml": true
+  },
+  // i18n-ally
+  "i18n-ally.localesPaths": ["src/i18n"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.displayLanguage": "uk",
+  // TypeScript (workspace)
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "yaml.schemas": {
+    "https://pagescms.org/schema.json": [".pages.yml"]
+  }
 }

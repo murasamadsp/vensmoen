@@ -28,22 +28,39 @@
   font-family: var(--font-display);
   font-size: var(--text-lg);
 }
-.info-block__body {
-  margin: 0;
+/* Rich-text контент блоку (HTML від Pages CMS або мігрований plain-text) */
+.info-block__content {
   max-width: 70ch;
 }
-.info-block__list {
-  margin: 0;
+.info-block__content p {
+  margin: 0 0 var(--space-2);
+}
+.info-block__content p:last-child {
+  margin-block-end: 0;
+}
+.info-block__content ul,
+.info-block__content ol {
+  margin: 0 0 var(--space-2);
   padding-inline-start: var(--space-3);
-  max-width: 70ch;
   list-style-type: disc;
 }
-.info-block__item {
+.info-block__content ol {
+  list-style-type: decimal;
+}
+.info-block__content ul:last-child,
+.info-block__content ol:last-child {
+  margin-block-end: 0;
+}
+.info-block__content li {
   margin-block-end: var(--space-2);
   line-height: 1.6;
 }
-.info-block__item:last-child {
+.info-block__content li:last-child {
   margin-block-end: 0;
+}
+/* TipTap вкладає <p> в <li> — прибираємо відступи */
+.info-block__content li p {
+  margin: 0;
 }
 /* Ærlig plassholder – innholdet er bevisst ikke skrevet ennå */
 .info-block__soon {
@@ -55,17 +72,15 @@
   color: var(--color-ink-soft);
   font-style: italic;
 }
-/* Лінки лише в текстових абзацах/списках – контактні картки мають власний стиль */
-.info-block__body a,
-.info-block__item a {
+/* Лінки в rich-text контенті */
+.info-block__content a {
   color: var(--color-accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   transition: color var(--duration) var(--ease);
 }
-.info-block__body a:hover,
-.info-block__item a:hover {
+.info-block__content a:hover {
   color: var(--color-ink);
 }
 

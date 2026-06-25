@@ -1,6 +1,5 @@
 ---
 import { locales } from '../i18n/locales';
-import { localeHome } from '../i18n/paths';
 
 interface Props {
   current: string;
@@ -8,6 +7,13 @@ interface Props {
 }
 const { current, label } = Astro.props;
 const cur = locales.find((l) => l.code === current) ?? locales[0];
+
+// Замінюємо лише сегмент локалі в поточному шляху — решта URL зберігається.
+// /vensmoen/nb/rules/ → /vensmoen/en/rules/
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pathAfterBase = Astro.url.pathname.slice(base.length) || '/';
+// ['', 'nb', 'rules', ''] → замінюємо індекс 1 (локаль)
+const pathParts = pathAfterBase.split('/');
 ---
 
 <details class="langs">
@@ -21,7 +27,7 @@ const cur = locales.find((l) => l.code === current) ?? locales[0];
       locales.map((l) => (
         <li>
           <a
-            href={localeHome(l.code)}
+            href={base + ['', l.code, ...pathParts.slice(2)].join('/')}
             lang={l.htmlLang}
             aria-current={l.code === current ? 'true' : undefined}
           >
