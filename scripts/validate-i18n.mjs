@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 
 const dir = join(dirname(fileURLToPath(import.meta.url)), '..', 'src', 'i18n');
 const REFERENCE = 'nb';
-const FRACTION_REQUIRED = ['name', 'bin', 'accepted', 'rejected'];
+const FRACTION_REQUIRED = ['name', 'bin', 'accepted', 'rejected', 'note'];
 
 const load = (code) =>
   JSON.parse(readFileSync(join(dir, `${code}.json`), 'utf8'));

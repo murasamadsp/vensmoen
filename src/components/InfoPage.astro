@@ -11,9 +11,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // bodyToHtml() нормалізує обидва формати до HTML для рендерингу.
 function bodyToHtml(body: string): string {
   if (!body.trim()) return '';
-  // Вже HTML — повертаємо як є
-  if (body.trimStart().startsWith('<')) return body;
-  // Plain text від Pages CMS: "- item\n- item\n\n" або "текст\n\nтекст"
+  const esc = (s: string) =>
+    s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const lines = body.split('\n');
   const out: string[] = [];
   let listItems: string[] = [];
@@ -32,10 +31,10 @@ function bodyToHtml(body: string): string {
       continue;
     }
     if (stripped.startsWith('- ') || stripped.startsWith('• ')) {
-      listItems.push(stripped.slice(2).trim());
+      listItems.push(esc(stripped.slice(2).trim()));
     } else {
       flushList();
-      out.push(`<p>${stripped}</p>`);
+      out.push(`<p>${esc(stripped)}</p>`);
     }
   }
   flushList();
