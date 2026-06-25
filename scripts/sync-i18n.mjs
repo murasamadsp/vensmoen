@@ -41,9 +41,15 @@ const syncValue = (refVal, locVal) => {
   if (Array.isArray(refVal)) {
     const allStrings = refVal.every((x) => typeof x === 'string');
     if (allStrings) {
-      if (Array.isArray(locVal) && locVal.length === refVal.length)
-        return locVal;
-      return refVal.map((s) => `${TODO}${s}`);
+      // Зберігаємо наявні переклади поелементно; [TODO] лише для нових позицій.
+      // Якщо locVal довший — зайві елементи автоматично зрізаються (ітерація по refVal).
+      return refVal.map((s, i) => {
+        const existing =
+          Array.isArray(locVal) && i < locVal.length ? locVal[i] : undefined;
+        if (typeof existing === 'string' && !existing.startsWith(TODO))
+          return existing;
+        return `${TODO}${s}`;
+      });
     }
     return refVal.map((item, i) =>
       syncValue(item, Array.isArray(locVal) ? locVal[i] : undefined),

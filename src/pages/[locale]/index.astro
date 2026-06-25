@@ -10,6 +10,7 @@ import { localeCodes } from '../../i18n/locales';
 import {
   localeAbout,
   localeGuide,
+  localeHome,
   localeRules,
   localeWaste,
 } from '../../i18n/paths';
@@ -66,9 +67,9 @@ const emergencyLabels: Record<string, string> = {
   <a class="skip-link" href="#main">{t.ui.skipToContent}</a>
 
   <header class="site-header">
-    <div class="wrap site-header__bar site-header__bar--quiz">
+    <div class="wrap site-header__bar">
       <div class="brand">
-        <!-- На главной бренд не дублируется в шапке -->
+        <a class="brand__mark brand__link" href={localeHome(locale)}>{site.name}</a>
       </div>
       <div class="site-header__tools">
         <LanguagePicker current={locale} label={t.ui.languagePicker} />
@@ -78,7 +79,6 @@ const emergencyLabels: Record<string, string> = {
 
   <main id="main" class="wrap">
     <section class="hub-hero">
-      <p class="hub-hero__tagline">{site.tagline}</p>
       <h1 class="page-title">{site.name}</h1>
       <p class="lede">{site.intro}</p>
     </section>

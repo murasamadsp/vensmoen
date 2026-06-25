@@ -20,6 +20,19 @@ const codes = readdirSync(dir)
 const ref = load(REFERENCE);
 const errors = [];
 
+// [TODO]-плейсхолдери не повинні потрапляти на прод — перевіряємо всі рядки.
+function collectTodos(obj, path, out) {
+  if (typeof obj === 'string') {
+    if (obj.startsWith('[TODO]')) out.push(path);
+  } else if (Array.isArray(obj)) {
+    for (let i = 0; i < obj.length; i++)
+      collectTodos(obj[i], `${path}[${i}]`, out);
+  } else if (obj && typeof obj === 'object') {
+    for (const k of Object.keys(obj))
+      collectTodos(obj[k], path ? `${path}.${k}` : k, out);
+  }
+}
+
 for (const code of codes) {
   if (code === REFERENCE) continue;
   const loc = load(code);
@@ -87,6 +100,14 @@ for (const code of codes) {
         errors.push(`[${code}] pages.${pageKey}.blocks[${i}].body mangler`);
     });
   }
+
+  // [TODO] у будь-якому рядку — блокує деплой (auto-translate не запустився або впав)
+  const todos = [];
+  collectTodos(loc, code, todos);
+  for (const path of todos)
+    errors.push(
+      `[${code}] [TODO] плейсхолдер у ${path} — переклад не завершено`,
+    );
 
   // Сторінка about має додаткову структуру: контакти й транспорт. E-mail —
   // це факти, тому мають бути ідентичні референсу в усіх мовах.
