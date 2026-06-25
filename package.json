@@ -13,6 +13,7 @@
     "validate:i18n": "node scripts/validate-i18n.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check": "npm run validate:i18n && npm run typecheck && npm run lint",
+    "setup": "node scripts/setup-hooks.mjs",
     "lint": "biome check",
     "lint:write": "biome check --write",
     "sync:i18n": "node scripts/sync-i18n.mjs",
