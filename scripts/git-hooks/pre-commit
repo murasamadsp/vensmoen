@@ -1,14 +1,15 @@
 #!/bin/sh
-# Pre-commit hook: biome lint check
+# Pre-commit hook: full project check
 # Встановлюється через: npm run setup
 # Або вручну: cp scripts/git-hooks/pre-commit .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
 
-printf "⚙  biome check..."
-npx biome check --no-errors-on-unmatched 2>&1
+printf "⚙  npm run check..."
+npm run check 2>&1
 EXIT=$?
 
 if [ $EXIT -ne 0 ]; then
-  printf "\n❌  Biome знайшов помилки. Виправ або запусти:\n"
+  printf "\n❌  Check failed. Виправ або запусти:\n"
+  printf "     npm run check      # повна перевірка\n"
   printf "     npm run lint:write   # авто-виправлення\n"
   printf "     npm run lint         # лише перевірка\n"
   exit 1
