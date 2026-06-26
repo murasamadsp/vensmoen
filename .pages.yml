@@ -1,10 +1,15 @@
 # Pages CMS – enkel redigering av innholdet via app.pagescms.org
-# Norsk innhold og driftsdata er de eneste redigerbare oppføringene.
+# Hvert språk = én oppføring i sidemenyen som peker på src/i18n/<kode>.json.
+# Feltskjemaet (&fields) er felles for alle språk via YAML-anker.
 # Lagre i CMS → commit i repoet → nettstedet bygges på nytt automatisk.
+
+media:
+  input: public
+  output: /
 
 content:
   - name: nb
-    label: Norsk innhold
+    label: Norsk
     type: file
     path: src/i18n/nb.json
     format: json
@@ -167,6 +172,48 @@ content:
           - { name: quizYes, label: "Quiz: Ja", type: string }
           - { name: quizNo, label: "Quiz: Nei", type: string }
           - { name: quizBelongPrompt, label: "Quiz: Hører dette til?", type: string }
+
+  - name: en
+    label: English
+    type: file
+    path: src/i18n/en.json
+    format: json
+    fields: *fields
+
+  - name: uk
+    label: Українська
+    type: file
+    path: src/i18n/uk.json
+    format: json
+    fields: *fields
+
+  - name: ar
+    label: العربية
+    type: file
+    path: src/i18n/ar.json
+    format: json
+    fields: *fields
+
+  - name: es
+    label: Español
+    type: file
+    path: src/i18n/es.json
+    format: json
+    fields: *fields
+
+  - name: ti
+    label: ትግርኛ
+    type: file
+    path: src/i18n/ti.json
+    format: json
+    fields: *fields
+
+  - name: tr
+    label: Türkçe
+    type: file
+    path: src/i18n/tr.json
+    format: json
+    fields: *fields
 
   - name: settings
     label: Driftsdata

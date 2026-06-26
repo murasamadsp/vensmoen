@@ -45,7 +45,7 @@ jobs:
         if: github.event_name == 'push'
         run: node scripts/sync-i18n.mjs
 
-      # Auto-oversettelse: CMS-redaktøren endrer nb → de andre språkene fylles her.
+      # Auto-oversettelse: CMS-redaktøren endrer ett språk → de andre fylles her.
       # Feil stopper deploy: nytt innhold skal ikke publiseres halvoversatt.
       - name: Auto-translate changed fields
         if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
@@ -59,8 +59,6 @@ jobs:
           TRANSLATE_FALLBACK_MODEL: ${{ vars.TRANSLATE_FALLBACK_MODEL }}
           TRANSLATE_TIMEOUT_MS: ${{ vars.TRANSLATE_TIMEOUT_MS || '60000' }}
           TRANSLATE_RETRIES: ${{ vars.TRANSLATE_RETRIES || '2' }}
-          TRANSLATE_SOURCE_LOCALE: nb
-          TRANSLATE_STRICT_SOURCE: 1
         run: |
           # Diff від останнього УСПІШНОГО перекладу (останній bot-коміт), а не
           # лише від попереднього push. Бот комітить тільки після успіху, тому

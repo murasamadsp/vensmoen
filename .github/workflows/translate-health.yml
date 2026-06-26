@@ -35,8 +35,6 @@ jobs:
           TRANSLATE_FALLBACK_MODEL: ${{ vars.TRANSLATE_FALLBACK_MODEL }}
           TRANSLATE_TIMEOUT_MS: ${{ vars.TRANSLATE_TIMEOUT_MS || '60000' }}
           TRANSLATE_RETRIES: ${{ vars.TRANSLATE_RETRIES || '2' }}
-          TRANSLATE_SOURCE_LOCALE: nb
-          TRANSLATE_STRICT_SOURCE: 1
         run: |
           node scripts/validate-translate-env.mjs
           node scripts/auto-translate.mjs --health-check

@@ -1,19 +1,30 @@
 #!/usr/bin/env node
-// Перевіряє, що Pages CMS редагує тільки nb.json і що схема .pages.yml
-// покриває всі листові ключі nb.json. Інакше CMS може зрізати невідомі ключі.
+// Перевіряє, що Pages CMS експонує всі локалі і що схема .pages.yml покриває
+// всі листові ключі nb.json. Інакше CMS може зрізати невідомі ключі.
 import { readFileSync } from 'node:fs';
 
 const schemaText = readFileSync('.pages.yml', 'utf8');
 const nb = JSON.parse(readFileSync('src/i18n/nb.json', 'utf8'));
+const localesText = readFileSync('src/i18n/locales.ts', 'utf8');
+const expectedLocales = [
+  ...localesText.matchAll(/\{\s*code:\s*'([a-z]+)'/g),
+].map((m) => m[1]);
 
 const localePaths = [
   ...schemaText.matchAll(/path:\s*src\/i18n\/([a-z]+)\.json/g),
 ].map((m) => m[1]);
 const errors = [];
-if (localePaths.join(',') !== 'nb') {
-  errors.push(
-    `Pages CMS skal kun eksponere nb.json, fant: ${localePaths.join(', ') || 'ingen'}`,
-  );
+const missingLocales = expectedLocales.filter(
+  (code) => !localePaths.includes(code),
+);
+const extraLocales = localePaths.filter(
+  (code) => !expectedLocales.includes(code),
+);
+if (missingLocales.length) {
+  errors.push(`Mangler språk i .pages.yml: ${missingLocales.join(', ')}`);
+}
+if (extraLocales.length) {
+  errors.push(`Ukjente språk i .pages.yml: ${extraLocales.join(', ')}`);
 }
 
 function normalize(path) {
@@ -50,7 +61,7 @@ for (const line of schemaText.split('\n')) {
     inContentFields = true;
     continue;
   }
-  if (inContentFields && /^ {2}- name:\s+settings\s*$/.test(line)) break;
+  if (inContentFields && /^ {2}- name:\s+/.test(line)) break;
   if (!inContentFields) continue;
 
   const indent = lineIndent(line);
@@ -111,5 +122,5 @@ if (errors.length) {
 }
 
 console.log(
-  `Pages CMS-schema OK: ${expected.size} nb.json-felt dekket, kun nb eksponert.`,
+  `Pages CMS-schema OK: ${expected.size} nb.json-felt dekket, ${localePaths.length} språk eksponert.`,
 );

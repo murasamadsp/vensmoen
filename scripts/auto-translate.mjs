@@ -540,7 +540,7 @@ function jobsDiff() {
   // Масова програмна міграція: якщо ≥ (N-1) мов змінили той самий path —
   // це форматна/структурна зміна (plain-text→HTML тощо), не CMS-правка.
   // Такі path пропускаємо — перезапис коректних перекладів неприпустимий.
-  const MASS_THRESHOLD = LOCALES.length - 1; // 5 з 6 або більше
+  const MASS_THRESHOLD = LOCALES.length - 1;
 
   const jobs = {};
   for (const [path, localeMap] of Object.entries(changedBy)) {
@@ -552,8 +552,8 @@ function jobsDiff() {
       continue;
     }
 
-    // CMS-сценарій: визначаємо джерело. У проді джерело фіксується через
-    // TRANSLATE_SOURCE_LOCALE=nb, щоб редактор не мав шість джерел правди.
+    // CMS-сценарій: визначаємо джерело за зміненою мовою. FIXED_SOURCE
+    // лишається тільки як ручний аварійний режим через env.
     let srcLocale;
     if (FIXED_SOURCE) {
       if (!changedLocales.includes(FIXED_SOURCE)) {
@@ -575,8 +575,6 @@ function jobsDiff() {
 
     for (const code of LOCALES) {
       if (code === srcLocale) continue;
-      // nb — еталон, ніколи не перезаписуємо перекладом з інших мов
-      if (code === REFERENCE && srcLocale !== REFERENCE) continue;
       jobs[code] ||= { from: srcLocale, map: {} };
       jobs[code].map[path] = srcValue;
     }
