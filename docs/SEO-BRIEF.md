@@ -16,7 +16,7 @@
 
 **Альтернативний текст (og:image:alt):**
 
-→ ???? что за текст блять
+→ ???? что за текст
 
 ---
 
@@ -27,21 +27,21 @@
 | Поле | Приклад | Ваші дані |
 | ---- | ------- | --------- |
 | **Назва** | Vensmoen mottak | потом скажу |
-| **Адреса** | Junkerveien 12, 8250 Røkland | Furuflata 49 рёклад 8255 |
-| **Країна** | NO | норвегия да |
-| **Телефон** | +47 XX XX XX XX | потом скажу |
-| **Email** | — | потом |
+| **Адреса** | Junkerveien 12, 8250 Røkland | Furuflata 49, 8255 Røkland |
+| **Країна** | NO | Norge |
+| **Телефон** | +47 482 01 948
+| **Email** | — | потом | mottaksleder.vensmoen@mottaksdrifnor.no
 | **URL** | <https://murasamadsp.github.io/vensmoen/> | потом |
-| **Опис** (1-2 речення) | | |
-| **Години роботи** | Mo-Fr 09:00-15:00 | |
+| **Опис** (1-2 речення) | | | [GHD-B1] Vensmoen mottak is a Norwegian reception center for refugees. It provides accommodation, guidance, and practical support to help refugees integrate into Norwegian society |
+| **Години роботи** | Mo-Fr 08:00-15:30 | |
 | **Логотип** (URL) | зачем для логотипа юрл | |
-| **Координати** | 66.XX, 15.XX | |
+| **Координати** | 66.99395119683028, 15.317971569737626 |
 
 ### 2b. Екстрені номери
 
 Окремий блок для чергового телефону центру?
 
-→ Так / Ні ... блок где?
++47 482 01 948
 
 ### 2c. FAQPage
 
