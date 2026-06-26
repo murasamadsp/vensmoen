@@ -97,7 +97,9 @@ validateNumber(errors, 'TRANSLATE_RETRIES', 0, 5);
 
 if (
   env('TRANSLATE_SOURCE_LOCALE') &&
-  !['nb', 'en', 'uk', 'ar', 'es', 'ti'].includes(env('TRANSLATE_SOURCE_LOCALE'))
+  !['nb', 'en', 'uk', 'ar', 'es', 'ti', 'tr'].includes(
+    env('TRANSLATE_SOURCE_LOCALE'),
+  )
 )
   fail(
     errors,

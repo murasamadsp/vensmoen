@@ -1,0 +1,255 @@
+{
+  "site": {
+    "title": "Vensmoen kabul merkezi – sakinler için bilgi",
+    "description": "Saltdal'daki Vensmoen kabul merkezinde yaşayanlar için bilgi: merkez hakkında, burada yaşama kuralları, atık ayrıştırma (sortere.no) ve Norveç'te uyum için pratik tavsiyeler.",
+    "name": "Vensmoen mottak",
+    "tagline": "Sakinler için bilgi",
+    "intro": "Burada merkez, ev kuralları, atık ayrıştırma ve Norveç'te yaşamın temel bilgilerini bulabilirsiniz. Sayfanın üstünden dilinizi seçin.",
+    "sectionsLabel": "İçerik",
+    "comingSoon": "Buraya daha fazla bilgi eklenecek.",
+    "mapTitle": "Harita ve yol tarifi",
+    "dutyTitle": "Nöbet telefonu – günün her saati",
+    "dutyText": "Ofis kapalıyken nöbet numarasını arayın. Acil durumda tüm yetkili çalışanlar devreye girer.",
+    "emergencyTitle": "Norveç'te acil numaralar",
+    "emergencyNote": "Her telefondan ücretsiz, günün her saati.",
+    "emergencyFire": "İtfaiye",
+    "emergencyPolice": "Polis",
+    "emergencyAmbulance": "Ambulans",
+    "emergencyDoctor": "Mesai dışı doktor (legevakt)",
+    "mentalTitle": "Konuşacak biri",
+    "mentalText": "Zor bir dönem mi geçiriyorsunuz, kendinizi kötü mü hissediyorsunuz, yoksa konuşacak birine mi ihtiyacınız var? Mental Helse günün her saati ücretsiz ve anonim cevap verir."
+  },
+  "ui": {
+    "siteTitle": "Atık ayrıştırma",
+    "tagline": "Atıklarınızı evde nasıl ayrıştıracağınız",
+    "intro": "Atıklarınızı doğru kutuya veya poşete ayırın ve türleri ayrı tutun. Böylece mümkün olduğunca çok şey yeniden kullanılabilir.",
+    "binLabel": "Nereye gider",
+    "accepted": "Evet",
+    "rejected": "Hayır",
+    "note": "İpucu",
+    "source": "Kaynak",
+    "lastVerified": "Son doğrulama",
+    "print": "Yazdır",
+    "backToGuide": "Rehbere dön",
+    "languagePicker": "Dil",
+    "skipToContent": "Ana içeriğe geç",
+    "legalNote": "Bu içerik ulusal standart sortere.no'ya dayanmaktadır.",
+    "sourcesTitle": "Kaynaklar",
+    "scanHint": "Çok dilli çevrim içi sürüm için tarayın",
+    "quizNav": "Test",
+    "quizTitle": "Kendinizi test edin",
+    "quizIntro": "Bu eşya nereye atılır? Doğru kutuya dokunun.",
+    "quizStart": "Teste başla",
+    "quizPrompt": "Bu nereye gider?",
+    "quizOf": " / ",
+    "quizCorrect": "Doğru!",
+    "quizWrong": "Yanlış.",
+    "quizAnswerWas": "Doğru cevap:",
+    "quizNext": "Sonraki",
+    "quizFinish": "Sonucu gör",
+    "quizResultTitle": "Bitti!",
+    "quizScoreSuffix": "doğru",
+    "quizAgain": "Testi yeniden yap",
+    "opensInNewTab": "Yeni sekmede açılır",
+    "quizYes": "Evet",
+    "quizNo": "Hayır",
+    "quizBelongPrompt": "Bu kutuya mı atılır?"
+  },
+  "pages": {
+    "about": {
+      "title": "Merkez hakkında",
+      "lead": "Vensmoen kabul merkezi, Nordland ilindeki Saltdal belediyesinde yer alan Røkland köyündedir.",
+      "cardDesc": "Adres, iletişim ve yol tarifi",
+      "contactsTitle": "Personel ve iletişim kişileri",
+      "contactsIntro": "Her konunun ayrı bir sorumlusu vardır. Doğru kişiye doğrudan yazın, daha hızlı yanıt alırsınız.",
+      "contacts": [
+        {
+          "role": "Lojistik",
+          "email": "Logistikk.vensmoen@mottaksdriftnor.no"
+        },
+        {
+          "role": "Finans",
+          "email": "saldo2023@yahoo.com"
+        },
+        {
+          "role": "Hemşire",
+          "email": "Inga.Mari.johansen@Saltdal.kommune.no"
+        },
+        {
+          "role": "Yerleştirme",
+          "email": "innretur.vensmoen@mottaksdriftnor.no"
+        },
+        {
+          "role": "Çocuk ve gençlik",
+          "email": "Barnefaglig.vensmoen@mottaksdriftnor.no"
+        }
+      ],
+      "transportTitle": "Otobüs ve tren",
+      "transportIntro": "Røkland'dan geçen otobüs ve trenler seyrektir, resmî tatillerde daha da seyrek olur. Her yolculuktan önce saatleri kontrol edin:",
+      "blocks": [
+        {
+          "heading": "Ofis",
+          "body": "Ofis pazartesiden cumaya 08:00-16:00 saatleri arasında açıktır, hafta sonları ve resmî tatillerde kapalıdır.\n\nGelmeden önce lojistik ekibine e-posta gönderin ve talebinizin neyle ilgili olduğunu kısaca yazın. Sorumlu çalışan bilgilendirilecek ve gerekli bilgileri hazırlayacaktır."
+        }
+      ]
+    },
+    "rules": {
+      "title": "Ev kuralları",
+      "lead": "Norveç'teki bir sığınmacı kabul merkezinde yaşam kuralları, Norveç'te iltica başvuru sahiplerinin hak ve yükümlülükleri, Vensmoen mottak'ta kalma kuralları",
+      "cardDesc": "Düzen, oda kullanımı, gece misafiri",
+      "blocks": [
+        {
+          "heading": "Sessizlik, düzen ve güvenlik",
+          "body": "- Kabul merkezinde 23:00 ile 06:00 arasında sessizlik olmalıdır.\n- Başkalarını rahatsız etmemeli veya başkaları için huzursuz edici davranmamalısınız. Şiddet, vandalizm veya diğer suçlar polise bildirilecektir.\n- Ortak alanlarda alkol içmek yasaktır.\n- Ortak alanlarda ve sakinlerin odalarında sigara, nargile ve elektronik sigara yasaktır.\n- Kabul merkezinde evcil hayvanlara izin verilmez.\n- Yangın güvenliği kurallarını öğrenmeli ve acil bir durumda ne yapacağınızı bilmelisiniz.\n\n"
+        },
+        {
+          "heading": "Oda ve ekipman kullanımı",
+          "body": "- Ortak alanları ve dış mekânları düzenli tutun. Bisikletler, bebek arabaları ve diğer eşyalar tahliye yollarını kapatmamalıdır.\n- Odanızı temiz ve düzenli tutun.\n- Atıklarınızı ayırmalı ve doğru kutulara atmalısınız.\n- İç ortak alanlar, temizlik programına göre düzenli olarak temizlenmelidir. Sıra size geldiğinde siz temizlemelisiniz.\n- Çamaşır makineleri, mutfak ekipmanları ve diğer temizlik malzemeleri talimatlara uygun kullanılmalıdır.\n\n"
+        },
+        {
+          "heading": "Gece misafiri",
+          "body": "- Misafirlerin gece kalması her zaman önceden kabul merkezi yönetimiyle kararlaştırılmalı ve onaylanmalıdır. Kabul merkezinin dışarıdan gelen kişilerin gece kalmasını reddetme hakkı vardır.\n- Yetişkinler kendi çocuklarını, ayrıca diğer kabul merkezlerinde yaşayan arkadaşlarını ve aile üyelerini gece misafir edebilir.\n- 18 yaş altı çocuklar ebeveynlerini, kardeşlerini ve yaşıt arkadaşlarını gece misafir edebilir.\n- Gece kalan tüm misafirler Norveç'te yaşamalı ve yönetime geçerli kimlik veya iltica başvuru belgesi göstermelidir.\n- Misafirlerinize yiyecek ve yatak takımı sağlamak sizin kişisel sorumluluğunuzdur; ayrıca diğer sakinlerin huzur ve düzenine saygı göstermelerini sağlamalısınız.\n\n"
+        }
+      ]
+    },
+    "guide": {
+      "title": "Pratik rehber",
+      "lead": "Norveç'teki günlük yaşamın temel bilgileri, kısa ve açık anlatım.",
+      "cardDesc": "Sağlık, okul, banka ve ulaşım",
+      "blocks": [
+        {
+          "heading": "Sağlık, doktor ve diş doktoru"
+        },
+        {
+          "heading": "Okul ve anaokulu",
+          "body": "Okul çağındaki çocuklar Norveç ilkokuluna gitmek zorundadır. Norveç'te lise eğitimi isteğe bağlıdır."
+        },
+        {
+          "heading": "UDI ve iltica süreci"
+        },
+        {
+          "heading": "Para ve banka"
+        },
+        {
+          "heading": "Posta ve paketler"
+        },
+        {
+          "heading": "İnternet, telefon ve SIM kartlar"
+        },
+        {
+          "heading": "Ulaşım"
+        },
+        {
+          "heading": "Mağazalar ve alışveriş"
+        },
+        {
+          "heading": "Boş zaman ve etkinlikler"
+        }
+      ]
+    }
+  },
+  "fractions": {
+    "matavfall": {
+      "name": "Gıda atığı",
+      "bin": "Yeşil gıda kutusu. Her zaman biyolojik olarak parçalanabilen poşet kullanın ve ağzını bağlayın. Poşetler mağazada ve geri dönüşüm noktasında ücretsizdir.",
+      "accepted": [
+        "Yumurta kabukları",
+        "Kabuklar, kemikler ve kırıntılar",
+        "Yemek artıkları, çiğ ve pişmiş",
+        "Kahve filtresi ve çay poşetleri",
+        "Üzerinde yemek kalıntısı olan mutfak kağıdı"
+      ],
+      "rejected": [
+        "Bahçe atığı",
+        "Plastik poşetler veya normal poşetler",
+        "Sıvılar (çorba, yağ)"
+      ],
+      "note": "Biyopoşet yok mu? Islak gıda atıklarını gazete kağıdına veya kağıt poşete sarın."
+    },
+    "papir": {
+      "name": "Karton ve kağıt",
+      "bin": "Mavi kağıt kutusu. Poşete koymayın, gevşek atın. Büyük kutuları katlayın veya kesin.",
+      "accepted": [
+        "Gazeteler, dergiler ve el ilanları",
+        "Sert kapağı olmayan kitaplar",
+        "Süt ve meyve suyu kartonları",
+        "Pizza kutuları ve ambalaj kartonu",
+        "Zarflar ve oluklu karton"
+      ],
+      "rejected": [
+        "Hediye kâğıdı",
+        "Kirli veya ıslak kağıt",
+        "Sert kapaklı kitaplar"
+      ],
+      "note": "Temiz ve kuru olmalı. Süt kutularını yıkayıp düzleştirin."
+    },
+    "plast": {
+      "name": "Plastik ambalaj",
+      "bin": "Ayrı şeffaf poşet - bağlayın. Poşet mağazada ve geri dönüşüm noktasında ücretsizdir.",
+      "accepted": [
+        "Plastik poşetler ve taşıma poşetleri",
+        "Film ve balonlu naylon",
+        "Plastik bidonlar, kaplar ve kutular",
+        "Şampuan ve deterjan şişeleri"
+      ],
+      "rejected": [
+        "İçinde gümüş renkli folyo olan poşetler",
+        "İçinde çok yemek kalıntısı olan ve yıkanmayan plastikler"
+      ],
+      "note": "Ambalajı durulayın ve kurumasını bekleyin. Hâlâ kirliyse artık atığa atın."
+    },
+    "glassmetall": {
+      "name": "Cam ve metal ambalaj",
+      "bin": "Cam ve metal için ortak kutu. Gevşek atın - poşete koymayın. Önce durulayın.",
+      "accepted": [
+        "İlaç, bira ve şarap şişeleri",
+        "Reçel kavanozları ve diğer gıda kavanozları",
+        "Konserve kutuları",
+        "Temiz alüminyum folyo ve tepsiler",
+        "Norveç depozitosu olmayan bira ve gazoz kutuları"
+      ],
+      "rejected": [
+        "İçme bardakları, kristal ve fırın kapları",
+        "Cam, ampul, porselen ve aynalar",
+        "Tavalar, tencereler ve termoslar"
+      ],
+      "note": "Sadece ambalaj (gıda veya içeceğin içinde geldiği kap). Tencere ve tavalar geri dönüşüm noktasına götürülür."
+    },
+    "restavfall": {
+      "name": "Artık atık",
+      "bin": "Evdeki artık atık kutusu. Poşete koyup iyice bağlayın.",
+      "accepted": [
+        "Bebek bezi ve hijyen pedleri",
+        "Elektrik süpürgesi poşetleri",
+        "Kirli kağıt ve karton",
+        "Sert kapaklı kitaplar",
+        "Pamuk, yara bandı ve gazlı bez",
+        "Köpek dışkısı ve kedi kumu poşeti",
+        "Kulak çubuğu ve pamuk çubuklar",
+        "Boş ilaç blister ambalajı"
+      ],
+      "rejected": [
+        "Gıda, kağıt, plastik, cam ve metal - bunlar ayrıştırılmalıdır",
+        "Tehlikeli atık, piller ve elektronik"
+      ],
+      "note": "Artık atık, geri kalan her şeyi ayırdıktan sonra kalan şeydir. Önce mümkün olduğunca çok şeyi ayrıştırın - daha az ödersiniz."
+    },
+    "farlig": {
+      "name": "Tehlikeli atık ve elektronik",
+      "bin": "ASLA evdeki herhangi bir kutuya atmayın. Pilleri, ampulleri ve küçük elektroniği bunları satan mağazaya veya geri dönüşüm noktasına teslim edin.",
+      "accepted": [
+        "Piller ve şarj edilebilir piller",
+        "Ampuller ve floresan tüpler",
+        "Telefonlar, şarj cihazları, kablolar ve küçük elektronikler",
+        "Boya, tutkal, vernik ve sprey kutuları",
+        "Çözücüler ve kimyasallar"
+      ],
+      "rejected": [
+        "Asla artık atığa",
+        "Asla tuvalete, lavaboya veya gidere",
+        "Asla doğaya"
+      ],
+      "note": "Artık atıktaki piller çöp kamyonunda yangına neden olabilir."
+    }
+  }
+}

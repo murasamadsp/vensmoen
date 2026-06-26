@@ -29,7 +29,7 @@ try {
 }
 
 const DIR = 'src/i18n';
-const LOCALES = ['nb', 'en', 'uk', 'ar', 'es', 'ti'];
+const LOCALES = ['nb', 'en', 'uk', 'ar', 'es', 'ti', 'tr'];
 const REFERENCE = 'nb';
 const LANG_NAME = {
   nb: 'Norwegian (Bokmål)',
@@ -38,6 +38,7 @@ const LANG_NAME = {
   ar: 'Arabic',
   es: 'Spanish',
   ti: 'Tigrinya',
+  tr: 'Turkish',
 };
 
 // Статичний style guide. Однаковий між викликами → cacheable prefix.
@@ -53,7 +54,7 @@ Preserve exactly: all HTML tags and their structure — never add, remove or alt
 
 Proper nouns — never translate or transliterate: Vensmoen, Saltdal, Røkland, UDI, NAV, Mental Helse, sortere.no, and all personal names.
 
-The word "mottak" and all its Norwegian grammatical forms (mottaket, mottaks, mottakets, asylmottaket, asylmottaks, asylmottak) must never be partially transliterated. When translating to non-Norwegian languages, use the natural target-language equivalent: "the reception centre" (English), "центр прийому" (Ukrainian), "el centro de acogida" (Spanish), "مركز الاستقبال" (Arabic), "ማቀባበያ ማዕከል" (Tigrinya). Never write "mottak" or any hybrid — always use the full target-language phrase.`;
+The word "mottak" and all its Norwegian grammatical forms (mottaket, mottaks, mottakets, asylmottaket, asylmottaks, asylmottak) must never be partially transliterated. When translating to non-Norwegian languages, use the natural target-language equivalent: "the reception centre" (English), "центр прийому" (Ukrainian), "el centro de acogida" (Spanish), "مركز الاستقبال" (Arabic), "ማቀባበያ ማዕከል" (Tigrinya), "kabul merkezi" (Turkish). Never write "mottak" or any hybrid — always use the full target-language phrase.`;
 
 // ---- args -------------------------------------------------------------
 const args = process.argv.slice(2);

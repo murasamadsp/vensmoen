@@ -3,6 +3,7 @@ import en from './en.json';
 import es from './es.json';
 import nb from './nb.json';
 import ti from './ti.json';
+import tr from './tr.json';
 import uk from './uk.json';
 
 export interface FractionStrings {
@@ -121,6 +122,7 @@ const dictionaries: Record<string, Strings> = {
   ar: ar satisfies Strings,
   es: es satisfies Strings,
   ti: ti satisfies Strings,
+  tr: tr satisfies Strings,
 };
 
 export function getStrings(locale: string): Strings {
