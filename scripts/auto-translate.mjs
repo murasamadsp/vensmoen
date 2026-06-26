@@ -517,10 +517,15 @@ function jobsDiff() {
     let oldObj;
     try {
       oldObj = JSON.parse(
-        execSync(`git show ${base}:${DIR}/${code}.json`).toString(),
+        execSync(`git show ${base}:${DIR}/${code}.json 2>/dev/null`).toString(),
       );
     } catch {
       oldObj = {};
+    }
+    const isNewLocaleFile = Object.keys(oldObj).length === 0;
+    if (isNewLocaleFile && code !== REFERENCE) {
+      console.log(`  [skip] ${code}.json — new locale file, not a CMS diff`);
+      continue;
     }
     const oldFlat = flatten(oldObj);
     const newFlat = flatten(readLocale(code));
