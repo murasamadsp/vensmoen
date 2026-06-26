@@ -1,6 +1,8 @@
 # build output
 dist/
 .astro/
+output/
+tmp/
 
 # dependencies
 node_modules/
@@ -11,7 +13,11 @@ npm-debug.log*
 
 # environment
 .env
+.env.*
+!.env.example
 .env.production
+
+# OS/editor/local tooling
 .DS_Store
 shots/
 scratch/

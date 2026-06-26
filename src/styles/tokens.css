@@ -1,5 +1,5 @@
 :root {
-  /* Surface & ink — varm papirhvit, ikke ren hvit (redaksjonelt) */
+  /* Поверхня і текст — теплий паперовий білий, не чисто білий (редакційний тон) */
   --color-bg: oklch(98.5% 0.006 95);
   --color-surface: oklch(100% 0 0);
   --color-ink: oklch(22% 0.02 260);
@@ -7,7 +7,7 @@
   --color-line: oklch(89% 0.01 260);
   --color-accent: oklch(44% 0.13 200);
 
-  /* Semantiske fargekoder for fraksjoner (matcher dunk/pose) */
+  /* Семантичні кольори фракцій (відповідають баку/пакету) */
   --bin-mat: #2f7d3b;
   --bin-papir: #1f5fa8;
   --bin-plast: #d98a00;
@@ -15,19 +15,19 @@
   --bin-rest: #4a4a4a;
   --bin-farlig: #c0392b;
 
-  /* Kontrast ≥ 4.5:1 mot lys flate (WCAG 1.4.3) – verifisert */
+  /* Контраст ≥ 4.5:1 на світлій поверхні (WCAG 1.4.3) – перевірено */
   --ok: oklch(44% 0.14 150);
   --no: oklch(46% 0.18 25);
 
-  /* Seksjonsfarger for mottaks-huben (rolig, humanitær palett) */
+  /* Кольори секцій для хабу центру (спокійна гуманітарна палітра) */
   --sec-about: #1f5fa8;
   --sec-rules: #a36400;
   --sec-guide: oklch(44% 0.13 200);
   --sec-waste: #2f7d3b;
   --emg: #b0392b;
 
-  /* Typografi — systembasert (null nettverk, fungerer for alle skript
-     inkl. arabisk/kyrillisk via OS-fonter). Serif til display gir karakter. */
+  /* Типографіка — системна (без мережі, працює для всіх писемностей,
+     зокрема арабської/кирилиці через OS-шрифти). Serif для display додає характер. */
   --font-display:
     "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
     "Times New Roman", serif;
@@ -41,7 +41,7 @@
   --text-lg: clamp(1.2rem, 1.05rem + 0.6vw, 1.45rem);
   --text-xl: clamp(1.6rem, 1.2rem + 1.6vw, 2.4rem);
   --text-hero: clamp(2.2rem, 1rem + 3.5vw, 3.5rem);
-  /* Rytme — bevisst, ikke uniform */
+  /* Ритм — свідомо не рівномірний */
   --space-1: 0.4rem;
   --space-2: 0.75rem;
   --space-3: 1.25rem;
@@ -70,7 +70,7 @@
     --color-ink-soft: oklch(74% 0.02 260);
     --color-line: oklch(34% 0.02 260);
     --color-accent: oklch(72% 0.12 200);
-    /* Lysere semantiske farger – kontrast mot mørk flate (WCAG 1.4.3) */
+    /* Світліші семантичні кольори – контраст на темній поверхні (WCAG 1.4.3) */
     --ok: oklch(72% 0.15 150);
     --no: oklch(72% 0.17 25);
     --sec-about: #82b4ec;

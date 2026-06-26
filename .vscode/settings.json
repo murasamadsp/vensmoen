@@ -25,6 +25,8 @@
     ".astro/",
     ".git/",
     "dist/",
+    "output/",
+    "tmp/",
     "node_modules/",
     "package-lock.json",
     "src/i18n/!(nb).json"
@@ -39,6 +41,7 @@
     "Røkland",
     "Saltdal",
     "Sortere",
+    "DeepSeek",
     "Tigrinya",
     "UDI",
     "Vensmoen",
@@ -52,6 +55,7 @@
     "qrcode",
     "sortere",
     "tabSize",
+    "sortering",
     "tsdk",
     "wordWrap"
   ],
@@ -76,14 +80,17 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "README.md": "AGENTS.md, CLAUDE.md, GEMINI.md",
-    ".gitignore": ".gitattributes"
+    ".gitignore": ".gitattributes",
+    ".env.example": ".env"
   },
   // Explorer — сортування: директорії зверху, файли знизу
   "explorer.sortOrder": "foldersNestsFiles",
   // Сховати з Explorer артефакти збірки
   "files.exclude": {
     ".astro/": true,
-    "dist/": true
+    "dist/": true,
+    "output/": true,
+    "tmp/": true
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
@@ -101,8 +108,10 @@
   "search.exclude": {
     ".astro/": true,
     "dist/": true,
+    "output/": true,
+    "tmp/": true,
     "node_modules/": true,
-    ".pages.yml": true
+    ".env": true
   },
   // i18n-ally
   "i18n-ally.localesPaths": ["src/i18n"],

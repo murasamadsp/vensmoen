@@ -15,10 +15,10 @@ if (!locale) throw new Error('locale route param is required');
 const t = getStrings(locale);
 const ui = t.ui;
 
-// Spørsmål bygges DRY fra de allerede verifiserte listene:
-//  - pick:  godkjent objekt → velg riktig fraksjon (flervalg)
-//  - yn:    «hører dette i DENNE dunken?» – ja for accepted, nei for
-//           rejected (de mest forvekslingsutsatte tilfellene).
+// Питання будуються DRY з уже перевірених списків:
+//  - pick:  дозволений предмет → вибрати правильну фракцію (multiple choice)
+//  - yn:    «чи належить це до ЦЬОГО бака?» – так для accepted, ні для
+//           rejected (найбільш плутані випадки).
 const pick = fractions.flatMap((f) =>
   t.fractions[f.id].accepted.map((item) => ({ t: 'pick', q: item, a: f.id })),
 );
@@ -238,7 +238,7 @@ const quizData = JSON.stringify({ questions, options, str }).replace(
           btns[i].disabled = true;
           if (btns[i].dataset.id === q.a) {
             btns[i].classList.add('is-correct');
-            // Ikke-farge-indikator (WCAG 1.4.1): leses også av skjermleser
+            // Індикатор не лише кольором (WCAG 1.4.1): читається і скрінрідером.
             btns[i].textContent = '✓ ' + labelFor(q, btns[i].dataset.id);
           }
         }
@@ -272,8 +272,8 @@ const quizData = JSON.stringify({ questions, options, str }).replace(
       }
 
       function start() {
-        // 12 tilfeldige av alle (pick + ja/nei) – kort nok til å fullføre,
-        // ny miks hver gang.
+        // 12 випадкових з усіх (pick + так/ні) – досить коротко, щоб завершити,
+        // новий мікс щоразу.
         order = shuffle(DATA.questions.length).slice(
           0,
           Math.min(12, DATA.questions.length)

@@ -1,4 +1,4 @@
-/* Quiz interactive game component styles */
+/* Стилі інтерактивного компонента квізу */
 .quiz {
   min-block-size: 60vh;
   padding-block: var(--space-section);
@@ -86,8 +86,8 @@
   cursor: default;
   opacity: 0.55;
 }
-/* oklab (ikke oklch) for bakgrunnsblanding: hue-interpolasjon mot nær-hvit
-   surface i oklch dreier grønt mot rosa. oklab blander langs a/b – riktig tone. */
+/* oklab (не oklch) для змішування фону: hue-інтерполяція до майже білої
+   поверхні в oklch крутить зелений у рожевий. oklab змішує вздовж a/b – правильний тон. */
 .quiz__opt.is-correct {
   opacity: 1;
   background: color-mix(in oklab, var(--ok) 16%, var(--color-surface));

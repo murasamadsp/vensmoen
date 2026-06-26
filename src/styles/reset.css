@@ -1,32 +1,32 @@
-/* Modern CSS Reset & Normalization */
+/* Сучасний CSS reset і нормалізація */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Remove default margin & padding */
+/* Прибираємо стандартні margin і padding */
 * {
   margin: 0;
   padding: 0;
   font: inherit;
 }
 
-/* Set core root defaults */
+/* Базові налаштування кореневого елемента */
 html {
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   height: 100%;
 }
 
-/* Smooth scroll only when the user hasn't asked for reduced motion */
+/* Плавний скрол лише якщо користувач не просив зменшити рух */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
 }
 
-/* Set core body defaults */
+/* Базові налаштування body */
 body {
   min-height: 100%;
   text-rendering: optimizeSpeed;
@@ -34,12 +34,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* A elements that don't have a class get default styles */
+/* Посилання без класу отримують стандартну поведінку */
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
-/* Make images and svgs easier to work with */
+/* Зручніші дефолти для зображень і svg */
 img,
 picture,
 video,
@@ -50,7 +50,7 @@ svg {
   height: auto;
 }
 
-/* Inherit fonts for inputs and buttons */
+/* Інпути й кнопки успадковують шрифти */
 input,
 button,
 textarea,
@@ -58,13 +58,13 @@ select {
   font: inherit;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which implies styling override */
+/* Прибираємо маркери у списків з role=list, де стиль задається явно */
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
 }
 
-/* More consistent default line heights and word wrapping */
+/* Стабільніші дефолти для перенесення рядків */
 p,
 h1,
 h2,

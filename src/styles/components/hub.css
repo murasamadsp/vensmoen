@@ -1,4 +1,4 @@
-/* Forside-hub: hero, seksjonskort og nødnumre */
+/* Хаб головної: головний блок, картки секцій і екстрені номери */
 .hub-hero {
   margin-block: clamp(1.5rem, 4vw, 3rem) var(--space-5);
 }
@@ -6,10 +6,10 @@
   margin-block-end: var(--space-2);
 }
 
-/* Seksjonskort – store, rolige trykkflater.
-   Deterministisk høyde: like rader (1fr) + reserverte tekstlinjer (lh)
-   gjør at kortene er like store uansett hvor lang oversettelsen er –
-   layouten «hopper» ikke mellom språk. */
+/* Картки секцій – великі, спокійні зони натискання.
+   Детермінована висота: однакові рядки (1fr) + зарезервовані текстові рядки (lh)
+   роблять картки однаковими незалежно від довжини перекладу –
+   лейаут не «стрибає» між мовами. */
 .hub {
   display: grid;
   gap: var(--space-3);
@@ -81,11 +81,11 @@
   margin-block-start: 2px;
   font-size: var(--text-sm);
   color: var(--color-ink-soft);
-  /* Reservert plass til to linjer – samme korthøyde på alle språk */
+  /* Зарезервоване місце для двох рядків – однакова висота картки в усіх мовах */
   min-block-size: 2lh;
 }
-/* Smal skjerm: lange titler (uk/es) bryter til to linjer – reserver dem
-   for alle språk, slik at kortlisten har samme rytme overalt. */
+/* Вузький екран: довгі заголовки (uk/es) переносяться на два рядки –
+   резервуємо це для всіх мов, щоб список карток мав однаковий ритм. */
 @media (max-width: 30rem) {
   .hub-card__title {
     min-block-size: 2lh;
@@ -149,8 +149,9 @@
   text-underline-offset: 4px;
 }
 
-/* Psykisk helse – samme kort-mønster som .duty, men varm lilla aksent
-   (ikke teal som resten) + ikon, så den leses som «omsorg», ikke nødnummer. */
+/* Психологічна підтримка – той самий патерн картки, що й .duty, але теплий
+   фіолетовий акцент (не бірюзовий як решта) + іконка, щоб це читалось як
+   «турбота», а не екстрений номер. */
 .support {
   --support: oklch(52% 0.14 300);
   display: flex;
@@ -203,7 +204,7 @@
   font-weight: 700;
   white-space: nowrap;
   color: var(--support);
-  direction: ltr; /* nummer alltid venstre-til-høyre, også i RTL */
+  direction: ltr; /* номер завжди зліва направо, також у RTL */
   unicode-bidi: isolate;
 }
 .support:hover .support__phone {
@@ -216,9 +217,10 @@
   }
 }
 
-/* Nødnumre – tydelig avgrenset, store tall, trykkbare tel:-lenker */
+/* Екстрені номери – чітко відмежовані, великі цифри, натискні tel:-посилання */
 .emg {
-  margin-block-end: var(--space-3); /* støtte-kortet rett under – liten luft */
+  /* Картка підтримки одразу нижче – мало повітря. */
+  margin-block-end: var(--space-3);
   padding: var(--space-4);
   background: var(--color-surface);
   border: 1px solid var(--color-line);
@@ -270,7 +272,7 @@
 .emg__label {
   font-size: var(--text-sm);
   color: var(--color-ink-soft);
-  /* «Legevakt» er én linje, «Чергова медслужба (legevakt)» er to –
-     reserver to linjer overalt så flisene er like høye. */
+  /* «Legevakt» — один рядок, «Чергова медслужба (legevakt)» — два;
+     резервуємо два рядки всюди, щоб плитки були однакової висоти. */
   min-block-size: 2lh;
 }

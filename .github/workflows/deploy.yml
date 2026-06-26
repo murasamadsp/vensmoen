@@ -5,8 +5,8 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Minste privilegium: build trenger bare lesetilgang. pages/id-token
-# gis kun til deploy-jobben (ikke til jobben som kjører npm ci).
+# Мінімальні права: build має лише читання за замовчуванням. pages/id-token
+# видаються тільки deploy-job'і, не job'і з npm ci.
 permissions:
   contents: read
 
@@ -21,17 +21,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # for å committe auto-oversettelser tilbake
+      contents: write # щоб закомітити авто-переклади назад
       pages: read
     steps:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
-          fetch-depth: 0 # trenger forrige commit for diff (github.event.before)
+          fetch-depth: 0 # потрібна історія для diff і пошуку останнього bot-коміту
       - name: Setup Node
         uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
-          node-version: 26
+          node-version-file: .node-version
           cache: npm
       - name: Install (lockfile)
         run: npm ci
@@ -45,31 +45,43 @@ jobs:
         if: github.event_name == 'push'
         run: node scripts/sync-i18n.mjs
 
-      # Auto-oversettelse: CMS-redaktøren endrer ETT språk → de andre fylles her.
-      # best-effort (continue-on-error): hvis Claude-kreditt er tom, hoppes
-      # oversettelsen over og siden deployes likevel (ingen blokkering av prod).
-      - name: Auto-translate changed fields (best-effort)
+      # Auto-oversettelse: CMS-redaktøren endrer nb → de andre språkene fylles her.
+      # Feil stopper deploy: nytt innhold skal ikke publiseres halvoversatt.
+      - name: Auto-translate changed fields
         if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
-        continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GOOGLE_TRANSLATE_API_KEY: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
+          TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER || 'anthropic' }}
+          TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL || 'claude-sonnet-4-6' }}
+          TRANSLATE_FALLBACK_PROVIDER: ${{ vars.TRANSLATE_FALLBACK_PROVIDER }}
+          TRANSLATE_FALLBACK_MODEL: ${{ vars.TRANSLATE_FALLBACK_MODEL }}
+          TRANSLATE_TIMEOUT_MS: ${{ vars.TRANSLATE_TIMEOUT_MS || '60000' }}
+          TRANSLATE_RETRIES: ${{ vars.TRANSLATE_RETRIES || '2' }}
+          TRANSLATE_SOURCE_LOCALE: nb
+          TRANSLATE_STRICT_SOURCE: 1
         run: |
-          # Diff fra siste VELLYKKEDE oversettelse (siste bot-commit), ikke bare
-          # forrige push. Boten committer kun ved suksess, så hvis en kjøring ble
-          # hoppet over (tom kreditt / API-feil), står basen igjen og NESTE kjøring
-          # tar med alle akkumulerte endringer – ingen permanent desync.
+          # Diff від останнього УСПІШНОГО перекладу (останній bot-коміт), а не
+          # лише від попереднього push. Бот комітить тільки після успіху, тому
+          # якщо прогін упав (кредити/API), база лишається і НАСТУПНИЙ прогін
+          # забере всі накопичені зміни без постійного десинхрону.
           BASE=$(git log --author='vensmoen-translate-bot' -1 --format=%H || true)
           [ -z "$BASE" ] && BASE="${{ github.event.before }}"
-          # Hopp helt over hvis ingen språkfiler er endret (f.eks. kun CSS/docs):
-          # da startes ikke Claude i det hele tatt – ingen kostnad.
+          # Повністю пропускаємо, якщо мовні файли не змінювались
+          # (наприклад, лише CSS/docs): API не запускається, витрат немає.
           if git diff --quiet "$BASE" HEAD -- src/i18n; then
             echo "i18n uendret siden $BASE – ingen oversettelse, hopper over."
             exit 0
           fi
           echo "Oversetter endringer siden $BASE"
+          node scripts/validate-translate-env.mjs
           node scripts/auto-translate.mjs --base "$BASE"
-      # Skriv oversettelsene tilbake til repoet (så CMS/repo viser dem).
-      # Push med GITHUB_TOKEN trigger IKKE ny workflow → ingen oversettelses-løkke.
+      - name: Validate generated i18n before commit
+        if: github.event_name == 'push'
+        run: node scripts/validate-i18n.mjs
+      # Записуємо переклади назад у repo, щоб CMS/repo бачили актуальні тексти.
+      # Push через GITHUB_TOKEN НЕ запускає новий workflow → немає циклу перекладу.
       - name: Commit translations
         if: github.event_name == 'push'
         run: |
@@ -78,11 +90,15 @@ jobs:
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add src/i18n
             git commit -m "i18n: auto-translate changed fields"
+            push_failed=0
             for attempt in 1 2 3; do
               git push && break
               echo "Push feilet (forsøk $attempt), trekker og rebaserer..."
               git pull --rebase origin main || { echo "Rebase feilet, avbryter"; exit 1; }
+              [ "$attempt" = "3" ] || continue
+              push_failed=1
             done
+            [ "$push_failed" = "0" ] || { echo "Kunne ikke pushe oversettelser"; exit 1; }
           else
             echo "Ingen oversettelser å committe."
           fi

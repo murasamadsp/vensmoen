@@ -1,13 +1,13 @@
 ---
 import { fractions } from '../data/fractions';
 import type { Strings } from '../i18n/strings';
-// Felles innhold for nettsiden OG utskriftsarket. Samme struktur begge steder
-// – bare CSS skiller det visuelt (skjerm vs A4).
+// Спільний контент для вебсторінки І друкованого аркуша. Структура однакова,
+// візуально відрізняє лише CSS (екран проти A4).
 import FractionCard from './FractionCard.astro';
 
 interface Props {
   t: Strings;
-  /** Settes kun på utskriftsruten – QR-koden vises bare der. */
+  /** Задається лише на друкованому маршруті – QR-код показується тільки там. */
   qrSvg?: string;
 }
 const { t, qrSvg } = Astro.props;

@@ -1,10 +1,10 @@
-// Legg til et nytt språk: lag src/i18n/<code>.json og legg til én linje her.
+// Щоб додати нову мову: створіть src/i18n/<code>.json і додайте один рядок тут.
 export interface Locale {
   code: string;
-  /** Navn på språket, skrevet på språket selv */
+  /** Назва мови, написана самою мовою */
   label: string;
   dir: 'ltr' | 'rtl';
-  /** lang-attributt for <html> */
+  /** lang-атрибут для <html> */
   htmlLang: string;
 }
 

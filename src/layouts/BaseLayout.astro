@@ -13,13 +13,13 @@ interface Props {
   title: string;
   description: string;
   bodyClass?: string;
-  /** Settes på /print/ – ruten skal ikke indekseres (duplikat av guiden). */
+  /** Задається на /print/ – маршрут не має індексуватись (дублікат гіда). */
   noindex?: boolean;
 }
 const { locale, title, description, bodyClass, noindex = false } = Astro.props;
 const loc = getLocale(locale);
 
-// Kanonisk + hreflang utledes fra Astro.site (config) – ingen hardkodet host.
+// canonical + hreflang виводяться з Astro.site (config) – без хардкоду host.
 const pathname = Astro.url.pathname;
 const localeSeg = new RegExp(`/(${localeCodes.join('|')})(/|$)`);
 const urlForLocale = (code: string): string =>
@@ -35,8 +35,8 @@ const ogLocale: Record<string, string> = {
   ti: 'ti_ET',
 };
 
-// Statisk vert (GitHub Pages) kan ikke sende HTTP-headere – derfor meta.
-// Inline-skript finnes (quiz/print/språkvelger) → 'unsafe-inline' for script.
+// Статичний хост (GitHub Pages) не може віддавати HTTP headers – тому meta.
+// Inline-скрипти є (quiz/print/вибір мови) → 'unsafe-inline' для script.
 const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
@@ -94,14 +94,14 @@ const csp = [
       href={`${import.meta.env.BASE_URL}favicon.svg`}
       type="image/svg+xml"
     />
-    <!-- iOS hjemmeskjerm krever PNG (180×180, full-bleed bakgrunn) -->
+    <!-- Домашній екран iOS потребує PNG (180×180, full-bleed фон) -->
     <link
       rel="apple-touch-icon"
       href={`${import.meta.env.BASE_URL}apple-touch-icon.png`}
     />
     <meta name="color-scheme" content="light dark" />
-    <!-- Farger nettleser-UI (adressefelt på mobil) i sidens bakgrunn.
-         Hex-verdier ≈ --color-bg i tokens.css (meta støtter ikke oklch). -->
+    <!-- Фарбує UI браузера (адресний рядок на мобільному) в фон сторінки.
+         Hex-значення ≈ --color-bg у tokens.css (meta не підтримує oklch). -->
     <meta
       name="theme-color"
       content="#fbfaf4"

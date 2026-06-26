@@ -1,0 +1,35 @@
+{
+  "dutyPhone": {
+    "tel": "+4748201948",
+    "display": "+47 482 01 948"
+  },
+  "mentalHealth": {
+    "tel": "116123",
+    "display": "116 123"
+  },
+  "mapLinks": [
+    {
+      "name": "Google Maps",
+      "href": "https://www.google.com/maps/search/?api=1&query=Vensmoen%2C%20R%C3%B8kland%2C%20Saltdal"
+    },
+    {
+      "name": "Apple Maps",
+      "href": "https://maps.apple.com/?q=Vensmoen%2C%20R%C3%B8kland%2C%20Saltdal"
+    }
+  ],
+  "transportApps": [
+    {
+      "name": "Entur",
+      "href": "https://entur.no"
+    },
+    {
+      "name": "Vy",
+      "href": "https://www.vy.no"
+    },
+    {
+      "name": "Reis Nordland",
+      "href": "https://www.reisnordland.no"
+    }
+  ],
+  "wasteLastVerified": "2026-05-18"
+}

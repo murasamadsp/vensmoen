@@ -1,4 +1,4 @@
-/* Button component styles */
+/* Стилі компонента кнопки */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -23,7 +23,7 @@
   border-color: var(--color-line);
 }
 
-/* Berøringsskjerm: minst 44px trykkflate (WCAG 2.5.8 / iOS-retningslinje) */
+/* Сенсорний екран: мінімум 44px зона натискання (WCAG 2.5.8 / iOS-гайдлайн) */
 @media (pointer: coarse) {
   .btn {
     min-block-size: 44px;

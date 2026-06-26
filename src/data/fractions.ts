@@ -1,6 +1,7 @@
-// Språkuavhengige metadata for hver avfallsfraksjon.
-// Oversettbar tekst (navn, ja/nei-lister, merknad) ligger i src/i18n/<locale>.json.
-// Kilde er verifisert mot den nasjonale standarden sortere.no.
+// Мовонезалежні метадані для кожної фракції відходів.
+// Перекладний текст (назва, списки так/ні, примітка) лежить у src/i18n/<locale>.json.
+// Джерело звірене з національним стандартом sortere.no.
+import settings from './site-settings.json';
 
 export interface SourceRef {
   label: string;
@@ -9,20 +10,20 @@ export interface SourceRef {
 
 export interface Fraction {
   id: string;
-  /** Hex-farge for fargeprikk/kant – knyttet til dunk/pose */
+  /** Hex-колір для кольорової мітки/рамки – прив'язаний до бака/пакета */
   binColor: string;
-  /** Lesbar tekstfarge over binColor */
+  /** Читабельний колір тексту поверх binColor */
   onBin: string;
-  /** Er dette en av hovedfraksjonene som sorteres hjemme? */
+  /** Чи це одна з основних фракцій, які сортуються вдома? */
   home: boolean;
   sources: SourceRef[];
-  /** ISO-dato da innholdet sist ble verifisert mot kilden */
+  /** ISO-дата останньої звірки контенту з джерелом */
   lastVerified: string;
 }
 
 const SORTERE: SourceRef = { label: 'sortere.no', url: 'https://sortere.no/' };
 
-const VERIFIED = '2026-05-18';
+const VERIFIED = settings.wasteLastVerified;
 
 export const fractions: Fraction[] = [
   {

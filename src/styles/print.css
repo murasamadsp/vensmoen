@@ -1,21 +1,21 @@
-/* Utskriftsruten /<locale>/print/ bruker NØYAKTIG samme komponent (GuideBody)
-   som nettsiden. Bare denne CSS-en gjør den visuelle forskjellen: alt
-   komprimeres til ÉN A4-side.
+/* Друкований маршрут /<locale>/print/ використовує ТОЙ САМИЙ компонент
+   (GuideBody), що й вебсторінка. Лише цей CSS робить візуальну різницю:
+   усе стискається до ОДНІЄЇ A4-сторінки.
 
-   - .print-doc er en ekte A4-side (210x297mm, marg som padding) → likt på
-     skjerm og papir; korte språk fyller hele siden.
-   - Et lite skript skalerer (zoom) ned hvis et langt språk er for stort →
-     aldri mer enn A4. Resultat: hvert språk = nøyaktig én full A4-side. */
+   - .print-doc — справжня A4-сторінка (210x297mm, поля як padding) → однаково
+     на екрані й папері; короткі мови заповнюють всю сторінку.
+   - Невеликий скрипт масштабує (zoom) вниз, якщо довга мова не влазить →
+     ніколи більше ніж A4. Результат: кожна мова = рівно одна повна A4-сторінка. */
 
 @page {
   size: A4;
   margin: 0;
 }
 
-/* Papirpalett – tving lyse token-verdier på HELE utskriftssiden (ikke bare
-   .print-doc), slik at OS-ens mørke modus (prefers-color-scheme: dark i
-   tokens.css) ikke gjør color-mix()-flater mørke ELLER «ghost»-knappen i
-   .no-print-baren usynlig (lys tekst på lyst ark). Gjelder skjerm + print. */
+/* Паперова палітра – примусово світлі token-значення на ВСІЙ друкованій
+   сторінці (не лише .print-doc), щоб темна тема ОС (prefers-color-scheme: dark
+   у tokens.css) не затемнювала color-mix()-поверхні й не робила ghost-кнопку
+   в .no-print-барі невидимою (світлий текст на світлому аркуші). Для екрана і друку. */
 body.print-page {
   --color-surface: #ffffff;
   --color-bg: #ffffff;
@@ -37,7 +37,7 @@ body.print-page {
   flex-direction: column;
 }
 
-/* Samme struktur som web (head → kort → kilder), men fyll A4 i høyden */
+/* Та сама структура, що й у вебі (head → картки → джерела), але заповнює A4 по висоті */
 .print-doc .guide {
   display: flex;
   flex-direction: column;
@@ -85,7 +85,7 @@ body.print-page {
   block-size: 23mm;
 }
 
-/* Kortene fyller resten av siden: 2 kolonner */
+/* Картки заповнюють решту сторінки: 2 колонки */
 .print-doc .fractions {
   flex: 1 1 auto;
   display: grid;
@@ -137,7 +137,7 @@ body.print-page {
   font-size: 8.5pt;
   line-height: 1.3;
 }
-/* A4-тільне: мітка + список на одному рядку (семантика залишається) */
+/* Лише для A4: мітка + список на одному рядку (семантика залишається) */
 .print-doc .frac__line-h {
   display: inline;
   margin: 0;

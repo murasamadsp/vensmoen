@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "Flerspråklig informasjonsside for Vensmoen mottak",
+  "engines": {
+    "node": "26.3.x",
+    "npm": ">=11 <12"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -11,12 +15,15 @@
     "astro": "astro",
     "typecheck": "astro check",
     "validate:i18n": "node scripts/validate-i18n.mjs",
+    "validate:cms": "node scripts/validate-pages-schema.mjs",
+    "validate:translate-env": "node scripts/validate-translate-env.mjs",
     "check:links": "node scripts/check-links.mjs",
-    "check": "npm run validate:i18n && npm run typecheck && npm run lint",
+    "check": "npm run validate:cms && npm run validate:i18n && npm run typecheck && npm run lint",
     "setup": "node scripts/setup-hooks.mjs",
     "lint": "biome check",
     "lint:write": "biome check --write",
     "sync:i18n": "node scripts/sync-i18n.mjs",
+    "translate:health": "node scripts/auto-translate.mjs --health-check",
     "translate": "node scripts/auto-translate.mjs"
   },
   "dependencies": {
@@ -24,12 +31,16 @@
     "astro": "6.4.8",
     "qrcode": "1.5.4"
   },
+  "overrides": {
+    "esbuild": "0.28.1",
+    "yaml": "2.9.0"
+  },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
     "@biomejs/biome": "2.4.15",
     "@types/qrcode": "1.5.6",
 
-    "playwright": "^1.61.1",
+    "playwright": "1.61.1",
     "typescript": "5.9.3"
   }
 }

@@ -1,4 +1,4 @@
-/* Guide head (shared web + print structure) */
+/* Шапка гіда (спільна структура для вебу й друку) */
 .guide__head {
   display: flex;
   flex-wrap: wrap;
@@ -28,12 +28,12 @@
   color: var(--color-ink);
   overflow-wrap: anywhere;
 }
-/* QR is only on print; hidden on screen */
+/* QR лише для друку; на екрані прихований */
 .guide__qr {
   display: none;
 }
 
-/* Fraction cards grid */
+/* Сітка карток фракцій */
 .fractions {
   display: grid;
   gap: var(--space-3);
@@ -81,12 +81,12 @@
   min-inline-size: 0;
 }
 
-/* "Where" container */
+/* Контейнер "куди викидати" */
 .frac__where {
   margin: 0 0 var(--space-3);
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-sm);
-  /* oklab: hue-blanding mot lys surface i oklch dreier fargen feil (grønt→rosa). */
+  /* oklab: змішування hue зі світлою поверхнею в oklch неправильно крутить колір (зелений→рожевий). */
   background: color-mix(in oklab, var(--bin) 14%, var(--color-surface));
   border: 1px solid color-mix(in oklab, var(--bin) 35%, transparent);
   font-size: var(--text-base);
@@ -125,7 +125,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-/* Semantic list, visually compact */
+/* Семантичний список, візуально компактний */
 .frac__items {
   margin: 0;
   padding: 0;

@@ -40,8 +40,8 @@ const pathParts = pathAfterBase.split('/');
 </details>
 
 <script is:inline>
-  // Ren progressiv forbedring – <details> fungerer fullt uten dette.
-  // Lukker menyen ved Escape og klikk utenfor (vanlig meny-forventning).
+  // Чисте прогресивне покращення – <details> повністю працює і без цього.
+  // Закриває меню по Escape та кліку назовні (звична поведінка меню).
   (function () {
     var d = document.currentScript.previousElementSibling;
     if (!d || d.tagName !== 'DETAILS') return;

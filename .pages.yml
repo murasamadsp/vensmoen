@@ -1,21 +1,17 @@
 # Pages CMS – enkel redigering av innholdet via app.pagescms.org
-# Hvert språk = én oppføring i sidemenyen som peker på src/i18n/<kode>.json.
-# Feltskjemaet (&fields) er felles for alle språk via YAML-anker.
+# Norsk innhold og driftsdata er de eneste redigerbare oppføringene.
 # Lagre i CMS → commit i repoet → nettstedet bygges på nytt automatisk.
-
-media:
-  input: public
-  output: /
 
 content:
   - name: nb
-    label: Norsk
+    label: Norsk innhold
     type: file
     path: src/i18n/nb.json
     format: json
     fields: &fields
       - name: site
-        label: Nettstedstekster (forsiden)
+        label: "1. Forside og SEO"
+        description: "Tekster på startsiden, sidetittel, meta-beskrivelse og nød-/kontaktblokker."
         type: object
         fields:
           - { name: title, label: "Sidetittel (SEO)", type: string }
@@ -38,11 +34,12 @@ content:
           - { name: mentalText, label: "Tekst: Psykisk helse", type: text }
 
       - name: pages
-        label: Sider
+        label: "2. Informasjonssider"
+        description: "Tekster for Om mottaket, Husregler og Praktisk guide."
         type: object
         fields:
           - name: about
-            label: Om mottaket
+            label: "2.1 Om mottaket"
             type: object
             fields:
               - { name: title, label: "Tittel", type: string }
@@ -56,7 +53,7 @@ content:
                 list: true
                 fields:
                   - { name: role, label: "Rolle", type: string }
-                  - { name: email, label: "E-post", type: string }
+                  - { name: email, label: "E-post", type: string, pattern: "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$", description: "Eksempel: navn@example.no" }
               - { name: transportTitle, label: "Tittel: Transport", type: string }
               - { name: transportIntro, label: "Ingress: Transport", type: text }
               - name: blocks
@@ -65,9 +62,9 @@ content:
                 list: true
                 fields:
                   - { name: heading, label: "Overskrift", type: string }
-                  - { name: body, label: "Tekst", type: rich-text }
+                  - { name: body, label: "Tekst", type: text, description: "Skriv vanlig tekst. For punktliste: start hver linje med '- '. Ikke bruk HTML." }
           - name: rules
-            label: Husregler
+            label: "2.2 Husregler"
             type: object
             fields:
               - { name: title, label: "Tittel", type: string }
@@ -79,9 +76,9 @@ content:
                 list: true
                 fields:
                   - { name: heading, label: "Overskrift", type: string }
-                  - { name: body, label: "Tekst", type: rich-text }
+                  - { name: body, label: "Tekst", type: text, description: "Skriv vanlig tekst. For punktliste: start hver linje med '- '. Ikke bruk HTML." }
           - name: guide
-            label: Praktisk guide
+            label: "2.3 Praktisk guide"
             type: object
             fields:
               - { name: title, label: "Tittel", type: string }
@@ -93,10 +90,11 @@ content:
                 list: true
                 fields:
                   - { name: heading, label: "Overskrift", type: string }
-                  - { name: body, label: "Tekst", type: rich-text }
+                  - { name: body, label: "Tekst", type: text, description: "Skriv vanlig tekst. For punktliste: start hver linje med '- '. Ikke bruk HTML." }
 
       - name: fractions
-        label: Kildesortering (avfallstyper)
+        label: "3. Kildesortering"
+        description: "Avfallstyper, ja/nei-lister og korte huskeregler. Sist kontrollert-dato ligger under Driftsdata."
         type: object
         fields:
           - name: matavfall
@@ -170,37 +168,36 @@ content:
           - { name: quizNo, label: "Quiz: Nei", type: string }
           - { name: quizBelongPrompt, label: "Quiz: Hører dette til?", type: string }
 
-  - name: en
-    label: English
+  - name: settings
+    label: Driftsdata
     type: file
-    path: src/i18n/en.json
+    path: src/data/site-settings.json
     format: json
-    fields: *fields
-
-  - name: uk
-    label: Українська
-    type: file
-    path: src/i18n/uk.json
-    format: json
-    fields: *fields
-
-  - name: ar
-    label: العربية
-    type: file
-    path: src/i18n/ar.json
-    format: json
-    fields: *fields
-
-  - name: es
-    label: Español
-    type: file
-    path: src/i18n/es.json
-    format: json
-    fields: *fields
-
-  - name: ti
-    label: ትግርኛ
-    type: file
-    path: src/i18n/ti.json
-    format: json
-    fields: *fields
+    fields:
+      - name: dutyPhone
+        label: Vakttelefon
+        type: object
+        fields:
+          - { name: tel, label: "Telefon for lenke (+47...)", type: string, pattern: "^\\+?[0-9]+$" }
+          - { name: display, label: "Telefon vist på siden", type: string }
+      - name: mentalHealth
+        label: Mental Helse
+        type: object
+        fields:
+          - { name: tel, label: "Telefon for lenke", type: string, pattern: "^\\+?[0-9]+$" }
+          - { name: display, label: "Telefon vist på siden", type: string }
+      - name: mapLinks
+        label: Kartlenker
+        type: object
+        list: true
+        fields:
+          - { name: name, label: "Navn", type: string }
+          - { name: href, label: "URL", type: string, pattern: "^https?://" }
+      - name: transportApps
+        label: Reiseapper
+        type: object
+        list: true
+        fields:
+          - { name: name, label: "Navn", type: string }
+          - { name: href, label: "URL", type: string, pattern: "^https?://" }
+      - { name: wasteLastVerified, label: "Dato sortering sist verifisert", type: string, pattern: "^\\d{4}-\\d{2}-\\d{2}$" }

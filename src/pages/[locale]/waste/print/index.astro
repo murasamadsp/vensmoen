@@ -16,7 +16,7 @@ if (!locale) throw new Error('locale route param is required');
 const t = getStrings(locale);
 const ui = t.ui;
 
-// QR genereres ved bygg – ingen runtime-JS, ingen ekstern tjeneste.
+// QR генерується під час build – без runtime-JS і без зовнішнього сервісу.
 const qrSvg = await QRCode.toString(siteUrl(locale), {
   type: 'svg',
   margin: 0,
@@ -48,7 +48,7 @@ const qrSvg = await QRCode.toString(siteUrl(locale), {
     (function () {
       var doc = document.querySelector('.print-doc');
 
-      // Mål A4-høyden DPI-nøyaktig.
+      // Вимірює A4-висоту з точністю поточного DPI.
       function a4px() {
         var m = document.createElement('div');
         m.style.cssText = 'height:297mm;position:absolute;visibility:hidden';
@@ -58,8 +58,8 @@ const qrSvg = await QRCode.toString(siteUrl(locale), {
         return h;
       }
 
-      // Skaler ned (aldri opp) slik at innholdet alltid blir nøyaktig én
-      // A4-side, uansett hvor langt språket er.
+      // Масштабує вниз (ніколи вгору), щоб контент завжди був рівно однією
+      // A4-сторінкою, незалежно від довжини мови.
       function fit() {
         if (!doc) return;
         doc.style.zoom = '1';
@@ -73,8 +73,8 @@ const qrSvg = await QRCode.toString(siteUrl(locale), {
       if (document.readyState === 'complete') fit();
       else window.addEventListener('load', fit);
 
-      // Debounce: resize fyrer kontinuerlig, og fit() gjør tre tvungne
-      // reflows per kall (a4px-måling + zoom-reset + scrollHeight).
+      // Debounce: resize спрацьовує безперервно, а fit() робить три примусові
+      // reflow за виклик (a4px-вимір + zoom-reset + scrollHeight).
       var resizeTimer;
       window.addEventListener('resize', function () {
         clearTimeout(resizeTimer);

@@ -1,7 +1,7 @@
-// Build-time i18n-validator: sammenligner hver lokale mot nb (referanse).
-// Faller (exit 1) hvis en lokale mangler en ui-/meta-nøkkel eller en
-// fraksjon, eller har feil form. Kjøres i CI før build, slik at en glemt
-// oversettelse aldri når produksjon som tom/undefined.
+// Build-time i18n-валідатор: порівнює кожну локаль з nb (референсом).
+// Падає (exit 1), якщо локаль не має ui/meta-ключа або фракції, чи має
+// неправильну форму. Запускається в CI до build, щоб забутий переклад
+// ніколи не потрапив у production як порожній/undefined.
 import { readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -63,13 +63,13 @@ for (const code of codes) {
     if (!refIds.includes(id))
       errors.push(`[${code}] ukjent fraksjon "${id}" (ikke i ${REFERENCE})`);
 
-  // Hub-tekster (site.*) – alle nøkler fra referansen må finnes og være satt.
+  // Тексти хабу (site.*) – усі ключі з референсу мають існувати й бути заповнені.
   for (const key of Object.keys(ref.site)) {
     if (typeof loc.site?.[key] !== 'string' || !loc.site[key].trim())
       errors.push(`[${code}] site.${key} mangler eller er tom`);
   }
 
-  // Infosider (pages.*) – samme sider, samme antall blokker som referansen.
+  // Інфосторінки (pages.*) – ті самі сторінки й така сама кількість блоків, що в референсі.
   for (const pageKey of Object.keys(ref.pages)) {
     const refPage = ref.pages[pageKey];
     const locPage = loc.pages?.[pageKey];
@@ -93,7 +93,7 @@ for (const code of codes) {
       const b = locBlocks[i];
       if (typeof b?.heading !== 'string' || !b.heading.trim())
         errors.push(`[${code}] pages.${pageKey}.blocks[${i}].heading ugyldig`);
-      // body er valgfri, men ref og lokale må være enige (plassholder-logikk)
+      // body опційний, але ref і локаль мають збігатися (логіка placeholder).
       const refHasBody = typeof refBlock.body === 'string';
       const locHasBody = typeof b?.body === 'string' && b.body.trim();
       if (refHasBody && !locHasBody)

@@ -1,21 +1,11 @@
-// Kartlenker – åpner kart-APPEN på telefonen (ingen innebygd iframe:
-// null eksterne forespørsler fra siden selv, CSP forblir 'self').
-// Søkebasert spørring er robust uten hardkodede koordinater.
-const MAP_QUERY = encodeURIComponent('Vensmoen, Røkland, Saltdal');
+// Посилання на карти – відкривають застосунок карт на телефоні (без iframe:
+// сама сторінка не робить зовнішніх запитів, CSP залишається 'self').
+import settings from './site-settings.json';
 
 export interface MapLink {
-  /** Merkenavn – oversettes ikke */
+  /** Назва бренду – не перекладається */
   name: string;
   href: string;
 }
 
-export const mapLinks: MapLink[] = [
-  {
-    name: 'Google Maps',
-    href: `https://www.google.com/maps/search/?api=1&query=${MAP_QUERY}`,
-  },
-  {
-    name: 'Apple Maps',
-    href: `https://maps.apple.com/?q=${MAP_QUERY}`,
-  },
-];
+export const mapLinks: MapLink[] = settings.mapLinks;

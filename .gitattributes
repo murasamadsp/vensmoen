@@ -16,9 +16,15 @@
 *.md text
 *.svg text
 *.env text
+.env.example text eol=lf
 
 # Бінарні
 *.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.pdf binary
 
 # Linguist
 *.astro linguist-language=Astro

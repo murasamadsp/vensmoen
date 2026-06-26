@@ -9,8 +9,8 @@ const target = `${base}${defaultLocale}/`;
 <html lang="nb" data-base={base} data-locs={localeCodes.join(',')}>
   <head>
     <meta charset="utf-8" />
-    <!-- Kjører under parsing, FØR body males → ingen synlig mellomside.
-         Velger språk fra nettleseren, faller tilbake til nb. -->
+    <!-- Виконується під час parsing, ДО першого paint body → немає видимої проміжної сторінки.
+         Вибирає мову з браузера, fallback на nb. -->
     <script is:inline>
       (function () {
         var el = document.documentElement;

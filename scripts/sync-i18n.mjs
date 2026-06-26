@@ -1,15 +1,14 @@
-// Synkroniser oversettelsesfiler mot nb.json (referanse).
+// Синхронізує файли перекладів з nb.json (референсом).
 //
-// Hvorfor: med flere språk er det lett å glemme en ny nøkkel i ett av dem,
-// og da faller build (validate-i18n.mjs). Dette skriptet gjør at du kun
-// trenger å redigere nb.json. Kjør så `npm run sync:i18n`, og alle andre
-// språk får:
-//   - nye nøkler fylt med "[TODO] <norsk tekst>" (lett å finne med søk)
-//   - fjernet nøkler som ikke lenger finnes i nb
-// Eksisterende oversettelser beholdes alltid uendret.
+// Навіщо: коли мов кілька, легко забути новий ключ в одній із них,
+// і тоді build падає (validate-i18n.mjs). Цей скрипт дозволяє редагувати
+// лише nb.json. Після `npm run sync:i18n` усі інші мови отримують:
+//   - нові ключі зі значенням "[TODO] <норвезький текст>" (легко знайти пошуком)
+//   - видалені ключі, яких більше немає в nb
+// Наявні переклади завжди лишаються без змін.
 //
-// Bruk:  node scripts/sync-i18n.mjs            (skriv endringer)
-//        node scripts/sync-i18n.mjs --check    (feil hvis noe ville endres)
+// Використання: node scripts/sync-i18n.mjs          (записати зміни)
+//               node scripts/sync-i18n.mjs --check  (помилка, якщо щось змінилось би)
 import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -31,11 +30,11 @@ const isObject = (v) =>
 const IDENTITY_FIELDS = new Set(['email']);
 
 /**
- * Bygg en verdi for et språk som matcher referansens struktur.
- * - string:  behold oversettelsen hvis den finnes, ellers "[TODO] <ref>"
- * - object:  rekursivt; nøkler som ikke finnes i ref blir fjernet (prune)
- * - array av strenger:  behold hvis lik lengde, ellers fyll hver med TODO
- * - array av objekter:  rekursivt element for element, kuttet til ref-lengde
+ * Будує значення для мови, яке відповідає структурі референсу.
+ * - string: лишити переклад, якщо він є, інакше "[TODO] <ref>"
+ * - object: рекурсивно; ключі, яких немає в ref, видаляються
+ * - array рядків: лишити за однакової довжини, інакше заповнити TODO
+ * - array об'єктів: рекурсивно поелементно, обрізано до довжини ref
  */
 const syncValue = (refVal, locVal) => {
   if (Array.isArray(refVal)) {
@@ -76,7 +75,7 @@ const syncValue = (refVal, locVal) => {
     return typeof locVal === 'string' ? locVal : `${TODO}${refVal}`;
   }
 
-  // tall / boolean: behold eksisterende, ellers ta fra referansen
+  // number / boolean: лишаємо наявне, інакше беремо з референсу.
   return locVal !== undefined ? locVal : refVal;
 };
 

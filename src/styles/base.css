@@ -1,4 +1,4 @@
-/* Base element styles and helper utilities */
+/* Базові стилі елементів і допоміжні утиліти */
 body {
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -13,8 +13,8 @@ h2 {
   font-family: var(--font-display);
   line-height: 1.15;
   font-weight: 600;
-  /* Jevnere linjebryting i flerlinjede overskrifter – viktig når
-     tittellengden varierer mellom seks språk (progressiv forbedring) */
+  /* Рівніше перенесення багаторядкових заголовків – важливо, бо довжина
+     заголовків різна у шести мовах (прогресивне покращення) */
   text-wrap: balance;
 }
 
@@ -50,7 +50,7 @@ a {
   top: var(--space-2);
 }
 
-/* Kun for skjermlesere – visuelt skjult, men i tilgjengelighetstreet */
+/* Лише для скрінрідерів – візуально приховано, але лишається в дереві доступності */
 .sr-only {
   position: absolute;
   inline-size: 1px;
@@ -63,7 +63,7 @@ a {
   border: 0;
 }
 
-/* Blandet skrift (latinske egennavn/tall i RTL-flyt) */
+/* Змішані писемності (латинські власні назви/числа в RTL-потоці) */
 .frac__where,
 .frac__line,
 .frac__items,

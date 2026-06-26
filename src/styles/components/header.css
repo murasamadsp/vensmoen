@@ -1,4 +1,4 @@
-/* Header component styles */
+/* Стилі компонента шапки */
 .site-header {
   border-block-end: 1px solid var(--color-line);
   background: var(--color-surface);
@@ -17,12 +17,12 @@
   gap: var(--space-3);
 }
 
-/* Deterministisk hode: layoutformen bestemmes KUN av viewport-bredden,
-   aldri av hvor lang oversettelsen er. Ett brytepunkt per sidetype, valgt
-   over det bredeste innholdet på tvers av alle språk → identisk oppførsel
-   på norsk, engelsk, ukrainsk, arabisk, spansk og tigrinja.
-   Brytepunktene ligger over bredeste språk (kompakt språkmeny):
-   forsiden maks ~553px, quiz (merke + språk + tilbake) maks ~739px. */
+/* Детермінована шапка: форма лейаута залежить ЛИШЕ від ширини viewport,
+   а не від довжини перекладу. Один breakpoint на тип сторінки, вибраний
+   за найширшим контентом серед усіх мов → однакова поведінка для норвезької,
+   англійської, української, арабської, іспанської та тигринья.
+   Breakpoint-и вищі за найширшу мову (компактне меню мов):
+   головна максимум ~553px, quiz (бренд + мова + назад) максимум ~739px. */
 .site-header__bar {
   flex-wrap: nowrap;
 }
@@ -46,7 +46,7 @@
   }
 }
 
-/* Мерке – усі сторінки, включно з головною. Власна типографіка, не успадкована. */
+/* Бренд – усі сторінки, включно з головною. Власна типографіка, не успадкована. */
 .brand {
   min-inline-size: 0;
 }
@@ -57,7 +57,7 @@
   letter-spacing: -0.01em;
   color: var(--color-ink);
 }
-/* Merket som lenke (tilbake til huben) – diskret, ikke aksentfarget */
+/* Бренд як посилання (назад до хабу) – стриманий, не акцентного кольору */
 a.brand__link {
   color: var(--color-ink);
   text-decoration: none;

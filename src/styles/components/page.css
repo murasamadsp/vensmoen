@@ -1,4 +1,4 @@
-/* Infosider (about/rules/guide): tittel, ingress og innholdsblokker */
+/* Інфосторінки (about/rules/guide): заголовок, лід і контентні блоки */
 .info-page {
   padding-block-end: var(--space-5);
 }
@@ -9,9 +9,9 @@
   margin-block-end: var(--space-2);
 }
 
-/* Redaksjonell seksjon (ikke boks): overskrift med hårfin linje + luft.
-   Felles for alle infosider (about/rules/guide) → konsistent uttrykk.
-   Kort/knapper INNI seksjonene (kontakter, kart, transport) beholder sin stil. */
+/* Редакційна секція (не бокс): заголовок з тонкою лінією і повітрям.
+   Спільна для всіх інфосторінок (about/rules/guide) → консистентний вигляд.
+   Картки/кнопки ВСЕРЕДИНІ секцій (контакти, карти, транспорт) зберігають свій стиль. */
 .info-block {
   margin-block-end: var(--space-5);
 }
@@ -22,7 +22,7 @@
   font-family: var(--font-display);
   font-size: var(--text-lg);
 }
-/* Rich-text контент блоку (HTML від Pages CMS або мігрований plain-text) */
+/* Форматований контент блоку (HTML від Pages CMS або мігрований plain text) */
 .info-block__content {
   max-width: 70ch;
 }
@@ -56,7 +56,7 @@
 .info-block__content li p {
   margin: 0;
 }
-/* Ærlig plassholder – innholdet er bevisst ikke skrevet ennå */
+/* Чесний placeholder – контент свідомо ще не написаний */
 .info-block__soon {
   display: inline-block;
   margin: 0;
@@ -78,14 +78,14 @@
   color: var(--color-ink);
 }
 
-/* Kartlenker (about-сторінка): åpner kart-appen – ingen innebygd iframe */
+/* Посилання на карти (about-сторінка): відкривають застосунок карт – без iframe */
 .map-links {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
 }
 
-/* Felles bunntekst for hub og infosider */
+/* Спільний футер для хабу та інфосторінок */
 .site-footer {
   border-block-start: 1px solid var(--color-line);
   padding-block: var(--space-4);

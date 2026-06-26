@@ -7,7 +7,7 @@ import uk from './uk.json';
 
 export interface FractionStrings {
   name: string;
-  /** Hvor det skal: dunk/pose – det viktigste for en nybegynner */
+  /** Куди викидати: бак/пакет – найважливіше для новачка */
   bin: string;
   accepted: string[];
   rejected: string[];
@@ -16,7 +16,7 @@ export interface FractionStrings {
 
 export interface PageBlock {
   heading: string;
-  /** Uten body viser siden ui-teksten site.comingSoon (ærlig plassholder). */
+  /** Без body сторінка показує ui-текст site.comingSoon (чесний placeholder). */
   body?: string;
 }
 
@@ -36,7 +36,7 @@ export interface AboutPageStrings extends PageStrings {
 export interface PageStrings {
   title: string;
   lead: string;
-  /** Kort kortbeskrivelse til huben – 3–4 ord, deterministisk høyde. */
+  /** Короткий опис для хабу – 3–4 слова, детермінована висота. */
   cardDesc: string;
   blocks: PageBlock[];
 }
@@ -44,7 +44,7 @@ export interface PageStrings {
 /** Ключі сторінок = сегменти URL (однакові всіма мовами, змінюється лише locale). */
 export type PageKey = 'about' | 'rules' | 'guide';
 
-/** Tekster for mottaks-huben (forsiden + infosidene). */
+/** Тексти для хабу центру (головна + інфосторінки). */
 export interface SiteStrings {
   title: string;
   description: string;

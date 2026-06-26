@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "npm: check (i18n + types + lint)",
+      "label": "npm: check",
       "type": "npm",
       "script": "check",
       "group": {
@@ -11,6 +11,24 @@
       },
       "presentation": {
         "echo": true,
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "npm: validate cms",
+      "type": "npm",
+      "script": "validate:cms",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "npm: validate translate env",
+      "type": "npm",
+      "script": "validate:translate-env",
+      "presentation": {
         "reveal": "always",
         "panel": "shared"
       }
@@ -34,10 +52,19 @@
       }
     },
     {
-      "label": "npm: auto-translate (fill-todo)",
+      "label": "npm: translate fill-todo",
       "type": "npm",
       "script": "translate",
       "args": ["--", "--fill-todo"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "npm: translate health",
+      "type": "npm",
+      "script": "translate:health",
       "presentation": {
         "reveal": "always",
         "panel": "shared"

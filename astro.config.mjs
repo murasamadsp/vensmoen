@@ -2,8 +2,8 @@ import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 
 // GitHub Pages: https://murasamadsp.github.io/vensmoen/
-// i18n-ruting håndteres manuelt via [locale]-segment + src/i18n/locales.ts,
-// slik at et nytt språk = én JSON-fil + én linje i locales.ts.
+// i18n-роутинг обробляється вручну через [locale]-сегмент + src/i18n/locales.ts,
+// тому нова мова = один JSON-файл + один рядок у locales.ts.
 export default defineConfig({
   site: 'https://murasamadsp.github.io',
   base: '/vensmoen',
